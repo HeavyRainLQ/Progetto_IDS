@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -21,6 +22,8 @@ export class LogInComponent implements OnInit {
   
   logIn() {
   console.log('va');
+  console.log(this.loginForm.controls.username.value);
+  console.log(this.loginForm.controls.password.value);
 }
 
 }
