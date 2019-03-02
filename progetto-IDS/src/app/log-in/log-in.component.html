@@ -1,9 +1,8 @@
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<div class="wrapper fadeInDown">
+<!------ Include the above in your HEAD tag ---------->
+<div class = "container-fluid  p-0">
+<div *ngIf= "disabilitato" class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
 
@@ -22,7 +21,12 @@
     <!-- Remind Passowrd -->
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
+      
     </div>
 
   </div>
+</div>
+<div *ngIf="disabilitato==false">
+  <app-home></app-home>
+</div>
 </div>

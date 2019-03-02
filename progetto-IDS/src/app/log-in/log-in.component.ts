@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injectable, OnDestroy, Output } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
@@ -6,22 +6,34 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
 })
-export class LogInComponent implements OnInit {
+@Injectable({
+  providedIn: 'root'
+})
+export class LogInComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   @Input() username: string;
   @Input() password: string;
-
-  constructor(private formBuilder: FormBuilder) { }
+  disabilitato: boolean;
+  
+  constructor(private formBuilder: FormBuilder) {
+    
+   }
 
   ngOnInit() {
+    this.disabilitato=true;
     this.loginForm = this.formBuilder.group({
       username: [''],
       password: ['']
   });
   }
-  
+  ngOnDestroy(){
+
+  }
   logIn() {
-  console.log('va');
+    
+    this.disabilitato= false;
+  
+  
   console.log(this.loginForm.controls.username.value);
   console.log(this.loginForm.controls.password.value);
 }
