@@ -7,7 +7,7 @@ import { AreaDirettoreComponent } from './area-direttore/area-direttore.componen
 const routes: Routes = [
   
   { path: 'login', component: LogInComponent },
-    {path: 'area-riservata', component: AreaDirettoreComponent, children: [
+    {path: 'area-direttore', component: AreaDirettoreComponent, children: [
     {
       path: 'graph',
       component: GraphComponent,

@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
+collapse =false;
+nascondi = '';
   constructor() { }
 
   ngOnInit() {
   }
-
+navbar(){
+  if(!this.collapse){
+    this.nascondi = 'toggled';
+    this.collapse = true;
+  }else{
+    this.nascondi= '';
+    this.collapse = false;
+    console.log('oooooo');
+  }
+}
 }
