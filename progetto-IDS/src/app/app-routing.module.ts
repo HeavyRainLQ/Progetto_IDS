@@ -1,12 +1,20 @@
 import { NgModule, ComponentRef } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { HomeComponent} from './home/home.component';
 import { GraphComponent } from './graph/graph.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { AreaDirettoreComponent } from './area-direttore/area-direttore.component';
 
 const routes: Routes = [
   
-  { path: 'home', component: HomeComponent },
-  {path: 'graph', component: GraphComponent},
+  { path: 'login', component: LogInComponent },
+    {path: 'area-riservata', component: AreaDirettoreComponent, children: [
+    {
+      path: 'graph',
+      component: GraphComponent,
+      outlet: 'reserved'
+    },
+    
+  ] },
 
 ];
 

@@ -1,5 +1,6 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { LogInComponent } from './log-in/log-in.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,16 +8,13 @@ import { LogInComponent } from './log-in/log-in.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnChanges {
+export class AppComponent implements OnInit {
   disa: LogInComponent;
   title = 'progetto-IDS';
-  constructor() {
-//@Input() disa: LogInComponent;
+  constructor(private router: Router) {
    }
-  ngOnChanges(){
+  ngOnInit(){
+    this.router.navigate(['/login']);
   }
-  log (){
-    //return this.disa.disabilitato;
-
-  }
+  
 }

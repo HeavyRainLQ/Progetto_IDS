@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Injectable, OnDestroy, Output } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -15,7 +16,7 @@ export class LogInComponent implements OnInit, OnDestroy {
   @Input() password: string;
   disabilitato: boolean;
   
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     
    }
 
@@ -31,7 +32,7 @@ export class LogInComponent implements OnInit, OnDestroy {
   }
   logIn() {
     
-    this.disabilitato= false;
+    this.router.navigate(['/area-riservata']);
   
   
   console.log(this.loginForm.controls.username.value);
