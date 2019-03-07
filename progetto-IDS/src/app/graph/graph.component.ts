@@ -1,76 +1,145 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Chart} from 'chart.js';
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent implements OnInit {
-
-  // public lineChartData: ChartDataSets[] = [
-  //   { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-  //   { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-  //   { data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C' }
-  // ];
-  // public lineChartLabels: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  // public lineChartOptions: ChartOptions = {
-  //   responsive: true
-  // };
-  // public lineChartColors: Color[] = [
-  //   { // grey
-  //     backgroundColor: 'rgba(148,159,177,0.2)',
-  //     borderColor: 'rgba(148,159,177,1)',
-  //     pointBackgroundColor: 'rgba(148,159,177,1)',
-  //     pointBorderColor: '#fff',
-  //     pointHoverBackgroundColor: '#fff',
-  //     pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-  //   },
-  //   { // dark grey
-  //     backgroundColor: 'rgba(77,83,96,0.2)',
-  //     borderColor: 'rgba(77,83,96,1)',
-  //     pointBackgroundColor: 'rgba(77,83,96,1)',
-  //     pointBorderColor: '#fff',
-  //     pointHoverBackgroundColor: '#fff',
-  //     pointHoverBorderColor: 'rgba(77,83,96,1)'
-  //   },
-  //   { // grey
-  //     backgroundColor: 'rgba(148,159,177,0.2)',
-  //     borderColor: 'rgba(148,159,177,1)',
-  //     pointBackgroundColor: 'rgba(148,159,177,1)',
-  //     pointBorderColor: '#fff',
-  //     pointHoverBackgroundColor: '#fff',
-  //     pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-  //   }
-  // ];
-  // public lineChartLegend = true;
-  // public lineChartType = 'line';
+  title = 'Ng7ChartJs By DotNet Techy';
+  LineChart=[];
+  BarChart=[];
+  PieChart=[];
+  
 
   constructor() { 
     
   }
 
   ngOnInit() {
+    this.LineChart = new Chart('lineChart', {
+      type: 'line',
+    data: {
+     labels: ["Jan", "Feb", "March", "April", "May", "June","July","Aug","Sep","Oct","Nov","Dec"],
+     datasets: [{
+         label: 'Number of Items Sold in Months',
+         data: [9,7 , 3, 5, 2, 10,15,16,19,3,1,9],
+         fill:false,
+         lineTension:0.2,
+         borderColor:"red",
+         borderWidth: 1
+     
+     
+    }, {
+      label: 'Number of Items Sold in Months',
+         data: [10,6 , 7, 9, 6, 4,2,15,4,9,8],
+         fill:false,
+         lineTension:0.2,
+         borderColor:"blue",
+         borderWidth: 1
+    }]
+    }, 
+    options: {
+     title:{
+         text:"Line Chart",
+         display:true
+     },
+     scales: {
+         yAxes: [{
+             ticks: {
+                 beginAtZero:true
+             }
+         }]
+     }
+    }
+    });
+    
+    // Bar chart:
+    this.BarChart = new Chart('barChart', {
+      type: 'bar',
+    data: {
+     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+     datasets: [{
+         label: '# of Votes',
+         data: [9,7 , 3, 5, 2, 10],
+         backgroundColor: [
+             'rgba(255, 99, 132, 0.2)',
+             'rgba(54, 162, 235, 0.2)',
+             'rgba(255, 206, 86, 0.2)',
+             'rgba(75, 192, 192, 0.2)',
+             'rgba(153, 102, 255, 0.2)',
+             'rgba(255, 159, 64, 0.2)'
+         ],
+         borderColor: [
+             'rgba(255,99,132,1)',
+             'rgba(54, 162, 235, 1)',
+             'rgba(255, 206, 86, 1)',
+             'rgba(75, 192, 192, 1)',
+             'rgba(153, 102, 255, 1)',
+             'rgba(255, 159, 64, 1)'
+         ],
+         borderWidth: 1
+     }]
+    }, 
+    options: {
+     title:{
+         text:"Bar Chart",
+         display:true
+     },
+     scales: {
+         yAxes: [{
+             ticks: {
+                 beginAtZero:true
+             }
+         }]
+     }
+    }
+    });
+    
+    // pie chart:
+    this.PieChart = new Chart('pieChart', {
+      type: 'pie',
+    data: {
+     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+     datasets: [{
+         label: '# of Votes',
+         data: [9,7 , 3, 5, 2, 10],
+         backgroundColor: [
+             'rgba(255, 99, 132, 0.2)',
+             'rgba(54, 162, 235, 0.2)',
+             'rgba(255, 206, 86, 0.2)',
+             'rgba(75, 192, 192, 0.2)',
+             'rgba(153, 102, 255, 0.2)',
+             'rgba(255, 159, 64, 0.2)'
+         ],
+         borderColor: [
+             'rgba(255,99,132,1)',
+             'rgba(54, 162, 235, 1)',
+             'rgba(255, 206, 86, 1)',
+             'rgba(75, 192, 192, 1)',
+             'rgba(153, 102, 255, 1)',
+             'rgba(255, 159, 64, 1)'
+         ],
+         borderWidth: 1
+     }]
+    }, 
+    options: {
+     title:{
+         text:"Bar Chart",
+         display:true
+     },
+     scales: {
+         yAxes: [{
+             ticks: {
+                 beginAtZero:true
+             }
+         }]
+     }
+    }
+    });
+    
+    
+      }
   }
 
-  // public randomize(): void {
-  //   const lineChartData: ChartDataSets[] = new Array(this.lineChartData.length);
-  //   for (let i = 0; i < this.lineChartData.length; i++) {
-  //     lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
-  //     for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-  //       lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-  //     }
-  //   }
-  //   this.lineChartData = lineChartData;
-  // }
 
-  // // events
-  // public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-  //   console.log(event, active);
-  // }
-
-  // public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-  //   console.log(event, active);
-  // }
-  
-  
-}
