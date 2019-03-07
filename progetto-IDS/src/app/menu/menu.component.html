@@ -8,7 +8,7 @@
         <ul class="list-group">
             <li><a [routerLink]="['/area-direttore',{outlets:{ 'reserved': ['graph']}}]" class="list-group-item list-group-item-action bg-light">Grafico</a>
               </li>
-              <li><a  class="list-group-item list-group-item-action bg-light">Libretto delle misure</a>
+              <li><a [routerLink]="['/area-direttore',{outlets:{ 'reserved': ['librettoMisure']}}]" class="list-group-item list-group-item-action bg-light">Libretto delle misure</a>
               </li>
                 <li><a  class="list-group-item list-group-item-action bg-light">Diario Giornaliero</a>
                 </li>
@@ -31,7 +31,7 @@
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
-    <div id="page-content-wrapper">
+    <div class="" id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <button  (click)="navbar()" class="btn btn-secondary btn-sm" id="menu-toggle"><img src="assets/img/{{arrow}}.png"></button>
@@ -66,22 +66,9 @@
       <div class="container-fluid">
           <router-outlet name = "reserved"></router-outlet>
           
-        <!-- <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger
-          screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and
-          just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when
-          clicked.</p> -->
       </div>
       </div>
-    <!-- /#page-content-wrapper -->
+    
 
   </div>
-  <!-- /#wrapper -->
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Menu Toggle Script -->
   

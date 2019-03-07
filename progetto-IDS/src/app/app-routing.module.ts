@@ -3,6 +3,7 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { GraphComponent } from './graph/graph.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AreaDirettoreComponent } from './area-direttore/area-direttore.component';
+import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-delle-misure.component';
 
 const routes: Routes = [
   
@@ -11,6 +12,11 @@ const routes: Routes = [
     {
       path: 'graph',
       component: GraphComponent,
+      outlet: 'reserved'
+    },
+    {
+      path: 'librettoMisure',
+      component: LibrettoDelleMisureComponent,
       outlet: 'reserved'
     },
     

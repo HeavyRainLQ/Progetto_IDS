@@ -13,6 +13,7 @@ import { AreaDirettoreComponent } from './area-direttore/area-direttore.componen
 import { AreaDittaComponent } from './area-ditta/area-ditta.component';
 import { AreaStazioneComponent } from './area-stazione/area-stazione.component';
 import { MenuComponent } from './menu/menu.component';
+import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-delle-misure.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MenuComponent } from './menu/menu.component';
     AreaDirettoreComponent,
     AreaDittaComponent,
     AreaStazioneComponent,
-    MenuComponent
+    MenuComponent,
+    LibrettoDelleMisureComponent
   ],
   imports: [
     BrowserModule,
