@@ -31,7 +31,7 @@ export class GraphComponent implements OnInit {
      
      
     }, {
-      label: 'Number of Items Sold in Months',
+      label: 'Shish',
          data: [10,6 , 7, 9, 6, 4,2,15,4,9,8],
          fill:false,
          lineTension:0.2,

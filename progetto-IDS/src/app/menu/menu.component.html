@@ -5,12 +5,27 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Direttore Shish </div>
       <div class="list-group list-group-flush">
-        <a [routerLink]="['/area-direttore',{outlets:{ 'reserved': ['graph']}}]" class="list-group-item list-group-item-action bg-light">Grafico</a>
-        <a  class="list-group-item list-group-item-action bg-light">Libretto delle misure</a>
-        <a  class="list-group-item list-group-item-action bg-light">Diario Giornaliero</a>
-        <a  class="list-group-item list-group-item-action bg-light">Boh</a>
-        <a  class="list-group-item list-group-item-action bg-light">Boh1</a>
+        <ul class="list-group">
+            <li><a [routerLink]="['/area-direttore',{outlets:{ 'reserved': ['graph']}}]" class="list-group-item list-group-item-action bg-light">Grafico</a>
+              </li>
+              <li><a  class="list-group-item list-group-item-action bg-light">Libretto delle misure</a>
+              </li>
+                <li><a  class="list-group-item list-group-item-action bg-light">Diario Giornaliero</a>
+                </li>
+                  <li><a  class="list-group-item list-group-item-action bg-light">Boh</a>
+                  </li>
+                  <li><a  class="list-group-item list-group-item-action bg-light " id="btn-1" data-toggle="collapse" data-target="#submenu1">Boh1</a>
+                  <ul class="list-group list-group-item-action bg-light collapse " id="submenu1"  >
+                  <li><a class="list-group-item list-group-item-action bg-light"href="#">Link 2.1</a>
+                  </li>
+                  <li><a class="list-group-item list-group-item-action bg-light" href="#">Link 2.2</a>
+                  </li>
+                  <li><a class="list-group-item list-group-item-action bg-light" href="#">Link 2.3</a>
+                  </li>
+                  </ul>
+                </li>
         <a  class="list-group-item list-group-item-action bg-light">Boh2</a>
+      </ul>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
