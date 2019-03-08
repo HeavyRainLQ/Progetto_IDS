@@ -1,10 +1,19 @@
 html {
-    background-color: #56baed;
+    background-color: #3894c2;
   }
   
   body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
+    
+      
+      background:url(../../../src/assets/img/image4.jpg) no-repeat center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;   
+      background-size: cover;
+      position:relative;
+      font-family: 'Open Sans', sans-serif;
+    
+
   }
   
   a {
@@ -41,10 +50,10 @@ html {
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
+    background: rgb(60, 68, 116);
     padding: 30px;
-    width: 90%;
-    max-width: 450px;
+    width: 60%;
+    max-width: 350px;
     position: relative;
     padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -55,7 +64,7 @@ html {
   #formFooter {
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
-    padding: 25px;
+    padding: 15px;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
@@ -286,11 +295,3 @@ html {
     width:60%;
   }
   
-  .full {
-    background: url(/src/assets/img/img.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    height:100%;
-}
