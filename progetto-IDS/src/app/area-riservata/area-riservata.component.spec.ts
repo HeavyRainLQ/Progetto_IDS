@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AreaDittaComponent } from './area-ditta.component';
+import { AreaRiservataComponent } from './area-riservata.component';
 
-describe('AreaDittaComponent', () => {
-  let component: AreaDittaComponent;
-  let fixture: ComponentFixture<AreaDittaComponent>;
+describe('AreaRiservataComponent', () => {
+  let component: AreaRiservataComponent;
+  let fixture: ComponentFixture<AreaRiservataComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AreaDittaComponent ]
+      declarations: [ AreaRiservataComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AreaDittaComponent);
+    fixture = TestBed.createComponent(AreaRiservataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

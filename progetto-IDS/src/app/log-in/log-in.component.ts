@@ -32,7 +32,7 @@ export class LogInComponent implements OnInit, OnDestroy {
   }
   logIn() {
     
-    this.router.navigate(['/area-direttore']);
+    this.router.navigate(['/area-riservata']);
   
   
   console.log(this.loginForm.controls.username.value);

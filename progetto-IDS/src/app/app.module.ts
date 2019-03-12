@@ -9,12 +9,11 @@ import { LogInComponent } from './log-in/log-in.component';
 
 import { GraphComponent } from './graph/graph.component';
 
-import { AreaDirettoreComponent } from './area-direttore/area-direttore.component';
-import { AreaDittaComponent } from './area-ditta/area-ditta.component';
-import { AreaStazioneComponent } from './area-stazione/area-stazione.component';
+
 import { MenuComponent } from './menu/menu.component';
 import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-delle-misure.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
 
 
 @NgModule({
@@ -24,9 +23,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     
     GraphComponent,
     
-    AreaDirettoreComponent,
-    AreaDittaComponent,
-    AreaStazioneComponent,
+    AreaRiservataComponent,
+   
     MenuComponent,
     LibrettoDelleMisureComponent,
     CalendarComponent
