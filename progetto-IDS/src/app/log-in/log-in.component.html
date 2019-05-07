@@ -6,27 +6,38 @@
 
 
 <!------ Include the above in your HEAD tag ---------->
+<br>
+<br>
 <div class = "">
 <div *ngIf= "disabilitato" class="wrapper fadeInDown">
+  <br>
+  <br>
   <div id="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
-    <div class="fadeIn first">
+    <div id="formHead">
       
-      <img src="assets/img/icon.png" id="icon" alt="User Icon" class="rounded mx-auto d-block">
-
+       <!--<img src="assets/img/icon.png" id="icon" alt="User Icon" class="rounded max-auto d-block"> -->
+       <a class="" href="#">Sign In </a>
     </div>
+    
 
     <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="logIn()">
-      <input type="text"  formControlName="username" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="password"  formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <br>
+      <br>
+      <i  class="fas fa-user fa-w-16 fa-2x"></i><input type="text"  formControlName="username" id="username" class="fadeIn second" name="login" placeholder="username">
+      <br>
+      <i  class="fas fa-key fa-w-16 fa-2x"></i><input type="password"  formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password">
+      <br>
+      <br>
+      <input type="submit" class="" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
+        <!--btn btn-dark"-->
       <a class="underlineHover sm" href="#">Forgot Password?</a>
       
     </div>

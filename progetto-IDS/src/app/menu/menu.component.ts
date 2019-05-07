@@ -22,7 +22,7 @@ navbar(){
     this.nascondi = '';
     this.arrow = 'arrowLeft';
     this.collapse = false;
-    console.log('oooooo');
+    //console.log('oooooo');
   }
 }
 }

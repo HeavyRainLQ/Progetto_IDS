@@ -11,12 +11,16 @@
 
 #sidebar-wrapper {
   min-height: 100vh;
-  margin-left: -11.6rem;
+  width: 23%;
+  /*margin-left: -12.6rem;*/
+  margin-left: 1.6rem;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
- opacity:0.95; 
+ opacity:0.75; 
+
+ 
   
   /*background-color: rgb(39, 38, 38);*/
   
@@ -27,33 +31,79 @@
 }
 
 #sidebar-wrapper .sidebar-heading {
-  padding: 0.875rem 1.25rem;
+  padding: 1.875rem 0.5rem;
   font-size: 1.3rem;
   color: white;
+  background-color:rgba(63, 52, 126, 0.89);
+
+  /*background-color: #434361;*/
+    border-bottom: 1px solid white;
+    /*padding: 15px;*/
 }
 
-#menu .list-group-item {
+
+
+/* revisare menu*/
+
+
+/*
+#menu ul  {
   
-  opacity:0.76; 
-  padding: 0.875rem 3.75rem;
   color: black;
-  background-color:white;
+  background-color:rgba(144, 201, 11, 0.87);
+}*/
+
+
+
+#buttons li{
+  color: black;
+  
+  background-color:rgb(228, 182, 30);
+  display:block;
+  text-decoration: none;
+  
+  border-bottom: #3f3f5f 1px inset;
+
 }
 
-#menu a:hover{
-    opacity:0.75;  
+#buttons li:hover{
+    
     color: white;
-    background-color:rgb(39, 39, 39);
+    background-color:rgba(230, 187, 70, 0.73);
+    display:block;
+    text-decoration: none;
+}
 
+  #buttons li a{
+    padding-left: 12px;
+    color: black;
+    background: transparent;
+    display:block;
+    text-decoration: none;
+    padding-bottom: 18px;
+    padding-top: 16px;
+    border-bottom: #3f3f5f 1px inset;
+    
   }
+  
+  
+  #buttons li a:hover{
+    /*border: 1px solid white; */
+    color: white;
+
+   }
+
+  
 /*
 */
 #page-content-wrapper {
+  /*background-color:white;*/
   min-width: 100vw;
 }
 
 #wrapper.toggled #sidebar-wrapper {
   margin-left: 0;
+  width:13%;
 }
 
 @media (min-width: 768px) {
@@ -65,18 +115,40 @@
     min-width: 0;
     width: 100%;
   }
-/*
-  #menu_nav{
+
+  #menu_nav li a {
+    
+    border-left: white 3px inset;
+    color: white;
+    background-color: #3f3f5f;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  #menu_nav li a:hover {
+    
     
     color: white;
-    background-color: rgb(77, 77, 77)
+    background-color: #4f4f7c;
   }
-*/
+  #menu_nav {
+    
+    background-color: #3f3f5f;
+  }
+  #menu_nav #div1 a{
+  background-color: white;
+  color:black;
+  border-left: none;
+  }
+
+  #menu_nav #div1 a:hover{
+    
+    color:white;
+    background-color:#d19131;
+
+  }
 
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -11.6rem;
   }
-  
-  
   
 }
