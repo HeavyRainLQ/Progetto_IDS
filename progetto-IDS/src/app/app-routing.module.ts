@@ -8,10 +8,12 @@ import { GiornaleLavoriComponent } from './giornale-lavori/giornale-lavori.compo
 import { BannerComponent } from './banner/banner.component';
 import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 
+import { ModalComponent } from './modal/modal.component';
+
 const routes: Routes = [
   
   { path: 'login', component: LogInComponent },
-    {path: 'area-riservata', component: AreaRiservataComponent, children: [
+  {path: 'area-riservata', component: AreaRiservataComponent, children: [
     {
       path: 'menu-iniziale',
       component: MenuInizialeComponent,
@@ -35,6 +37,11 @@ const routes: Routes = [
     {
       path: 'banner',
       component: BannerComponent,
+    },
+
+    { //view modal
+      path: 'modal',
+      component: ModalComponent,
       outlet: 'reserved'
     },
     

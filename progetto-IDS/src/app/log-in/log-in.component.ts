@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class LogInComponent implements OnInit, OnDestroy {
+export class LogInComponent implements OnInit, OnDestroy 
+{
   loginForm: FormGroup;
   @Input() username: string;
   @Input() password: string;
@@ -37,6 +38,15 @@ export class LogInComponent implements OnInit, OnDestroy {
   
   console.log(this.loginForm.controls.username.value);
   console.log(this.loginForm.controls.password.value);
+}
+
+login_user(event){
+event.preventDefault()
+const target = event.target
+const username = target.querySelector('#username')
+const pass = target.querySelector('#pasword')
+
+console.log(username,pass)
 }
 
 }

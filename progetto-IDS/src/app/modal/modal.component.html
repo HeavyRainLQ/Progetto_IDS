@@ -1,0 +1,68 @@
+<head>
+
+  
+
+</head>
+
+<body>
+  <h3>titulo...</h3>
+  <br>
+
+  
+
+
+  <form method="POST" action="http://localhost/mis_php/reg.php" id="modales">
+   <table>
+
+   <tr>
+     <td><label>Ci</label>   </td>
+     <td><input type="number" name="carnet"  required/> </td>
+  </tr>  
+  <tr>
+     <td><label>Nombres</label></td>
+     <td><input type="text" name="nombre" required/></td>
+  </tr>  
+ <tr>
+     <td><label>Apellidos</label></td>
+     <td><input type="text" name="ap_ps"  required/></td>
+  </tr>
+  <tr>
+     <td><label>Email</label></td>
+     <td><input type="email" name="email" required/></td>
+</tr>
+<tr>
+     <td><label>Usuario</label></td>
+     <td><input type="text" name="usuario" required/></td>
+     
+</tr>
+<tr>
+     <td><label>Contraseña</label></td>
+     <td><input type="password" class="boton"name="contrasena" required/></td>
+</tr>
+<tr>
+     <td><label>Confirmar Contraseña</label></td>
+     <td><input type="text" name="rpass" required/></td>
+</tr>
+
+       
+  </table>  
+  <br>
+    
+    <input type="submit" class="btn btn-success" style="float:center;"value="Guardar">
+      
+    </form>
+
+
+<mat-dialog-content>
+  <p>contenido para guardar</p>
+</mat-dialog-content>
+
+<!--<mat-dialog-actions>-->
+<button  class="btn btn-outline-primary">Save</button> 
+<button style="margin-left:20px;" mat-button mat-dialog-close class="btn btn-outline-danger">Cancel</button>
+
+<!--</mat-dialog-actions>-->
+
+
+
+</body>

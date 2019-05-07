@@ -7,7 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 
+import {MatCheckboxModule,MatTableModule,MatDialogModule,MatIconModule } from '@angular/material';
+
 import { GraphComponent } from './graph/graph.component';
+
 
 
 import { MenuComponent } from './menu/menu.component';
@@ -17,6 +20,7 @@ import { AreaRiservataComponent } from './area-riservata/area-riservata.componen
 import { GiornaleLavoriComponent } from './giornale-lavori/giornale-lavori.component';
 import { BannerComponent } from './banner/banner.component';
 import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -33,16 +37,22 @@ import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
     CalendarComponent,
     GiornaleLavoriComponent,
     BannerComponent,
-    MenuInizialeComponent
+    MenuInizialeComponent,
+    ModalComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
     
+    MatCheckboxModule,
+    MatTableModule,
+    MatDialogModule,
+    MatIconModule,
+   
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]

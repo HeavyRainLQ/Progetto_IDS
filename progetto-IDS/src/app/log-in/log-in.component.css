@@ -5,7 +5,7 @@ html {
   body {
     
       
-      background:url(../../../src/assets/img/image4.jpg) no-repeat center fixed;
+      background:url(../../../src/assets/img/fondo2.jpg) no-repeat center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;   
@@ -18,12 +18,21 @@ html {
   }
   
   a {
-    color: #92badd;
+    color: white;
     display:inline-block;
     text-decoration: none;
     font-weight: 400;
+
+  /*  opacity: 0.4;*/
   }
-  
+  /*
+  a:hover { 
+    color: blue; 
+    font-weight: bold; 
+  }
+
+*/
+
   h2 {
     text-align: center;
     font-size: 16px;
@@ -51,7 +60,7 @@ html {
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: rgb(60, 68, 116);
+    background: rgb(87, 83, 83);
     padding: 30px;
     width: 60%;
     max-width: 350px;
@@ -60,23 +69,43 @@ html {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
+    /*opacity: 0.2;*/
   }
   
   #formFooter {
-    background-color: #f6f6f6;
-    border-top: 1px solid #dce8f1;
+    background-color: #2e2e3a;
+    border-top: 1px solid #ffffff;
     padding: 15px;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
+    
+  }
+
+
+  
+  #formHead 
+  {
+    background-color: #434361;
+    border-bottom: 1px solid #e68b15;
+    padding: 15px;
+    text-align: center;
+    /*-webkit-border-radius: 0 0 10px 10px;*/
+    border-radius: 10px 10px 0 0;
   }
   
-  
+  i{
+    color: white;
+    padding-top:15px;
+    padding-right:5px;
+    text-align: center;
+
+  }
   
   /* TABS */
   
   h2.inactive {
-    color: #cccccc;
+    color: #1b1919;
   }
   
   h2.active {
@@ -89,7 +118,7 @@ html {
   /* FORM TYPOGRAPHY*/
   
   input[type=button], input[type=submit], input[type=reset]  {
-    background-color: #56baed;
+    background-color: #ffa011;
     border: none;
     color: white;
     padding: 15px 80px;
@@ -111,7 +140,8 @@ html {
   }
   
   input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-    background-color: #39ace7;
+    background-color: #e9e8f3;
+    color: orange;
   }
   
   input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -132,7 +162,8 @@ html {
     display: inline-block;
     font-size: 16px;
     margin: 5px;
-    width: 85%;
+    width: 75%;
+    height: 25%;
     border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -141,6 +172,8 @@ html {
     transition: all 0.5s ease-in-out;
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
+
+    text-align: left;
   }
   
   input[type=text]:focus {
@@ -162,7 +195,8 @@ html {
     display: inline-block;
     font-size: 16px;
     margin: 5px;
-    width: 85%;
+    height: 25%;
+    width: 75%;
     border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -171,6 +205,7 @@ html {
     transition: all 0.5s ease-in-out;
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
+    text-align: left;
   }
   
   input[type=password]:focus {
