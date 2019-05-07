@@ -14,6 +14,9 @@ import { MenuComponent } from './menu/menu.component';
 import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-delle-misure.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
+import { GiornaleLavoriComponent } from './giornale-lavori/giornale-lavori.component';
+import { BannerComponent } from './banner/banner.component';
+import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { AreaRiservataComponent } from './area-riservata/area-riservata.componen
    
     MenuComponent,
     LibrettoDelleMisureComponent,
-    CalendarComponent
+    CalendarComponent,
+    GiornaleLavoriComponent,
+    BannerComponent,
+    MenuInizialeComponent
   ],
   imports: [
     BrowserModule,

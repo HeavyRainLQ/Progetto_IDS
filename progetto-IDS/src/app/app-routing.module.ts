@@ -4,11 +4,19 @@ import { GraphComponent } from './graph/graph.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
 import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-delle-misure.component';
+import { GiornaleLavoriComponent } from './giornale-lavori/giornale-lavori.component';
+import { BannerComponent } from './banner/banner.component';
+import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 
 const routes: Routes = [
   
   { path: 'login', component: LogInComponent },
     {path: 'area-riservata', component: AreaRiservataComponent, children: [
+    {
+      path: 'menu-iniziale',
+      component: MenuInizialeComponent,
+      outlet: 'reserved'
+  },
     {
       path: 'graph',
       component: GraphComponent,
@@ -17,6 +25,16 @@ const routes: Routes = [
     {
       path: 'librettoMisure',
       component: LibrettoDelleMisureComponent,
+      outlet: 'reserved'
+    },
+    {
+      path: 'giornaleLavori',
+      component: GiornaleLavoriComponent,
+      outlet: 'reserved'
+    },
+    {
+      path: 'banner',
+      component: BannerComponent,
       outlet: 'reserved'
     },
     
