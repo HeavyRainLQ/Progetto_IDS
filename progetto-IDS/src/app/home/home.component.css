@@ -1,0 +1,50 @@
+.block1{
+
+    margin-left: 25px;
+    border-radius:13px;
+    background-color: rgb(47, 48, 97, 0.85);
+    display: block;
+}
+.container1{
+    text-align:center;
+    border-radius:13px;
+    
+    display: inline-block;
+    background-color: rgb(47, 48, 97, 0.85);
+}
+
+.blockf{
+
+    float:right;
+
+    width: 50%;
+    border-radius: 0 19px 19px 0;
+    
+}
+.blockd{
+ padding: 15px;
+ float: right;
+ text-align:justify;
+ color:white;
+ background-color: #3f3f3e;
+ border-radius: 0 13px 13px 0;
+ 
+}
+
+body{
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+margin: 0;
+padding: 0;
+text-align: left;
+background-color:transparent;
+
+}
+/*
+Template 2084 Zipper
+
+http://www.tooplate.com/view/2084-zipper
+*/
+
+/*background-color: rgb(47, 48, 97, 0.85);*/

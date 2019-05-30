@@ -5,14 +5,15 @@
  */
  body {
   overflow-x: hidden;
-  background-image:url("/src/assets/img/menu_img.jpg");
+ /* background-image:url("/src/assets/img/menu_img.jpg");
   background-color: black;
+  */
 }
 
 #sidebar-wrapper {
   min-height: 100vh;
   width: 23%;
-  /*margin-left: -12.6rem;*/
+  /*margin-left: -10.9rem;*/
   margin-left: 1.6rem;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
@@ -34,8 +35,8 @@
   padding: 1.875rem 0.5rem;
   font-size: 1.3rem;
   color: white;
-  background-color:rgba(63, 52, 126, 0.89);
-
+  background-color:rgba(29, 48, 82, 0.89);
+  
   /*background-color: #434361;*/
     border-bottom: 1px solid white;
     /*padding: 15px;*/
@@ -56,9 +57,9 @@
 
 
 #buttons li{
-  color: black;
+  color: white;
   
-  background-color:rgb(228, 182, 30);
+  background-color:#172b4d;
   display:block;
   text-decoration: none;
   
@@ -69,14 +70,15 @@
 #buttons li:hover{
     
     color: white;
-    background-color:rgba(230, 187, 70, 0.73);
+    background-color:rgba(235, 76, 76, 0.73);
+    
     display:block;
     text-decoration: none;
 }
 
   #buttons li a{
     padding-left: 12px;
-    color: black;
+    color: rgb(233, 230, 230);
     background: transparent;
     display:block;
     text-decoration: none;
@@ -90,6 +92,7 @@
   #buttons li a:hover{
     /*border: 1px solid white; */
     color: white;
+    /*background-color: red; del menu sinistra*/ 
 
    }
 
@@ -120,20 +123,43 @@
     
     border-left: white 3px inset;
     color: white;
-    background-color: #3f3f5f;
+    background-color:#172b4d;
     padding-left: 14px;
     padding-right: 14px;
   }
+  #menu_nav li div a { 
+    border-bottom: rgb(216, 216, 216) 2px inset;
+    
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  #menu_nav div ul { 
+  
+    float:right;
+    
+    position:fixed;
+    right: 25px;
+/*    width: 100%;*/
+    /*left: 950px;*/
+  }
+
+
   #menu_nav li a:hover {
-    
-    
     color: white;
-    background-color: #4f4f7c;
+    background-color: #e43c3c;
   }
-  #menu_nav {
-    
-    background-color: #3f3f5f;
+  #menu_nav 
+  {  
+    /*background-color: #3f3f5f;*/
+    background-color:#172b4d!important;
+    width: 100%;
+    /*left: 230px auto; /* Posicionamos la cabecera al lado izquierdo */
+    float:right;
+    /*right: 0 auto;*/
+    position:fixed;
+    height: 82px;
   }
+  
   #menu_nav #div1 a{
   background-color: white;
   color:black;
@@ -143,12 +169,42 @@
   #menu_nav #div1 a:hover{
     
     color:white;
-    background-color:#d19131;
+    /*background-color:#e29a2f;*/
+    background-color:rgb(241, 77, 77);
 
   }
 
   #wrapper.toggled #sidebar-wrapper {
-    margin-left: -11.6rem;
+    margin-left: -10.9rem;
   }
   
+}
+
+
+.main-wrapper-first {
+  width: 90.75%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  border-radius: 15px;
+  /*padding: 15px;*/
+  background-color:white;
+}
+.margen{
+
+  margin-top: 3.5rem;
+  margin: 0 auto;
+  padding-top: 75px;
+  padding-right: 55px;
+  padding-left: 55px;
+  padding-bottom: 55px;
+}
+
+#footer1{
+ color: white;
+  background-color:rgb(20, 25, 56);
+}
+#cont_foo{
+
+  height: 25%;
 }

@@ -13,8 +13,20 @@ export class AppComponent implements OnInit {
   title = 'progetto-IDS';
   constructor(private router: Router) {
    }
-  ngOnInit(){
-    this.router.navigate(['/login']);
+  
+   ngOnInit(){
+
+  //metodo preloader
+  $(window).on('load', 
+    function () {
+      
+  setTimeout(function () {
+  $(".loader-page").css({visibility:"hidden",opacity:"0", })
+  }, 3500);// tempo del preloader
+  
+  });
+
+    this.router.navigate(['/login']); 
   }
   
 }

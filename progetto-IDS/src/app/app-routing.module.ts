@@ -9,6 +9,7 @@ import { BannerComponent } from './banner/banner.component';
 import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 
 import { ModalComponent } from './modal/modal.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   
@@ -42,6 +43,11 @@ const routes: Routes = [
     { //view modal
       path: 'modal',
       component: ModalComponent,
+      outlet: 'reserved'
+    },
+    { //view modal
+      path: 'home',
+      component: HomeComponent,
       outlet: 'reserved'
     },
     

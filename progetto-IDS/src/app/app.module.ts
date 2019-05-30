@@ -12,7 +12,6 @@ import {MatCheckboxModule,MatTableModule,MatDialogModule,MatIconModule } from '@
 import { GraphComponent } from './graph/graph.component';
 
 
-
 import { MenuComponent } from './menu/menu.component';
 import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-delle-misure.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -21,6 +20,11 @@ import { GiornaleLavoriComponent } from './giornale-lavori/giornale-lavori.compo
 import { BannerComponent } from './banner/banner.component';
 import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 import { ModalComponent } from './modal/modal.component';
+import { HomeComponent } from './home/home.component';
+
+
+import {SqlServiceService } from './sql-service.service';
+import { HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -39,6 +43,7 @@ import { ModalComponent } from './modal/modal.component';
     BannerComponent,
     MenuInizialeComponent,
     ModalComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -52,9 +57,9 @@ import { ModalComponent } from './modal/modal.component';
     MatTableModule,
     MatDialogModule,
     MatIconModule,
-   
+    HttpClientModule,
   ],
-  providers: [AppComponent],
+  providers: [AppComponent,SqlServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
