@@ -6,6 +6,7 @@ import { AreaRiservataComponent } from './area-riservata/area-riservata.componen
 import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-delle-misure.component';
 
 import { ModalComponent } from './modal/modal.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   
@@ -24,6 +25,11 @@ const routes: Routes = [
     { //view modal
       path: 'modal',
       component: ModalComponent,
+      outlet: 'reserved'
+    },
+    { //view modal
+      path: 'home',
+      component: HomeComponent,
       outlet: 'reserved'
     },
     

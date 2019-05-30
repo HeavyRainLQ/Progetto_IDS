@@ -58,8 +58,23 @@
 <br>
 
 <button mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"> prueba modal</button>
+
 <br>
-<button mat-raised-button (click)="openDialog()" class="btn btn-dark">Pick one</button>
+
+<input type="text" [(ngModel)]="user" id="usuario">
+
+<br>
+
+<select id="opcion1">
+<option
+*ngFor="let color of colors"
+[value]="color.id"> {{color.name}} </option>
+</select>
+
+<input  type="text" value="{{prueba}}">
+<input  type="text" [(ngModel)]="prueba">
+
+
 <br>
 
 </body>
