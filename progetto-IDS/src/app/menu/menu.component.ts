@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { Router } from '@angular/router';
-=======
 import {Router} from '@angular/router';
->>>>>>> 80a8cc8cee45368d7efe82832fb461c5b6d96483
 
 @Component({
   selector: 'app-menu',
@@ -14,12 +10,6 @@ export class MenuComponent implements OnInit {
 collapse = false;
 nascondi = '';
 arrow = 'arrowLeft';
-<<<<<<< HEAD
-  constructor(private router: Router) { }
-
-  ngOnInit() {
-    this.router.navigate(['/area-riservata',{outlets:{ 'reserved': ['menu-iniziale']}}]);
-=======
   constructor(private router: Router) 
   { }
 
@@ -29,7 +19,6 @@ arrow = 'arrowLeft';
     
     //this.router.navigate(['/area-riservata']);
     //"['/area-riservata',{outlets:{ 'reserved': ['graph']}}]"
->>>>>>> 80a8cc8cee45368d7efe82832fb461c5b6d96483
   }
 navbar(){
   if (!this.collapse) {

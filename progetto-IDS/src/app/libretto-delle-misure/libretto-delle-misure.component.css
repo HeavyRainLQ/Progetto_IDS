@@ -2,5 +2,20 @@ body{
 padding-left: 20px;
 margin-left: 25px;
 
+background-color: transparent;
+}
+table
+{
+    background-color:white;
+}
+.testa1{
 
+   padding-left:15px;
+   padding-top: 5px;
+   font-size: 15px;
+   color:white; 
+   border: 2px solid rgb(240, 120, 120);
+   background-color:rgba(221, 42, 66, 0.3);
+   border-top-left-radius: 15px;
+   border-bottom-left-radius: 15px;
 }

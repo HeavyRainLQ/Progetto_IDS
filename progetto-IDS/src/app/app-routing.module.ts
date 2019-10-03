@@ -10,6 +10,7 @@ import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 
 import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
+import { MioProfiloComponent } from './mio-profilo/mio-profilo.component';
 
 const routes: Routes = [
   
@@ -45,9 +46,14 @@ const routes: Routes = [
       component: ModalComponent,
       outlet: 'reserved'
     },
-    { //view modal
+    { //view HOME
       path: 'home',
       component: HomeComponent,
+      outlet: 'reserved'
+    },
+    { //view mio_profilo
+      path: 'mio_profilo',
+      component: MioProfiloComponent,
       outlet: 'reserved'
     },
     

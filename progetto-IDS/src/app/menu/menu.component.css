@@ -19,7 +19,7 @@
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
- opacity:0.75; 
+ opacity:0.92; 
 
  
   
@@ -36,6 +36,9 @@
   font-size: 1.3rem;
   color: white;
   background-color:rgba(29, 48, 82, 0.89);
+  /*background-color:#4c6c8b;*/
+  opacity: 0.89;
+  
   
   /*background-color: #434361;*/
     border-bottom: 1px solid white;
@@ -60,6 +63,8 @@
   color: white;
   
   background-color:#172b4d;
+/*  background-color:#34495f;*/
+  
   display:block;
   text-decoration: none;
   
@@ -124,6 +129,8 @@
     border-left: white 3px inset;
     color: white;
     background-color:#172b4d;
+    /*background-color:#4c6c8b;*/
+    
     padding-left: 14px;
     padding-right: 14px;
   }
@@ -152,6 +159,8 @@
   {  
     /*background-color: #3f3f5f;*/
     background-color:#172b4d!important;
+    /*background-color:#4c6c8b!important;*/
+    
     width: 100%;
     /*left: 230px auto; /* Posicionamos la cabecera al lado izquierdo */
     float:right;

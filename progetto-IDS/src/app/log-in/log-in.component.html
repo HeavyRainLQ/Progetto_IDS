@@ -25,8 +25,9 @@
 
     <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="logIn()">
-      <br>
-      <br>
+      
+      <p id="risposta">{{risposta}}</p>
+      
       <i  class="fas fa-user fa-w-16 fa-2x"></i><input type="text" [(ngModel)]="user1" formControlName="username" id="username" class="fadeIn second" name="login" placeholder="username">
       <br>
       <i  class="fas fa-key fa-w-16 fa-2x"></i><input type="password" [(ngModel)]="pass1" formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password">
@@ -42,7 +43,9 @@
       
     </div>
 
-  </div>
+  </div> 
+  <!-- fine del from -->
+  
 </div>
 
 </div>
@@ -57,6 +60,7 @@
   <div class="container text-center text-md-left" id="cont_foo">
 
     <!-- Footer links -->
+    
     
     <hr>
 

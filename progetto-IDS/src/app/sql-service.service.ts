@@ -14,6 +14,10 @@ providedIn: 'root'
 
 export class SqlServiceService {
 
+  valori: Array<string>;
+  var1:object;
+
+
   constructor(private http:HttpClient) 
   {
   }
@@ -29,7 +33,39 @@ export class SqlServiceService {
     })
     //return this.http.get<myData>("../../../src/app/conexion.php");
   
-  }
+  }//fin funcion de login
+
+  mio_profilo(user, pass)
+  {
+    console.log("servicio mio profilo: ->");
+    //return this.http.get<myData>(`${this.URL}conexion.php`);
+    //return this.http.get("/api/conexion.php");
+    return this.http.post('/api/mio_profilo.php', {
+      user,
+      pass
+    })
+    //return this.http.get<myData>("../../../src/app/conexion.php");
+  }//fin del metodo mio_profilo
+
+  update_info(dati:object)
+  {
+    console.log("servicio update: ->");
+    console.log(dati);
+    this.var1=dati["col1"];
+    console.log(this.var1["ci"]);
+    
+
+    /*
+*/
+
+
+    //return this.http.get("/api/conexion.php");
+    return this.http.post('/api/update_user.php',         
+      
+      this.var1
+    )
+    //return this.http.get<myData>("../../../src/app/conexion.php");
+  }//fin del metodo update
 
 logueo(user: string,pass:string) {
     

@@ -6,29 +6,52 @@
     display: block;
 }
 .container1{
-    text-align:center;
-    border-radius:13px;
-    
+   text-align:center;
+    border-top-left-radius:13px;
+    border-bottom-left-radius:13px;
+    margin:auto;
     display: inline-block;
     background-color: rgb(47, 48, 97, 0.85);
+    border-radius: 13px;
+    width: 900px;
+    height: 230px;
+    
+
 }
+.container0{
+    /*text-align:center;
+        border-radius:13px;
+        margin:auto;
+        display: flex;
+        background-color: rgb(47, 48, 97, 0.85);
+    */
+        display:flex;
+        margin: auto ;
+        background-color:transparent;
+        align-items:center;
+    width: 80%;
+    }
 
 .blockf{
 
-    float:right;
+    float:left;
 
-    width: 50%;
+    
+    width: 900px;
+    height: 230px;
     border-radius: 0 19px 19px 0;
     
 }
 .blockd{
- padding: 15px;
- float: right;
+ padding: 19px;
+ float: left;
  text-align:justify;
  color:white;
  background-color: #3f3f3e;
- border-radius: 0 13px 13px 0;
- 
+ border-top-left-radius:13px;
+ border-bottom-left-radius:13px;
+ width: 450px;
+ height: 230px;
 }
 
 body{
