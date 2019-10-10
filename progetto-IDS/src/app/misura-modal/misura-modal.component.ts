@@ -31,7 +31,7 @@ export class MisuraModalComponent implements OnInit {
     console.log(this.data.account);
   }
 
-
+result: any;
   categorias=[
     {id: 1, name: "Struttura di fondazione",tariffa:"01.01.001",  },
     {id: 2, name: "Struttura di elevazione",tariffa:"01.01.002.001",  },
@@ -62,7 +62,7 @@ for(let lav of this.categorias)
     if(lav.name==val_cat)
     {
        this.tariffa=lav.tariffa;
-       this.num_categoria=lav.name;
+//       this.num_categoria=lav.name;
     }
 }
 

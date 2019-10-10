@@ -38,7 +38,6 @@ export class SqlServiceService {
   mio_profilo(user, pass)
   {
     console.log("servicio mio profilo: ->");
-
     return this.http.post('/api/mio_profilo.php', {
       user,
       pass

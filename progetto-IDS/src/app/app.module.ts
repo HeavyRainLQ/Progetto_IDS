@@ -22,11 +22,13 @@ import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
 import { MioProfiloComponent } from './mio-profilo/mio-profilo.component';
-import { MisuraModalComponent } from './misura-modal/misura-modal.component';
+
 
 import {SqlServiceService } from './sql-service.service';
 import { EthcontractService } from './ethcontract.service';
 import { HttpClientModule} from "@angular/common/http";
+import { MisuraModalComponent } from './misura-modal/misura-modal.component';
+
 
 
 
