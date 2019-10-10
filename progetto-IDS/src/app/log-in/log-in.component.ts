@@ -20,6 +20,7 @@ export class LogInComponent implements OnInit, OnDestroy
   disabilitato: boolean;
   
   message="Loading.... JOSE";
+  risposta=" ";
   //public servicio:SqlServiceService;
  constructor(private formBuilder: FormBuilder, private router: Router,private user:SqlServiceService )  
  {
@@ -86,7 +87,7 @@ export class LogInComponent implements OnInit, OnDestroy
       else{
         this.user1="";
         this.pass1="";
-        alert("Credenziali sbagliati :(");
+        this.risposta="Sorry, error user or password!";
       }
   });
 

@@ -1,0 +1,43 @@
+#tittle1{
+
+background-color: rgb(22, 22, 98);
+text-align:center;
+border-bottom: 2px inset rgb(231, 202, 39);
+color:rgb(255, 255, 255);
+
+
+}
+
+#table1{
+
+    margin-left: 28px;
+    width: 85%;
+}
+#table1 tr td {
+
+padding-bottom: 8px;
+
+}
+#table1 tr td label{
+
+    font-family: Calibri;
+
+}
+
+.closee{
+    
+    
+    
+    border: 1px rgb(22, 22, 98) solid;
+    
+    margin-left: auto;
+    display:flex;
+    color:white;
+    background-color:transparent
+
+}
+
+
+#table1 tr td input{
+     border-radius: 6px;
+}

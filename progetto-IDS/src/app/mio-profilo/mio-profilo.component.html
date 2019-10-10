@@ -1,0 +1,95 @@
+<body>
+
+  <div class="testa">
+  <div>  <h4>I miei dati</h4> 
+  </div>
+  
+  </div>
+  
+<div class='dati'>
+
+
+  <form method="POST" action="http://localhost/mis_php/reg.php" id="modales">
+    <i style="text-align:center;float:right;"class="fas fa-id-badge fa-7x"></i>
+   <table style="margin-right:20px ;">
+
+   <tr>
+     <td><label style="color:rgb(33, 33, 77);font-weight:bold;">Ci :</label>   </td>
+     <td><label style="padding-left:4px;">:</label></td>
+     <td><label style="padding-left:30px;">{{ci}}</label>  </td>
+  </tr>  
+  <tr>
+     <td><label style="color:rgb(33, 33, 77);font-weight:bold;">Nome</label></td>
+     <td><label style="padding-left:4px;">:</label></td>
+     <td><label style="padding-left:30px;" >{{nome}}</label> </td>
+  </tr>  
+ <tr>
+     <td><label style="color:rgb(33, 33, 77);font-weight:bold;">Cognome</label></td>
+     <td><label style="padding-left:4px;">:</label></td>
+     <td><label style="padding-left:30px;" >{{cognome}}</label> </td>
+  </tr>
+  <tr>
+      <td><label style="color:rgb(33, 33, 77);font-weight:bold;">Codice Fiscale</label></td>
+      <td><label style="padding-left:4px;">:</label></td>
+      <td><label style="padding-left:30px;" >{{cod_fis}}</label> </td>
+       </tr>
+  <tr>
+     <td><label style="color:rgb(33, 33, 77);font-weight:bold;">Data di nascita</label></td>
+     <td><label style="padding-left:4px;">:</label></td>
+     <td><label style="padding-left:30px;" >{{d_nasci}}</label> </td>
+</tr>
+<tr>
+          <td><label style="color:rgb(33, 33, 77);font-weight:bold;">Luogo di nascita</label></td>
+          <td><label style="padding-left:4px;">:</label></td>
+          <td><label style="padding-left:30px;" >{{l_nasci}}</label> </td>
+          
+     </tr>
+<tr>
+            <td><label style="color:rgb(33, 33, 77);font-weight:bold;">CAP</label></td>
+            <td><label style="padding-left:4px;">:</label></td>
+            <td><label style="padding-left:30px;" >{{cap}}</label> </td>
+               
+ </tr>
+ <tr>
+      <td><label style="color:rgb(33, 33, 77);font-weight:bold;">Residenza</label></td>
+      <td><label style="padding-left:4px;">:</label></td>
+      <td><label style="padding-left:30px;" >{{resid}}</label> </td>
+          
+</tr>
+<tr>
+     <td><label style="color:rgb(33, 33, 77);font-weight:bold;">User</label></td>
+     <td><label style="padding-left:4px;">:</label></td>
+     <td><label style="padding-left:30px;" >{{user2}}</label></td>
+     
+</tr>
+<tr>
+     <td><label style="color:rgb(33, 33, 77);font-weight:bold;">Password</label></td>
+     <td><label style="padding-left:4px;">:</label></td>
+     <td><label style="padding-left:30px;" >{{pass2}}</label></td>
+</tr>
+
+
+       
+  </table>  
+  
+  
+<hr>
+    <input type="submit" class="btn btn-success btn-lg" style="float:center;color:white;" (click)="openDialog()" value="Modificare">
+
+
+      
+    </form>
+
+<!--<mat-dialog-actions>-->
+
+<!--</mat-dialog-actions>-->
+
+<br>
+
+
+
+</div>
+<br>
+
+
+</body>

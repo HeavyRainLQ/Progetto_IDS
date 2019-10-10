@@ -10,3 +10,11 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
+.my-class .mat-dialog-container{
+    
+    border-radius: 10px;
+    background-color: rgb(238, 238, 238);
+    color: #030d13;
+    padding: 0;
+  }
+

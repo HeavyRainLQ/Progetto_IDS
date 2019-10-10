@@ -1,0 +1,41 @@
+body{
+
+background: transparent;
+
+    
+}
+.dati{
+margin-left: 150px;
+margin-right: 200px;
+padding-top: 20px;
+padding-left: 50px;
+padding-right: 40px;
+color: rgb(14, 5, 56);
+border: 2px solid rgb(240, 208, 120);
+border-radius: 15px;
+background: rgba(255, 255, 255, 0.822);
+
+}
+
+.testa{
+    background-color:rgb(70, 170, 123);
+    text-align:center;
+    border-bottom: 2px inset rgb(228, 175, 60);
+    color:white;
+    border-radius: 15px 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 150px;
+    margin-right: 200px;
+    margin-bottom: 20px
+
+}
+#modales {
+font-size:18px;
+
+}
+
+hr{
+background-color:rgb(245, 237, 227);
+height: 1px;
+}

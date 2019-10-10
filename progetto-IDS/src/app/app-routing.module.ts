@@ -10,6 +10,8 @@ import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 
 import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
+import { MioProfiloComponent } from './mio-profilo/mio-profilo.component';
+import { MisuraModalComponent } from './misura-modal/misura-modal.component';
 
 const routes: Routes = [
   
@@ -46,8 +48,18 @@ const routes: Routes = [
       outlet: 'reserved'
     },
     { //view modal
+      path: 'modal_misura',
+      component: MisuraModalComponent,
+      outlet: 'reserved'
+    },
+    { //view HOME
       path: 'home',
       component: HomeComponent,
+      outlet: 'reserved'
+    },
+    { //view mio_profilo
+      path: 'mio_profilo',
+      component: MioProfiloComponent,
       outlet: 'reserved'
     },
     

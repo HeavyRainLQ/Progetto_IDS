@@ -14,6 +14,10 @@ providedIn: 'root'
 
 export class SqlServiceService {
 
+  valori: Array<string>;
+  var1:object;
+
+
   constructor(private http:HttpClient) 
   {
   }
@@ -29,7 +33,64 @@ export class SqlServiceService {
     })
     //return this.http.get<myData>("../../../src/app/conexion.php");
   
-  }
+  }//fin funcion de login
+
+  mio_profilo(user, pass)
+  {
+    console.log("servicio mio profilo: ->");
+
+    return this.http.post('/api/mio_profilo.php', {
+      user,
+      pass
+    })
+    
+  }//fin del metodo mio_profilo
+
+  insert_misura(tariffa,conta,lavoro,perce,ris)
+  {
+
+
+    console.log("servicio insert misura: ->");
+    //return this.http.get<myData>(`${this.URL}conexion.php`);
+    //return this.http.get("/api/conexion.php");
+    return this.http.post('/api/insert_misura.php', {
+      tariffa,conta,lavoro,perce,ris
+    })
+    
+  }//fin del metodo mio_profilo
+
+  select_descrizione(nomeCat,descrizione)
+  {
+
+
+    console.log("servicio select_descrizione: ->");
+    //return this.http.get<myData>(`${this.URL}conexion.php`);
+    //return this.http.get("/api/conexion.php");
+    return this.http.post('/api/select_categoria.php', {
+      nomeCat,descrizione
+    })
+    
+  }//fine select descrizione
+
+  update_info(dati:object)
+  {
+    console.log("servicio update: ->");
+    console.log(dati);
+    this.var1=dati["col1"];
+    console.log(this.var1["ci"]);
+    
+
+    /*
+*/
+
+
+    //return this.http.get("/api/conexion.php");
+    return this.http.post('/api/update_user.php',         
+      
+      this.var1
+    )
+    //return this.http.get<myData>("../../../src/app/conexion.php");
+  }//fin del metodo update
 
 logueo(user: string,pass:string) {
     

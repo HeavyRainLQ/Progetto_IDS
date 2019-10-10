@@ -5,7 +5,7 @@
 </head>
 
 <body>
-  <div style="text-align:center;border-bottom: 2px inset rgb(231, 202, 39);;color:rgb(231, 202, 39);"><h4>REGISTRO USER</h4> </div>
+  <div style="text-align:center;border-bottom: 2px inset rgb(231, 202, 39);;color:rgb(231, 202, 39);"><h4>DATI DI USUARIO</h4> </div>
   <br>
 
   
@@ -16,47 +16,47 @@
 
    <tr>
      <td><label>Ci</label>   </td>
-     <td><input type="number" name="carnet"  required/> </td>
+     <td><input id="ci" type="number" name="carnet"  value="{{data.ci}}"required/> </td>
   </tr>  
   <tr>
      <td><label>Nome</label></td>
-     <td><input type="text" class="form-control form-control-sm"name="nombre" required/></td>
+     <td><input id="nome" type="text" class="form-control form-control-sm"name="nombre"value="{{data.nome}}" required/></td>
   </tr>  
  <tr>
      <td><label>Cognome</label></td>
-     <td><input type="text" class="form-control form-control-sm"name="ap_ps"  required/></td>
+     <td><input id="cognome" type="text" class="form-control form-control-sm"name="ap_ps" value="{{data.cognome}}" required/></td>
   </tr>
   <tr>
           <td><label>Codice Fiscale</label></td>
-          <td><input type="text" class="form-control form-control-sm"name="cod_fis"  required/></td>
+          <td><input id="cod_fis" type="text" class="form-control form-control-sm"name="cod_fis"  value="{{data.cod_fis}}"required/></td>
        </tr>
   <tr>
      <td><label>Data di nascita</label></td>
-     <td><input type="date" class="form-control form-control-sm"name="data_na" required/></td>
+     <td><input id="d_nasci" type="date" class="form-control form-control-sm"name="data_na" value="{{data.d_nasci}}"required/></td>
 </tr>
 <tr>
           <td><label>Luogo di nascita</label></td>
-          <td><input type="text" class="form-control form-control-sm"name="luogo_na" required/></td>
+          <td><input id="l_nasci" type="text" class="form-control form-control-sm"name="luogo_na" value="{{data.l_nasci}}"required/></td>
           
      </tr>
 <tr>
             <td><label>CAP</label></td>
-            <td><input type="number" class="form-control form-control-sm" name="usuario" required/></td>
+            <td><input id="cap" type="number" class="form-control form-control-sm" name="usuario" value="{{data.cap}}"required/></td>
                
  </tr>
  <tr>
           <td><label>Residenza</label></td>
-          <td><input type="text"class="form-control form-control-sm" name="residenza" required/></td>
+          <td><input id="resid" type="text"class="form-control form-control-sm" name="residenza" value="{{data.resid}}"required/></td>
           
 </tr>
 <tr>
      <td><label>User</label></td>
-     <td><input type="text" class="form-control form-control-sm" name="user" value="" required/></td>
+     <td><input id="user" type="text" class="form-control form-control-sm" name="user" value="{{data.user2}}" required/></td>
      
 </tr>
 <tr>
      <td><label>Password</label></td>
-     <td><input type="password" class="form-control form-control-sm"name="pass" required/></td>
+     <td><input id="pass" type="password" class="form-control form-control-sm"name="pass" value="{{data.pass2}}"required/></td>
 </tr>
 <tr>
      <td><label>Confirmar Contraseña</label></td>
@@ -66,17 +66,15 @@
        
   </table>  
   <br>
-    
-    <input type="submit" class="btn btn-outline-primary" style="float:center;"value="Guardar">
-<button  class="btn btn-outline-primary">Save</button> 
+<div class="boton">
+<input type="submit" class="btn btn-outline-primary" style="float:center;" (click)="save()"  value="Guardar">
+<!--<button  class="btn btn-outline-primary">Save</button>  -->
 <button style="margin-left:20px;" mat-button mat-dialog-close class="btn btn-outline-danger">Cancel</button>
-      
+</div>     
     </form>
 
 <!--<mat-dialog-actions>-->
 
 <!--</mat-dialog-actions>-->
-<input type="text" class="form-control form-control-sm" name="user" value="{{data.name}}" required/>
-
 
 </body>
