@@ -18,6 +18,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+
+    "paths": {
+      "angular-bootstrap-md": [
+        "dist/angular-bootstrap-md"
+      ],
+      "angular-bootstrap-md/*": [
+        "dist/angular-bootstrap-md/*"
+      ]
+    }
+
   }
 }

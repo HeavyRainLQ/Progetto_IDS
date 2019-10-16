@@ -7,6 +7,7 @@ import TruffleContract from 'truffle-contract';
 declare let require: any;
 declare let window: any;
 
+
 //let tokenAbi = require('../../../build/contracts/Payment.json');
 //let tokenAbi2 = require('../../../build/contracts/Crud.json');
 let tokenAbi3 = require('../../../build/contracts/librettoMisure.json');
@@ -18,6 +19,9 @@ let tokenAbi3 = require('../../../build/contracts/librettoMisure.json');
 export class EthcontractService {
   private web3Provider: any;
   private contracts: {};
+  
+  length:'';
+
 
 
   constructor() {
@@ -65,50 +69,44 @@ export class EthcontractService {
 
 
   }//fin del metodo getACCOUNT
+
+  
+  
+
 getValori() 
   { var electionInstance;
-    
-    let that = this;
-    return new Promise((resolve, reject) => {
-      
-      console.log("LLEGO A MOSTRARRR")
+    let jsonArrayObject = [];
+
+//    let that = this;
+    //return new Promise((resolve, reject) => {
+      console.log("arrivato method reading")
       let crudContract = TruffleContract(tokenAbi3);
       //para
-      crudContract.setProvider(that.web3Provider);
+      crudContract.setProvider(this.web3Provider);
       crudContract.deployed().then(function(instance) 
       {  
           electionInstance = instance;
           //INDICE DEL VALOR DE USUARIOS
-          
-          electionInstance.users(3).then(function(user) {
-          var valor1 = user[0];
-          var valor2 = user[1]; //NOMBRE DEL USUARIO
-          
+          electionInstance.read_size().then(function(size){
+          console.log("valore size--------: ")
+          var length =size['c']['0'];
+         for (var i=0; i <length; i++) 
+        {
+          //var size3=size2['BigNumber'];
+          electionInstance.misures(i).then(function(user) {
 
-          console.log("valor recuperado--: ")
-          console.log(valor1);
-          console.log(valor2);
+          jsonArrayObject.push({id:user[0]['c'][0],tariffa:user[1],data:user[2]['c'][0],categoria:user[3],descrizione:user[4],percentuale:user[5]['c'][0],riserva:user[6],aprovata:user[7],valida:user[8]});
           
+         // Render misures Resul          
+        });//fine de misures
 
-          // Render candidate Result
-          
+        }//fine del for 
+          });
+
         });
-
-        }).then(function(status) {
-          if(status) {
-            return resolve({status:true});
-          }
-        }).catch(function(error){
-          console.log(error);
-
-          return reject("Error in transfer value!!");
-        });
-    });
-  
-
-
-
-
+  //});
+  console.log("JSON cargado--------------")
+        return jsonArrayObject;
   }//fin del metodo get VALOR
 
 getValor() 

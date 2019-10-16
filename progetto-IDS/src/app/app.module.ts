@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -28,6 +28,9 @@ import {SqlServiceService } from './sql-service.service';
 import { EthcontractService } from './ethcontract.service';
 import { HttpClientModule} from "@angular/common/http";
 import { MisuraModalComponent } from './misura-modal/misura-modal.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 
 
@@ -66,8 +69,13 @@ import { MisuraModalComponent } from './misura-modal/misura-modal.component';
     MatDialogModule,
     MatIconModule,
     HttpClientModule,
+    AgGridModule.withComponents([]),
+    MDBBootstrapModule.forRoot(),
+
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [AppComponent,SqlServiceService,EthcontractService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
