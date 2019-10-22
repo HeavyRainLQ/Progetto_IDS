@@ -175,6 +175,16 @@ approvare(selectedItem: any)
     }
   }//fine for
   console.log(this.misures)
+  let prueba;
+  var numero=selectedItem.id+1
+
+  this.SqlService.updateApprova(numero).subscribe(data =>{ 
+
+  console.log("genera_registro....");
+      prueba = data["records"];
+      console.log(prueba)
+
+});
 
 }//fine approvare
 

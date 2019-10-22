@@ -7297,6 +7297,7 @@
       "address": "0x7370961ef1a1363f54cb0da3b34592f29bde5923",
       "transactionHash": "0x8ebd0fa688af4df2688a18955dbb6cfdcdb3e540b6610606798c44c379bfe42c"
     },
+<<<<<<< HEAD
     "1571743392590": {
       "events": {},
       "links": {},
@@ -7318,4 +7319,15 @@
   "userdoc": {
     "methods": {}
   }
+=======
+    "1571739809935": {
+      "events": {},
+      "links": {},
+      "address": "0x106bed6238ed5b8c6126d821a52fda6a326e9357",
+      "transactionHash": "0x63a3d73030eb2897187422056d5306ad6255625edc83ad8bca32e5f654d93eb7"
+    }
+  },
+  "schemaVersion": "2.0.2",
+  "updatedAt": "2019-10-22T10:26:27.446Z"
+>>>>>>> 9b159dd18b54b9e7eb91c50efcd085c5f5ee3372
 }

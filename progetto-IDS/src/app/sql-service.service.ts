@@ -89,6 +89,16 @@ export class SqlServiceService {
     
   }//fine contabilita
 
+  
+
+  updateApprova(item_id)
+  {
+     console.log("servicio update approva: ->");
+     return this.http.post('/api/update_approva.php', {
+      item_id
+     })
+  }//fine update invalida
+
   updateInvalida(item_id)
   {
      console.log("servicio contabilita: ->");
