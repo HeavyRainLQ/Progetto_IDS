@@ -361,6 +361,49 @@ create_operaio(
 
   }//fine create operaio
 
+
+  update_approva(
+    _id,
+    _approva,
+    _transferFrom
+  ) {
+ console.log("arrivato Valori------")
+    
+    let that = this;
+
+    return new Promise((resolve, reject) => {
+      
+      let misuraContract = TruffleContract(tokenAbi3);
+      //para
+      
+      misuraContract.setProvider(that.web3Provider);
+
+      misuraContract.deployed().then(function(instance) 
+      {  
+          //return instance.transferFund(
+          return instance.update_approva(
+            _id,
+            _approva,
+            {
+              from:_transferFrom,gas:3000000
+              
+            });
+          //definicion de instance
+        }).then(function(status) {
+
+          if(status) {
+            return resolve({status:true});
+          }
+        }).catch(function(error){
+          console.log(error);
+
+          return reject("Errore in update_approva!!");
+        });
+    });
+  
+
+  }//fine create operaio
+
 create_attrezza(
     _tipologia,
     _quantita,

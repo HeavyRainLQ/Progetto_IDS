@@ -186,6 +186,21 @@ approvare(selectedItem: any)
 
 });
 
+this.ethcontractService.update_approva(
+      selectedItem.id,
+      selectedItem.aprovata,
+
+      this.transferFrom,
+      
+    ).then(function(){
+      
+      console.log("funziona contract update")
+    }).catch(function(error){
+      console.log(error);
+      console.log("No funziono")
+      
+    });
+
 }//fine approvare
 
 invalidare(selectedItem: any)
