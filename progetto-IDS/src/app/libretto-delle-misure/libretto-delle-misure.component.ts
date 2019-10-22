@@ -117,6 +117,7 @@ misures=[];
   {
   
 
+
   }
 
 
@@ -188,6 +189,11 @@ approvare(selectedItem: any)
 
 }//fine approvare
 
+
+//definire metodo aggiungi riserva
+insert_riserva(){
+
+}
 invalidare(selectedItem: any)
 {
   console.log(selectedItem);
@@ -224,3 +230,4 @@ console.log(prueba)
 }//fine invalidare
 
 }
+
