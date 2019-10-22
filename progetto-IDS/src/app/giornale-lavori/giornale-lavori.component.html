@@ -1,37 +1,72 @@
 <body>
     <div class="testa1">
-        <div>  <h4>Libretto delle Misure</h4> 
+        <div>  <h4>Giornale dei Lavori</h4> 
         </div>
         
         </div>
   <br>
 
-<table class="table table-bordered table-striped ">
+<div class="container" id="cont1">
+<br>
+<div class="row">
+<div class="col" id="col1">
+  <h3>Dettagli Operai</h3>
+  <br>
+
+    <button mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuovo Operaio</button>
+  
+<table class="ta" id="table_operaio">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">N° Ordine</th>
-      <th scope="col">Cod. Tariffa</th>
-      <th scope="col">Data</th>
-      <th scope="col">Categoria Contabile</th>
-      <th scope="col">Descrizione</th>
-      <th scope="col">Percentuale</th>
+      <th scope="col" style="width: 2%;">Data</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Cognome</th>
+      <th scope="col">Qualifica</th>
+      <th scope="col">Ore</th>
       <th scope="col">Riserva/Annotazioni</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let misure of misures">
-      <th scope="row">{{misure.id}}</th>
-      <td>{{misure.tariffa}}</td>
-      <td>{{misure.data}}</td>
-      <td>{{misure.categoria}}</td>
-      <td>{{misure.descrizione}}</td>
-      <td>{{misure.percentuale}}</td>
-      <td>{{misure.riserva}}</td>
+    <tr *ngFor="let lavoro of lavori">
+      <th scope="row">{{lavoro.data}}</th>
+      <td>{{lavoro.nome}}</td>
+      <td>{{lavoro.cognome}}</td>
+      <td>{{lavoro.qualifica}}</td>
+      <td>{{lavoro.ore}}</td>
+      <td></td>
     </tr>
-    
-  
+
+  </tbody>
+</table>
+</div>
+<div class="" style="width: 15%;">
+  </div>
+
+<div class="col" id="col2">
+  <h3>Attrezzatura</h3>
+  <table class="ta" id="table_operaio">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" style="width: 2%;">Data</th>
+      <th scope="col">Tipologia</th>
+      <th scope="col">Quantità</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let attrezzatura of attrezzature">
+      <th scope="row">{{attrezzatura.data}}</th>
+      <td>{{attrezzatura.tipologia}}</td>
+      <td>{{attrezzatura.quantita}}</td>
+    </tr>
+
   </tbody>
 </table>
 
+</div>
+</div>
+
+<br>
+<br>
+</div>
 
 </body>

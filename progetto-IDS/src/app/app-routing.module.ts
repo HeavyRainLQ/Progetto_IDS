@@ -9,9 +9,11 @@ import { BannerComponent } from './banner/banner.component';
 import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
 
 import { ModalComponent } from './modal/modal.component';
+import { OperaioModalComponent } from './operaio-modal/operaio-modal.component';
 import { HomeComponent } from './home/home.component';
 import { MioProfiloComponent } from './mio-profilo/mio-profilo.component';
 import { MisuraModalComponent } from './misura-modal/misura-modal.component';
+import { RegistroContabilitaComponent } from './registro-contabilita/registro-contabilita.component';
 
 const routes: Routes = [
   
@@ -38,6 +40,13 @@ const routes: Routes = [
       outlet: 'reserved'
     },
     {
+      path: 'registroContabilita',
+      component: RegistroContabilitaComponent,
+      outlet: 'reserved'
+    },
+
+    
+    {
       path: 'banner',
       component: BannerComponent,
     },
@@ -52,6 +61,15 @@ const routes: Routes = [
       component: MisuraModalComponent,
       outlet: 'reserved'
     },
+
+    { //view modal
+      path: 'modal_operaio',
+      component: OperaioModalComponent,
+      outlet: 'reserved'
+    },
+
+
+
     { //view HOME
       path: 'home',
       component: HomeComponent,

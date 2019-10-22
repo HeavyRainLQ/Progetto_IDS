@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-menu',
@@ -19,7 +20,37 @@ arrow = 'arrowLeft';
     
     //this.router.navigate(['/area-riservata']);
     //"['/area-riservata',{outlets:{ 'reserved': ['graph']}}]"
+
+ $(document).ready(function(){
+      $(window).scroll(function () {
+             if ($(this).scrollTop() > 60) {
+                 $('#back-to-top').fadeIn();
+                 // $('#head_banner').css('display','none');
+                 // $('#nav_bar').css('position','fixed');
+             } else {
+                 
+                 $('#back-to-top').fadeOut();
+             }
+
+
+            });
+         // scroll body to 0px on click
+    });  //final function scroll
+
+
   }
+
+onActivate(event) {
+  let scrollToTop = window.setInterval(() => {
+      let pos = window.pageYOffset;
+      if (pos > 0) {
+          window.scrollTo(0, pos -40); // how far to scroll on each step
+      } else {
+          window.clearInterval(scrollToTop);
+      }
+  }, 20);
+}
+
 navbar(){
   if (!this.collapse) {
     this.nascondi = 'toggled';

@@ -4,6 +4,7 @@ import { MisuraModalComponent } from '.././misura-modal/misura-modal.component';
 
 import {MatDialog} from '@angular/material';
 import { EthcontractService } from '../ethcontract.service';
+import {SqlServiceService } from '../sql-service.service';
 import { AgGridModule } from 'ag-grid-angular';
 
 import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
@@ -58,10 +59,11 @@ export class LibrettoDelleMisureComponent implements OnInit {
   searchText: string = '';
   previous: string;
 
-  constructor(private tableService: MdbTableService,public dialog: MatDialog,private ethcontractService: EthcontractService )
+  constructor(private tableService: MdbTableService,public dialog: MatDialog,private ethcontractService: EthcontractService,private SqlService: SqlServiceService )
   {
     this.initAndDisplayAccount();
     this.defaultColDef = { sortable: true };
+    this.generare(event);
 
   }
 
@@ -113,7 +115,7 @@ user:string;
 misures=[];
   ngOnInit() 
   {
-  this.generare(event);
+  
 
   }
 
@@ -145,11 +147,9 @@ misures=[];
   generare(event)
   {
 
-     // let jsonArrayObject = [];
-// jsonArrayObject.push({nome:1,nombre:4});
-// jsonArrayObject.push({nome:11,nombre:42});
-// console.log(jsonArrayObject)
 
+let a=this.ethcontractService.getValori();
+console.log("FUNZIONAAA:",a)
 this.misures=this.ethcontractService.getValori();
 console.log("prende il valore----")
       console.log(this.misures)
@@ -169,7 +169,7 @@ approvare(selectedItem: any)
   console.log("Selected item Id: ", selectedItem.id); // You get the Id of the selected item here
   for(var i=0;i<this.misures.length;i++)
   {
-    if(this.misures[i].id==selectedItem.id)
+    if(this.misures[i].id==selectedItem.id && this.misures[i].valida==true)
     {
       this.misures[i].aprovata=true;
     }
@@ -192,7 +192,25 @@ invalidare(selectedItem: any)
     }
   }//fine for
   console.log(this.misures)
+let prueba;
+var numero=selectedItem.id+1
 
-}//fine approvare
+console.log("update in SQL----------")
+console.log(numero)
+this.SqlService.updateInvalida(numero).subscribe(data =>{ 
+
+  console.log("genera_registro....");
+      prueba = data["records"];
+      console.log(prueba)
+
+});
+
+
+
+console.log("update in SQL----------")
+console.log(prueba)
+
+
+}//fine invalidare
 
 }

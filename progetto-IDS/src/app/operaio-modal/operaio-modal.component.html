@@ -1,0 +1,89 @@
+ 
+  
+  <div id="tittle1">
+      <!-- <button class="closee" mat-dialog-close>
+         <span style="font-size: 150%"aria-hidden="true">&times;</span></button>   -->
+      
+   <h4>NUOVO OPERAIO</h4> </div>
+  
+
+    <br>
+  
+     <table id="table1">
+  
+  <tr>
+            <td id="col1"><label>Nome</label></td>
+            <td id="col2"><input id="q_percentuale" [(ngModel)]="nome" type="text" class="form-control form-control-sm"required/></td>
+            <td style="width: 5%;"></td>
+            <td id="col3"><label>Attrezzatura</label></td>
+
+            <td id="col4">
+              <select id="tipologia" style="width: 100%;height: 35px;">
+                  <option
+                  *ngFor="let names of attre"
+                  [value]="names.nome_attr" > {{names.nome_attr}} </option>
+            </select>
+            </td>
+            <td style="width: 5%;">
+            <button type="button" class="btn btn-success"  mat-dialog-close data-dismiss="modal"><i class="fas fa-plus fa-1x"></i></button>
+            </td>
+            
+       </tr>
+       <tr>
+            <td id="col1"><label>Cognome</label></td>
+            <td id="col2"><input id="q_percentuale" [(ngModel)]="cognome" type="text" class="form-control form-control-sm"required/></td>
+            
+            <td style="width: 5%;"></td>
+            <td id="col3"><label>Quantità</label></td>
+            <td id="col4"><input style="width: 50%;"id="quantita" [(ngModel)]="quantita" type="text" class="form-control form-control-sm"required/></td>
+            
+       </tr>      
+       <tr>
+            <td id="col1"><label>Qualifica</label></td>
+            <td id="col2">
+            <select id="qualifica" style="width: 100%;height: 35px;">
+                  <option
+                  *ngFor="let qualifica of qualifiche"
+                  [value]="qualifica.nome_qual" > {{qualifica.nome_qual}} </option>
+            </select>
+            </td>
+            
+       </tr>
+<tr>
+ <td><label>Data</label></td>
+ <!-- <td><input type="date" ngbDatepicker [(ngModel)]="date"/></td> -->
+ <td id="col2"><mat-form-field>
+  <input id="data_picker"matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+</td>
+
+</tr>
+
+    <tr>
+       <td id="col1"><label>Ore di Presenza</label></td>
+       <td id="col2">
+            <select id="ore_presenza" style="width: 55%;height: 35px;">
+                  <option
+                  *ngFor="let ora of ore"
+                  [value]="ora.number" > {{ora.number}} </option>
+            </select>
+       </td>
+  </tr>
+  
+  <tr>
+              <td id="col1"><label>Descrizione Locazione</label></td>
+              <td id="col2"><textarea class="form-control" [(ngModel)]="descrizione" aria-label="With textarea"></textarea></td>
+                 
+   </tr>
+         
+    </table>  
+
+    
+    
+    <div class="modal-footer">
+      <button id="close" type
+      ="button" class="btn btn-secondary"  mat-dialog-close data-dismiss="modal">Close</button>
+      <button id="save" type="button"mat-button mat-dialog-close (click)="salva_operaio()" class="btn btn-primary">Salva </button>
+    </div>

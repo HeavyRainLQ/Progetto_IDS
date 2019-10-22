@@ -61,15 +61,41 @@ export class SqlServiceService {
   select_descrizione(nomeCat,descrizione)
   {
 
-
     console.log("servicio select_descrizione: ->");
-    //return this.http.get<myData>(`${this.URL}conexion.php`);
-    //return this.http.get("/api/conexion.php");
     return this.http.post('/api/select_categoria.php', {
       nomeCat,descrizione
     })
     
   }//fine select descrizione
+
+  select_attrezzatura()
+  {
+    return this.http.post('/api/select_attre.php',{})
+    
+  }//fine select attrezzatura
+
+  select_qualifica()
+  {
+        
+    return this.http.post('/api/select_qualifica.php',{})
+    
+  }//fine select attrezzatura
+  contabilita(budget)
+  {
+    console.log("servicio contabilita: ->");
+    return this.http.post('/api/select_contabilita.php', {
+      budget
+    });
+    
+  }//fine contabilita
+
+  updateInvalida(item_id)
+  {
+     console.log("servicio contabilita: ->");
+     return this.http.post('/api/update_valida.php', {
+      item_id
+     })
+  }//fine update invalida
 
   update_info(dati:object)
   {

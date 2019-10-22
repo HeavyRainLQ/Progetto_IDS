@@ -1,10 +1,14 @@
 # ProgettoIDS
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+PER IL DATABASE, TROVERETE NELLA CARTELLA API IL DB.SQL CHE DOVETE IMPORTARE DOPO. COPIARE ANCHE I
+FILE PHP ALLA CARTELLA HTDOCS DEL SERVER CHE STATE UTILIZZANDO
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+PER INIZIARE A UTILIZZARE IL SISTEMA, DOVRESTE PRIMA AVVIARE GANACHE( ganache-cli), dopo dentro la cartella di Progeto_IDS aprire un cmd e fare
+"truffle compile " e "truffle migrate", e per ultimo "npm start".
 
 ## Code scaffolding
 

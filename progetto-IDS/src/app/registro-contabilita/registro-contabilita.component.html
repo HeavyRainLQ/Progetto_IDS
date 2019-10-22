@@ -1,14 +1,14 @@
   <!--<app-banner></app-banner>-->
 <body>
     <div class="testa1">
-        <div>  <h4>Libretto delle Misure</h4> 
+        <div>  <h4>Registro di contabilità</h4> 
         </div>
         
         </div>
         <br>
         <br>
 
-<button mat-raised-button type="button" class="btn btn-danger" (click)="generare()"> GENERARE TABLE</button>
+<button mat-raised-button type="button" class="btn btn-danger" (click)="genera_registro()"> GENERARE TABLE</button>
 <br>
 <br>
 
@@ -33,35 +33,38 @@
 <br>
 
 
-<table  class="table table-striped" mdbTable >
+<table  class="table table-striped" mdbTable style="text-align:center;" >
   <thead class="thead-dark">
     <tr>
-      <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" sortBy="tariffa"scope="col">Cod. Tariffa</th>
-      <th [mdbTableSort]="misures" sortBy="data" scope="col">Data<mdb-icon fas icon="sort"></mdb-icon></th>
+      <!-- <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th> -->
+      <th [mdbTableSort]="registros" sortBy="tariffa"scope="col">Cod.Tariffa</th>
+      <!-- <th [mdbTableSort]="registros" sortBy="data" scope="col">Data<mdb-icon fas icon="sort"></mdb-icon></th> -->
       <!-- <th [mdbTableSort]="misures" sortBy="data" scope="col">Approvata<mdb-icon fas icon="sort"></mdb-icon></th>
       <th [mdbTableSort]="misures" sortBy="data" scope="col">valida<mdb-icon fas icon="sort"></mdb-icon></th> -->
-      <th [mdbTableSort]="misures" sortBy="categoria" scope="col">Categoria Contabile<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" sortBy="descrizione" scope="col">Descrizione<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" style="width:6%" sortBy="percentuale" scope="col">%<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" scope="col">Riserva</th>
-      <th [mdbTableSort]="misures" scope="col">Azioni</th>
+      <th [mdbTableSort]="registros" sortBy="categoria" scope="col">Categoria Contabile</th>
+      <th [mdbTableSort]="registros" sortBy="descrizione" scope="col">Descrizione</th>
+      <th [mdbTableSort]="registros" style="width:6%" sortBy="percentuale" scope="col">Percentuale %</th>
+      <th [mdbTableSort]="registros" scope="col">Prezzo(%)</th>
+      <th [mdbTableSort]="registros" scope="col">Debito</th>
+      <th [mdbTableSort]="registros" scope="col">Debito(%)</th>
+      <th  scope="col">Azione</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let misure of misures" [ngClass]="{'invalidata':!misure.valida,'approvata':misure.aprovata}">
-      <td style="padding-left: 15px;">{{misure.id}}</td>
-      <td>{{misure.tariffa}}</td>
-      <td>{{misure.data}}</td>
-      <!-- <td>{{misure.aprovata}}</td>
-      <td>{{misure.valida}}</td> -->
-      <td>{{misure.categoria}}</td>
-      <td>{{misure.descrizione}}</td>
-      <td>{{misure.percentuale}}</td>
-      <td>{{misure.riserva}}</td>
+    <tr *ngFor="let registro of registros" [ngClass]="">
+      <!-- <td style="padding-left: 15px;">{{misure.id}}</td> -->
+      <td>{{registro.tariffa}}</td>
+      <!-- <td>{{registro.data}}</td> -->
+      
+      <td>{{registro.categoria}}</td>
+      <td>{{registro.descrizione}}</td>
+      <td>{{registro.percentuale}}</td>
+      <td>{{registro.prezzo_perc}}</td>
+      <td>{{registro.debito}}</td>
+      <td>{{registro.debito_perc}}</td>
       <td>
-<button mat-raised-button type="button" class="btn btn-warning" (click)="approvare(misure)" style="color:white;"><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
-<button type="button"  (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!"><i class="far fa-trash-alt fa-1x"></i></button>
+<button mat-raised-button type="button" class="btn btn-warning" (click)="approvare(registro)" style="color:white;"><i class="fas fa-check-double fa-1x"></i> Approvare</button> &nbsp;
+<button type="button"  (click)="invalidare(registro)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!"><i class="far fa-trash-alt fa-1x"></i></button>
 
 
        </td>

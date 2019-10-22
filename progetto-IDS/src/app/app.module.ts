@@ -30,6 +30,8 @@ import { HttpClientModule} from "@angular/common/http";
 import { MisuraModalComponent } from './misura-modal/misura-modal.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { OperaioModalComponent } from './operaio-modal/operaio-modal.component';
+import { RegistroContabilitaComponent } from './registro-contabilita/registro-contabilita.component';
 
 
 
@@ -55,6 +57,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     HomeComponent,
     MioProfiloComponent,
     MisuraModalComponent,
+    OperaioModalComponent,
+    RegistroContabilitaComponent,
 
   ],
   imports: [

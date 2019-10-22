@@ -1,37 +1,76 @@
-<header>
 
-
-</header>
 <body>
-  <br>
-  <br>
-  <div class="container0">
-<div class="container1">
- 
-<div class="blockf">
-  <div class="blockd">
-      <h2 class="tm-section-title">Welcome to the System</h2>
-      <p>Benvenuto</p> 
-      <p id="nome1" > </p>
-      <p>prueba de texto para rellenar con otro texto, agregar algo de descripcion</p>   
-  </div>                        
-  <!--<i style="float:right;padding-top:30px;padding-right:100px;color:white;"class="far fa-handshake fa-7x"></i>-->
-  <!--<i style="float:right;padding-top:30px;padding-right:100px;color:white;"class="far fa-grin-wink fa-7x"></i>-->
-  <i style="float:right;padding-top:55px;padding-right:170px;color:white;"class="far fa-grin-wink fa-7x"></i>
-  
+   
 
+
+<div class="container">
+  <div id="movie-card-list">
+  <div class="row">
+    <div class="col">
+<div class="movie-card" style="width: 100%;" id="card1">
+    <div class="color-overlay">
+      <div class="movie-share">
+          <a style="color: white" href="https://www.instagram.com/fgl.services/"><i class="fab fa-instagram fa-1x"></i></a>
+          &nbsp; <a style="color:white" href="https://www.facebook.com/FGL-SERVICES-SRL-2111764782423079/"><i class="fab fa-facebook-f fa-1x"></i></a>
+        </div>
+                
+      
+      <div class="movie-content">
+        <div class="movie-header">
+          <h1 class="movie-title">Lavorazioni</h1>
+        </div>
+        <p class="movie-desc"> Tutto ciò che ci rappresenta.</p>
+        <a class="btn btn-outline" [routerLink]="['/base',{outlets:{ 'reserved': ['bucature']}}]"><i class="fas fa-share"></i>Andiamo</a>
+
+      </div>
+    </div>
+  </div>
+
+    </div>
+    <div class="col">
+      <div class="movie-card" style="width: 100%;" id="card2">
+      <div class="color-overlay">
+      <div class="movie-share">
+          <a style="color: white" href="https://www.instagram.com/fgl.services/"><i class="fab fa-instagram fa-1x"></i></a>
+          &nbsp;<a style="color:white" href="https://www.facebook.com/FGL-SERVICES-SRL-2111764782423079/"><i class="fab fa-facebook-f fa-1x"></i></a>
+        </div>
+            
+      <div class="movie-content">
+        <div class="movie-header">
+          <h1 class="movie-title">Prodotti</h1>
+        </div>
+        <p class="movie-desc">Le nostre proposte dedicate a voi!</p>
+        <a class="btn btn-outline" [routerLink]="['/base',{outlets:{ 'reserved': ['laser']}}]"><i class="fas fa-share"></i>Andiamo</a>
+
+      </div>
+    </div>
+  </div></div>
+    <div class="w-100"></div>
+    <div class="col"> 
+      <div class="movie-card" id="card3">
+    <div class="color-overlay">
+      <div class="movie-share">
+          <a style="color: white" href="https://www.instagram.com/fgl.services/"><i class="fab fa-instagram fa-1x"></i></a>
+          &nbsp;<a style="color:white" href="https://www.facebook.com/FGL-SERVICES-SRL-2111764782423079/"><i class="fab fa-facebook-f fa-1x"></i></a>
+
+        </div>
+     
+      
+      <div class="movie-content">
+        <div class="movie-header">
+          <h1 class="movie-title">Studio di Progettazione</h1>
+        </div>
+        <p class="movie-desc">Tutto ciò che propone il nostro team di ricerca e applicazione! </p>
+        <a class="btn btn-outline" [routerLink]="['/base',{outlets:{ 'reserved': ['ricami']}}]"><i class="fas fa-share"></i>Andiamo</a>
+
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </div>
+  </div>
 </div>
-
-
-</div>
-</div>
-
-
-  
-<br>
-<br>
-
-<br>
 
 <br>
 <br>

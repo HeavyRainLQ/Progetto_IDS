@@ -72,10 +72,6 @@ console.log(val_lav)
 console.log(this.percentuale)
 console.log(this.riserva)
 //this.ethcontractService.create_misura(this.tariffa,val_cat,val_lav,this.percentuale,this.riserva,this.data.account);
-
-
-
-
     let that = this;
 //deploed contract
     this.ethcontractService.create_misura(
