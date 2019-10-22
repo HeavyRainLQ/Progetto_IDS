@@ -10,7 +10,7 @@ $request = json_decode($postdata);
 
 $id_misura=$request->item_id;
 
-$estandar=mysqli_query($link,"UPDATE misura SET aprovaz=true WHERE idMisura='".$id_misura."'") or die("Error al mostrar"); 
+$estandar=mysqli_query($link,"UPDATE misura SET aprovaz=1 WHERE idMisura='".$id_misura."'") or die("Error al mostrar"); 
 
 
 
