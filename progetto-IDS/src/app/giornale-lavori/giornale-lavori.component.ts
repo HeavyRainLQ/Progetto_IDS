@@ -5,6 +5,7 @@ import { EthcontractService } from '../ethcontract.service';
 import { AgGridModule } from 'ag-grid-angular';
 
 import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
+import { SqlServiceService } from '../sql-service.service';
 
 
 @Component({
@@ -16,8 +17,8 @@ export class GiornaleLavoriComponent implements OnInit {
 
   lavori=[];
   attrezzature=[];
-
-  constructor(public dialog: MatDialog,private ethcontractService: EthcontractService )
+  inserisce = "inserire"
+  constructor(public dialog: MatDialog,private ethcontractService: EthcontractService,private SqlService: SqlServiceService)
   {
 
    }//fine constructor
@@ -64,5 +65,37 @@ generare_attre(event)
  this.attrezzature=this.ethcontractService.getAttrezzature();
 }//fine generare
 
+can(azione) {
+  switch (this.SqlService.utente[0].tipo) {
+    case "1": {
+      //admin
+      return true;
+      break;
+    }
+    case "2": {
+      //rup
+      if (azione == "approvare") {
+        return true;
+      } 
+      break;
+    }
+    case "3": {
+      //direttore
+      if (azione == "invalidare" || azione == "inserire") {
+        return true;
+      } 
+      break;
+    }
+    case "4": {
+      //ditta
+      return false;
+      break;
+    }
+    default: {
+      return false;
+      break;
+    }
+  }
+}
 
 }//fine della classe
