@@ -117,6 +117,7 @@ misures=[];
   {
   
 
+
   }
 
 
@@ -188,6 +189,7 @@ approvare(selectedItem: any)
 
 }//fine approvare
 
+
 invalidare(selectedItem: any)
 {
   console.log(selectedItem);
@@ -224,3 +226,4 @@ console.log(prueba)
 }//fine invalidare
 
 }
+

@@ -20,6 +20,7 @@ export class MisuraModalComponent implements OnInit {
   remarks='';
   valor="";
 
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private ethcontractService: EthcontractService,private SqlService: SqlServiceService ) 
   {
   
@@ -48,12 +49,14 @@ result: any;
   
 
   tariffa:string;
-  riserva:string;  
+  
+  
   percentuale:number;
-
+  riserva:string;
   num_categoria:number;
   
-salva_misura(event){
+  
+salva_misura(){
 
   let val_cat = (<HTMLSelectElement>document.getElementById('categoria')).value;
   let val_lav = (<HTMLSelectElement>document.getElementById('lavoro')).value;
@@ -108,7 +111,7 @@ this.SqlService.select_descrizione(val_cat,val_lav ).subscribe(data =>{
       
       var a=this.result[0].id_categoria;
       var b=this.result[0].id_lavori;
-
+      
       this.SqlService.insert_misura(this.tariffa,a,b,this.percentuale,this.riserva).subscribe(data =>{ 
     console.log("insert corretto..");
     console.log(data);
