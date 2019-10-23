@@ -40,32 +40,23 @@
           >
         </li>
 
-<div class="d-flex {{nascondi}}" id="wrapper">
-
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Benvenuto!</div>
-      <br>
-      <br>
-      <div class="list-group list-group-flush" id="menu">
-        <ul class="list-group" id="buttons">
-            
-            <li><a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['giornaleLavori']}}]" class=""><i class="far fa-address-book fa-2x"> </i>
-               &nbsp;Giornale dei lavori</a>
-             </li>
-              <li><a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['librettoMisure']}}]" class=""><i class="fas fa-book fa-w-16 fa-2x"></i>
-              &nbsp;Libretto delle misure</a>
-              </li>
-              <li><a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['registroContabilita']}}]" class=""><i class="fas fa-calculator fa-2x"></i>
-               &nbsp;Registro di Contabilità</a>
-              </li>
-                
-                <li><a  class=""><i class="fas fa-percent fa-2x"></i>
-                &nbsp;Stato Avanzamento Lavori</a>
-                </li>
-                <li><a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['graph']}}]" class=""><i class="fas fa-chart-bar fa-w-16 fa-2x"></i>&nbsp;Grafico</a>
-              </li>
-                  
+        <li>
+          <a class=""
+            ><i class="fas fa-percent fa-2x"></i> &nbsp;Stato Avanzamento
+            Lavori</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="[
+              '/area-riservata',
+              { outlets: { reserved: ['graph'] } }
+            ]"
+            class=""
+            ><i class="fas fa-chart-bar fa-w-16 fa-2x"></i>&nbsp;Grafico</a
+          >
+        </li>
+        
       </ul>
     </div>
   </div>
