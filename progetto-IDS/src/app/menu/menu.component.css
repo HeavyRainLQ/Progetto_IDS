@@ -111,7 +111,7 @@
 
 #wrapper.toggled #sidebar-wrapper {
   margin-left: 0;
-  width:13%;
+  width:400px;
 }
 
 @media (min-width: 768px) {
@@ -185,7 +185,7 @@
   }
 
   #wrapper.toggled #sidebar-wrapper {
-    margin-left: -10.9rem;
+    margin-left: -400px;
   }
   
 }
@@ -213,6 +213,7 @@
 #footer1{
  color: white;
   background-color:rgb(20, 25, 56);
+  
 }
 #cont_foo{
 
