@@ -6,35 +6,36 @@ include 'conexion.php';
 //$conn = new mysqli("localhost", "root", "080994Jota.-", "ids");  
 
 $postdata = file_get_contents("php://input");
-$request = json_decode($postdata); 
+$request = json_decode($postdata);
 //conexion con la base de datos y el servidor 127.0.0.1
-$username=$request->user;
-$password=$request->pass;
+$username = $request->user;
+$password = $request->pass;
 //$username = $_POST['user'];
 //$password = $_POST['pass'];
 //$estandar=mysqli_query($link,"select * from user where user='admin' and password='080994';") or die("Error al mostrar"); 
-$estandar=mysqli_query($link,"select * from user where username='".$username."' and password='".$password."';") or die("Error al mostrar"); 
+$estandar = mysqli_query($link, "select * from user where username='" . $username . "' and password='" . $password . "';") or die("Error al mostrar");
 
-if ($row=mysqli_fetch_array($estandar)) 
-{
+if ($row = mysqli_fetch_array($estandar)) {
 
-   $outp="";	
+    $outp = "";
     $outp .= '{"ini":"true",';
-    $outp .= '"tipo":"'   .$row[8]. '",';
-    $outp .= '"estado":"'.$row[9]. '"}';   
-$outp ='{"records":['.$outp.']}';
-echo($outp);
-//header('Location:http://localhost/Indomita/#/main');
+    $outp .= '"nome":"'   . $row[1] . '",';
+    $outp .= '"cognome":"'   . $row[2] . '",';
+    $outp .= '"cod_fiscale":"'   . $row[3] . '",';
+    $outp .= '"d_nascita":"'   . $row[4] . '",';
+    $outp .= '"luogo_nascita":"'   . $row[5] . '",';
+    $outp .= '"cap":"'   . $row[6] . '",';
+    $outp .= '"residenza":"'   . $row[7] . '",';
+    $outp .= '"tipo":"'   . $row[8] . '",';
+    $outp .= '"estado":"'   . $row[9] . '",';
+    $outp .= '"email":"' . $row[12] . '"}';
+    $outp = '{"records":[' . $outp . ']}';
+    echo ($outp);
+    //header('Location:http://localhost/Indomita/#/main');
+} else {
+    $outp = "";
+    $outp .= '{"ini":"false","user":"' . $username . '","pass":"' . $password . '"}';
+
+    $outp = '{"records":[' . $outp . ']}';
+    echo ($outp);
 }
-else
-{          
-$outp="";	
-$outp .= '{"ini":"false","user":"'.$username.'","pass":"'.$password.'"}';
-
-$outp ='{"records":['.$outp.']}';
-echo($outp);
-
-}
-
-?>
-

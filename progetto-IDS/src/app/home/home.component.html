@@ -2,82 +2,76 @@
 <body>
    
 
-
-<div class="container">
-  <div id="movie-card-list">
-  <div class="row">
-    <div class="col">
-<div class="movie-card" style="width: 100%;" id="card1">
-    <div class="color-overlay">
-      <div class="movie-share">
-          <a style="color: white" href="https://www.instagram.com/fgl.services/"><i class="fab fa-instagram fa-1x"></i></a>
-          &nbsp; <a style="color:white" href="https://www.facebook.com/FGL-SERVICES-SRL-2111764782423079/"><i class="fab fa-facebook-f fa-1x"></i></a>
-        </div>
-                
-      
-      <div class="movie-content">
-        <div class="movie-header">
-          <h1 class="movie-title">Lavorazioni</h1>
-        </div>
-        <p class="movie-desc"> Tutto ciò che ci rappresenta.</p>
-        <a class="btn btn-outline" [routerLink]="['/base',{outlets:{ 'reserved': ['bucature']}}]"><i class="fas fa-share"></i>Andiamo</a>
-
-      </div>
-    </div>
-  </div>
-
-    </div>
-    <div class="col">
-      <div class="movie-card" style="width: 100%;" id="card2">
-      <div class="color-overlay">
-      <div class="movie-share">
-          <a style="color: white" href="https://www.instagram.com/fgl.services/"><i class="fab fa-instagram fa-1x"></i></a>
-          &nbsp;<a style="color:white" href="https://www.facebook.com/FGL-SERVICES-SRL-2111764782423079/"><i class="fab fa-facebook-f fa-1x"></i></a>
-        </div>
+    <div id="movie-card-list">
+        <!-- Card 1: Blade Runner -->
+        <div class="movie-card">
+          <div class="color-overlay">
             
-      <div class="movie-content">
-        <div class="movie-header">
-          <h1 class="movie-title">Prodotti</h1>
-        </div>
-        <p class="movie-desc">Le nostre proposte dedicate a voi!</p>
-        <a class="btn btn-outline" [routerLink]="['/base',{outlets:{ 'reserved': ['laser']}}]"><i class="fas fa-share"></i>Andiamo</a>
-
-      </div>
-    </div>
-  </div></div>
-    <div class="w-100"></div>
-    <div class="col"> 
-      <div class="movie-card" id="card3">
-    <div class="color-overlay">
-      <div class="movie-share">
-          <a style="color: white" href="https://www.instagram.com/fgl.services/"><i class="fab fa-instagram fa-1x"></i></a>
-          &nbsp;<a style="color:white" href="https://www.facebook.com/FGL-SERVICES-SRL-2111764782423079/"><i class="fab fa-facebook-f fa-1x"></i></a>
-
-        </div>
-     
+                      
+            
+            <div class="movie-content">
+              <div class="movie-header">
+                <h1 class="movie-title">Giornale dei lavori</h1>
+                <h4 class="movie-info">Lavori,operai e attrezzature</h4>
+              </div>
+              <p class="movie-desc"> Tutto ciò che è stato fatto nel cantiere</p>
+              <a class="btn btn-outline" [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['giornaleLavori']}}]"><i class="fas fa-share"></i>Andiamo</a>
       
-      <div class="movie-content">
-        <div class="movie-header">
-          <h1 class="movie-title">Studio di Progettazione</h1>
+            </div>
+          </div>
         </div>
-        <p class="movie-desc">Tutto ciò che propone il nostro team di ricerca e applicazione! </p>
-        <a class="btn btn-outline" [routerLink]="['/base',{outlets:{ 'reserved': ['ricami']}}]"><i class="fas fa-share"></i>Andiamo</a>
+      
+        <!-- Card 2: Back to the Future -->
+        <div class="movie-card 2">
+          <div class="color-overlay">
+            
+                  
+            <div class="movie-content">
+              <div class="movie-header">
+                <h1 class="movie-title">Libretto delle misure</h1>
+                <h4 class="movie-info">Tutte le misure</h4>
+              </div>
+              <p class="movie-desc">Tutte le misure delle lavorazioni con le relative categorie di appartanenza</p>
+              <a class="btn btn-outline" [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['librettoMisure']}}]"><i class="fas fa-share"></i>Andiamo</a>
+      
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 3: Akira -->
+        <div class="movie-card 3">
+          <div class="color-overlay">
+            
+           
+            
+            <div class="movie-content">
+              <div class="movie-header">
+                <h1 class="movie-title">Registro di contabilità</h1>
+                <h4 class="movie-info">La contabilità delle lavorazioni </h4>
+              </div>
+              <p class="movie-desc">Tutto ciò che è stato approvato nel libretto delle misura con la rispettiva contabilità</p>
+              <a class="btn btn-outline" [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['registroContabilita']}}]"><i class="fas fa-share"></i>Andiamo</a>
+      
+            </div>
+          </div>
+        </div>
 
+        <div class="movie-card 4">
+            <div class="color-overlay">
+              
+             
+              
+              <div class="movie-content">
+                <div class="movie-header">
+                  <h1 class="movie-title">SAL</h1>
+                  <h4 class="movie-info">Stato avanzamento lavori</h4>
+                </div>
+                <p class="movie-desc">Tutti gli stati lavorativi del progetto e il relativo stato di avanzamento</p>
+                <a class="btn btn-outline" [routerLink]=""><i class="fas fa-share"></i>Andiamo</a>
+        
+              </div>
+            </div>
+          </div>
       </div>
-    </div>
-  </div>
-
-    </div>
-  </div>
-  </div>
-</div>
-
-<br>
-<br>
-
-
-
-
-
 
 </body>

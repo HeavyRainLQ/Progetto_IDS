@@ -117,6 +117,7 @@ misures=[];
   {
   
 
+
   }
 
 
@@ -203,6 +204,7 @@ this.ethcontractService.update_approva(
 
 }//fine approvare
 
+
 invalidare(selectedItem: any)
 {
   console.log(selectedItem);
@@ -239,3 +241,4 @@ console.log(prueba)
 }//fine invalidare
 
 }
+
