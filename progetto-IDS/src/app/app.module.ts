@@ -32,6 +32,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { OperaioModalComponent } from './operaio-modal/operaio-modal.component';
 import { RegistroContabilitaComponent } from './registro-contabilita/registro-contabilita.component';
+import { SalComponent } from './sal/sal.component';
 
 
 
@@ -59,6 +60,7 @@ import { RegistroContabilitaComponent } from './registro-contabilita/registro-co
     MisuraModalComponent,
     OperaioModalComponent,
     RegistroContabilitaComponent,
+    SalComponent,
 
   ],
   imports: [

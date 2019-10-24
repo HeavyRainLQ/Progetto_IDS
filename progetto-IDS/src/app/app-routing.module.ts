@@ -14,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { MioProfiloComponent } from './mio-profilo/mio-profilo.component';
 import { MisuraModalComponent } from './misura-modal/misura-modal.component';
 import { RegistroContabilitaComponent } from './registro-contabilita/registro-contabilita.component';
-
+import { SalComponent } from './sal/sal.component';
 const routes: Routes = [
   
   { path: 'login', component: LogInComponent },
@@ -80,7 +80,11 @@ const routes: Routes = [
       component: MioProfiloComponent,
       outlet: 'reserved'
     },
-    
+    { //view sal
+      path: 'sal',
+      component: SalComponent,
+      outlet: 'reserved'
+    },
   ] },
 
 ];

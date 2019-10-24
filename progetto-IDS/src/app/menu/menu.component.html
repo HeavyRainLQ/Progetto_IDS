@@ -41,7 +41,12 @@
         </li>
 
         <li>
-          <a class=""
+          <a 
+          [routerLink]="[
+              '/area-riservata',
+              { outlets: { reserved: ['sal'] } }
+            ]"
+          class=""
             ><i class="fas fa-percent fa-2x"></i> &nbsp;Stato Avanzamento
             Lavori</a
           >
@@ -199,7 +204,7 @@
               <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['registroContabilita']}}]">Registro di contabilità</a>
             </p>
             <p>
-              <a [routerLink]="">Stato avanzamento lavori</a>
+              <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['sal']}}]">Stato avanzamento lavori</a>
             </p>
           </div>
           <!-- Grid column -->
