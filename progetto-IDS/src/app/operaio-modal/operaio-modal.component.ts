@@ -108,8 +108,12 @@ console.log(unixtime)
 //     console.log(data);      
 //     });
 
+
 this.salva_attrezza(event);
+
+this.SqlService.insert_operaio(this.nome,this.cognome,qualifica);
  }//FINE SALVA OPERAIO
+
 
  salva_attrezza(event){
 

@@ -65,6 +65,15 @@ export class SqlServiceService {
 
   }//fin del metodo mio_profilo
 
+  insert_operaio(nome,cognome,qualifica){
+
+    console.log("servicio insert operaio: ->");
+
+    return this.http.post('/api/insert_operaio.php', {
+      nome,cognome,qualifica
+    })
+  }
+
   select_descrizione(nomeCat, descrizione) {
 
     console.log("servicio select_descrizione: ->");
