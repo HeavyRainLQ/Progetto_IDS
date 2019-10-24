@@ -14,7 +14,7 @@
   min-height: 100vh;
   width: 23%;
   /*margin-left: -10.9rem;*/
-  margin-left: 1.6rem;
+  
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
@@ -32,6 +32,7 @@
 }
 
 #sidebar-wrapper .sidebar-heading {
+  
   padding: 1.875rem 0.5rem;
   font-size: 1.3rem;
   color: white;
@@ -110,8 +111,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-  margin-left: 0;
-  width:400px;
+  margin-left: -7rem;
 }
 
 @media (min-width: 990px) {
@@ -185,7 +185,7 @@
   }
 
   #wrapper.toggled #sidebar-wrapper {
-    margin-left: -400px;
+    margin-left: -22rem;
   }
   
 }
