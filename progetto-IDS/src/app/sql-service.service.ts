@@ -68,7 +68,7 @@ export class SqlServiceService {
   insert_operaio(nome,cognome,qualifica){
 
     console.log("servicio insert operaio: ->");
-
+    console.log(nome,cognome,qualifica);
     return this.http.post('/api/insert_operaio.php', {
       nome,cognome,qualifica
     })
