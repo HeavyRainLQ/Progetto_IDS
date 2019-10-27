@@ -11,14 +11,6 @@ import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
 })
 export class RegistroContabilitaComponent implements OnInit {
 
-<<<<<<< HEAD
-registros:any;
-private defaultColDef; 
-  constructor(private tableService: MdbTableService,private ethcontractService: EthcontractService,private SqlService: SqlServiceService ) 
-  { 
-  	this.defaultColDef = { sortable: true };
-  	this.genera_registro()
-=======
   registros: any;
   private defaultColDef;
 
@@ -36,7 +28,6 @@ private defaultColDef;
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
     this.defaultColDef = { sortable: true };
     this.genera_registro()
->>>>>>> 9cb38bd52bbf1d7276a27de36adffe98fd58ed68
   }//fine constructor
 
   ngOnInit()
@@ -47,11 +38,7 @@ private defaultColDef;
 
   genera_registro(){
 
-<<<<<<< HEAD
-  this.SqlService.contabilita(100000).subscribe(data =>{ 
-=======
     this.SqlService.contabilita(this.budget).subscribe(data => {
->>>>>>> 9cb38bd52bbf1d7276a27de36adffe98fd58ed68
 
   console.log("genera_registro....");
   console.log(data);
