@@ -11,5 +11,8 @@ export class SalComponent implements OnInit {
 
   ngOnInit() {
   }
+  generare(){
+    
+  }
 
 }
