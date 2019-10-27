@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
+import { Component, OnInit,HostListener, ViewChild } from '@angular/core';
 import { ModalComponent } from '.././modal/modal.component';
 import { MisuraModalComponent } from '.././misura-modal/misura-modal.component';
 
@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material';
 import { EthcontractService } from '../ethcontract.service';
 import { SqlServiceService } from '../sql-service.service';
 import { AgGridModule } from 'ag-grid-angular';
-
+import { Router,ActivatedRoute, } from '@angular/router';
 import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
 
 
@@ -65,10 +65,11 @@ export class LibrettoDelleMisureComponent implements OnInit {
   invalida = "invalidare";
   riserva = "riserva";
   inserisce = "inserire misura"
-  constructor(private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
+  constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) {
     this.initAndDisplayAccount();
     this.defaultColDef = { sortable: true };
     this.generare(event);
+    
 
   }
 
@@ -119,10 +120,12 @@ export class LibrettoDelleMisureComponent implements OnInit {
   misures = [];
   ngOnInit() {
 
-
+    
 
   }
-
+  onReload(){
+    this.router.navigate(['/servers'],{relativeTo:this.route})
+   }
 
 
 

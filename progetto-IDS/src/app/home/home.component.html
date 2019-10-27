@@ -1,8 +1,35 @@
 
 <body>
-   
-
+    <div >
+    
+        <!-- Title -->
+        <div id="card-body"  >
+        <h1 class="card-title"  ><b>Contabilità di un lavoro a corpo</b></h1>
+        
+          
+        <!-- Text --><br>
+       
+        
+        <div id="card-body1">
+            <h6>Oggetto: </h6>
+            <h6>Committente: </h6>
+            <h6>Impresa: </h6>
+            <h6>Importo del progetto : </h6>
+        
+        </div>
+      </div>
+        <div class="card-header"   >
+          
+            <h5 ><center>#Documenti Contabilità</center></h5>
+          </div>
+        
+        
+        </div>
+        
     <div id="movie-card-list">
+       
+
+           
         <!-- Card 1: Blade Runner -->
         <div class="movie-card">
           <div class="color-overlay">
@@ -10,6 +37,7 @@
                       
             
             <div class="movie-content">
+                
               <div class="movie-header">
                 <h1 class="movie-title">Giornale dei lavori</h1>
                 <h4 class="movie-info">Lavori,operai e attrezzature</h4>
@@ -67,7 +95,7 @@
                   <h4 class="movie-info">Stato avanzamento lavori</h4>
                 </div>
                 <p class="movie-desc">Tutti gli stati lavorativi del progetto e il relativo stato di avanzamento</p>
-                <a class="btn btn-outline" [routerLink]=""><i class="fas fa-share"></i>Andiamo</a>
+                <a class="btn btn-outline" [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['sal']}}]"><i class="fas fa-share"></i>Andiamo</a>
         
               </div>
             </div>

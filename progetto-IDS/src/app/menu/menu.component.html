@@ -41,7 +41,12 @@
         </li>
 
         <li>
-          <a class=""
+          <a 
+          [routerLink]="[
+              '/area-riservata',
+              { outlets: { reserved: ['sal'] } }
+            ]"
+          class=""
             ><i class="fas fa-percent fa-2x"></i> &nbsp;Stato Avanzamento
             Lavori</a
           >
@@ -205,7 +210,11 @@
               <a href="#!">BrandFlow</a>
             </p>
             <p>
+<<<<<<< HEAD
               <a href="#!">Bootstrap Angular</a>
+=======
+              <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['sal']}}]">Stato avanzamento lavori</a>
+>>>>>>> 9cb38bd52bbf1d7276a27de36adffe98fd58ed68
             </p>
           </div>
           <!-- Grid column -->
