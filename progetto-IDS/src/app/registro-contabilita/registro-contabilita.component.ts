@@ -18,26 +18,31 @@ export class RegistroContabilitaComponent implements OnInit {
   approva = "approvare";
   invalida = "invalidare";
 
-  parametriDoc=[];
-  
+  parametriDoc;
+ 
   
 
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
     this.defaultColDef = { sortable: true };
-    this.genera_registro()
-    this.parametriDoc=this.SqlService.parDocumenti;
+    
+    this.parametriDoc=SqlService.parDocumenti;
     this.parametriDoc=this.parametriDoc[0];
+    
+    this.genera_registro()
+
+    
+    
   }//fine constructor
 
   ngOnInit()
   {
-
+    
   }//fine ngInit
 
 
   genera_registro(){
-
-    this.SqlService.contabilita(this.parametriDoc[0]).subscribe(data => {
+    console.log(this.parametriDoc['budget']);
+    this.SqlService.contabilita(this.parametriDoc['budget']).subscribe(data => {
 
   console.log("genera_registro....");
   console.log(data);
