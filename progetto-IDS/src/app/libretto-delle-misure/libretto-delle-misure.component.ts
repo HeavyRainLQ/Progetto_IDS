@@ -38,23 +38,7 @@ export class LibrettoDelleMisureComponent implements OnInit {
   remarks = '';
   valor = "";
   private defaultColDef;
-  columnDefs = [
-    { headerName: 'Make', field: 'make', sort: "desc" },
-    { headerName: 'Model', field: 'model' },
-    { headerName: 'Price', field: 'price' }
-  ];
-
-  rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Toyota', model: 'Celica', price: 23000 },
-    { make: 'Toyota', model: 'Celica', price: 19000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxter', price: 72000 },
-    { make: 'Porsche', model: 'Boxter', price: 23000 },
-    { make: 'Porsche', model: 'Boxter', price: 12000 },
-    { make: 'Porsche', model: 'Boxter', price: 34000 }
-  ];
+  
 
   searchText: string = '';
   previous: string;
@@ -64,11 +48,17 @@ export class LibrettoDelleMisureComponent implements OnInit {
   approva = "approvare";
   invalida = "invalidare";
   riserva = "riserva";
-  inserisce = "inserire misura"
+  inserisce = "inserire misura";
+  parametriDoc=[];
+
   constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) {
     this.initAndDisplayAccount();
     this.defaultColDef = { sortable: true };
     this.generare(event);
+    this.parametriDoc=this.SqlService.parDocumenti;
+    this.parametriDoc=this.parametriDoc[0];
+   
+
     
 
   }

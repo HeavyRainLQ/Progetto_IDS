@@ -18,16 +18,15 @@ export class RegistroContabilitaComponent implements OnInit {
   approva = "approvare";
   invalida = "invalidare";
 
-  budget=100000;
-    oggetto="Costruzione di un complesso di fabbricati destinati ad abitazione ed negozi nel centro urbano del Comune di Ancona.";
-    ditta="La Distruttoria s.r.l.";
-    committente="Sviluppo Anconetano s.r.l.";
+  parametriDoc=[];
   
   
 
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
     this.defaultColDef = { sortable: true };
     this.genera_registro()
+    this.parametriDoc=this.SqlService.parDocumenti;
+    this.parametriDoc=this.parametriDoc[0];
   }//fine constructor
 
   ngOnInit()
@@ -38,7 +37,7 @@ export class RegistroContabilitaComponent implements OnInit {
 
   genera_registro(){
 
-    this.SqlService.contabilita(this.budget).subscribe(data => {
+    this.SqlService.contabilita(this.parametriDoc[0]).subscribe(data => {
 
   console.log("genera_registro....");
   console.log(data);

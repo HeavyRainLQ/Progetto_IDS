@@ -3,6 +3,7 @@ import { OperaioModalComponent } from '.././operaio-modal/operaio-modal.componen
 import {MatDialog} from '@angular/material';
 import { EthcontractService } from '../ethcontract.service';
 import { AgGridModule } from 'ag-grid-angular';
+import { SqlServiceService } from '../sql-service.service';
 
 import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
 
@@ -16,10 +17,12 @@ export class GiornaleLavoriComponent implements OnInit {
 
   lavori=[];
   attrezzature=[];
+  parametriDoc=[];
 
-  constructor(public dialog: MatDialog,private ethcontractService: EthcontractService )
+  constructor(public dialog: MatDialog,private ethcontractService: EthcontractService,private SqlService: SqlServiceService )
   {
-
+    this.parametriDoc=this.SqlService.parDocumenti;
+    this.parametriDoc=this.parametriDoc[0];
    }//fine constructor
 
   ngOnInit(){
