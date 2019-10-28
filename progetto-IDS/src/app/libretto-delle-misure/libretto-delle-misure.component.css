@@ -16,12 +16,18 @@ table
 
   background-color: #89E1C3;
   color: black;
+  z-index: 50;
+}
+.invalida{
+  display:none;
 }
 
 .approva{
 
   display: none;
 }
+
+
 
 .invalidata{
 
