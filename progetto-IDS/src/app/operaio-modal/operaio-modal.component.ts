@@ -108,17 +108,25 @@ console.log(unixtime)
 //     console.log(data);      
 //     });
 
-this.SqlService.insert_operaio(this.nome,this.cognome,qualifica).subscribe(data => {
+// this.SqlService.insert_operaio(this.nome,this.cognome,qualifica).subscribe(data => {
+//   console.log(data);
 
- 
- 
-  console.log(data);
-
-});
+// });
 this.salva_attrezza(event);
 
 
 }//FINE SALVA OPERAIO
+
+ShowSelected()
+{
+/* Per ottenere il valore */
+var cod = (<HTMLSelectElement>document.getElementById("qualifica")).value;
+
+/* Per ottenere il text */
+var combo = (<HTMLSelectElement>document.getElementById("qualifica"));
+var selected = combo.options[combo.selectedIndex].text;
+console.log("valori del select: ",cod,selected);
+}//fine showselcted
 
  salva_attrezza(event){
 
@@ -153,12 +161,7 @@ var tipologia= (<HTMLSelectElement>document.getElementById('tipologia')).value;
 genera_attre(){
 
 this.SqlService.select_attrezzatura().subscribe(data =>{ 
-
-  console.log("select attrezzatura....");
-    console.log(data);
-
       this.attre = data["records"];
-
 });
 
 }//fine genera_attre
@@ -166,10 +169,6 @@ this.SqlService.select_attrezzatura().subscribe(data =>{
 genera_qualifica(){
 
 this.SqlService.select_qualifica().subscribe(data =>{ 
-
-  console.log("select attrezzatura....");
-    console.log(data);
-
       this.qualifiche = data["records"];
 
 });

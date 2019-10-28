@@ -9,11 +9,8 @@
         <h6>Importo del progetto : </h6>
         </div>
         <br>
-        <br>
+      
 
-<button mat-raised-button type="button" class="btn btn-danger" (click)="generare()"> GENERARE TABLE</button>
-<br>
-<br>
 
 <div class="form-row align-items-center">
   <div class="col-auto my-1">
@@ -52,7 +49,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let misure of misures" [ngClass]="{'invalidata':!misure.valida,'approvata':misure.aprovata}">
+    <tr *ngFor="let misure of misures" [ngClass]="{'invalidata':!misure.valida,'approvata':misure.aprovata,'approva':!misure.valida}">
       <td style="padding-left: 15px;">{{misure.id}}</td>
       <td>{{misure.tariffa}}</td>
       <td>{{misure.data}}</td>
@@ -64,7 +61,7 @@
       <td>{{misure.riserva}}</td>
       <td>
 
-<button mat-raised-button type="button" class="btn btn-warning" (click)="approvare(misure)" style="color:white;"><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
+<button mat-raised-button type="button" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
 <button type="button"  (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!"><i class="far fa-trash-alt fa-1x"></i></button>
 
 

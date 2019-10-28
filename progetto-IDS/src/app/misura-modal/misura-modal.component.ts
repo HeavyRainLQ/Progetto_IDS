@@ -120,21 +120,11 @@ this.SqlService.select_descrizione(val_cat,val_lav ).subscribe(data =>{
       //console.log($scope.result[0].ini);
       //var a=this.result[0].ini;
 
-      
-
 
     });
-
-      
-
-
     });
 
  
- console.log("finitaaaaaaaaa")
-
-
-
  }//FINE SALVA MISURA
 
 

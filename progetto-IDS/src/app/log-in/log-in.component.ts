@@ -1,8 +1,13 @@
-import { Component, OnInit, Input, Injectable, OnDestroy, Output } from '@angular/core';
+import { Component, OnInit, Input, Injectable, OnDestroy, Output ,ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SqlServiceService } from '../sql-service.service';
+import { Web3Service } from '../web3.service';
 import * as jQuery from 'jquery';
+import { MenuComponent } from '.././menu/menu.component';
+
+
+
 
 @Component({
   selector: 'app-log-in',
@@ -12,23 +17,23 @@ import * as jQuery from 'jquery';
 @Injectable({
   providedIn: 'root'
 })
-export class LogInComponent implements OnInit, OnDestroy {
+export class LogInComponent implements OnInit{
+
+  message: string ="hola mundo";
+  
+
   loginForm: FormGroup;
-  @Input() username: string;
-  @Input() password: string;
   disabilitato: boolean;
 
-  message = "Loading.... JOSE";
+  
   risposta = " ";
   //public servicio:SqlServiceService;
-  constructor(private formBuilder: FormBuilder, private router: Router, private user: SqlServiceService) {
-
-  }
+  constructor(private formBuilder: FormBuilder, private router: Router, private user: SqlServiceService,private sender: Web3Service) 
+  {
+     
+  }//fine constructor
 
   ngOnInit() {
-
-
-
 
     /*$(document).ready(() => {
       $('.loader-page').css({'visibility': 'hidden', 'opacity': '0'});
@@ -42,13 +47,17 @@ export class LogInComponent implements OnInit, OnDestroy {
       password: ['']
     });
   }
-  ngOnDestroy() {
 
-  }
+  
+  
   user1: string;
   pass1: string;
   result: Object;
   logIn() {
+
+  //this.user.sendMessage('Message from Home Component to App Component!');
+//  this.sender.sendMessage('Message from Home Component to App Component!');
+
     this.user.getSomeData(this.user1, this.pass1).subscribe(data => {
       console.log(data);
 
@@ -57,7 +66,7 @@ export class LogInComponent implements OnInit, OnDestroy {
       var a = this.result[0].ini;
       if (a == "true") {
 
-        confirm(" Benvenuto !!");
+//        confirm(" Benvenuto !!");
         if (this.result[0].estado == "1") {
           if (this.result[0].tipo == "1") {
             //$rootScope.user = true;
@@ -72,7 +81,7 @@ export class LogInComponent implements OnInit, OnDestroy {
           }
         }
         else {
-          alert("Usted se encuentra deshabilitado");
+          this.risposta = "Sorry, account disabled!";
         }
 
       }

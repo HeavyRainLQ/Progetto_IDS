@@ -343,7 +343,6 @@ create_operaio(
             _data,
             {
               from:_transferFrom,gas:3000000
-              
             });
           //definicion de instance
         }).then(function(status) {
@@ -365,19 +364,13 @@ create_operaio(
   update_approva(
     _id,
     _approva,
-    _transferFrom
-  ) {
+    _transferFrom) {
  console.log("arrivato Valori------")
-    
     let that = this;
-
     return new Promise((resolve, reject) => {
-      
       let misuraContract = TruffleContract(tokenAbi3);
       //para
-      
       misuraContract.setProvider(that.web3Provider);
-
       misuraContract.deployed().then(function(instance) 
       {  
           //return instance.transferFund(
@@ -386,23 +379,51 @@ create_operaio(
             _approva,
             {
               from:_transferFrom,gas:3000000
-              
             });
           //definicion de instance
         }).then(function(status) {
-
           if(status) {
             return resolve({status:true});
           }
         }).catch(function(error){
           console.log(error);
-
           return reject("Errore in update_approva!!");
         });
     });
-  
 
-  }//fine create operaio
+  }//fine approva
+
+  update_valida(
+    _id,
+    _valida,
+    _transferFrom) {
+ console.log("arrivato Valori------")
+    let that = this;
+    return new Promise((resolve, reject) => {
+      let misuraContract = TruffleContract(tokenAbi3);
+      //para
+      misuraContract.setProvider(that.web3Provider);
+      misuraContract.deployed().then(function(instance) 
+      {  
+          //return instance.transferFund(
+          return instance.update_valida(
+            _id,
+            _valida,
+            {
+              from:_transferFrom,gas:3000000
+            });
+          //definicion de instance
+        }).then(function(status) {
+          if(status) {
+            return resolve({status:true});
+          }
+        }).catch(function(error){
+          console.log(error);
+          return reject("Errore in update_approva!!");
+        });
+    });
+
+  }//fine valida
 
 create_attrezza(
     _tipologia,

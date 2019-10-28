@@ -21,6 +21,11 @@ table
   color: black;
 }
 
+.approva{
+
+  display: none;
+}
+
 .invalidata{
 
   background-color: #F18973;

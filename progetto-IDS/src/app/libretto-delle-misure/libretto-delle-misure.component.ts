@@ -146,16 +146,14 @@ export class LibrettoDelleMisureComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      
+      this.generare(event);
 
     });
   }//fine open dialog
 
   generare(event) {
 
-
-    let a = this.ethcontractService.getValori();
-    console.log("FUNZIONAAA:", a)
     this.misures = this.ethcontractService.getValori();
     console.log("prende il valore----")
     console.log(this.misures)
@@ -163,7 +161,6 @@ export class LibrettoDelleMisureComponent implements OnInit {
     // this.ethcontractService.getValori().subscribe(data=>{
     //   console.log("prende il valore----")
     //   console.log(data)
-
     // });
   }//fine generare
 
@@ -188,6 +185,21 @@ export class LibrettoDelleMisureComponent implements OnInit {
       console.log(prueba)
 
     });
+
+
+    this.ethcontractService.update_approva(
+      selectedItem.id,
+      selectedItem.aprovata,
+      this.transferFrom,
+    ).then(function(){
+      console.log("funziona update")
+    }).catch(function(error){
+      console.log(error);
+      console.log("false update")
+      
+    });
+
+
 
   }//fine approvare
 
@@ -216,10 +228,17 @@ export class LibrettoDelleMisureComponent implements OnInit {
 
     });
 
-
-
-    console.log("update in SQL----------")
-    console.log(prueba)
+    this.ethcontractService.update_valida(
+      selectedItem.id,
+      false,
+      this.transferFrom,
+    ).then(function(){
+      console.log("funziona update")
+    }).catch(function(error){
+      console.log(error);
+      console.log("false update")
+      
+    });
 
 
   }//fine invalidare

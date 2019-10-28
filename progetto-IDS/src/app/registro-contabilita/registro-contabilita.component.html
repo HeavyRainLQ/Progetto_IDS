@@ -13,7 +13,6 @@
 
 <button mat-raised-button type="button" class="btn btn-danger" (click)="genera_registro()"> GENERARE TABLE</button>
 <br>
-<br>
 
 <!-- <div class="form-row align-items-center">
   <div class="col-auto my-1">
@@ -46,7 +45,7 @@
       <th [mdbTableSort]="misures" sortBy="data" scope="col">valida<mdb-icon fas icon="sort"></mdb-icon></th> -->
       <th [mdbTableSort]="registros" sortBy="categoria" scope="col">Categoria Contabile</th>
       <th [mdbTableSort]="registros" sortBy="descrizione" scope="col">Descrizione</th>
-      <th [mdbTableSort]="registros" style="width:6%" sortBy="percentuale" scope="col">Percentuale %</th>
+      <th [mdbTableSort]="registros" style="width:6%" sortBy="percentuale" scope="col">%</th>
       <th [mdbTableSort]="registros" scope="col">Prezzo(%)</th>
       <th [mdbTableSort]="registros" scope="col">Debito</th>
       <th [mdbTableSort]="registros" scope="col">Debito(%)</th>

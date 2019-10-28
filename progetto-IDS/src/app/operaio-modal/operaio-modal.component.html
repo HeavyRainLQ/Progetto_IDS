@@ -41,10 +41,10 @@
        <tr>
             <td id="col1"><label>Qualifica</label></td>
             <td id="col2">
-            <select id="qualifica" style="width: 100%;height: 35px;">
+            <select id="qualifica" style="width: 100%;height: 35px;" (change)="ShowSelected()">
                   <option
                   *ngFor="let qualifica of qualifiche"
-                  [value]="qualifica.nome_qual" > {{qualifica.nome_qual}} </option>
+                  [value]="qualifica.id_qual" > {{qualifica.nome_qual}} </option>
             </select>
             </td>
             
