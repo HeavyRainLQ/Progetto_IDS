@@ -52,5 +52,35 @@ export class RegistroContabilitaComponent implements OnInit {
 });
 
 }//fine genera_attre
+can(azione) {
+    switch (this.SqlService.utente[0].tipo) {	
+      case "1": {	
+        //admin	
+        return true;	
+        break;	
+      }	
+      case "2": {	
+        //rup	
+        if (azione == "approvare" || azione =="invalidare") {	
+          return true;	
+        }	
+        break;	
+      }	
+      case "3": {	
+        //direttore	
+        return false;	
+        break;	
+      }	
+      case "4": {	
+        //ditta	
+        return false;	
+        break;	
+      }	
+      default: {	
+        return false;	
+        break;	
+      }	
+    }	
+  }
 
 }

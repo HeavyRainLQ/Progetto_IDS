@@ -16,7 +16,7 @@ import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
 })
 export class SalComponent implements OnInit {
 
-  parametriDoc=[];
+  parametriDoc : any;
   
   constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) { 
 

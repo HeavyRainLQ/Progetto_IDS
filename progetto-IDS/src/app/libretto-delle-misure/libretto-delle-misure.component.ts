@@ -49,7 +49,7 @@ export class LibrettoDelleMisureComponent implements OnInit {
   invalida = "invalidare";
   riserva = "riserva";
   inserisce = "inserire misura";
-  parametriDoc=[];
+  parametriDoc: any;
 
   constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) {
     this.initAndDisplayAccount();

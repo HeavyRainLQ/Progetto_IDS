@@ -33,7 +33,7 @@ constructor(@Inject(MAT_DIALOG_DATA) public data: any,private user:SqlServiceSer
     this.dati= {
           
       "col1":{
-      "ci": this.data.ci,
+      // "ci": this.data.ci,
       "nome":this.data.nome,
       "cognome":this.data.cognome,
       "cod_fis":this.data.cod_fis,
@@ -68,7 +68,7 @@ save()
   this.dati= {
           
     "col1":{
-    "ci":  a1.value,
+    // "ci":  a1.value,
     "nome":a2.value,
     "cognome":a3.value,
     "cod_fis":a4.value,
