@@ -2,7 +2,8 @@ import { Component, OnInit,Inject, Input} from '@angular/core';
 
 import { EthcontractService } from '../ethcontract.service';
 import {SqlServiceService } from '../sql-service.service';
-import {MAT_DIALOG_DATA,MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA,MatDialogRef, ErrorStateMatcher} from '@angular/material';
+import { createEmptyStateSnapshot } from '@angular/router/src/router_state';
 
 @Component({
   selector: 'app-misura-modal',
@@ -124,9 +125,21 @@ this.SqlService.select_descrizione(val_cat,val_lav ).subscribe(data =>{
     });
     });
 
+
+    
  
  }//FINE SALVA MISURA
 
+ percEsatta(){
 
+  if(this.percentuale<1 || this.percentuale>100){
+
+    this.percentuale=0;
+  }
+
+
+
+      
+}
 
 }
