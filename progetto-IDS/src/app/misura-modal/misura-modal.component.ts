@@ -1,15 +1,9 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 
 import { EthcontractService } from '../ethcontract.service';
-<<<<<<< HEAD
-import {SqlServiceService } from '../sql-service.service';
-import {MAT_DIALOG_DATA,MatDialogRef, ErrorStateMatcher} from '@angular/material';
-import { createEmptyStateSnapshot } from '@angular/router/src/router_state';
-=======
 import { SqlServiceService } from '../sql-service.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
->>>>>>> 7d0e1698d802522001b6e106f4a39771c720c79d
 
 @Component({
   selector: 'app-misura-modal',
@@ -133,13 +127,7 @@ export class MisuraModalComponent implements OnInit {
     });
 
 
-<<<<<<< HEAD
-    
- 
- }//FINE SALVA MISURA
-=======
   }//FINE SALVA MISURA
->>>>>>> 7d0e1698d802522001b6e106f4a39771c720c79d
 
  percEsatta(){
 
