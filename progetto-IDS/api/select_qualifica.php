@@ -10,20 +10,15 @@ $request = json_decode($postdata);
 
 
 
-$estandar=mysqli_query($link,"SELECT nome_qual FROM qualifica") or die("Error al mostrar"); 
+$estandar=mysqli_query($link,"SELECT id_qualifica,nome_qual FROM qualifica") or die("Error al mostrar"); 
 
 
 $outp="";	
 while($row=mysqli_fetch_array($estandar)) 
 {
     if ($outp != "") {$outp .= ",";}    
-    $outp .= '{"nome_qual":"'.$row[0]. '"}';   
+    $outp .= '{"id_qualifica":"'.$row[0]. '",';
+        $outp .= '"nome_qual":"'   . $row[1] .'"}';
 }
 $outp ='{"records":['.$outp.']}';
 echo($outp);
-
-
-
-
-?>
-

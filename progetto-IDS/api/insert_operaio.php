@@ -16,7 +16,7 @@ $qualifica=$request->qualifica;
 
 
 
-$estandar=mysqli_query($link,"INSERT INTO operai( nome, cognome, qualifica) VALUES ('".$nome."',".$cognome.",'".$qualifica."')") or die("Errore di INSERT MISURA!"); 
+$estandar=mysqli_query($link,"INSERT INTO operai( nome, cognome, qualifica) VALUES ('".$nome."','".$cognome."','".$qualifica."')") or die("Errore di INSERT MISURA!"); 
 
 
 
