@@ -20,7 +20,7 @@ export class MioProfiloComponent implements OnInit {
   user1="admin";
   pass1="080994";
   result:Object;
-  
+
   
   ci="";
   nome="";
@@ -32,34 +32,32 @@ export class MioProfiloComponent implements OnInit {
   resid="";
   user2="";
   pass2="";
-  email="";
 
   constructor(private router: Router,private user:SqlServiceService,public dialog: MatDialog) { }
   
   ngOnInit() {
 
     
-    // this.user.mio_profilo(this.user1,this.pass1).subscribe(data =>{ 
-    //   console.log("entro sin error");
-    //   console.log(data);
+    this.user.mio_profilo(this.user1,this.pass1).subscribe(data =>{ 
+      console.log("entro sin error");
+      console.log(data);
   
-    //     this.result = data["records"];
-    //     //console.log($scope.result[0].ini);
-    //     var a=this.user.utente[0].ini;
+        this.result = data["records"];
+        //console.log($scope.result[0].ini);
+        var a=this.result[0].ini;
 
         
-  
-  this.nome=this.user.utente[0].nome;
-  this.cognome=this.user.utente[0].cognome;
-  this.cod_fis=this.user.utente[0].cod_fiscale;
-  this.d_nasci=this.user.utente[0].d_nascita;
-  this.l_nasci=this.user.utente[0].luogo_nascita;
-  this.cap=this.user.utente[0].cap;
-  this.resid=this.user.utente[0].residenza;
-  
-  this.email=this.user.utente[0].email;
-  
-      //});
+  this.ci=this.result[0].iden;
+  this.nome=this.result[0].nome;
+  this.cognome=this.result[0].cognome;
+  this.cod_fis=this.result[0].cod_fis;
+  this.d_nasci=this.result[0].d_nasci;
+  this.l_nasci=this.result[0].lug_nasci;
+  this.cap=this.result[0].cap;
+  this.resid=this.result[0].resid;
+  this.user2=this.result[0].user;
+  this.pass2=this.result[0].pass;
+      });
 
   }//fin de ngoninit
 
@@ -85,8 +83,7 @@ export class MioProfiloComponent implements OnInit {
             cap:this.cap,
             resid:this.resid,
             user2:this.user2,
-            pass2:this.pass2,
-            email:this.email
+            pass2:this.pass2
           
           }//fin della data
     

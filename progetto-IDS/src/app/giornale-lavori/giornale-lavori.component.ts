@@ -3,9 +3,9 @@ import { OperaioModalComponent } from '.././operaio-modal/operaio-modal.componen
 import {MatDialog} from '@angular/material';
 import { EthcontractService } from '../ethcontract.service';
 import { AgGridModule } from 'ag-grid-angular';
+import { SqlServiceService } from '../sql-service.service';
 
 import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
-import { SqlServiceService } from '../sql-service.service';
 
 
 @Component({
@@ -17,10 +17,12 @@ export class GiornaleLavoriComponent implements OnInit {
 
   lavori=[];
   attrezzature=[];
-  inserisce = "inserire"
-  constructor(public dialog: MatDialog,private ethcontractService: EthcontractService,private SqlService: SqlServiceService)
-  {
+  parametriDoc=[];
 
+  constructor(public dialog: MatDialog,private ethcontractService: EthcontractService,private SqlService: SqlServiceService )
+  {
+    this.parametriDoc=this.SqlService.parDocumenti;
+    this.parametriDoc=this.parametriDoc[0];
    }//fine constructor
 
   ngOnInit(){
@@ -65,37 +67,5 @@ generare_attre(event)
  this.attrezzature=this.ethcontractService.getAttrezzature();
 }//fine generare
 
-can(azione) {
-  switch (this.SqlService.utente[0].tipo) {
-    case "1": {
-      //admin
-      return true;
-      break;
-    }
-    case "2": {
-      //rup
-      if (azione == "approvare") {
-        return true;
-      } 
-      break;
-    }
-    case "3": {
-      //direttore
-      if (azione == "invalidare" || azione == "inserire") {
-        return true;
-      } 
-      break;
-    }
-    case "4": {
-      //ditta
-      return false;
-      break;
-    }
-    default: {
-      return false;
-      break;
-    }
-  }
-}
 
 }//fine della classe

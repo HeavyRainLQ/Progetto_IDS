@@ -1,10 +1,14 @@
 <body>
-    <div class="testa1">
-        <div>  <h4>Giornale dei Lavori</h4> 
-        </div>
-        
-        </div>
-  <br>
+  <div class="testa1">
+    <div>  <h3>Giornale dei lavori</h3>
+      <br> 
+    </div>
+    <h6>Oggetto: <b style="color: wheat;">{{parametriDoc['oggetto']}}</b></h6>
+    <h6>Committente: <b style="color: wheat;">{{parametriDoc['committente']}}</b></h6>
+    <h6>Impresa: <b style="color: wheat;">{{parametriDoc['ditta']}}</b></h6>
+    <h6>Importo del progetto : <b style="color: wheat;">{{parametriDoc['budget']}}</b></h6>
+    </div>
+    <br>
 
 <div class="container" id="cont1">
 <br>
@@ -13,7 +17,7 @@
   <h3>Dettagli Operai</h3>
   <br>
 
-    <button *ngIf=can(inserisce) mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuovo Operaio</button>
+    <button mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuovo Operaio</button>
   
 <table class="ta" id="table_operaio">
   <thead class="thead-dark">
@@ -23,7 +27,7 @@
       <th scope="col">Cognome</th>
       <th scope="col">Qualifica</th>
       <th scope="col">Ore</th>
-      <!-- <th scope="col">Annotazioni</th> -->
+      <th scope="col">Riserva/Annotazioni</th>
     </tr>
   </thead>
   <tbody>
@@ -33,8 +37,8 @@
       <td>{{lavoro.cognome}}</td>
       <td>{{lavoro.qualifica}}</td>
       <td>{{lavoro.ore}}</td>
-      <!-- <td>{{lavoro.</td> -->
-      <!-- <td></td> -->
+      <!-- <td>{{lavoro.}}</td> -->
+      <td></td>
     </tr>
 
   </tbody>

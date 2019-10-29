@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EthcontractService } from '../ethcontract.service';
-import { SqlServiceService } from '../sql-service.service';
-import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
+import {SqlServiceService } from '../sql-service.service';
+import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
+
 
 @Component({
   selector: 'app-registro-contabilita',
@@ -16,60 +17,40 @@ export class RegistroContabilitaComponent implements OnInit {
   //variabili controllo azioni
   approva = "approvare";
   invalida = "invalidare";
+
+  parametriDoc;
+ 
   
 
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
     this.defaultColDef = { sortable: true };
+    
+    this.parametriDoc=SqlService.parDocumenti;
+    this.parametriDoc=this.parametriDoc[0];
+    
     this.genera_registro()
+
+    
+    
   }//fine constructor
 
-  ngOnInit() {
-
+  ngOnInit()
+  {
+    
   }//fine ngInit
 
 
-  genera_registro() {
+  genera_registro(){
+    console.log(this.parametriDoc['budget']);
+    this.SqlService.contabilita(this.parametriDoc['budget']).subscribe(data => {
 
-    this.SqlService.contabilita(100000).subscribe(data => {
-
-      console.log("genera_registro....");
-      console.log(data);
+  console.log("genera_registro....");
+  console.log(data);
 
       this.registros = data["records"];
 
-    });
+});
 
-  }//fine genera_attre
-
-  can(azione) {
-    switch (this.SqlService.utente[0].tipo) {
-      case "1": {
-        //admin
-        return true;
-        break;
-      }
-      case "2": {
-        //rup
-        if (azione == "approvare" || azione =="invalidare") {
-          return true;
-        }
-        break;
-      }
-      case "3": {
-        //direttore
-        return false;
-        break;
-      }
-      case "4": {
-        //ditta
-        return false;
-        break;
-      }
-      default: {
-        return false;
-        break;
-      }
-    }
-  }
+}//fine genera_attre
 
 }

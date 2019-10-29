@@ -1,16 +1,17 @@
   <!--<app-banner></app-banner>-->
 <body>
     <div class="testa1">
-        <div>  <h4>Libretto delle Misure</h4> 
+        <div>  <h3>Libretto delle Misure</h3>
+          <br> 
         </div>
-        
+        <h6>Oggetto: <b style="color: wheat;">{{parametriDoc.oggetto}}</b></h6>
+        <h6>Committente: <b style="color: wheat;">{{parametriDoc.committente}}</b></h6>
+        <h6>Impresa: <b style="color: wheat;">{{parametriDoc.ditta}}</b></h6>
+        <h6>Importo del progetto : <b style="color: wheat;">{{parametriDoc.budget}}</b></h6>
         </div>
         <br>
-        <br>
+      
 
-<button mat-raised-button type="button" class="btn btn-danger" (click)="generare()"> GENERARE TABLE</button>
-<br>
-<br>
 
 <div class="form-row align-items-center">
   <div class="col-auto my-1">
@@ -25,7 +26,7 @@
   </div>
 
   <div class="col-auto my-1">
-    <button *ngIf=can(inserisce) mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuova Misura</button>
+    <button mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuova Misura</button>
   </div>
 
 </div>
@@ -61,8 +62,9 @@
       <td>{{misure.riserva}}</td>
       <td>
 
-<button *ngIf="can(approva)" mat-raised-button type="button" class="btn btn-warning" (click)="approvare(misure)" style="color:white;"><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
-<button *ngIf="can(invalida)"type="button"  (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!"><i class="far fa-trash-alt fa-1x"></i></button>
+<button mat-raised-button type="button" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
+<button type="button"  (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:!misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
+<button type="button"  (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
 
 
 

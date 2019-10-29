@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
+import { Component, OnInit,HostListener, ViewChild } from '@angular/core';
 import { ModalComponent } from '.././modal/modal.component';
 import { MisuraModalComponent } from '.././misura-modal/misura-modal.component';
 
@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material';
 import { EthcontractService } from '../ethcontract.service';
 import { SqlServiceService } from '../sql-service.service';
 import { AgGridModule } from 'ag-grid-angular';
-
+import { Router,ActivatedRoute, } from '@angular/router';
 import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
 
 
@@ -38,23 +38,7 @@ export class LibrettoDelleMisureComponent implements OnInit {
   remarks = '';
   valor = "";
   private defaultColDef;
-  columnDefs = [
-    { headerName: 'Make', field: 'make', sort: "desc" },
-    { headerName: 'Model', field: 'model' },
-    { headerName: 'Price', field: 'price' }
-  ];
-
-  rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Toyota', model: 'Celica', price: 23000 },
-    { make: 'Toyota', model: 'Celica', price: 19000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxter', price: 72000 },
-    { make: 'Porsche', model: 'Boxter', price: 23000 },
-    { make: 'Porsche', model: 'Boxter', price: 12000 },
-    { make: 'Porsche', model: 'Boxter', price: 34000 }
-  ];
+  
 
   searchText: string = '';
   previous: string;
@@ -64,11 +48,18 @@ export class LibrettoDelleMisureComponent implements OnInit {
   approva = "approvare";
   invalida = "invalidare";
   riserva = "riserva";
-  inserisce = "inserire misura"
-  constructor(private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
+  inserisce = "inserire misura";
+  parametriDoc=[];
+
+  constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) {
     this.initAndDisplayAccount();
     this.defaultColDef = { sortable: true };
     this.generare(event);
+    this.parametriDoc=this.SqlService.parDocumenti;
+    this.parametriDoc=this.parametriDoc[0];
+   
+
+    
 
   }
 
@@ -119,10 +110,12 @@ export class LibrettoDelleMisureComponent implements OnInit {
   misures = [];
   ngOnInit() {
 
-
+    
 
   }
-
+  onReload(){
+    this.router.navigate(['/servers'],{relativeTo:this.route})
+   }
 
 
 
@@ -143,16 +136,14 @@ export class LibrettoDelleMisureComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      
+      this.generare(event);
 
     });
   }//fine open dialog
 
   generare(event) {
 
-
-    let a = this.ethcontractService.getValori();
-    console.log("FUNZIONAAA:", a)
     this.misures = this.ethcontractService.getValori();
     console.log("prende il valore----")
     console.log(this.misures)
@@ -160,7 +151,6 @@ export class LibrettoDelleMisureComponent implements OnInit {
     // this.ethcontractService.getValori().subscribe(data=>{
     //   console.log("prende il valore----")
     //   console.log(data)
-
     // });
   }//fine generare
 
@@ -185,6 +175,21 @@ export class LibrettoDelleMisureComponent implements OnInit {
       console.log(prueba)
 
     });
+
+
+    this.ethcontractService.update_approva(
+      selectedItem.id,
+      selectedItem.aprovata,
+      this.transferFrom,
+    ).then(function(){
+      console.log("funziona update")
+    }).catch(function(error){
+      console.log(error);
+      console.log("false update")
+      
+    });
+
+
 
   }//fine approvare
 
@@ -213,10 +218,17 @@ export class LibrettoDelleMisureComponent implements OnInit {
 
     });
 
-
-
-    console.log("update in SQL----------")
-    console.log(prueba)
+    this.ethcontractService.update_valida(
+      selectedItem.id,
+      false,
+      this.transferFrom,
+    ).then(function(){
+      console.log("funziona update")
+    }).catch(function(error){
+      console.log(error);
+      console.log("false update")
+      
+    });
 
 
   }//fine invalidare

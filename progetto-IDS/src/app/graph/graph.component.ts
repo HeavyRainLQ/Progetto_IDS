@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Chart} from 'chart.js';
+import { SqlServiceService } from '../sql-service.service';
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
@@ -10,10 +11,12 @@ export class GraphComponent implements OnInit {
   LineChart=[];
   BarChart=[];
   PieChart=[];
-  
+  parametriDoc=[];
 
-  constructor() { 
-    
+
+  constructor(private SqlService: SqlServiceService) { 
+    this.parametriDoc=this.SqlService.parDocumenti;
+    this.parametriDoc=this.parametriDoc[0];
   }
 
   ngOnInit() {

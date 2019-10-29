@@ -110,6 +110,8 @@ opQual:any;
     //     console.log(data);      
     //     });
 
+// this.SqlService.insert_operaio(this.nome,this.cognome,qualifica).subscribe(data => {
+//   console.log(data);
 
     this.salva_attrezza(event);
     
@@ -153,24 +155,15 @@ opQual:any;
 
   genera_attre() {
 
-    this.SqlService.select_attrezzatura().subscribe(data => {
-
-      console.log("select attrezzatura....");
-      console.log(data);
-
+this.SqlService.select_attrezzatura().subscribe(data =>{ 
       this.attre = data["records"];
-
-    });
+});
 
   }//fine genera_attre
 
   genera_qualifica() {
 
-    this.SqlService.select_qualifica().subscribe(data => {
-
-      console.log("select attrezzatura....");
-      console.log(data);
-
+this.SqlService.select_qualifica().subscribe(data =>{ 
       this.qualifiche = data["records"];
 
     });

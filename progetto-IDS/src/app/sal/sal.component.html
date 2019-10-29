@@ -1,0 +1,75 @@
+  <!--<app-banner></app-banner>-->
+  <body>
+    <div class="testa1">
+      <div>  <h3>Stato avanzamento lavori</h3>
+        <br> 
+      </div>
+      <h6>Oggetto: <b style="color: wheat;">{{parametriDoc.oggetto}}</b></h6>
+      <h6>Committente: <b style="color: wheat;">{{parametriDoc.committente}}</b></h6>
+      <h6>Impresa: <b style="color: wheat;">{{parametriDoc.ditta}}</b></h6>
+      <h6>Importo del progetto : <b style="color: wheat;">{{parametriDoc.budget}}</b></h6>
+      </div>
+      <br>
+        
+
+<button mat-raised-button type="button" class="btn btn-danger" (click)="generare()"> GENERARE TABLE</button>
+<br>
+<br>
+
+
+
+<br>
+
+
+<table  class="table table-striped" mdbTable >
+  <thead class="thead-dark">
+    <tr>
+      <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th>
+      <th [mdbTableSort]="misures" sortBy="tariffa"scope="col">Cod. Tariffa</th>
+      <th [mdbTableSort]="misures" sortBy="categoria" scope="col">Categoria Contabile<mdb-icon fas icon="sort"></mdb-icon></th>
+      <th [mdbTableSort]="misures" sortBy="descrizione" scope="col">Descrizione<mdb-icon fas icon="sort"></mdb-icon></th>
+      <th [mdbTableSort]="misures" style="width:6%" sortBy="percentuale" scope="col">Quantità %<mdb-icon fas icon="sort"></mdb-icon></th>
+      <th [mdbTableSort]="misures" scope="col">Importo unitario</th>
+      <th [mdbTableSort]="misures" scope="col">Importo unitario percentuale</th>
+      <th [mdbTableSort]="misures" scope="col">Importo totale</th>
+      <th [mdbTableSort]="misures" scope="col">Importo totale percentuale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let misure of misures" [ngClass]="{'invalidata':!misure.valida,'approvata':misure.aprovata}">
+      <td style="padding-left: 15px;">{{misure.id}}</td>
+      <td>{{misure.tariffa}}</td>
+      <td>{{misure.data}}</td>
+       <td>{{misure.aprovata}}</td>
+      <td>{{misure.valida}}</td> 
+      <td>{{misure.categoria}}</td>
+      <td>{{misure.descrizione}}</td>
+      <td>{{misure.percentuale}}</td>
+      <td>{{misure.riserva}}</td>
+      <td>
+
+
+       </td>
+    </tr> -->
+  </tbody>
+</table>
+
+
+
+
+
+<br>
+
+
+
+<br>
+<br>
+
+
+<br>
+
+
+<br>
+
+
+</body>

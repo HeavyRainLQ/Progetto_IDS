@@ -70,6 +70,28 @@ contract librettoMisure{
         }
         
     }
+    function update_approva(uint id, bool aprovaz) public 
+    {
+        
+        for(uint i=0;i<misures.length;i++)
+        {
+            if(misures[i].id==id)
+            {
+            misures[i].aprovaz=aprovaz;
+            }   
+        }    
+    }
+    function update_valida(uint id, bool valid) public 
+    {
+        for(uint i=0;i<misures.length;i++)
+        {
+            if(misures[i].id==id)
+            {
+            misures[i].valid=valid;
+            }   
+        }
+    }
+
     function destroy(uint id) public{
         delete misures[id];
     }
