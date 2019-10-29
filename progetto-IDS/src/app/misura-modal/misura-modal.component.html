@@ -1,62 +1,90 @@
- 
-  
-  <div id="tittle1">
-      <!-- <button class="closee" mat-dialog-close>
+<div id="tittle1">
+  <!-- <button class="closee" mat-dialog-close>
          <span style="font-size: 150%"aria-hidden="true">&times;</span></button>   -->
-      
-   <h4>NUOVA MISURA</h4> </div>
-  
 
-    <br>
-  <br>
-     <table id="table1">
-  
-        
-    <tr>
-            <td><label>Categoria Contabile</label></td>
-            <td>
-               
-               <select id="categoria" >
-                     <option
-                     *ngFor="let categoria of categorias"
-                     [value]="categoria.name" > {{categoria.name}} </option>
-               </select>
-            </td>
-         </tr>
-    <tr>
-       <td><label>Descrizione</label></td>
-       <td>
-            <select id="lavoro" >
-                  <option
-                  *ngFor="let lavoro of lavori"
-                  [value]="lavoro.name" > {{lavoro.name}} </option>
-            </select>
-       </td>
+  <h4>NUOVA MISURA</h4>
+</div>
+
+<br />
+<br />
+<table id="table1">
+  <tr>
+    <td><label>Categoria Contabile</label></td>
+    <td>
+      <select id="categoria">
+        <option *ngFor="let categoria of categorias" [value]="categoria.name">
+          {{ categoria.name }}
+        </option>
+      </select>
+    </td>
   </tr>
   <tr>
-            <td><label>Quantità Percentuale</label></td>
-            <td><input id="q_percentuale" [(ngModel)]="percentuale" type="text" class="form-control form-control-sm"required/></td>
-            
-       </tr>
+    <td><label>Descrizione</label></td>
+    <td>
+      <select id="lavoro">
+        <option *ngFor="let lavoro of lavori" [value]="lavoro.name">
+          {{ lavoro.name }}
+        </option>
+      </select>
+    </td>
+  </tr>
   <tr>
-              <td><label>Riserva/Annotazioni</label></td>
-              <td><textarea class="form-control" [(ngModel)]="riserva" aria-label="With textarea"></textarea></td>
-                 
-   </tr>
-         
-    </table>  
+    <td><label>Quantità Percentuale</label></td>
+    <td>
+      <form [formGroup]="form">
+        <input
+          formControlName="percent"
+          id="q_percentuale"
+          [(ngModel)]="percentuale"
+          type="number"
+          min="1"
+          max="100"
+          class="form-control form-control-sm"
+          required
+        />
 
-    
-    <br>
-    <div class="modal-footer">
-      <button type
-      ="button" class="btn btn-secondary"  mat-dialog-close data-dismiss="modal">Close</button>
-      <button type="button"mat-button mat-dialog-close (click)="salva_misura()" class="btn btn-primary">Save </button>
-    </div>
-      
-  
-  <!--<mat-dialog-actions>-->
-  
-  <!--</mat-dialog-actions>-->
-  
-  
+        <div *ngIf="form.controls['percent'].hasError('max')">
+          Max required number is 100.
+        </div>
+        <div *ngIf="form.controls['percent'].hasError('min')">
+            Minimum required number is 1.
+          </div>
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td><label>Riserva/Annotazioni</label></td>
+    <td>
+      <textarea
+        class="form-control"
+        [(ngModel)]="riserva"
+        aria-label="With textarea"
+      ></textarea>
+    </td>
+  </tr>
+</table>
+
+<br />
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-secondary"
+    mat-dialog-close
+    data-dismiss="modal"
+  >
+    Close
+  </button>
+  <button *ngIf="form.controls['percent'].valid"
+    type="button"
+    mat-button
+    mat-dialog-close
+    (click)="salva_misura()"
+    class="btn btn-primary"
+  >
+    Save
+  </button>
+</div>
+
+<!--<mat-dialog-actions>-->
+
+<!--</mat-dialog-actions>-->
