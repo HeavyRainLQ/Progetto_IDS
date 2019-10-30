@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2019 a las 11:42:05
+-- Tiempo de generación: 30-10-2019 a las 07:04:54
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.12
 
@@ -105,16 +105,6 @@ CREATE TABLE `misura` (
   `valid` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `misura`
---
-
-INSERT INTO `misura` (`idMisura`, `codTariffa`, `catContabile`, `desLavoro`, `percentuale`, `riserva`, `aprovaz`, `valid`) VALUES
-(1, '01.01.001', 1, 1, 5, 'prueba1', 0, 0),
-(2, '01.01.001', 1, 1, 10, 'prueba 2', 0, 1),
-(3, '01.01.002.001', 4, 2, 25, 'prueba3\n', 0, 1),
-(4, '01.01.004.001', 9, 4, 35, 'prueba 4', 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -135,7 +125,8 @@ CREATE TABLE `operai` (
 INSERT INTO `operai` (`id_operaio`, `nome`, `cognome`, `qualifica`) VALUES
 (1, 'elia', 'alesiani', 3),
 (2, 'josè', 'paricagua', 2),
-(3, 'luca', 'quercetti', 1);
+(3, 'luca', 'quercetti', 1),
+(4, 'juan', 'quintereos', 3);
 
 -- --------------------------------------------------------
 
@@ -156,6 +147,24 @@ INSERT INTO `qualifica` (`id_qualifica`, `nome_qual`) VALUES
 (1, 'operaio comune'),
 (2, 'direttore tecnico'),
 (3, 'coordinatore sicurezza');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sal`
+--
+
+CREATE TABLE `sal` (
+  `id_sal` int(11) NOT NULL,
+  `cod_sal` int(11) DEFAULT NULL,
+  `data` varchar(30) DEFAULT NULL,
+  `cat_contabile` int(11) DEFAULT NULL,
+  `des_lavoro` int(11) DEFAULT NULL,
+  `percentuale` decimal(10,4) DEFAULT NULL,
+  `prezzo_per` decimal(10,4) DEFAULT NULL,
+  `debito` decimal(10,4) DEFAULT NULL,
+  `debito_per` decimal(10,4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -256,6 +265,12 @@ ALTER TABLE `qualifica`
   ADD PRIMARY KEY (`id_qualifica`);
 
 --
+-- Indices de la tabla `sal`
+--
+ALTER TABLE `sal`
+  ADD PRIMARY KEY (`id_sal`);
+
+--
 -- Indices de la tabla `tipo_user`
 --
 ALTER TABLE `tipo_user`
@@ -285,7 +300,7 @@ ALTER TABLE `attrezzatura`
 -- AUTO_INCREMENT de la tabla `categoria_contabile`
 --
 ALTER TABLE `categoria_contabile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `lavori`
@@ -297,19 +312,25 @@ ALTER TABLE `lavori`
 -- AUTO_INCREMENT de la tabla `misura`
 --
 ALTER TABLE `misura`
-  MODIFY `idMisura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idMisura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `operai`
 --
 ALTER TABLE `operai`
-  MODIFY `id_operaio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_operaio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `qualifica`
 --
 ALTER TABLE `qualifica`
   MODIFY `id_qualifica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `sal`
+--
+ALTER TABLE `sal`
+  MODIFY `id_sal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_user`
