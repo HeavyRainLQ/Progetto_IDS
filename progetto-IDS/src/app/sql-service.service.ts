@@ -105,18 +105,35 @@ return this.http.post('/api/insert_sal.php', {
 
 
 
-//////////////////////////SELECTS
-  select_descrizione(nomeCat, descrizione) {
+////////////////////SELECTS
+select_accumulato(categoria, descrizione) {
+
+    console.log("servicio accumulato: ->");
+    return this.http.post('/api/select_accumulato.php', {
+      categoria, descrizione
+    })
+
+}//fine select accumulato %
+select_descrizione(nomeCat, descrizione) {
 
     console.log("servicio select_descrizione: ->");
     return this.http.post('/api/select_categoria.php', {
       nomeCat, descrizione
     })
 
-  }//fine select descrizione
+}//fine select descrizione
 
   select_attrezzatura() {
     return this.http.post('/api/select_attre.php', {})
+
+  }//fine select attrezzatura
+
+  select_categorie() {
+    return this.http.post('/api/select_categorie.php', {})
+
+  }//fine select attrezzatura
+  select_lavori() {
+    return this.http.post('/api/select_lavori.php', {})
 
   }//fine select attrezzatura
 
@@ -126,7 +143,6 @@ return this.http.post('/api/insert_sal.php', {
 
   }//fine select attrezzatura
   contabilita(budget) {
-    console.log("servicio contabilita: ->");
     return this.http.post('/api/select_contabilita.php', {
       budget
     });
@@ -134,7 +150,6 @@ return this.http.post('/api/insert_sal.php', {
   }//fine contabilita
 
   sal(budget) {
-    console.log("servicio SAL: ->");
     return this.http.post('/api/select_sal.php', {
       budget
     });
@@ -144,14 +159,12 @@ return this.http.post('/api/insert_sal.php', {
 
 
   updateApprova(item_id) {
-    console.log("servicio update approva: ->");
     return this.http.post('/api/update_approva.php', {
       item_id
     })
   }//fine update invalida
 
   updateInvalida(item_id) {
-    console.log("servicio contabilita: ->");
     return this.http.post('/api/update_valida.php', {
       item_id
     })

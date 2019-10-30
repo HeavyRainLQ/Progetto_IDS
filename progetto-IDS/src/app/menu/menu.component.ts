@@ -12,13 +12,14 @@ export class MenuComponent implements OnInit {
   nascondi = '';
   arrow = 'arrowLeft';
   tipoUtente: string;
-  constructor(private router: Router, private utente: SqlServiceService) { }
-
-  ngOnInit() {
+  constructor(private router: Router, private utente: SqlServiceService) { 
     this.arrow = 'fas fa-times fa-2x';
     this.router.navigateByUrl("/area-riservata/(reserved:home)");
-  
-    this.tipoUtente = this.utente.utente[0].nome + " " + this.utente.utente[0].cognome;
+    this.tipoUtente = utente.utente[0].nome + " " + utente.utente[0].cognome;
+  }
+
+  ngOnInit() {
+    
     //this.router.navigate(['/area-riservata']);
     //"['/area-riservata',{outlets:{ 'reserved': ['graph']}}]"
 
@@ -38,6 +39,7 @@ export class MenuComponent implements OnInit {
       // scroll body to 0px on click
     });  //final function scroll
 
+    
 
   }
 
@@ -49,7 +51,7 @@ export class MenuComponent implements OnInit {
       } else {
         window.clearInterval(scrollToTop);
       }
-    }, 20);
+    }, 22);
   }
 
   navbar() {

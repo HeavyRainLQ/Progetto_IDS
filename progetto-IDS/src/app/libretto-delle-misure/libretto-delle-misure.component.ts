@@ -98,13 +98,6 @@ export class LibrettoDelleMisureComponent implements OnInit {
   uint percentuale;
   string riserva;
   */
-
-
-  colors = [
-    { id: 1, name: "red" },
-    { id: 2, name: "blue" },
-    { id: 3, name: "yellow" },
-  ];
   prueba = 'prueba pasar valor';
   user: string;
   misures = [];
@@ -118,15 +111,13 @@ export class LibrettoDelleMisureComponent implements OnInit {
    }
 
 
-
-
   openDialog(): void {
 
     console.log(this.transferFrom);
 
     let dialogRef = this.dialog.open(MisuraModalComponent, {
 
-      width: '520px',
+      width: '550px',
       height: '420px',
       //data: {name: 'prueba'}
       panelClass: 'my-class', //style MisuraModal,class css in styles.css

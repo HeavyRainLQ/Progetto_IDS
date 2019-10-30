@@ -171,4 +171,7 @@ this.SqlService.select_qualifica().subscribe(data =>{
   }//fine genera_qualifica
 
 
+
+
+
 }

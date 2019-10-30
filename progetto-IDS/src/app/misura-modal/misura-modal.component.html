@@ -11,18 +11,20 @@
   <tr>
     <td><label>Categoria Contabile</label></td>
     <td>
-      <select id="categoria">
-        <option *ngFor="let categoria of categorias" [value]="categoria.name">
+      <select id="categoria" (change)="ShowSelected()">
+        <option *ngFor="let categoria of categorias" [value]="categoria.id" >
           {{ categoria.name }}
         </option>
       </select>
     </td>
+    <td><label> Disponibile:</label><label>{{accumulato}}%</label></td>
   </tr>
   <tr>
     <td><label>Descrizione</label></td>
     <td>
-      <select id="lavoro">
-        <option *ngFor="let lavoro of lavori" [value]="lavoro.name">
+      <select id="lavoro" (change)="ShowSelected()">
+        <!-- <option value="" selected disabled hidden>Choose here</option> -->
+        <option *ngFor="let lavoro of lavori" [value]="lavoro.id" >
           {{ lavoro.name }}
         </option>
       </select>
