@@ -14,16 +14,8 @@
 
 
 <div class="form-row align-items-center">
-  <div class="col-auto my-1">
-  <button mat-raised-button type="button" class="btn btn-primary" >Cerca</button>  
-  </div>
-  <div class="col-auto my-1">
-  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Choose...</option>
-        <option value="1">Approvati</option>
-        <option value="2">Invalidati</option>
-  </select>
-  </div>
+  
+  
 
   <div class="col-auto my-1">
     <button  *ngIf=can(inserisce) mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuova Misura</button>
@@ -34,9 +26,9 @@
 <br>
 
 
-<table  class="table table-striped" mdbTable >
+<table>
   <thead class="thead-dark">
-    <tr>
+    <tr >
       <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th>
       <th [mdbTableSort]="misures" sortBy="tariffa"scope="col">Cod. Tariffa</th>
       <th [mdbTableSort]="misures" sortBy="data" scope="col">Data<mdb-icon fas icon="sort"></mdb-icon></th>
@@ -60,7 +52,7 @@
       <td>{{misure.descrizione}}</td>
       <td>{{misure.percentuale}}</td>
       <td>{{misure.riserva}}</td>
-      <td>
+      <td >
 
 <button mat-raised-button type="button" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
 <button type="button"  (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:!misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
