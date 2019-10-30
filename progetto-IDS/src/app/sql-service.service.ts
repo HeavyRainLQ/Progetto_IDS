@@ -52,7 +52,7 @@ export class SqlServiceService {
     })
 
   }//fin del metodo mio_profilo
-
+////////////////////////////7 INSERTS
   insert_misura(tariffa, conta, lavoro, perce, ris) {
 
 
@@ -65,6 +65,29 @@ export class SqlServiceService {
 
   }//fin del metodo mio_profilo
 
+insert_sal(cod_sal,
+    categoria,
+    descrizione,
+    percentuale,
+    prezzo_perc,
+    debito,
+    debito_perc)
+{
+return this.http.post('/api/insert_sal.php', {
+      cod_sal,
+    categoria,
+    descrizione,
+    percentuale,
+    prezzo_perc,
+    debito,
+    debito_perc
+    })
+
+}//insert SAL
+
+
+
+//////////////////////////SELECTS
   select_descrizione(nomeCat, descrizione) {
 
     console.log("servicio select_descrizione: ->");
@@ -87,6 +110,14 @@ export class SqlServiceService {
   contabilita(budget) {
     console.log("servicio contabilita: ->");
     return this.http.post('/api/select_contabilita.php', {
+      budget
+    });
+
+  }//fine contabilita
+
+  sal(budget) {
+    console.log("servicio SAL: ->");
+    return this.http.post('/api/select_sal.php', {
       budget
     });
 

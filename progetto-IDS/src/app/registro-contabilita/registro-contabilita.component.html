@@ -11,7 +11,7 @@
         <br>
         <br>
 
-<button mat-raised-button type="button" class="btn btn-danger" (click)="genera_registro()"> GENERARE TABLE</button>
+
 <br>
 
 <!-- <div class="form-row align-items-center">
@@ -31,8 +31,9 @@
   </div>
 
 </div> -->
-
+<button mat-raised-button type="button" class="btn btn-warning" (click)="salva_sal()" style="color:white;"><i class="fas fa-check-double fa-1x"></i> Approvare</button> &nbsp;
 <br>
+
 
 
 <table  class="table table-striped" mdbTable style="text-align:center;" >
@@ -49,7 +50,7 @@
       <th [mdbTableSort]="registros" scope="col">Prezzo(%)</th>
       <th [mdbTableSort]="registros" scope="col">Debito</th>
       <th [mdbTableSort]="registros" scope="col">Debito(%)</th>
-      <th  scope="col">Azione</th>
+      <!-- <th  scope="col">Azione</th> -->
     </tr>
   </thead>
   <tbody>
@@ -64,12 +65,10 @@
       <td>{{registro.prezzo_perc}}</td>
       <td>{{registro.debito}}</td>
       <td>{{registro.debito_perc}}</td>
-      <td>
+      <!-- <td>
 <button mat-raised-button type="button" class="btn btn-warning" (click)="approvare(registro)" style="color:white;"><i class="fas fa-check-double fa-1x"></i> Approvare</button> &nbsp;
 <button type="button"  (click)="invalidare(registro)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!"><i class="far fa-trash-alt fa-1x"></i></button>
-
-
-       </td>
+       </td> -->
     </tr>
   </tbody>
 </table>
