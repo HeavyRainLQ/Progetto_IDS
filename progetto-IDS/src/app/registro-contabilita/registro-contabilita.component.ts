@@ -18,27 +18,32 @@ export class RegistroContabilitaComponent implements OnInit {
   approva = "approvare";
   invalida = "invalidare";
 
-  budget=100000;
-    oggetto="Costruzione di un complesso di fabbricati destinati ad abitazione ed negozi nel centro urbano del Comune di Ancona.";
-    ditta="La Distruttoria s.r.l.";
-    committente="Sviluppo Anconetano s.r.l.";
-  
+  parametriDoc;
+ 
   
 
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
     this.defaultColDef = { sortable: true };
+    
+    this.parametriDoc=SqlService.parDocumenti;
+    this.parametriDoc=this.parametriDoc[0];
+    
     this.genera_registro()
+
+    
+    
   }//fine constructor
 
   ngOnInit()
   {
-
+    
   }//fine ngInit
 
 
-  genera_registro()
-  {
-    this.SqlService.contabilita(this.budget).subscribe(data => {
+  genera_registro(){
+    console.log(this.parametriDoc['budget']);
+    this.SqlService.contabilita(this.parametriDoc['budget']).subscribe(data => {
+
   console.log("genera_registro....");
   console.log(data);
       this.registros = data["records"];
@@ -49,6 +54,7 @@ export class RegistroContabilitaComponent implements OnInit {
 
 salva_sal()
 {
+
 
   
  let new_record=this.registros;
@@ -86,6 +92,36 @@ let result = data["records"];
 
 //SELECT DATE_FORMAT(now(),'%d/%m/%Y') as data FROM misura
 }//fine salva_statto avanzamento lavori
+can(azione) {
+  switch (this.SqlService.utente[0].tipo) {	
+    case "1": {	
+      //admin	
+      return true;	
+      break;	
+    }	
+    case "2": {	
+      //rup	
+      if (azione == "approvare" || azione =="invalidare") {	
+        return true;	
+      }	
+      break;	
+    }	
+    case "3": {	
+      //direttore	
+      return false;	
+      break;	
+    }	
+    case "4": {	
+      //ditta	
+      return false;	
+      break;	
+    }	
+    default: {	
+      return false;	
+      break;	
+    }	
+  }	
+}
 
 
 }//fine class export

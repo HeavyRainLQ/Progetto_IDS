@@ -10,13 +10,13 @@
         "type": "chrome",
         "request": "launch",
         "url": "http://localhost:4200/#",
-        "webRoot": "${workspaceFolder}/progetto-IDS"
+        "webRoot": "${workspaceFolder}"
     },
         {
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\progetto-IDS\\src\\app\\log-in\\log-in.component.ts",
+            "program": "${workspaceFolder}\\src\\app\\log-in\\log-in.component.ts",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

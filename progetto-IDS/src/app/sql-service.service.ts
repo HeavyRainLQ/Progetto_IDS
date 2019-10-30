@@ -19,6 +19,14 @@ export class SqlServiceService {
   utente: Object;
   a;
 
+  parDocumenti= [
+    { budget:100000,
+      oggetto:"Costruzione di un complesso di fabbricati destinati ad abitazione ed negozi nel centro urbano del Comune di Ancona.",
+      ditta:"La Distruttoria s.r.l.",
+      committente:"Sviluppo Anconetano s.r.l." },
+    
+  ];
+
 
   constructor(private http: HttpClient) {
   }
@@ -52,7 +60,17 @@ export class SqlServiceService {
     })
 
   }//fin del metodo mio_profilo
-////////////////////////////7 INSERTS
+  insert_operaio(nome, cognome, qualifica) {
+
+
+    console.log("servicio insert misura: ->");
+    //return this.http.get<myData>(`${this.URL}conexion.php`);
+    //return this.http.get("/api/conexion.php");
+    return this.http.post('/api/insert_operaio.php', {
+      nome, cognome, qualifica
+    })
+
+  }
   insert_misura(tariffa, conta, lavoro, perce, ris) {
 
 
