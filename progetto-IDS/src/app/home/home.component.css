@@ -1,96 +1,55 @@
-.block1{
-
-    margin-left: 25px;
-    border-radius:13px;
-    background-color: rgb(47, 48, 97, 0.85);
-    display: block;
-}
-.container1{
-   text-align:center;
-    border-top-left-radius:13px;
-    border-bottom-left-radius:13px;
-    margin:auto;
-    display: inline-block;
-    background-color: rgb(47, 48, 97, 0.85);
-    border-radius: 13px;
-    width: 900px;
-    height: 230px;
-    
-
-}
-.container0{
-    /*text-align:center;
-        border-radius:13px;
-        margin:auto;
-        display: flex;
-        background-color: rgb(47, 48, 97, 0.85);
-    */
-        display:flex;
-        margin: auto ;
-        background-color:transparent;
-        align-items:center;
-    width: 80%;
-    }
-
-.blockf{
-
-    float:left;
-
-    
-    width: 900px;
-    height: 230px;
-    border-radius: 0 19px 19px 0;
-    
-}
-.blockd{
- padding: 19px;
- float: left;
- text-align:justify;
- color:white;
- background-color: #3f3f3e;
- border-top-left-radius:13px;
- border-bottom-left-radius:13px;
- width: 450px;
- height: 230px;
-}
-
 body{
-font-size: 1rem;
-font-weight: 400;
-line-height: 1.5;
-margin: 0;
-padding: 0;
-text-align: left;
-background-color:transparent;
-
-}
-/*
-Template 2084 Zipper
-
-http://www.tooplate.com/view/2084-zipper
-*/
-
-/*background-color: rgb(47, 48, 97, 0.85);*/
-
-
-
-  .movie-card {
-    background-image: url("../../assets/img/cons9.jpg");
-    
-
-    background-size: contain;
-    background-position: 0% 80%;
-    /*background-repeat: no-repeat;*/
-    width: 50%;
-    max-width: 850px;
-    height: 240px;
-    display: block;
-    margin: 5vh auto;
-    border-radius: 8px;
-    -webkit-box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
-  }
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-color:transparent;
   
+  }
+
+  
+ 
+  #card-body{
+    padding-left:15px;
+  padding-top: 15px;
+  font-size: 15px;
+  color:white; 
+  border: 2px solid rgb(240, 120, 120);
+  background-color:rgba(221, 42, 66, 0.3);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+      
+     
+  }
+  #card-body1{
+    padding-left:15px;
+    padding-top: 15px;
+    font-size: 15px;
+    color:white; 
+    border: 2px solid rgb(240, 120, 120);
+    background-color:rgba(221, 42, 66, 0.3);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+      
+     
+  }
+  #hCard{
+    color:white;
+    text-align: center;
+  }
+  h1, h2, h3 {
+    font-family: "Montserrat", helvetica, arial, sans-serif;
+    /*text-transform: uppercase;*/
+    letter-spacing: 2px;
+    line-height: 1;
+    font-weight: 400;
+  }
+ 
+
+  
+
   .movie-card:nth-child(2) {
     background-image: url("../../assets/img/cons10.jpg");
     background-position: 0% 80%;
@@ -105,10 +64,23 @@ http://www.tooplate.com/view/2084-zipper
     background-position: 0% 80%;
   }
 
-
+  .movie-card {
+    background-image: url("../../assets/img/cons9.jpg");
+    background-size: contain;
+    background-position: 0% 80%;
+    /*background-repeat: no-repeat;*/
+    width: 60%;
+    max-width: 850px;
+    height: 325px;
+    display: block;
+    margin: 8vh auto;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+  }
 
   .movie-content {
-    width: 50%;
+    width: 40%;
     display: block;
     position: relative;
     float: right;
@@ -134,7 +106,6 @@ http://www.tooplate.com/view/2084-zipper
   }
   .movie-content .movie-header {
     margin-bottom: 2em;
-    
   }
   .movie-content .movie-desc {
     font-weight: 300;
@@ -142,36 +113,65 @@ http://www.tooplate.com/view/2084-zipper
     color: white;
     /*margin-bottom: 2em;*/
   }
-
-
-    .movie-share {
-    padding: 1em;
-    display: inline-block;
-    width: 15%;
+  .btn {
+    /*padding: .8em 2em;*/
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
   }
-  
-  .movie-share__icon i {
-    font-size: 1.2em;
-    margin-left: .5em;
-    color: #ffffff;
-    mix-blend-mode: lighten;
-    opacity: .4;
-  }
-  
-  .movie-share__icon i:hover {
-    opacity: 1;
-    mix-blend-mode: lighten;
-  }
- 
-
+  .btn::before {
+        /* font-family: 'Material Icons';
+        content: '\e037'; */
+        vertical-align: middle;
+        font-size: 1.5em;
+        padding-right: .5em;
+      }
   .btn-outline {
     background-color: transparent;
     border: 3px solid #ffffff;
   }
-   .btn {
-    /*padding: .8em 2em;*/
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
+  .btn-outline:hover {
+    border-color: #2a9fff;
+    color: #2a9fff;
+    -webkit-box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+            box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+  }
+  .color-overlay {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background: -webkit-gradient(linear, left top, right top, from(rgba(42, 159, 255, 0.2)), color-stop(60%, #212120), to(#212120));
+        background: linear-gradient(to right, rgba(42, 159, 255, 0.2) 0%, #212120 60%, #212120 100%);
+        background-blend-mode: multiply;
+      }
+      
+
+@media only screen and (max-width:990px) {
+
+
+body{
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-color:transparent;
+  
+  }
+
+  
+ 
+  #card-body{
+    padding-left:15px;
+  padding-top: 15px;
+  font-size: 15px;
+  color:white; 
+  border: 2px solid rgb(240, 120, 120);
+  background-color:rgba(221, 42, 66, 0.3);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+      
+     
   }
   #card-body1{
     padding-left:15px;
@@ -185,278 +185,110 @@ http://www.tooplate.com/view/2084-zipper
       
      
   }
-
-  @media (min-width: 990px) {
-
-    
-    .block1{
-    
-        margin-left: 25px;
-        border-radius:13px;
-        
-        display: block;
-    }
-    .titolo{
-        color: white;
-        text-align: center;
-        font-family: 'Open Sans', sans-serif;
-        
-       }
-      
-    .container1{
-       text-align:center;
-        border-top-left-radius:13px;
-        border-bottom-left-radius:13px;
-        
-        display: inline-block;
-        
-        border-radius: 13px;
-    /*    width: 900px*/
-    
-        
-    
-    }
-    .container0{
-        /*text-align:center;
-            border-radius:13px;
-            margin:auto;
-            display: flex;
-            background-color: rgb(47, 48, 97, 0.85);
-        */
-            display:flex;
-           
-           
-            align-items:center;
-        width: 80%;
-        }
-    
-    .blockf{
-    
-        float:left;
-    
-        
-        width: 900px;
-        
-        border-radius: 0 19px 19px 0;
-        
-    }
-    .blockd{
-     /*padding: 19px;*/
-     float: left;
-     text-align:justify;
-     color:white;
-     
-     border-top-left-radius:13px;
-     border-bottom-left-radius:13px;
-     width: 450px;
-     
-    }
-    
-    body{
-    font-size: 1rem;
+  #hCard{
+    color:white;
+    text-align: center;
+  }
+  h1, h2, h3 {
+    font-family: "Montserrat", helvetica, arial, sans-serif;
+    /*text-transform: uppercase;*/
+    letter-spacing: 2px;
+    line-height: 1;
     font-weight: 400;
-    
-    
-    text-align: left;
-    
-    
-    }
-    
-    
-    
-    .cont1 img{
-    
-    width:100%;
-    
-    
-    
-    
-    }
-    .cont1{
-    position: relative;
-    z-index: 0;
-    text-align:center;
-    
-    }
-    
-    #card{
-        
-        margin-left: 15px;
-        margin-right: 15px;
-    }
-    #card-body{
-      padding-left:15px;
-    padding-top: 15px;
-    font-size: 15px;
-    color:white; 
-    border: 2px solid rgb(240, 120, 120);
-    background-color:rgba(221, 42, 66, 0.3);
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-        
-       
-    }
-    #card-body1{
-      padding-left:15px;
-      padding-top: 15px;
-      font-size: 15px;
-      color:white; 
-      border: 2px solid rgb(240, 120, 120);
-      background-color:rgba(221, 42, 66, 0.3);
-      border-top-left-radius: 15px;
-      border-bottom-left-radius: 15px;
-        
-       
-    }
-    
-    
-    #card-img-top{
-        border-radius: 10px;
-    
-    }
-    
-    
-    
-    
-    agm-map {
-        
-        width: 60%;
-        
-      }
-      #mapa{
-    
-        width: 100%;
-    
-    
-      }
-    
-    
-      .mapouter{
-        position:relative;
-        text-align:center;
-        
-        width:100%;}
-        .gmap_canvas {
-          overflow:hidden;
-          background:none!important;
-          
-          width:100%;}
-    
-    
-    
-    #cards{
-    
-        margin-left: 3%;
-        margin-right: 3%;
-    }
-    
-    }/*fine di media grande*/
-    
-    #hCard{
-      color:white;
-      text-align: center;
-    }
-    @media only screen and (max-width:990px) 
-    {   
+  }
+ 
 
-      #hCard{
-        color:white;
-        text-align: center;
-      }
-        
-        /* For mobile phones: */
-        #card-body{
+  
+
+  .movie-card:nth-child(2) {
+    background-image: url("../../assets/img/cons10.jpg");
+    background-position: 0% 80%;
+  }
+  
+  .movie-card:nth-child(3) {
+    background-image: url("../../assets/img/cons11.jpg");
+    background-position: 0% 80%;
+  }
+  .movie-card:nth-child(4) {
+    background-image: url("../../assets/img/cons17.jpg");
+    background-position: 0% 80%;
+  }
+
+  .movie-card {
+    background-image: url("../../assets/img/cons9.jpg");
+    background-size: contain;
+    background-position: 0% 80%;
+    /*background-repeat: no-repeat;*/
+    width: 60%;
+    max-width: 850px;
+    height: 325px;
+    display: block;
+    margin: 8vh auto;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .movie-content {
     
-          padding-left:15px;
-    padding-top: 15px;
-    font-size: 15px;
-    color:white; 
-    border: 2px solid rgb(240, 120, 120);
-    background-color:rgba(221, 42, 66, 0.3);
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-            
-           
-        }
-        img{
-            width: 100%;
-           
-            
-            
-            
-            }
-        .cont1{
-            position: relative;
-            z-index: 2;
-            text-align:center;
-            
-            }
-            .titolo{
-                color: rgb(206, 208, 227);
-                margin-left: 10px;
-                margin-right: 90px;
-                font-family: 'Open Sans', sans-serif;
-                font-size: 150%;
-                font-style: italic;
-              
-                
-               }
-               
-               .mapouter{
-                position:relative;
-                text-align:center;
-               
-                width:100%;}
-                .gmap_canvas {
-                  overflow:hidden;
-                  background:none!important;
-                  
-                  width:100%;}
-    
-    }/*fine media piccolo*/
-    
-    
-   
-      
-      * {
-        -webkit-transition: .4s;
-        transition: .4s;
+	width: 50%;
+          max-width: 95%;
+    display: block;
+    position: relative;
+    float: right;
+    padding-right: 1em;
+    padding-top: 5px;
+  }
+  .movie-content .movie-title {
+    color: #ffffff;
+    margin-bottom: .25em;
+    margin-top: 15px;
+    opacity: .75;
+    font-size: 160%;
+  }
+  .movie-content .movie-info {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .8em;
+    color: #2a9fff;
+    line-height: 1;
+    margin: 0;
+    font-weight: 700;
+    opacity: .5;
+  }
+  .movie-content .movie-header {
+    margin-bottom: 2em;
+  }
+  .movie-content .movie-desc {
+    font-weight: 300;
+    opacity: .84;
+    color: white;
+    /*margin-bottom: 2em;*/
+  }
+  .btn {
+    /*padding: .8em 2em;*/
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    border: 3px solid #ffffff;
+  }
+.btn::before {
+        /* font-family: 'Material Icons';
+        content: '\e037'; */
+        vertical-align: middle;
+        font-size: 1.5em;
+        padding-right: .5em;
       }
-      
-      a {
-        text-decoration: none;
-      }
-      
-      .movie-card {
-        background-image: url("../../assets/img/cons9.jpg");
-        background-size: contain;
-        background-position: 0% 80%;
-        /*background-repeat: no-repeat;*/
-        width: 60%;
-        max-width: 850px;
-        height: 325px;
-        display: block;
-        margin: 8vh auto;
-        border-radius: 8px;
-        -webkit-box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
-                box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
-      }
-      
-      .movie-card:nth-child(2) {
-        background-image: url("../../assets/img/cons10.jpg");
-        background-position: 0% 80%;
-      }
-      
-      .movie-card:nth-child(3) {
-        background-image: url("../../assets/img/cons11.jpg");
-        background-position: 0% 80%;
-      }
-      .movie-card:nth-child(4) {
-        background-image: url("../../assets/img/cons17.jpg");
-        background-position: 0% 80%;
-      }
-      
-      .color-overlay {
+  .btn-outline:hover {
+    border-color: #2a9fff;
+    color: #2a9fff;
+    -webkit-box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+            box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+  }
+  .color-overlay {
         width: 100%;
         height: 100%;
         border-radius: 8px;
@@ -464,106 +296,5 @@ http://www.tooplate.com/view/2084-zipper
         background: linear-gradient(to right, rgba(42, 159, 255, 0.2) 0%, #212120 60%, #212120 100%);
         background-blend-mode: multiply;
       }
-      
-      h1, h2, h3 {
-        font-family: "Montserrat", helvetica, arial, sans-serif;
-        /*text-transform: uppercase;*/
-        letter-spacing: 2px;
-        line-height: 1;
-        font-weight: 400;
-      }
-      
-      .movie-content {
-        width: 40%;
-        display: block;
-        position: relative;
-        float: right;
-        padding-right: 1em;
-        padding-top: 5px;
-      }
-      .movie-content .movie-title {
-        color: #ffffff;
-        margin-bottom: .25em;
-        margin-top: 15px;
-        opacity: .75;
-        font-size: 160%;
-      }
-      .movie-content .movie-info {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: .8em;
-        color: #2a9fff;
-        line-height: 1;
-        margin: 0;
-        font-weight: 700;
-        opacity: .5;
-      }
-      .movie-content .movie-header {
-        margin-bottom: 2em;
-      }
-      .movie-content .movie-desc {
-        font-weight: 300;
-        opacity: .84;
-        color: white;
-        /*margin-bottom: 2em;*/
-      }
-      
-      .btn {
-        /*padding: .8em 2em;*/
-        background-color: rgba(255, 255, 255, 0.2);
-        color: white;
-      }
-      
-      .btn-outline {
-        background-color: transparent;
-        border: 3px solid #ffffff;
-      }
-      
-      .btn::before {
-        /* font-family: 'Material Icons';
-        content: '\e037'; */
-        vertical-align: middle;
-        font-size: 1.5em;
-        padding-right: .5em;
-      }
-      
-      .btn-outline:hover {
-        border-color: #2a9fff;
-        color: #2a9fff;
-        -webkit-box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
-                box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
-      }
-      
-      .movie-share {
-        padding: 1em;
-        display: inline-block;
-        width: 15%;
-      }
-      
-      .movie-share__icon i {
-        font-size: 1.2em;
-        margin-left: .5em;
-        color: #ffffff;
-        mix-blend-mode: lighten;
-        opacity: .4;
-      }
-      
-      .movie-share__icon i:hover {
-        opacity: 1;
-        mix-blend-mode: lighten;
-      }
-      
-      @media (max-width: 1000px) {
-        .movie-content {
-          width: 50%;
-          max-width: 95%;
-        }
-      }
-      @media (max-width: 800px) {
-        .movie-card {
-          width: 95%;
-          max-width: 95%;
-        }
-      }
-    
-      
+
+}

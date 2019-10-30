@@ -28,6 +28,15 @@ padding-left: 25px;
 border-radius: 8px;	
 color: white;
 }
+#cont2{
+  margin-top: 2.5%;
+  margin-bottom: 5%;
+  background-color: rgb(43, 43, 43);
+  padding-left: 25px;
+  border-radius: 8px;	
+  color: white;
+  }
+
 
 table {
   border-collapse: collapse;
@@ -54,7 +63,7 @@ th, td {
 #col2{
 
 	margin-right: 30px; 
-	background-color: #D3163E ;
+	background-color: rgb(43, 43, 43) ;
 	padding-top: 15px;
   z-index:0;
 
