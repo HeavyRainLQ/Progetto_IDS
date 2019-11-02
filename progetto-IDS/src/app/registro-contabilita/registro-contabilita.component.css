@@ -39,6 +39,7 @@ td {
     padding:5px;
     margin-left:5px;
     vertical-align: center;
+    border-bottom: 2px solid black;
     
     
     
@@ -46,6 +47,7 @@ td {
 
 th {
   border-left: 3px double black;
+  border-bottom: 6px solid black;
   
     padding:10px;
     margin-left:5px;
