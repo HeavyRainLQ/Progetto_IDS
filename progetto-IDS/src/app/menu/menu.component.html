@@ -91,11 +91,11 @@
       </button>
 
       <div
-        style=""
+        
         class="collapse navbar-collapse"
         id="navbarSupportedContent"
       >
-        <ul style="" class="navbar-nav  pull-xs-right">
+        <ul  class="navbar-nav  pull-xs-right">
           <li class="nav-item active">
             <a
               style="color:white;"
@@ -110,13 +110,11 @@
             >
           </li>
           <li class="nav-item active">
-            <a style="color:white;" class="nav-link" [routerLink]="">
+            <a style="color:white;" class="nav-link" >
               About Us <span class="sr-only">(current)</span></a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link"> Link</a>
-          </li>
+         
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -186,11 +184,10 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">
-              Jose y Acosiados S.R.L
+              DII
             </h6>
             <p>
-              Here you can use rows and columns to organize your footer content.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Il dipartimento dell'informazione del politecnico delle marche ha sviluppato questo sito web per supportare e proteggere i dati inerenti ai documenti contabili per un progetto che si fonda su un lavoro a corpo.
             </p>
           </div>
           <!-- Grid column -->
@@ -199,19 +196,23 @@
 
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <h6 class="text-uppercase mb-4 font-weight-bold">Documenti contabilità</h6>
             <p>
-              <a href="#!">MDBootstrap</a>
+              <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['giornaleLavori']}}]">Giornale dei lavori</a>
             </p>
             <p>
-              <a href="#!">MDWordPress</a>
+              <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['librettoMisure']}}]">Libretto delle misure</a>
             </p>
             <p>
-              <a href="#!">BrandFlow</a>
+              <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['registroContabilita']}}]">Registro contabilità</a>
             </p>
             <p>
               <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['sal']}}]">Stato avanzamento lavori</a>
             </p>
+            <p>
+              <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['graph']}}]">Grafico SAL</a>
+            </p>
+            
           </div>
           <!-- Grid column -->
 
@@ -219,26 +220,18 @@
 
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+            <h6 class="text-uppercase mb-4 font-weight-bold">Link utili</h6>
             <p>
-              <a href="#!">Your Account</a>
+              <a href="#!">Mio profilo</a>
             </p>
-            <p>
-              <a href="#!">Become an Affiliate</a>
-            </p>
-            <p>
-              <a href="#!">Shipping Rates</a>
-            </p>
-            <p>
-              <a href="#!">Help</a>
-            </p>
+            
           </div>
 
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-            <p><i class="fas fa-home mr-3"></i>Marche,Ancona 60128, Italy</p>
-            <p><i class="fas fa-envelope mr-3"></i> LucaQuercetti@gmail.com</p>
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contatti</h6>
+            <p><i class="fas fa-home mr-3"></i>Marche,Ancona 60128, Italia</p>
+            <p><i class="fas fa-envelope mr-3"></i> univpm@gmail.com</p>
             <p><i class="fas fa-phone mr-3"></i> + 39 353 371 7933</p>
             <p><i class="fas fa-print mr-3"></i> + 39 353 370 7854</p>
           </div>
@@ -255,8 +248,8 @@
             <!--Copyright-->
             <p class="text-center text-md-left">
               © 2019 Copyright:
-              <a href="https://mdbootstrap.com/education/bootstrap/">
-                <strong> Jose y Asociados</strong>
+              <a >
+                <strong> DII</strong>
               </a>
             </p>
           </div>
