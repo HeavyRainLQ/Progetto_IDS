@@ -18,6 +18,7 @@ export class SqlServiceService {
   var1: object;
   utente: Object;
   a;
+  id_user:any;
 
   parDocumenti= [
     { budget:100000,
@@ -187,16 +188,17 @@ select_descrizione(nomeCat, descrizione) {
     console.log(dati);
     this.var1 = dati["col1"];
     console.log(this.var1["ci"]);
-
-
+   
+  
     /*
 */
 
 
     //return this.http.get("/api/conexion.php");
-    return this.http.post('/api/update_user.php',
+    return this.http.post('/api/update_user.php', 
 
-      this.var1
+      this.var1,
+     
     )
     //return this.http.get<myData>("../../../src/app/conexion.php");
   }//fin del metodo update
