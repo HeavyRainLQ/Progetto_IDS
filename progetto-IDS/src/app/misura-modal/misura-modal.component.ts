@@ -102,15 +102,12 @@ export class MisuraModalComponent implements OnInit {
    let test= this.form.controls['percent'].invalid;
     let val_cat = (<HTMLSelectElement>document.getElementById('categoria')).value;
     let val_lav = (<HTMLSelectElement>document.getElementById('lavoro')).value;
-
     let val_cat1 = (<HTMLSelectElement>document.getElementById('categoria'));
     let val_lav1 = (<HTMLSelectElement>document.getElementById('lavoro'));
 
     
     var selected1 = val_cat1.options[val_cat1.selectedIndex].text;
     var selected2 = val_lav1.options[val_lav1.selectedIndex].text;
-
-
     for (let lav of this.categorias) {
       
       if (lav.id == val_cat) {

@@ -15,12 +15,11 @@ export class MenuComponent implements OnInit {
   constructor(private router: Router, private utente: SqlServiceService) { 
     this.arrow = 'fas fa-times fa-2x';
     this.router.navigateByUrl("/area-riservata/(reserved:home)");
-    // this.tipoUtente = utente.utente[0].nome + " " + utente.utente[0].cognome;
-    this.tipoUtente = " " + utente.utente[0].nome;
+    
   }
 
   ngOnInit() {
-    
+    this.tipoUtente = this.utente.utente[0].nome + " " + this.utente.utente[0].cognome;
     //this.router.navigate(['/area-riservata']);
     //"['/area-riservata',{outlets:{ 'reserved': ['graph']}}]"
 

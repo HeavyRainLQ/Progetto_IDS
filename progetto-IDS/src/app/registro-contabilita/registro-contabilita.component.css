@@ -6,7 +6,17 @@ background-color: transparent;
 table
 {
     background-color:#F4F5F5;
-    border-radius: 15px;
+    
+
+  
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  border-collapse: collapse;
+  
+  
+  
+
+    
 
 }
 
@@ -23,15 +33,31 @@ table
   color: white;
 }
 
-.table td {
-    
+td {
+  border-left: 3px double black;
+  
     padding:5px;
     margin-left:5px;
-    vertical-align: top;
-    border-right: 0.5px solid #C2C2C2;
+    vertical-align: center;
+    border-bottom: 2px solid black;
     
-    /* border-top: 1px solid #dee2e6; */
+    
+    
 }
+
+th {
+  border-left: 3px double black;
+  border-bottom: 6px solid black;
+  
+    padding:10px;
+    margin-left:5px;
+    
+
+    
+    
+    
+}
+
 
 .testa1{
 
