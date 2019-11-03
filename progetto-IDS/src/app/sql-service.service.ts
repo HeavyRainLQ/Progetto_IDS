@@ -142,6 +142,13 @@ select_descrizione(nomeCat, descrizione) {
     return this.http.post('/api/select_qualifica.php', {})
 
   }//fine select attrezzatura
+
+  select_parziale() {
+
+    return this.http.post('/api/select_parziale.php', {})
+
+  }//fine select attrezzatura
+
   contabilita(budget) {
     return this.http.post('/api/select_contabilita.php', {
       budget
@@ -162,13 +169,18 @@ select_descrizione(nomeCat, descrizione) {
     return this.http.post('/api/update_approva.php', {
       item_id
     })
-  }//fine update invalida
+  }//fine update approva
 
   updateInvalida(item_id) {
     return this.http.post('/api/update_valida.php', {
       item_id
     })
   }//fine update invalida
+  updateApprova_sal() {
+    return this.http.post('/api/update_approva_sal.php', {
+    })
+  }//fine update approva
+
 
   update_info(dati: object) {
     console.log("servicio update: ->");

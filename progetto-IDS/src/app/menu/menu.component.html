@@ -1,7 +1,7 @@
 <div class="d-flex {{ nascondi }}" id="wrapper">
   <!-- Sidebar -->
-  <div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading"><p>{{ tipoUtente }}</p></div>
+  <div class="bg-light " id="sidebar-wrapper">
+    <div class="sidebar-heading"><p>&nbsp;{{ tipoUtente }}</p></div>
     <br />
     <br />
     <div class="list-group list-group-flush" id="menu">
@@ -58,7 +58,7 @@
               { outlets: { reserved: ['graph'] } }
             ]"
             class=""
-            ><i class="fas fa-chart-bar fa-w-16 fa-2x"></i>&nbsp;Grafico</a
+            ><i class="fas fa-chart-bar fa-2x"></i> &nbsp;Dashboard</a
           >
         </li>
         
@@ -70,7 +70,7 @@
   <!-- Page Content -->
   <div id="page-content-wrapper">
     <nav
-      class="navbar navbar-expand-lg navbar-light border-bottom"
+      class="navbar navbar-expand-lg navbar-light"
       id="menu_nav"
     >
       <!--<button  (click)="navbar()" class="btn btn-secondary" id="menu-toggle"><img src="assets/img/{{arrow}}.png"></button>-->
@@ -114,9 +114,7 @@
               About Us <span class="sr-only">(current)</span></a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link"> Link</a>
-          </li>
+          
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"

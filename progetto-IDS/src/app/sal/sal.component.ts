@@ -17,6 +17,7 @@ import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
 export class SalComponent implements OnInit {
 
   parametriDoc : any;
+  sals:any;
   
   constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) { 
 
@@ -33,6 +34,7 @@ export class SalComponent implements OnInit {
     
     console.log("generare SAL corretto..");
     console.log(data);
+    this.sals=data["records"];
     });
 	}//fine generare
 

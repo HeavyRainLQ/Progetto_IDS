@@ -16,7 +16,7 @@ $riserva=$request->ris;
 
 
 
-$estandar=mysqli_query($link,"INSERT INTO misura( codTariffa, catContabile, desLavoro, percentuale, riserva, aprovaz, valid) VALUES ('".$cod_tariffa."',".$cat_conta.",".$des_lavoro.",".$percentuale.",'".$riserva."',false,true)") or die("Errore di INSERT MISURA!"); 
+$estandar=mysqli_query($link,"INSERT INTO misura( codTariffa, catContabile, desLavoro, percentuale, riserva, aprovaz, valid,approva_sal) VALUES ('".$cod_tariffa."',".$cat_conta.",".$des_lavoro.",".$percentuale.",'".$riserva."',false,true,false)") or die("Errore di INSERT MISURA!"); 
 
 
 

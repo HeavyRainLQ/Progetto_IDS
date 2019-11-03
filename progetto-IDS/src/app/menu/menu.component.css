@@ -5,6 +5,7 @@
  */
  body {
   overflow-x: hidden;
+
  /* background-image:url("/src/assets/img/menu_img.jpg");
   background-color: black;
   */
@@ -41,7 +42,7 @@
   
   
   /*background-color: #434361;*/
-    border-bottom: 1px solid white;
+    
     /*padding: 15px;*/
 }
 
@@ -117,6 +118,7 @@
 @media (min-width: 990px) {
   #sidebar-wrapper {
     margin-left: 0;
+    border-right: 1px solid rgb(105, 104, 147);
   }
 
   #page-content-wrapper {
@@ -208,6 +210,7 @@
   padding-right: 55px;
   padding-left: 55px;
   padding-bottom: 55px;
+  background-color: rgba(30, 27, 49,0.50);
 }
 
 #footer1{

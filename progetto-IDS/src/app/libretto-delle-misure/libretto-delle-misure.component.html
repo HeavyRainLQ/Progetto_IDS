@@ -19,7 +19,7 @@
   </div>
   <div class="col-auto my-1">
   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Choose...</option>
+        <option selected>Scegli...</option>
         <option value="1">Approvati</option>
         <option value="2">Invalidati</option>
   </select>
@@ -62,9 +62,9 @@
       <td>{{misure.riserva}}</td>
       <td>
 
-<button mat-raised-button type="button" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
-<button type="button"  (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:!misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
-<button type="button"  (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
+<button mat-raised-button type="button" [hidden]="misure.approva_sal" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
+<button type="button" [hidden]="misure.approva_sal" (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:!misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
+<button type="button" [hidden]="misure.approva_sal" (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
 
 
 

@@ -53,8 +53,9 @@ body:after {
 
 .container1{
 
-  background-color: rgb(195, 133, 133,0.78);
-
+  
+  
+  
 }
 
 /* per preloader circoli*/
@@ -535,7 +536,7 @@ border-radius: 50%;
 #overlay{
  position: fixed;
   z-index: 25000;
-  background: rgb(255, 255, 255);
+  background: red;
   left: 0px;
   top: 0px;
   height: 100%;

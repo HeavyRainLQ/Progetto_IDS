@@ -8,17 +8,15 @@ $request = json_decode($postdata);
 
 
 
-$id_misura=$request->item_id;
 
-$estandar=mysqli_query($link,"UPDATE misura SET aprovaz=true WHERE idMisura='".$id_misura."'") or die("Error al mostrar"); 
-
-
+$estandar=mysqli_query($link,"UPDATE misura SET approva_sal=true 
+WHERE aprovaz=true and valid=true") or die("Error al mostrar"); 
 
 // if($row=mysqli_fetch_array($estandar)) 
 // {
     
     $outp="";	
-    $outp .= '{"Update_approva":"true"}';   
+    $outp .= '{"Update_approva_sal":"true"}';   
     $outp ='{"records":['.$outp.']}';
 	echo($outp);
 // }

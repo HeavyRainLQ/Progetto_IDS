@@ -1,4 +1,5 @@
-import { Component, OnInit, Inject, Input, AfterViewChecked,AfterViewInit,AfterContentChecked,AfterContentInit, DoCheck  } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
+//import { Component, OnInit, Inject, Input, AfterViewChecked,AfterViewInit,AfterContentChecked,AfterContentInit, DoCheck  } from '@angular/core';
 
 import { EthcontractService } from '../ethcontract.service';
 import { SqlServiceService } from '../sql-service.service';
@@ -28,7 +29,7 @@ export class MisuraModalComponent implements OnInit {
   percentuale: number;
   riserva: string;
   num_categoria: number;
-  accumulato:any;
+  accumulato:string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ethcontractService: EthcontractService, private SqlService: SqlServiceService, public fb: FormBuilder) {
 
@@ -50,8 +51,12 @@ export class MisuraModalComponent implements OnInit {
       
       this.accumulato=a;
       }
+      console.log("en constructor: ",this.accumulato)
+
+      
+
       });
-    console.log("en constructor: ",this.accumulato)
+    
 
   }//fine constructor
 
@@ -60,13 +65,14 @@ export class MisuraModalComponent implements OnInit {
     console.log("ACCOUNT modal:");
     console.log(this.data.account);
     
+    this.form = this.fb.group({
+      percent: ['', [Validators.required, Validators.min(1), Validators.max(Number(this.accumulato)),Validators.maxLength(3)]]
+    });
   
     
 
      console.log("actual:... ",this.accumulato);
-    this.form = this.fb.group({
-      percent: ['', [Validators.required, Validators.min(1), Validators.max(100),Validators.maxLength(3)]]
-    });
+
     //
     console.log("antessss");
     
@@ -96,6 +102,15 @@ export class MisuraModalComponent implements OnInit {
    let test= this.form.controls['percent'].invalid;
     let val_cat = (<HTMLSelectElement>document.getElementById('categoria')).value;
     let val_lav = (<HTMLSelectElement>document.getElementById('lavoro')).value;
+
+    let val_cat1 = (<HTMLSelectElement>document.getElementById('categoria'));
+    let val_lav1 = (<HTMLSelectElement>document.getElementById('lavoro'));
+
+    
+    var selected1 = val_cat1.options[val_cat1.selectedIndex].text;
+    var selected2 = val_lav1.options[val_lav1.selectedIndex].text;
+
+
     for (let lav of this.categorias) {
       
       if (lav.id == val_cat) {
@@ -114,11 +129,10 @@ export class MisuraModalComponent implements OnInit {
     //deploed contract
     this.ethcontractService.create_misura(
       this.tariffa,
-      val_cat,
-      val_lav,
+      selected1,
+      selected2,
       this.percentuale,
       this.riserva,
-
       this.data.account,
 
     ).then(function () {
@@ -180,12 +194,10 @@ this.SqlService.select_accumulato(cat,des).subscribe(data => {
         //console.log($scope.result[0].ini);
         //var a=this.result[0].ini;
       });
-    
-
+ 
 this.form = this.fb.group({
-      percent: ['', [Validators.required, Validators.min(1), Validators.max(this.accumulato),Validators.maxLength(3)]]
+      percent: ['', [Validators.required, Validators.min(1), Validators.max(Number(this.accumulato)),Validators.maxLength(3)]]
     });
-
 
 }//fine showSelected
 

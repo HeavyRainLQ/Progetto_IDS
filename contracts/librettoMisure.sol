@@ -13,6 +13,7 @@ contract librettoMisure{
     string riserva;
     bool aprovaz;
     bool valid;
+    bool approva_sal;
 
     }
     
@@ -27,17 +28,17 @@ contract librettoMisure{
     
     function create(string memory tariffa,string memory categoriaContabile,string memory descrizione,int128 percentuale,string memory riserva) public{
         
-        misures.push(Misura(nextId,tariffa,now,categoriaContabile,descrizione,percentuale,riserva,false,true));
+        misures.push(Misura(nextId,tariffa,now,categoriaContabile,descrizione,percentuale,riserva,false,true,false));
         nextId++;
     }
     
-    function read(uint id) view public returns(uint, string memory ,uint,string memory,string memory,int128,string memory,bool,bool){
+    function read(uint id) view public returns(uint, string memory ,uint,string memory,string memory,int128,string memory,bool,bool,bool){
         
         for(uint i=0;i<misures.length;i++)
         {
             if(misures[i].id==id)
             {
-             return(misures[i].id,misures[i].tariffa,misures[i].data,misures[i].categoriaContabile,misures[i].descrizione,misures[i].percentuale,misures[i].riserva,misures[i].aprovaz,misures[i].valid);
+             return(misures[i].id,misures[i].tariffa,misures[i].data,misures[i].categoriaContabile,misures[i].descrizione,misures[i].percentuale,misures[i].riserva,misures[i].aprovaz,misures[i].valid,misures[i].approva_sal);
             }
             
         }
@@ -51,7 +52,7 @@ contract librettoMisure{
     }
     
     
-    function update(uint id, string memory tariffa,string memory categoriaContabile,string memory descrizione,int128 percentuale,string memory riserva,bool aprovaz,bool valid) public {
+    function update(uint id, string memory tariffa,string memory categoriaContabile,string memory descrizione,int128 percentuale,string memory riserva,bool aprovaz,bool valid,bool approva_sal) public {
         
         for(uint i=0;i<misures.length;i++)
         {
@@ -65,6 +66,7 @@ contract librettoMisure{
             misures[i].riserva=riserva;
             misures[i].aprovaz=aprovaz;
             misures[i].valid=valid;
+            misures[i].approva_sal=approva_sal;
             }
             
         }
@@ -92,17 +94,24 @@ contract librettoMisure{
         }
     }
 
+    function update_approva_sal() public 
+    {
+        
+        for(uint i=0;i<misures.length;i++)
+        {
+            
+          if(misures[i].aprovaz==true && misures[i].valid==true)
+            {
+                
+                misures[i].approva_sal=true;
+                
+            }
+        }    
+    }
+
     function destroy(uint id) public{
         delete misures[id];
     }
     
-    function prueba() view public returns(uint){
-        
-        
-        
-        return now;
-     //   1570490594
-        
-    }
     
 }

@@ -10,10 +10,7 @@ body{
     
     }
     
-     table tr:nth-of-type(2) {background: blue;}
-    table tr:nth-of-type(3) {background: green;}
-    table tr:nth-of-type(4) {background: yellow;}
-   table tr:nth-of-type(5) {background: grey;}
+     
     
     .approvata{
     
@@ -50,6 +47,12 @@ body{
        border-bottom-left-radius: 15px;
     }
     
+
+
+    /* fix = code from bootstrap 3 */
+tbody.collapse.in {
+  display: table-row-group;
+}
     
     
     

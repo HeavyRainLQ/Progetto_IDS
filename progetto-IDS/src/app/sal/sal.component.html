@@ -24,33 +24,33 @@
 <table  class="table table-striped" mdbTable >
   <thead class="thead-dark">
     <tr>
-      <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" sortBy="tariffa"scope="col">Cod. Tariffa</th>
-      <th [mdbTableSort]="misures" sortBy="categoria" scope="col">Categoria Contabile<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" sortBy="descrizione" scope="col">Descrizione<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" style="width:6%" sortBy="percentuale" scope="col">Quantità %<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" scope="col">Importo unitario</th>
-      <th [mdbTableSort]="misures" scope="col">Importo unitario percentuale</th>
-      <th [mdbTableSort]="misures" scope="col">Importo totale</th>
-      <th [mdbTableSort]="misures" scope="col">Importo totale percentuale</th>
+      <th [mdbTableSort]="sals" sortBy="id" scope="col">N° </th>
+      <th [mdbTableSort]="sals" sortBy="tariffa"scope="col">Data</th>
+      <th [mdbTableSort]="sals" sortBy="tariffa"scope="col">Cod. Tariffa</th>
+      <th [mdbTableSort]="sals" sortBy="categoria" scope="col">Categoria Contabile</th>
+      <th [mdbTableSort]="sals" sortBy="descrizione" scope="col">Descrizione</th>
+      <th  style="width:6%" sortBy="percentuale" scope="col">%</th>
+      <th  scope="col">Importo unitario %</th>
+      <th scope="col">Importo totale</th>
+      <th  scope="col">Importo totale %</th>
+      <th  scope="col">Valore_parziale</th>
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let misure of misures" [ngClass]="{'invalidata':!misure.valida,'approvata':misure.aprovata}">
-      <td style="padding-left: 15px;">{{misure.id}}</td>
-      <td>{{misure.tariffa}}</td>
-      <td>{{misure.data}}</td>
-       <td>{{misure.aprovata}}</td>
-      <td>{{misure.valida}}</td> 
-      <td>{{misure.categoria}}</td>
-      <td>{{misure.descrizione}}</td>
-      <td>{{misure.percentuale}}</td>
-      <td>{{misure.riserva}}</td>
-      <td>
-
-
-       </td>
-    </tr> -->
+    <tr *ngFor="let sal of sals" >
+      <td style="padding-left: 15px;">{{sal.cod_sal}}</td>
+      <td>{{sal.data}}</td>
+      <td>{{sal.tariffa}}</td>
+      <td>{{sal.categoria}}</td>
+      <td>{{sal.descrizione}}</td>
+      <td>{{sal.percentuale}}</td>
+      <td>{{sal.prezzo_perc}}</td>
+      <td>{{sal.debito}}</td>
+      <td>{{sal.debito_perc}}</td>
+      <td>{{sal.v_parziale}}</td>
+      
+      
+    </tr>
   </tbody>
 </table>
 
@@ -60,10 +60,51 @@
 
 <br>
 
-
-
 <br>
 <br>
+
+<table class="table table-responsive table-hover">
+    <thead class="thead-dark">
+        <tr>
+      <th [mdbTableSort]="sals" sortBy="id" scope="col">N° </th>
+      <th [mdbTableSort]="sals" sortBy="tariffa"scope="col">Data</th>
+      <th [mdbTableSort]="sals" sortBy="tariffa"scope="col">Cod. Tariffa</th>
+      <th [mdbTableSort]="sals" sortBy="categoria" scope="col">Categoria Contabile</th>
+      <th [mdbTableSort]="sals" sortBy="descrizione" scope="col">Descrizione</th>
+      <th  style="width:6%" sortBy="percentuale" scope="col">%</th>
+      <th  scope="col">Importo unitario %</th>
+      <th scope="col">Importo totale</th>
+      <th  scope="col">Importo totale %</th>
+      <th  scope="col">Valore_parziale</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="clickable" data-toggle="collapse" data-target="#group-of-rows-1" aria-expanded="false" aria-controls="group-of-rows-1" >
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            
+        </tr>
+    </tbody>
+
+    <tbody id="group-of-rows-1" class="collapse">
+        <tr *ngFor="let sal of sals">
+           <td style="padding-left: 15px;">{{sal.cod_sal}}</td>
+      <td>{{sal.data}}</td>
+      <td>{{sal.tariffa}}</td>
+      <td>{{sal.categoria}}</td>
+      <td>{{sal.descrizione}}</td>
+      <td>{{sal.percentuale}}</td>
+      <td>{{sal.prezzo_perc}}</td>
+      <td>{{sal.debito}}</td>
+      <td>{{sal.debito_perc}}</td>
+      <td>{{sal.v_parziale}}</td>
+      
+        </tr>
+        
+    </tbody>
+    
+    
+</table>
+
 
 
 <br>

@@ -8,6 +8,7 @@ import { SqlServiceService } from '../sql-service.service';
 import { AgGridModule } from 'ag-grid-angular';
 import { Router,ActivatedRoute, } from '@angular/router';
 import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
 })
 
 export class LibrettoDelleMisureComponent implements OnInit {
-
+valore="disabledd";
 
 
   elements: any = [
@@ -51,7 +52,8 @@ export class LibrettoDelleMisureComponent implements OnInit {
   inserisce = "inserire misura";
   parametriDoc: any;
 
-  constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) {
+  constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) 
+  {
     this.initAndDisplayAccount();
     this.defaultColDef = { sortable: true };
     this.generare(event);
@@ -60,12 +62,16 @@ export class LibrettoDelleMisureComponent implements OnInit {
    
 
     
+// var element = <HTMLInputElement> document.getElementById("approva");
+// element.disabled = true;
+
+
+
 
   }
 
-  @HostListener('input') oninput() {
-    // this.searchItems();
-  }
+
+
 
 
   initAndDisplayAccount = () => {
@@ -103,12 +109,18 @@ export class LibrettoDelleMisureComponent implements OnInit {
   misures = [];
   ngOnInit() {
 
-    
 
+
+    
+   
   }
-  onReload(){
-    this.router.navigate(['/servers'],{relativeTo:this.route})
-   }
+  
+
+
+
+  // onReload(){
+  //   this.router.navigate(['/servers'],{relativeTo:this.route})
+  //  }
 
 
   openDialog(): void {
@@ -143,6 +155,7 @@ export class LibrettoDelleMisureComponent implements OnInit {
     //   console.log("prende il valore----")
     //   console.log(data)
     // });
+
   }//fine generare
 
   approvare(selectedItem: any) {

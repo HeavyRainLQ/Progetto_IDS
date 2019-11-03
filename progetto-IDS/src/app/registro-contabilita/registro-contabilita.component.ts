@@ -19,8 +19,16 @@ export class RegistroContabilitaComponent implements OnInit {
   invalida = "invalidare";
 
   parametriDoc;
+
+  title = 'your first DApp in Angular 7 ';
+  accounts: any;
+  transferFrom = '0x0';
+  balance = '0 ETH';
+  transferTo = '';
+  amount = 0;
  
-  
+  parziale=0;  
+  parziale_perc=0;  
 
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
     this.defaultColDef = { sortable: true };
@@ -28,16 +36,47 @@ export class RegistroContabilitaComponent implements OnInit {
     this.parametriDoc=SqlService.parDocumenti;
     this.parametriDoc=this.parametriDoc[0];
     
-    this.genera_registro()
+    this.genera_registro();
+    this.initAndDisplayAccount();
 
+    
     
     
   }//fine constructor
 
   ngOnInit()
   {
+    this.SqlService.select_parziale().subscribe(data => {
+     this.parziale = data["records"][0].parziale;
+      console.log(this.parziale);
+      this.parziale_perc=(this.parziale/100000)*100;
+
+    });
+
+  
+  console.log(this.parziale_perc)
     
   }//fine ngInit
+
+  initAndDisplayAccount = () => {
+
+    let that = this;
+    this.ethcontractService.getAccountInfo().then(function (acctInfo: any) {
+
+      that.transferFrom = acctInfo.fromAccount;
+      that.balance = acctInfo.balance;
+
+      console.log("cuenta:-  ", that.transferFrom)
+      console.log("cantidad de gas:-  ", that.balance)
+
+
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+
+
+  }; //fin de INIT
 
 
   genera_registro(){
@@ -55,9 +94,16 @@ export class RegistroContabilitaComponent implements OnInit {
 salva_sal()
 {
 
+//valore parziale per approvazione
 
-  
- let new_record=this.registros;
+
+// approva daccordo alla soglia esempio 35000
+//quando approva, modifica i dati del campo approva_sal, cosi 
+//cancella tutti button nel libretto
+if(this.parziale>35000)
+{
+
+let new_record=this.registros;
  console.log("new record:----",new_record);
       
 for (let row of new_record) 
@@ -91,6 +137,33 @@ let result = data["records"];
 // });
 
 //SELECT DATE_FORMAT(now(),'%d/%m/%Y') as data FROM misura
+
+
+    this.SqlService.updateApprova_sal().subscribe(data => {
+     let prueba = data["records"];
+      console.log(prueba)
+
+    });
+
+    this.ethcontractService.update_approva_sal(
+
+      this.transferFrom,
+    ).then(function(){
+      console.log("funziona update sal")
+    }).catch(function(error){
+      console.log(error);
+      console.log("false update sal")
+      
+    });
+
+
+}
+else{
+  console.log("NULLA")
+}
+  
+ 
+
 }//fine salva_statto avanzamento lavori
 can(azione) {
   switch (this.SqlService.utente[0].tipo) {	
