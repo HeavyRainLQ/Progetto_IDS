@@ -1,7 +1,9 @@
 <div class="d-flex {{ nascondi }}" id="wrapper">
   <!-- Sidebar -->
   <div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading"><p>{{ tipoUtente }}</p></div>
+    <div class="sidebar-heading">
+      <p>{{tipoUtente}}</p>
+    </div>
     <br />
     <br />
     <div class="list-group list-group-flush" id="menu">
@@ -41,12 +43,12 @@
         </li>
 
         <li>
-          <a 
-          [routerLink]="[
+          <a
+            [routerLink]="[
               '/area-riservata',
               { outlets: { reserved: ['sal'] } }
             ]"
-          class=""
+            class=""
             ><i class="fas fa-percent fa-2x"></i> &nbsp;Stato Avanzamento
             Lavori</a
           >
@@ -61,7 +63,6 @@
             ><i class="fas fa-chart-bar fa-w-16 fa-2x"></i>&nbsp;Grafico</a
           >
         </li>
-        
       </ul>
     </div>
   </div>
@@ -210,7 +211,13 @@
               <a href="#!">BrandFlow</a>
             </p>
             <p>
-              <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['sal']}}]">Stato avanzamento lavori</a>
+              <a
+                [routerLink]="[
+                  '/area-riservata',
+                  { outlets: { reserved: ['sal'] } }
+                ]"
+                >Stato avanzamento lavori</a
+              >
             </p>
           </div>
           <!-- Grid column -->

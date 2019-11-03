@@ -46,7 +46,7 @@
         />
 
         <div *ngIf="form.controls['percent'].hasError('max')">
-          Max required number is 100.
+          Max required number is {{accumulato}}.
         </div>
         <div *ngIf="form.controls['percent'].hasError('min')">
             Minimum required number is 1.
