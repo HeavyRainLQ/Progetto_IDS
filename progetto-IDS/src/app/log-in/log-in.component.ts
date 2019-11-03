@@ -81,14 +81,14 @@ export class LogInComponent implements OnInit{
           }
         }
         else {
-          this.risposta = "Sorry, account disabled!";
+          this.risposta = "Attenzione,sei disabilitato!";
         }
 
       }
       else {
         this.user1 = "";
         this.pass1 = "";
-        this.risposta = "Sorry, error user or password!";
+        this.risposta = "Attenzione, user o password sbagliati!";
       }
     });
 

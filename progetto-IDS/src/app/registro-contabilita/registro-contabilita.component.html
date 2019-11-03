@@ -31,12 +31,21 @@
   </div>
 
 </div> -->
-<button mat-raised-button type="button" class="btn btn-warning" (click)="salva_sal()" style="color:white;"><i class="fas fa-check-double fa-1x"></i> Approvare</button> &nbsp;
+<div class="row">
+<div class="col-8" style="text-align: center;">
+<div class="progress" style="width: 80%;">
+  <div class="progress-bar" role="progressbar" style="width: 25%;" [aria-valuenow]="parziale_perc" aria-valuemin="0" aria-valuemax="100">{{parziale_perc}}%</div>
+</div>
+</div>
+<div class="col-4" style="text-align: left;">
+<button mat-raised-button type="button" class="btn btn-warning" (click)="salva_sal()" style="color:white;"><i class="fas fa-check-double fa-1x"></i> Approvare</button> 
+</div>
+</div>
 <br>
 
 
 
-<table  class="table table-striped" mdbTable style="text-align:center;" >
+<table >
   <thead class="thead-dark">
     <tr>
       <!-- <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th> -->

@@ -85,7 +85,7 @@ export class EthcontractService {
           electionInstance.misures(i).then(function (user) {
             var date = new Date(user[2]['c'][0] * 1000);
             var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear();
-            jsonArrayObject.push({ id: user[0]['c'][0], tariffa: user[1], data: formattedDate, categoria: user[3], descrizione: user[4], percentuale: user[5]['c'][0], riserva: user[6], aprovata: user[7], valida: user[8] });
+            jsonArrayObject.push({ id: user[0]['c'][0], tariffa: user[1], data: formattedDate, categoria: user[3], descrizione: user[4], percentuale: user[5]['c'][0], riserva: user[6], aprovata: user[7], valida: user[8], approva_sal: user[9] });
             // Render misures Resul          
           });//fine de misures
 
@@ -367,6 +367,33 @@ export class EthcontractService {
       }).catch(function (error) {
         console.log(error);
         return reject("Errore in update_approva!!");
+      });
+    });
+
+  }//fine approva
+
+  update_approva_sal(
+
+    _transferFrom) {
+    let that = this;
+    return new Promise((resolve, reject) => {
+      let misuraContract = TruffleContract(tokenAbi3);
+      //para
+      misuraContract.setProvider(that.web3Provider);
+      misuraContract.deployed().then(function (instance) {
+        //return instance.transferFund(
+        return instance.update_approva_sal(
+          {
+            from: _transferFrom, gas: 30000000
+          });
+        //definicion de instance
+      }).then(function (status) {
+        if (status) {
+          return resolve({ status: true });
+        }
+      }).catch(function (error) {
+        console.log(error);
+        return reject("Errore in update_approva sal!!");
       });
     });
 

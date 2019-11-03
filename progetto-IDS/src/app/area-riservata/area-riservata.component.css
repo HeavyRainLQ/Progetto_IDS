@@ -1,0 +1,19 @@
+body {
+    
+      
+      background:url(../../../src/assets/img/cons6.jpg) no-repeat center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;   
+      background-size: cover;
+      
+      font-family: 'Open Sans', sans-serif;
+      min-height: 100vh;
+      padding-bottom:2%;
+      
+      padding-right:2%;
+      padding-top: 5%;
+      opacity: 0.6;
+    
+      background-color: rgb(195, 133, 133,0.80);
+  }
