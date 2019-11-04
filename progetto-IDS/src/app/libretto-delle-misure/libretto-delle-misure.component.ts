@@ -67,8 +67,7 @@ valore="disabledd";
 
 
 
-
-  }
+  }//fine constructor
 
 
 

@@ -9,6 +9,7 @@ declare let window: any;
 //let tokenAbi2 = require('../../../build/contracts/Crud.json');
 let tokenAbi3 = require('../../../build/contracts/librettoMisure.json');
 let tokenAbi4 = require('../../../build/contracts/giornaleLavori.json');
+let tokenAbi5 = require('../../../build/contracts/Sal.json');
 
 @Injectable({
   providedIn: 'root'
@@ -339,8 +340,58 @@ export class EthcontractService {
 
 
   }//fine create operaio
+//create sal
+create_sal(
+  _cod_sal, 
+  _tariffa, 
+  _categoria,
+  _descrizione,
+  _percentuale,
+  _prezzo,
+  _prezzo_perc,
+  _debito,
+  _debito_perc,
+   _transferFrom
+
+     ) {
+  
+
+   
+    
+    let that = this;
+
+    return new Promise((resolve, reject) => {
+
+      let salContract = TruffleContract(tokenAbi5);
+      //para
+
+      salContract.setProvider(that.web3Provider);
+
+      salContract.deployed().then(function (instance) {
+        //return instance.transferFund(
+        return instance.create(
+          _cod_sal, _tariffa,_categoria,_descrizione,_percentuale,_prezzo,
+          _prezzo_perc,_debito,_debito_perc,
+
+          {
+            from: _transferFrom, gas: 30000000
+
+          });
+        //definicion de instance
+      }).then(function (status) {
+
+        if (status) { return resolve({ status: true });  }
+      }).catch(function (error) {
+        console.log(error);
+        return reject("Errore in transfer valori!!");
+      });
+    });
+
+  }//fine create SAL contract
 
 
+
+//-----------------
   update_approva(
     _id,
     _approva,

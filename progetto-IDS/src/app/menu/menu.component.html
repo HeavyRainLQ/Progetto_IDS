@@ -1,7 +1,9 @@
 <div class="d-flex {{ nascondi }}" id="wrapper">
   <!-- Sidebar -->
   <div class="bg-light " id="sidebar-wrapper">
-    <div class="sidebar-heading"><p>&nbsp;{{ tipoUtente }}</p></div>
+    <div class="sidebar-heading"><p *ngIf="(tipoUtente | async) as tipoUtente; else loading"><i class="fas fa-users fa-2x"></i> &nbsp;</p></div>
+
+
     <br />
     <br />
     <div class="list-group list-group-flush" id="menu">

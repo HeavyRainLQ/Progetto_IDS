@@ -38,7 +38,7 @@
 </div>
 </div>
 <div class="col-4" style="text-align: left;">
-<button mat-raised-button type="button" class="btn btn-warning" (click)="salva_sal()" style="color:white;"><i class="fas fa-check-double fa-1x"></i> Approvare</button> 
+<button type="button" [hidden]="s_superata$| async" class="btn btn-warning"  style="color:white;" data-toggle="modal" data-target="#myModal" ><i class="fas fa-check-double fa-1x"></i> Approvare</button> 
 </div>
 </div>
 <br>
@@ -93,6 +93,30 @@
 </div>
 -->
 
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Confirmazione</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Sei sicuro di approvare il Registro?
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" (click)="salva_sal()" class="btn btn-success" data-dismiss="modal">Conferma</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 
 

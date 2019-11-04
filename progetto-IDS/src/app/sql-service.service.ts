@@ -131,23 +131,23 @@ select_descrizione(nomeCat, descrizione) {
   select_categorie() {
     return this.http.post('/api/select_categorie.php', {})
 
-  }//fine select attrezzatura
+  }//fine select categorie
   select_lavori() {
     return this.http.post('/api/select_lavori.php', {})
 
-  }//fine select attrezzatura
+  }//fine select lavori
 
   select_qualifica() {
 
     return this.http.post('/api/select_qualifica.php', {})
 
-  }//fine select attrezzatura
+  }//fine select qualifica
 
   select_parziale() {
 
     return this.http.post('/api/select_parziale.php', {})
 
-  }//fine select attrezzatura
+  }//fine select parziale
 
   contabilita(budget) {
     return this.http.post('/api/select_contabilita.php', {
@@ -161,7 +161,13 @@ select_descrizione(nomeCat, descrizione) {
       budget
     });
 
-  }//fine contabilita
+  }//fine  sal
+
+  select_soglia() {
+
+    return this.http.post('/api/select_soglia.php', {})
+
+  }//fine select parziale
 
 
 

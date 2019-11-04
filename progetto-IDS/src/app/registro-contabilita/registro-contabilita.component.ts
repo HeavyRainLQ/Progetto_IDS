@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EthcontractService } from '../ethcontract.service';
 import {SqlServiceService } from '../sql-service.service';
+import {Web3Service } from '../web3.service';
 import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
 
 
@@ -27,34 +28,40 @@ export class RegistroContabilitaComponent implements OnInit {
   transferTo = '';
   amount = 0;
  
-  parziale=0;  
-  parziale_perc=0;  
+  public parziale:number;  
+  public parziale_perc:number;  
+  soglia:any;
+  s_superata=true;
 
-  constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
+  constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private Web3Service:Web3Service) {
     this.defaultColDef = { sortable: true };
     
     this.parametriDoc=SqlService.parDocumenti;
     this.parametriDoc=this.parametriDoc[0];
     
+    
     this.genera_registro();
     this.initAndDisplayAccount();
+    this.calcolo();
 
     
+  //   console.log("parziale %: ",this.parziale_perc)
+  // console.log("parziale: ",this.parziale)
     
     
   }//fine constructor
 
   ngOnInit()
   {
-    this.SqlService.select_parziale().subscribe(data => {
-     this.parziale = data["records"][0].parziale;
-      console.log(this.parziale);
-      this.parziale_perc=(this.parziale/100000)*100;
+    
 
-    });
 
   
-  console.log(this.parziale_perc)
+  
+  this.calcolo();
+  
+  
+  
     
   }//fine ngInit
 
@@ -75,11 +82,10 @@ export class RegistroContabilitaComponent implements OnInit {
     });
 
 
-
   }; //fin de INIT
 
 
-  genera_registro(){
+genera_registro(){
     console.log(this.parametriDoc['budget']);
     this.SqlService.contabilita(this.parametriDoc['budget']).subscribe(data => {
 
@@ -91,17 +97,49 @@ export class RegistroContabilitaComponent implements OnInit {
 
 }//fine genera_registro
 
-salva_sal()
+get_soglia()
 {
 
+  console.log("parziale %: ",this.parziale_perc)
+  console.log("parziale: ",this.parziale)
+  console.log("superata: ",this.s_superata)
+  
+if (this.parziale!=0 ) 
+{
+
+  this.SqlService.select_soglia().subscribe(data =>{ 
+    
+  this.soglia=data["records"];
+  console.log("soglie::",this.soglia);
+  for (let a of this.soglia) 
+  { console.log("soglia :",a.soglia, a.superata)
+    if ( a.superata==0 ) 
+    {   console.log("entro1 :",this.parziale)
+       if ( this.parziale>=a.soglia ) 
+        { console.log("entro2 :")
+            this.s_superata=false;
+            console.log("superata2: ",this.s_superata)
+            break;
+        }
+        else{
+         this.s_superata=true;
+            break; 
+        }
+    }//fine if
+  }
+
+    });
+
+  }//get_soglia
+}//metodo soglia
+
+salva_sal()
+{
 //valore parziale per approvazione
-
-
 // approva daccordo alla soglia esempio 35000
 //quando approva, modifica i dati del campo approva_sal, cosi 
 //cancella tutti button nel libretto
-if(this.parziale>35000)
-{
+
 
 let new_record=this.registros;
  console.log("new record:----",new_record);
@@ -112,29 +150,53 @@ for (let row of new_record)
 this.SqlService.select_descrizione(row['categoria'],row['descrizione'] ).subscribe(data =>{ 
 let result = data["records"];
       
-      var a=result[0].id_categoria;
-      var b=result[0].id_lavori;
+      var categoria=result[0].id_categoria;
+      var descrizione=result[0].id_lavori;
 //insert_sal(COD_SAL,DATA,CATEGORIA,DESCRIPCION,PERCENTUALE,PREZZO%,DEBITO,DEBITO% )
   this.SqlService.insert_sal(1,
-    a,
-    b,
+    categoria,
+    descrizione,
     row['percentuale'],
     row['prezzo_perc'],
     row['debito'],
     row['debito_perc']).subscribe(data =>{ 
-    
-    console.log("insert SAL corretto..");
-    console.log(data);
+    console.log("insert SAL SQL");
     });
+
+
+    // var valor=this.Web3Service.numberToSigned64x64(35.6);
+    // console.log("numero a 64x64: ",valor);
+    // var valor1:number=this.Web3Service.signed64x64ToNumber(Number(valor));
+    // console.log("64x64 a number: ",valor1);
+
+   var a1= this.Web3Service.numberToSigned64x64(row['percentuale']);
+   var a2=this.Web3Service.numberToSigned64x64(row['prezzo']);
+   var a3=this.Web3Service.numberToSigned64x64(row['prezzo_perc']);
+   var a4=this.Web3Service.numberToSigned64x64(row['debito']);
+   var a5= this.Web3Service.numberToSigned64x64(row['debito_perc']);
+
+this.ethcontractService.create_sal(
+      
+    1, //cod del Sal
+    row['tariffa'],
+    row['categoria'],
+    row['descrizione'],
+    a1,a2,a3,a4,a5,
+
+      this.transferFrom,
+
+    ).then(function () {
+
+      console.log("funziona SAL")
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+
   });
+
+
 }//fine del for
-
-//     this.SqlService.contabilita(this.budget).subscribe(data => {
-//   console.log("genera_registro....");
-//   console.log(data);
-//       this.registros = data["records"];
-
-// });
 
 //SELECT DATE_FORMAT(now(),'%d/%m/%Y') as data FROM misura
 
@@ -157,14 +219,23 @@ let result = data["records"];
     });
 
 
-}
-else{
-  console.log("NULLA")
-}
-  
- 
+this.calcolo();
 
 }//fine salva_statto avanzamento lavori
+
+calcolo(){
+
+  this.SqlService.select_parziale().subscribe(data => {
+     this.parziale = data["records"][0].parziale;
+      console.log(this.parziale);
+      this.parziale_perc=Math.round(((this.parziale/100000)*100)*100 )/100;
+      
+  
+      this.get_soglia();
+    });
+
+}//fine calcolo
+
 can(azione) {
   switch (this.SqlService.utente[0].tipo) {	
     case "1": {	

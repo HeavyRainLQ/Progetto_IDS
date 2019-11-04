@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { SqlServiceService } from '../sql-service.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -11,15 +12,17 @@ export class MenuComponent implements OnInit {
   collapse = false;
   nascondi = '';
   arrow = 'arrowLeft';
-  tipoUtente: string;
+  public tipoUtente: string;
   constructor(private router: Router, private utente: SqlServiceService) { 
     this.arrow = 'fas fa-times fa-2x';
     this.router.navigateByUrl("/area-riservata/(reserved:home)");
+
+    
     
   }
 
   ngOnInit() {
-    this.tipoUtente = this.utente.utente[0].nome + " " + this.utente.utente[0].cognome;
+
     //this.router.navigate(['/area-riservata']);
     //"['/area-riservata',{outlets:{ 'reserved': ['graph']}}]"
 
@@ -39,7 +42,11 @@ export class MenuComponent implements OnInit {
       // scroll body to 0px on click
     });  //final function scroll
 
-    
+    this.tipoUtente = this.utente.utente[0].nome.valueChanges();
+  // this.read_utente();
+  }
+ async read_utente(){
+  this.tipoUtente = this.utente.utente[0].nome;
 
   }
 
