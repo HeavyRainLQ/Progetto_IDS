@@ -9,8 +9,7 @@ table
     
 
   
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
+  
   border-collapse: collapse;
   
   
@@ -47,7 +46,7 @@ table
 }
 
 td {
-  border-left: 3px double black;
+  border-left: 3px solid black;
   
     padding:5px;
     margin-left:5px;
@@ -59,7 +58,7 @@ td {
 }
 
 th {
-  border-left: 3px double black;
+  border-left: 3px solid black;
   border-bottom: 6px solid black;
   
     padding:10px;

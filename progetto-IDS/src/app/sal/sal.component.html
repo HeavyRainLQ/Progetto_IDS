@@ -1,5 +1,5 @@
   <!--<app-banner></app-banner>-->
-  <body>
+
     <div class="testa1">
       <div>  <h3>Stato avanzamento lavori</h3>
         <br> 
@@ -14,15 +14,15 @@
 
 
 
-
-<table >
+<div class="table-responsive rounded">
+<table class="table">
   <thead class="thead-dark">
     <tr>
-      <th [mdbTableSort]="sals" sortBy="id" scope="col">N° </th>
-      <th [mdbTableSort]="sals" sortBy="tariffa"scope="col">Data</th>
-      <th [mdbTableSort]="sals" sortBy="tariffa"scope="col">Cod. Tariffa</th>
-      <th [mdbTableSort]="sals" sortBy="categoria" scope="col">Categoria Contabile</th>
-      <th [mdbTableSort]="sals" sortBy="descrizione" scope="col">Descrizione</th>
+      <th  sortBy="id" scope="col">N° </th>
+      <th  sortBy="tariffa"scope="col">Data</th>
+      <th sortBy="tariffa"scope="col">Cod. Tariffa</th>
+      <th  sortBy="categoria" scope="col">Categoria Contabile</th>
+      <th  sortBy="descrizione" scope="col">Descrizione</th>
       <th  style="width:6%" sortBy="percentuale" scope="col">%</th>
       <th  scope="col">Importo unitario %</th>
       <th scope="col">Importo totale</th>
@@ -32,7 +32,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let sal of sals" >
-      <td style="padding-left: 15px;">{{sal.cod_sal}}</td>
+      <td>{{sal.cod_sal}}</td>
       <td>{{sal.data}}</td>
       <td>{{sal.tariffa}}</td>
       <td>{{sal.categoria}}</td>
@@ -57,15 +57,15 @@
 <br>
 <br>
 
-<table class="table table-responsive table-hover">
+<table class="table" >
     <thead class="thead-dark">
         <tr>
-      <th [mdbTableSort]="sals" sortBy="id" scope="col">N° </th>
-      <th [mdbTableSort]="sals" sortBy="tariffa"scope="col">Data</th>
-      <th [mdbTableSort]="sals" sortBy="tariffa"scope="col">Cod. Tariffa</th>
-      <th [mdbTableSort]="sals" sortBy="categoria" scope="col">Categoria Contabile</th>
-      <th [mdbTableSort]="sals" sortBy="descrizione" scope="col">Descrizione</th>
-      <th  style="width:6%" sortBy="percentuale" scope="col">%</th>
+      <th  scope="col">N° </th>
+      <th  scope="col">Data</th>
+      <th scope="col">Cod. Tariffa</th>
+      <th scope="col">Categoria Contabile</th>
+      <th  scope="col">Descrizione</th>
+      <th   sortBy="percentuale" scope="col">%</th>
       <th  scope="col">Importo unitario %</th>
       <th scope="col">Importo totale</th>
       <th  scope="col">Importo totale %</th>
@@ -98,6 +98,7 @@
     
     
 </table>
+</div>
 
 
 
@@ -107,4 +108,4 @@
 <br>
 
 
-</body>
+
