@@ -1,7 +1,7 @@
 <div class="d-flex {{ nascondi }}" id="wrapper">
   <!-- Sidebar -->
   <div class="bg-light " id="sidebar-wrapper">
-    <div class="sidebar-heading"><p *ngIf="(tipoUtente | async) as tipoUtente; else loading"><i class="fas fa-users fa-2x"></i> &nbsp;</p></div>
+    <div class="sidebar-heading"><p ><i class="fas fa-users fa-2x"></i> &nbsp; {{tipoUtente| async}}</p></div>
 
 
     <br />
@@ -43,12 +43,12 @@
         </li>
 
         <li>
-          <a 
-          [routerLink]="[
+          <a
+            [routerLink]="[
               '/area-riservata',
               { outlets: { reserved: ['sal'] } }
             ]"
-          class=""
+            class=""
             ><i class="fas fa-percent fa-2x"></i> &nbsp;Stato Avanzamento
             Lavori</a
           >
@@ -63,7 +63,6 @@
             ><i class="fas fa-chart-bar fa-2x"></i> &nbsp;Dashboard</a
           >
         </li>
-        
       </ul>
     </div>
   </div>
@@ -205,7 +204,13 @@
               <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['registroContabilita']}}]">Registro contabilità</a>
             </p>
             <p>
-              <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['sal']}}]">Stato avanzamento lavori</a>
+              <a
+                [routerLink]="[
+                  '/area-riservata',
+                  { outlets: { reserved: ['sal'] } }
+                ]"
+                >Stato avanzamento lavori</a
+              >
             </p>
             <p>
               <a [routerLink]="['/area-riservata',{outlets:{ 'reserved': ['graph']}}]">Grafico SAL</a>

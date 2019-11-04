@@ -2,6 +2,7 @@ import { Component, OnInit,Inject, Input} from '@angular/core';
 import {MAT_DIALOG_DATA,MatDialogRef} from '@angular/material';
 import {SqlServiceService } from '../sql-service.service';
 import {MatDialog} from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -19,8 +20,9 @@ result:Object;
 
 //@Inject(MAT_DIALOG_DATA) public data:string;
 dati: any;
+  
 
-constructor(@Inject(MAT_DIALOG_DATA) public data: any,private user:SqlServiceService,public dialog: MatDialogRef<ModalComponent>) 
+constructor(@Inject(MAT_DIALOG_DATA) public data: any,public router:Router, private user:SqlServiceService,public dialog: MatDialogRef<ModalComponent>) 
 {
     
 }
@@ -68,7 +70,7 @@ save()
   this.dati= {
           
     "col1":{
-    // "ci":  a1.value,
+    "id_user":  this.user.utente[0].id_user,
     "nome":a2.value,
     "cognome":a3.value,
     "cod_fis":a4.value,
@@ -99,7 +101,8 @@ save()
     if(confirm("Conferma il update?")){
      this.dialog.close();
     }
-
+    this.user.getSomeData(a9.value, a10.value);
+    // this.router.navigate(['/home']); 
 }//salvare valori, SQL UPDATE
 
 }

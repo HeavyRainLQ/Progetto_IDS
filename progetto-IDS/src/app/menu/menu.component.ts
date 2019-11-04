@@ -22,7 +22,6 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-
     //this.router.navigate(['/area-riservata']);
     //"['/area-riservata',{outlets:{ 'reserved': ['graph']}}]"
 
@@ -33,23 +32,17 @@ export class MenuComponent implements OnInit {
           // $('#head_banner').css('display','none');
           // $('#nav_bar').css('position','fixed');
         } else {
-
           $('#back-to-top').fadeOut();
         }
-
-
       });
       // scroll body to 0px on click
     });  //final function scroll
-
     this.tipoUtente = this.utente.utente[0].nome.valueChanges();
   // this.read_utente();
   }
  async read_utente(){
   this.tipoUtente = this.utente.utente[0].nome;
-
   }
-
   onActivate(event) {
     let scrollToTop = window.setInterval(() => {
       let pos = window.pageYOffset;

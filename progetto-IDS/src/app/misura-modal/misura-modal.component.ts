@@ -1,5 +1,4 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
-//import { Component, OnInit, Inject, Input, AfterViewChecked,AfterViewInit,AfterContentChecked,AfterContentInit, DoCheck  } from '@angular/core';
+import { Component, OnInit, Inject, Input, AfterViewChecked, AfterViewInit, AfterContentChecked, AfterContentInit, DoCheck, SimpleChanges } from '@angular/core';
 
 import { EthcontractService } from '../ethcontract.service';
 import { SqlServiceService } from '../sql-service.service';
@@ -23,83 +22,61 @@ export class MisuraModalComponent implements OnInit {
   valor = "";
   form: FormGroup;
   result: any;
-  categorias :any;
-  lavori :any;
+  categorias: any;
+  lavori: any;
   tariffa: string;
   percentuale: number;
   riserva: string;
   num_categoria: number;
-  accumulato:string;
+  accumulato: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ethcontractService: EthcontractService, private SqlService: SqlServiceService, public fb: FormBuilder) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data1: any, private ethcontractService: EthcontractService, private SqlService: SqlServiceService, public fb: FormBuilder) {
 
     console.log("---------------------------------------")
-    this.SqlService.select_categorie().subscribe(data =>{ 
+    this.SqlService.select_categorie().subscribe(data => {
       this.categorias = data["records"];
     });
 
-    this.SqlService.select_lavori().subscribe(data =>{ 
+    this.SqlService.select_lavori().subscribe(data => {
       this.lavori = data["records"];
     });
 
-    this.SqlService.select_accumulato(1,1).subscribe(data => {
-         var a=data["records"][0].accumulato;
-      if(a=="")
-      {this.accumulato="100";
-      }
-      else{
-      
-      this.accumulato=a;
-      }
-      console.log("en constructor: ",this.accumulato)
 
-      
+    this.form = this.fb.group({
+      percent: ['', [Validators.required, Validators.min(1), Validators.max(100), Validators.maxLength(3)]]
+    });
 
-      });
-    
+
 
   }//fine constructor
 
 
   ngOnInit() {
     console.log("ACCOUNT modal:");
-    console.log(this.data.account);
-    
-    this.form = this.fb.group({
-      percent: ['', [Validators.required, Validators.min(1), Validators.max(Number(this.accumulato)),Validators.maxLength(3)]]
+    console.log(this.data1.account);
+    this.SqlService.select_accumulato(1, 1).subscribe(data => {
+      var a = data["records"][0].accumulato;
+      if (a == "") {
+        this.accumulato = "100";
+      }
+      else {
+
+        this.accumulato = a;
+        if (this.accumulato != undefined) {
+
+          this.form.controls['percent'].setValidators([Validators.required, Validators.min(1), Validators.max(parseInt(this.accumulato)), Validators.maxLength(3)]);
+
+          this.form.updateValueAndValidity();
+
+        }
+      }
     });
-  
     
-
-     console.log("actual:... ",this.accumulato);
-
-    //
-    console.log("antessss");
-    
-
-
   }//fine ngOnInit
 
-  // ngAfterViewInit()
-  // {
-  //   this.ShowSelected();
-  // }
 
-// ngAfterContentChecked(){
-//     console.log("after content checked")
-//   }
-//   ngDoCheck(){
-//     console.log("do check")
-//   }
-//   ngAfterContentInit(){
-//     console.log("after content init");
-//   }
-//   ngAfterViewChecked(){
-//     console.log("after view checked")
-//   }
-  
   salva_misura() {
-   let test= this.form.controls['percent'].invalid;
+    let test = this.form.controls['percent'].invalid;
     let val_cat = (<HTMLSelectElement>document.getElementById('categoria')).value;
     let val_lav = (<HTMLSelectElement>document.getElementById('lavoro')).value;
     let val_cat1 = (<HTMLSelectElement>document.getElementById('categoria'));
@@ -109,7 +86,7 @@ export class MisuraModalComponent implements OnInit {
     var selected1 = val_cat1.options[val_cat1.selectedIndex].text;
     var selected2 = val_lav1.options[val_lav1.selectedIndex].text;
     for (let lav of this.categorias) {
-      
+
       if (lav.id == val_cat) {
         this.tariffa = lav.tariffa;
         //       this.num_categoria=lav.name;
@@ -123,6 +100,9 @@ export class MisuraModalComponent implements OnInit {
     console.log(this.riserva)
     //this.ethcontractService.create_misura(this.tariffa,val_cat,val_lav,this.percentuale,this.riserva,this.data.account);
     let that = this;
+    if(this.riserva==null){
+      this.riserva = "Nessuna riserva inserita"
+    }
     //deploed contract
     this.ethcontractService.create_misura(
       this.tariffa,
@@ -130,7 +110,8 @@ export class MisuraModalComponent implements OnInit {
       selected2,
       this.percentuale,
       this.riserva,
-      this.data.account,
+
+      this.data1.account,
 
     ).then(function () {
 
@@ -145,58 +126,65 @@ export class MisuraModalComponent implements OnInit {
 
     console.log("arrivato insert sql")
 
-      this.SqlService.insert_misura(this.tariffa, val_cat, val_lav, this.percentuale, this.riserva).subscribe(data => {
-        console.log("insert corretto..");
-        console.log(data);
+    this.SqlService.insert_misura(this.tariffa, val_cat, val_lav, this.percentuale, this.riserva).subscribe(data => {
+      console.log("insert corretto..");
+      console.log(data);
 
-        //this.result = data["records"];
-        //console.log($scope.result[0].ini);
-        //var a=this.result[0].ini;
-      });
-    
+      //this.result = data["records"];
+      //console.log($scope.result[0].ini);
+      //var a=this.result[0].ini;
+    });
+
 
 
   }//FINE SALVA MISURA
 
- percEsatta(){
+  percEsatta() {
 
-  if(this.percentuale<1 || this.percentuale>100){
+    if (this.percentuale < 1 || this.percentuale > 100) {
 
-    this.percentuale=0;
-  }
-      
-}//fine percEsatta
+      this.percentuale = 0;
+    }
 
-ShowSelected()
-{
-/* Para obtener el valor */
-var cat = (<HTMLSelectElement>document.getElementById("categoria")).value;
-/* Para obtener el texto */
-var des = (<HTMLSelectElement>document.getElementById("lavoro")).value;
-console.log("valoresss: ",cat,des)
+  }//fine percEsatta
 
-//si invia categoria e descrizione per ottenere accumulato percentuale attuale
-this.SqlService.select_accumulato(cat,des).subscribe(data => {
+  ShowSelected() {
+    /* Para obtener el valor */
+    var cat = (<HTMLSelectElement>document.getElementById("categoria")).value;
+    /* Para obtener el texto */
+    var des = (<HTMLSelectElement>document.getElementById("lavoro")).value;
+    console.log("valoresss: ", cat, des)
 
-      var a=data["records"][0].accumulato;
-      if(a=="")
-      {this.accumulato="100";
+    //si invia categoria e descrizione per ottenere accumulato percentuale attuale
+    this.SqlService.select_accumulato(cat, des).subscribe(data => {
+
+      var a = data["records"][0].accumulato;
+      if (a == "") {
+        this.accumulato = "100";
       }
-      else{
-      
-      this.accumulato=a;
+      else {
+
+        this.accumulato = a;
       }
 
-        //this.result = data["records"];
-        //console.log($scope.result[0].ini);
-        //var a=this.result[0].ini;
-      });
- 
-this.form = this.fb.group({
-      percent: ['', [Validators.required, Validators.min(1), Validators.max(Number(this.accumulato)),Validators.maxLength(3)]]
+      //this.result = data["records"];
+      //console.log($scope.result[0].ini);
+      //var a=this.result[0].ini;
     });
 
-}//fine showSelected
+
+    this.form.valueChanges.subscribe(checked => {
+      if (checked) {
+        this.form.controls['percent'].setValidators([Validators.required, Validators.min(1), Validators.max(parseInt(this.accumulato)), Validators.maxLength(3)]);
+      } else {
+        this.form.setValidators(null);
+      }
+      this.form.updateValueAndValidity();
+    });
+
+
+
+  }//fine showSelected
 
 
 }//fine class export
