@@ -32,6 +32,7 @@ export class RegistroContabilitaComponent implements OnInit {
   public parziale_perc:number;  
   soglia:any;
   s_superata=true;
+  cont_id_sal:any;
 
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private Web3Service:Web3Service) {
     this.defaultColDef = { sortable: true };
@@ -39,10 +40,12 @@ export class RegistroContabilitaComponent implements OnInit {
     this.parametriDoc=SqlService.parDocumenti;
     this.parametriDoc=this.parametriDoc[0];
     
+    this.calcolo();
     
     this.genera_registro();
     this.initAndDisplayAccount();
-    this.calcolo();
+    // this.calcolo();
+    this.cal_max();
 
     
   //   console.log("parziale %: ",this.parziale_perc)
@@ -233,6 +236,19 @@ calcolo(){
   
       this.get_soglia();
     });
+
+}//fine calcolo
+
+cal_max(){
+console.log("llegoooooooooo")
+var conta=0;
+  this.Web3Service.select_max().subscribe(data => {
+
+     conta= data["records"][0].cod_sal;
+      console.log(this.cont_id_sal);
+    });
+  this.cont_id_sal=conta;
+  console.log("valor cod sal: ",this.cont_id_sal)
 
 }//fine calcolo
 

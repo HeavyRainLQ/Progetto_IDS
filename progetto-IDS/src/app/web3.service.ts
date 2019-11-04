@@ -24,7 +24,9 @@ export class Web3Service {
   getMessage(): Observable<object> {
       return this.subject.asObservable();
   }
-  constructor() { }
+  constructor(private http: HttpClient) 
+  { 
+  }//fine constructor
 
 
 
@@ -36,6 +38,11 @@ numberToSigned64x64(number: number): string {
 signed64x64ToNumber(signed64x64: number): number {
     return signed64x64 / Math.pow(2, 64);
  }//finecaonvert to number
+
+ select_max() {
+    return this.http.post('/api/select_max_id.php', {})
+
+  }//fine select max cod sal
 
 
 }

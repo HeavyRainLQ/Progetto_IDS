@@ -28,8 +28,7 @@ if ($row = mysqli_fetch_array($estandar)) {
     $outp .= '"residenza":"'   . $row[7] . '",';
     $outp .= '"tipo":"'   . $row[8] . '",';
     $outp .= '"estado":"'   . $row[9] . '",';
-    $outp .= '"email":"'   . $row[12] . '",';
-    $outp .= '"id_user":"' . $row[13] . '"}';
+    $outp .= '"email":"' . $row[12] . '"}';
     $outp = '{"records":[' . $outp . ']}';
     echo ($outp);
     //header('Location:http://localhost/Indomita/#/main');

@@ -33,6 +33,7 @@ while($row=mysqli_fetch_array($estandar))
     $outp .= '"tariffa":"'   .$row[0]. '",';
     $outp .= '"categoria":"'   .$row[1]. '",';
     $outp .= '"descrizione":"'   .$row[2]. '",';
+    $outp .= '"prezzo":"'   .$row[3]. '",';
     $outp .= '"percentuale":"'   .$row[4]. '",';
     $outp .= '"prezzo_perc":"'   .$row[5]. '",';
     $outp .= '"debito":"'   .$row[6]. '",';

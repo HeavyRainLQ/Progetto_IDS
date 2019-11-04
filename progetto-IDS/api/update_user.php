@@ -8,7 +8,7 @@ include 'conexion.php';
 //obtenemos los valores del formulario
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata); 
-$id_user = $request->id_user;
+
 $ci=$request->ci;
 $nome=$request->nome;
 $cognome=$request->cognome;
@@ -34,7 +34,7 @@ $pass2=$request->pass2;
 //$contraseñaUsuario=md5($pass);
 
 //ingresar a la base de datos
-mysqli_query($link,"update user set nome='".$nome."',cognome='".$cognome."',cod_fiscale='".$cod_fis."',d_nascita='".$d_nasci."',luogo_nascita='".$l_nasci."',cap='".$cap."', residenza='".$resid."',username='".$user2."',password='".$pass2."' where id_user='".$id_user."'");
+mysqli_query($link,"update user set nome='".$nome."',cognome='".$cognome."',cod_fiscale='".$cod_fis."',d_nascita='".$d_nasci."',luogo_nascita='".$l_nasci."',cap='".$cap."', residenza='".$resid."',user='".$user2."',password='".$pass2."' where c_identita='".$ci."'");
 
 echo("true");
 ?>
