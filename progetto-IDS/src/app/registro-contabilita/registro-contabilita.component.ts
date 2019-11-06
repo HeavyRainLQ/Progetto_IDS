@@ -3,6 +3,7 @@ import { EthcontractService } from '../ethcontract.service';
 import {SqlServiceService } from '../sql-service.service';
 import {Web3Service } from '../web3.service';
 import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
+import { MatProgressBarModule } from '@angular/material';
 
 
 @Component({
@@ -325,3 +326,4 @@ id_soglia(val)
 
 
 }//fine class export
+

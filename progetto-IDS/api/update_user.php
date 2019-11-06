@@ -9,7 +9,7 @@ include 'conexion.php';
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata); 
 
-$ci=$request->ci;
+$id_user=$request->id_user;
 $nome=$request->nome;
 $cognome=$request->cognome;
 $cod_fis=$request->cod_fis;
@@ -34,7 +34,7 @@ $pass2=$request->pass2;
 //$contraseñaUsuario=md5($pass);
 
 //ingresar a la base de datos
-mysqli_query($link,"update user set nome='".$nome."',cognome='".$cognome."',cod_fiscale='".$cod_fis."',d_nascita='".$d_nasci."',luogo_nascita='".$l_nasci."',cap='".$cap."', residenza='".$resid."',user='".$user2."',password='".$pass2."' where c_identita='".$ci."'");
+mysqli_query($link,"update user set nome='".$nome."',cognome='".$cognome."',cod_fiscale='".$cod_fis."',d_nascita='".$d_nasci."',luogo_nascita='".$l_nasci."',cap='".$cap."', residenza='".$resid."',username='".$user2."',password='".$pass2."' where id_user='".$id_user."'");
 
 echo("true");
 ?>

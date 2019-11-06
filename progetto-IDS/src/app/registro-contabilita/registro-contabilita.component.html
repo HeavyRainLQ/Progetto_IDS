@@ -1,5 +1,5 @@
   <!--<app-banner></app-banner>-->
-<body>
+
   <div class="testa1">
     <div>  <h3>Registro di contabilità</h3>
       <br> 
@@ -14,56 +14,48 @@
 
 
 
-<!-- <div class="form-row align-items-center">
-  <div class="col-auto my-1">
-  <button mat-raised-button type="button" class="btn btn-primary" >Cerca</button>  
+
+ <div class="row">
+<div class="col-10" style="text-align: center;">
+  
+
+
+
+
+<br>
+<div class="progress" style="height: 40px;">
+  <div class="progress-bar" [style.width]="parziale_perc + '%'">
+
+      
+   <span>{{parziale_perc}}%</span>
   </div>
-  <div class="col-auto my-1">
-  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Choose...</option>
-        <option value="1">Approvati</option>
-        <option value="2">Invalidati</option>
-  </select>
   </div>
 
-  <div class="col-auto my-1">
-    <button mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuova Misura</button>
-  </div>
-
-</div> -->
-<div class="row">
-<div class="col-8" style="text-align: center;">
-<div class="progress" style="width: 80%;">
-  <div class="progress-bar" role="progressbar" style="width: 25%;" [aria-valuenow]="parziale_perc" aria-valuemin="0" aria-valuemax="100">{{parziale_perc}}%</div>
-</div>
-</div>
-<div class="col-4" style="text-align: left;">
-<button type="button" [disabled]="new_superata" class="btn btn-warning"  style="color:white;" data-toggle="modal" data-target="#myModal" ><i class="fas fa-check-double fa-1x"></i> Approvare</button> 
 </div>
 </div>
 <br>
-
-
-
-<table >
+<br>
+<div class="table-responsive rounded">
+<table class="table">
   <thead class="thead-dark">
     <tr>
       <!-- <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th> -->
-      <th [mdbTableSort]="registros" sortBy="tariffa"scope="col">Cod.Tariffa</th>
+      <th  scope="col">Cod.Tariffa</th>
       <!-- <th [mdbTableSort]="registros" sortBy="data" scope="col">Data<mdb-icon fas icon="sort"></mdb-icon></th> -->
       <!-- <th [mdbTableSort]="misures" sortBy="data" scope="col">Approvata<mdb-icon fas icon="sort"></mdb-icon></th>
       <th [mdbTableSort]="misures" sortBy="data" scope="col">valida<mdb-icon fas icon="sort"></mdb-icon></th> -->
-      <th [mdbTableSort]="registros" sortBy="categoria" scope="col">Categoria Contabile</th>
-      <th [mdbTableSort]="registros" sortBy="descrizione" scope="col">Descrizione</th>
-      <th [mdbTableSort]="registros" style="width:6%" sortBy="percentuale" scope="col">%</th>
-      <th [mdbTableSort]="registros" scope="col">Prezzo(%)</th>
-      <th [mdbTableSort]="registros" scope="col">Debito</th>
-      <th [mdbTableSort]="registros" scope="col">Debito(%)</th>
+      <th  scope="col">Categoria Contabile</th>
+      <th  scope="col">Descrizione</th>
+      <th   sortBy="percentuale" scope="col">%</th>
+      <th  scope="col">Prezzo in €</th>
+      <th  scope="col">Prezzo(%)</th>
+      <th  scope="col">Debito in €</th>
+      <th  scope="col">Debito(%)</th>
       <!-- <th  scope="col">Azione</th> -->
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let registro of registros" [ngClass]="">
+  <tbody >
+    <tr *ngFor="let registro of registros">
       <!-- <td style="padding-left: 15px;">{{misure.id}}</td> -->
       <td>{{registro.tariffa}}</td>
       <!-- <td>{{registro.data}}</td> -->
@@ -71,6 +63,7 @@
       <td>{{registro.categoria}}</td>
       <td>{{registro.descrizione}}</td>
       <td>{{registro.percentuale}}</td>
+      <td>{{registro.prezzo}}</td>
       <td>{{registro.prezzo_perc}}</td>
       <td>{{registro.debito}}</td>
       <td>{{registro.debito_perc}}</td>
@@ -84,14 +77,7 @@
   </tbody>
 </table>
 
-<!--fin de la table-->
-
-<!--chiamare a view con dimensione piccola-->
-<!--
-<div class="w-50 h-25">
-<app-graph></app-graph>
 </div>
--->
 
 <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-sm">
@@ -121,6 +107,10 @@
 
 
 <br>
+
+<div class="col-4" style="text-align: left;">
+  <button type="button" [disabled]="s_superata$| async" class="btn btn-warning"  style="color:white;" data-toggle="modal" data-target="#myModal" ><i class="fas fa-check-double fa-1x"></i> Approvare</button> 
+  </div>
 <!-- 
 <ag-grid-angular 
     style="width: 500px; height: 500px;" 
@@ -159,5 +149,3 @@
 
 <br>
 
-
-</body>

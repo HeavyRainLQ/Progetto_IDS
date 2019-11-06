@@ -33,8 +33,8 @@
 
 <br>
 
-
-<table>
+<div class="table-responsive rounded">
+  <table class="table">
   <thead class="thead-dark">
     <tr >
       <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th>
@@ -62,9 +62,9 @@
       <td>{{misure.riserva}}</td>
       <td >
 
-<button mat-raised-button type="button" [hidden]="misure.approva_sal" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
-<button type="button" [hidden]="misure.approva_sal" (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:!misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
-<button type="button" [hidden]="misure.approva_sal" (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
+<button mat-raised-button *ngIf=can(approva) type="button" [hidden]="misure.approva_sal" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
+<button type="button" *ngIf=can(invalida) [hidden]="misure.approva_sal" (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:!misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
+<button type="button" *ngIf=can(invalida) [hidden]="misure.approva_sal" (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
 
 
 
@@ -72,6 +72,7 @@
     </tr>
   </tbody>
 </table>
+</div>
 
 <!--fin de la table-->
 

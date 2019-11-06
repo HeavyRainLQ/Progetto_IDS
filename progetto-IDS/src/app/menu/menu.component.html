@@ -1,7 +1,7 @@
 <div class="d-flex {{ nascondi }}" id="wrapper">
   <!-- Sidebar -->
   <div class="bg-light " id="sidebar-wrapper">
-    <div class="sidebar-heading"><p ><i class="fas fa-users fa-2x"></i> &nbsp; {{tipoUtente| async}}</p></div>
+    <div class="sidebar-heading"><p ><i class="fas fa-users fa-2x"></i> &nbsp; {{tipoUtente}}</p></div>
 
 
     <br />
@@ -16,7 +16,7 @@
             ]"
             class=""
             ><i class="far fa-address-book fa-2x"> </i> &nbsp;Giornale dei
-            lavori</a
+            Lavori</a
           >
         </li>
         <li>
@@ -27,7 +27,7 @@
             ]"
             class=""
             ><i class="fas fa-book fa-w-16 fa-2x"></i> &nbsp;Libretto delle
-            misure</a
+            Misure</a
           >
         </li>
         <li>
@@ -60,7 +60,7 @@
               { outlets: { reserved: ['graph'] } }
             ]"
             class=""
-            ><i class="fas fa-chart-bar fa-2x"></i> &nbsp;Dashboard</a
+            ><i class="fas fa-chart-bar fa-2x"></i> &nbsp;Grafico SAL</a
           >
         </li>
       </ul>
@@ -144,6 +144,13 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" [routerLink]="['/login']"
                 >Logout
+                <i
+                  style="text-align:center;float:right;"
+                  class="fas fa-sign-out-alt fa-1x"
+                ></i
+              ></a>
+              <a *ngIf="admin" class="dropdown-item" (click)="nuovoUtente()"
+                >Nuovo Utente
                 <i
                   style="text-align:center;float:right;"
                   class="fas fa-sign-out-alt fa-1x"
