@@ -3,6 +3,7 @@ import { EthcontractService } from '../ethcontract.service';
 import {SqlServiceService } from '../sql-service.service';
 import {Web3Service } from '../web3.service';
 import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
+import { MatProgressBarModule } from '@angular/material';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class RegistroContabilitaComponent implements OnInit {
   soglia:any;
   s_superata=true;
   cont_id_sal:any;
-  valoriParziali=[30,50,70];
+  
 
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private Web3Service:Web3Service) {
     this.defaultColDef = { sortable: true };
@@ -286,5 +287,4 @@ can(azione) {
 
 
 }//fine class export
-
 
