@@ -16,17 +16,25 @@
 
 
  <div class="row">
-<div class="col-8" style="text-align: center;">
-<div class="progress" style="height: 40px; " >
-  <div class="progress-bar" role="progressbar"  style="width: parziale_perc;" [aria-valuenow]="parziale_perc" aria-valuemin="0" aria-valuemax="100">{{parziale_perc}}%</div>
-</div>
+<div class="col-10" style="text-align: center;">
+  
+
+
+
+
+<br>
+<div class="progress" style="height: 40px;">
+  <div class="progress-bar" [style.width]="parziale_perc + '%'">
+
+      
+   <span>{{parziale_perc}}%</span>
+  </div>
+  </div>
 
 </div>
-
 </div>
 <br>
-
-
+<br>
 <div class="table-responsive rounded">
 <table class="table">
   <thead class="thead-dark">
@@ -39,9 +47,9 @@
       <th  scope="col">Categoria Contabile</th>
       <th  scope="col">Descrizione</th>
       <th   sortBy="percentuale" scope="col">%</th>
-      <th  scope="col">Prezzo</th>
+      <th  scope="col">Prezzo in €</th>
       <th  scope="col">Prezzo(%)</th>
-      <th  scope="col">Debito</th>
+      <th  scope="col">Debito in €</th>
       <th  scope="col">Debito(%)</th>
       <!-- <th  scope="col">Azione</th> -->
     </tr>
