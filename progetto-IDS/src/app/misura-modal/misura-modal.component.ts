@@ -71,7 +71,7 @@ export class MisuraModalComponent implements OnInit {
         }
       }
     });
-    
+
   }//fine ngOnInit
 
 
@@ -82,7 +82,7 @@ export class MisuraModalComponent implements OnInit {
     let val_cat1 = (<HTMLSelectElement>document.getElementById('categoria'));
     let val_lav1 = (<HTMLSelectElement>document.getElementById('lavoro'));
 
-    
+
     var selected1 = val_cat1.options[val_cat1.selectedIndex].text;
     var selected2 = val_lav1.options[val_lav1.selectedIndex].text;
     for (let lav of this.categorias) {
@@ -100,7 +100,7 @@ export class MisuraModalComponent implements OnInit {
     console.log(this.riserva)
     //this.ethcontractService.create_misura(this.tariffa,val_cat,val_lav,this.percentuale,this.riserva,this.data.account);
     let that = this;
-    if(this.riserva==null){
+    if (this.riserva == null) {
       this.riserva = "Nessuna riserva inserita"
     }
     //deploed contract
@@ -157,7 +157,7 @@ export class MisuraModalComponent implements OnInit {
 
     //si invia categoria e descrizione per ottenere accumulato percentuale attuale
     this.SqlService.select_accumulato(cat, des).subscribe(data => {
-
+      this.percentuale = null;
       var a = data["records"][0].accumulato;
       if (a == "") {
         this.accumulato = "100";

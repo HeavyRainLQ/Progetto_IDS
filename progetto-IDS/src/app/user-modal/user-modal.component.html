@@ -4,7 +4,7 @@
   <div
     style="text-align:center;border-bottom: 2px inset rgb(231, 202, 39);;color:rgb(231, 202, 39);"
   >
-    <h4>DATI UTENTE</h4>
+    <h4>DATI NUOVO UTENTE</h4>
   </div>
   <br />
 
@@ -22,7 +22,6 @@
             type="text"
             class="form-control form-control-sm"
             name="nombre"
-            value="{{ data.nome }}"
             required
           />
         </td>
@@ -35,7 +34,6 @@
             type="text"
             class="form-control form-control-sm"
             name="ap_ps"
-            value="{{ data.cognome }}"
             required
           />
         </td>
@@ -48,7 +46,6 @@
             type="text"
             class="form-control form-control-sm"
             name="cod_fis"
-            value="{{ data.cod_fis }}"
             required
           />
         </td>
@@ -61,7 +58,6 @@
             type="date"
             class="form-control form-control-sm"
             name="data_na"
-            value="{{ data.d_nasci }}"
             required
           />
         </td>
@@ -74,7 +70,6 @@
             type="text"
             class="form-control form-control-sm"
             name="luogo_na"
-            value="{{ data.l_nasci }}"
             required
           />
         </td>
@@ -87,7 +82,6 @@
             type="number"
             class="form-control form-control-sm"
             name="usuario"
-            value="{{ data.cap }}"
             required
           />
         </td>
@@ -100,9 +94,24 @@
             type="text"
             class="form-control form-control-sm"
             name="residenza"
-            value="{{ data.resid }}"
             required
           />
+        </td>
+      </tr>
+      <tr>
+        <td id="col1"><label>Tipo Utente</label></td>
+        <td>
+          <select
+            [(ngModel)]="ruolo"
+            [ngModelOptions]="{ standalone: true }"
+            style="width: 100%;height: 35px;"
+          >
+            <option *ngFor="let tipo of tipi" [ngValue]="tipo">
+              <!-- (qualificaId)="(qualifica.id_qualifica)" -->
+
+              {{ tipo.nome_tipo }}
+            </option>
+          </select>
         </td>
       </tr>
       <tr>
@@ -113,7 +122,6 @@
             type="text"
             class="form-control form-control-sm"
             name="user"
-            value="{{ data.user2 }}"
             required
           />
         </td>
@@ -126,7 +134,6 @@
             type="password"
             class="form-control form-control-sm"
             name="pass"
-            value="{{ data.pass2 }}"
             required
           />
         </td>

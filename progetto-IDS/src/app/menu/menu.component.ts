@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { SqlServiceService } from '../sql-service.service';
 import { FormsModule } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { UserModalComponent } from '.././user-modal/user-modal.component';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -12,13 +14,14 @@ export class MenuComponent implements OnInit {
   collapse = false;
   nascondi = '';
   arrow = 'arrowLeft';
-  public tipoUtente: string;
-  constructor(private router: Router, private utente: SqlServiceService) { 
+  admin: boolean;
+  tipoUtente: string;
+  constructor(private router: Router, private utente: SqlServiceService, public dialog: MatDialog) {
     this.arrow = 'fas fa-times fa-2x';
     this.router.navigateByUrl("/area-riservata/(reserved:home)");
 
-    
-    
+
+
   }
 
   ngOnInit() {
@@ -37,12 +40,12 @@ export class MenuComponent implements OnInit {
       });
       // scroll body to 0px on click
     });  //final function scroll
-    this.tipoUtente = this.utente.utente[0].nome.valueChanges();
-  // this.read_utente();
+    this.getNomeUtente();
+    // this.read_utente();
   }
- async read_utente(){
-  this.tipoUtente = this.utente.utente[0].nome;
-  }
+  //  async read_utente(){
+  //   this.tipoUtente = this.utente.utente[0].nome;
+  //   }
   onActivate(event) {
     let scrollToTop = window.setInterval(() => {
       let pos = window.pageYOffset;
@@ -66,4 +69,48 @@ export class MenuComponent implements OnInit {
       //console.log('oooooo');
     }
   }
+
+  getNomeUtente() {
+    this.tipoUtente = this.utente.utente[0].nome + ' ' + this.utente.utente[0].cognome;
+    if(this.utente.utente[0].tipo==1){
+      this.admin=true;
+    }else{
+      this.admin = false;
+    }
+  }
+
+  nuovoUtente(): void {
+
+
+
+
+    let dialogRef = this.dialog.open(UserModalComponent, {
+
+      width: '425px',
+      height: '560px',
+      //data: {name: 'prueba'}
+      // data: {
+
+      //   // ci: this.ci,
+      //   nome: this.nome,
+      //   cognome: this.cognome,
+      //   cod_fis: this.cod_fis,
+      //   d_nasci: this.d_nasci,
+      //   l_nasci: this.l_nasci,
+      //   cap: this.cap,
+      //   resid: this.resid,
+      //   user2: this.user2,
+      //   pass2: this.pass2
+
+      // }//fin della data
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+
+  }
+
 }
