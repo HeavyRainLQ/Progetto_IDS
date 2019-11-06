@@ -11,6 +11,11 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+
+-- Dump della struttura del database ids
+CREATE DATABASE IF NOT EXISTS `ids` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `ids`;
+
 -- Dump della struttura di tabella ids.attrezzatura
 CREATE TABLE IF NOT EXISTS `attrezzatura` (
   `id_attr` int(11) NOT NULL AUTO_INCREMENT,
@@ -202,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   CONSTRAINT `tipologia_user` FOREIGN KEY (`tipo_user`) REFERENCES `tipo_user` (`id_tipo_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella ids.user: ~6 rows (circa)
+-- Dump dei dati della tabella ids.user: ~7 rows (circa)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`hash_wallet`, `nome`, `cognome`, `cod_fiscale`, `d_nascita`, `luogo_nascita`, `cap`, `residenza`, `tipo_user`, `stato_user`, `username`, `password`, `email`, `id_user`) VALUES
 	('0xf987654321', 'fabio', 'russo', 'asdfghjkl', '12/05/1990', 'amatrice', '63025', 'ancona', 4, 1, 'ruxo91', '1991', 'ruxo91@gmail.com', 1),
