@@ -44,5 +44,11 @@ signed64x64ToNumber(signed64x64: number): number {
 
   }//fine select max cod sal
 
+  update_superata(id) {
+    return this.http.post('/api/update_soglia.php', {
+    	id
+    })
+  }//fine select max cod sal
+
 
 }
