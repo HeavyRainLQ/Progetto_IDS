@@ -102,6 +102,7 @@ save()
      this.dialog.close();
     }
     this.user.getSomeData(a9.value, a10.value);
+    location.reload();
     // this.router.navigate(['/home']); 
 }//salvare valori, SQL UPDATE
 

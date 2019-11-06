@@ -18,14 +18,16 @@ export class SqlServiceService {
   var1: object;
   utente: Object;
   a;
-  id_user:any;
+  id_user: any;
 
-  parDocumenti= [
-    { budget:100000,
-      oggetto:"Costruzione di un complesso di fabbricati destinati ad abitazione ed negozi nel centro urbano del Comune di Ancona.",
-      ditta:"La Distruttoria s.r.l.",
-      committente:"Sviluppo Anconetano s.r.l." },
-    
+  parDocumenti = [
+    {
+      budget: 100000,
+      oggetto: "Costruzione di un complesso di fabbricati destinati ad abitazione ed negozi nel centro urbano del Comune di Ancona.",
+      ditta: "La Distruttoria s.r.l.",
+      committente: "Sviluppo Anconetano s.r.l."
+    },
+
   ];
 
 
@@ -72,6 +74,27 @@ export class SqlServiceService {
     })
 
   }
+
+  insert_user(dati: object) {
+    console.log("servicio update: ->");
+    console.log(dati);
+    this.var1 = dati["col1"];
+    console.log(this.var1["ci"]);
+
+
+    /*
+*/
+
+
+    //return this.http.get("/api/conexion.php");
+    return this.http.post('/api/insert_user.php',
+
+      this.var1,
+
+    )
+    //return this.http.get<myData>("../../../src/app/conexion.php");
+  }
+
   insert_misura(tariffa, conta, lavoro, perce, ris) {
 
 
@@ -84,45 +107,44 @@ export class SqlServiceService {
 
   }//fin del metodo mio_profilo
 
-insert_sal(cod_sal,
+  insert_sal(cod_sal,
     categoria,
     descrizione,
     percentuale,
     prezzo_perc,
     debito,
-    debito_perc)
-{
-return this.http.post('/api/insert_sal.php', {
+    debito_perc) {
+    return this.http.post('/api/insert_sal.php', {
       cod_sal,
-    categoria,
-    descrizione,
-    percentuale,
-    prezzo_perc,
-    debito,
-    debito_perc
+      categoria,
+      descrizione,
+      percentuale,
+      prezzo_perc,
+      debito,
+      debito_perc
     })
 
-}//insert SAL
+  }//insert SAL
 
 
 
-////////////////////SELECTS
-select_accumulato(categoria, descrizione) {
+  ////////////////////SELECTS
+  select_accumulato(categoria, descrizione) {
 
     console.log("servicio accumulato: ->");
     return this.http.post('/api/select_accumulato.php', {
       categoria, descrizione
     })
 
-}//fine select accumulato %
-select_descrizione(nomeCat, descrizione) {
+  }//fine select accumulato %
+  select_descrizione(nomeCat, descrizione) {
 
     console.log("servicio select_descrizione: ->");
     return this.http.post('/api/select_categoria.php', {
       nomeCat, descrizione
     })
 
-}//fine select descrizione
+  }//fine select descrizione
 
   select_attrezzatura() {
     return this.http.post('/api/select_attre.php', {})
@@ -188,23 +210,27 @@ select_descrizione(nomeCat, descrizione) {
     })
   }//fine update approva
 
+  select_tipo_user() {
 
+    return this.http.post('/api/select_tipo_user.php', {})
+
+  }
   update_info(dati: object) {
     console.log("servicio update: ->");
     console.log(dati);
     this.var1 = dati["col1"];
     console.log(this.var1["ci"]);
-   
-  
+
+
     /*
 */
 
 
     //return this.http.get("/api/conexion.php");
-    return this.http.post('/api/update_user.php', 
+    return this.http.post('/api/update_user.php',
 
       this.var1,
-     
+
     )
     //return this.http.get<myData>("../../../src/app/conexion.php");
   }//fin del metodo update

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Chart} from 'chart.js';
+import { Chart } from 'chart.js';
 import { SqlServiceService } from '../sql-service.service';
 @Component({
   selector: 'app-graph',
@@ -8,55 +8,35 @@ import { SqlServiceService } from '../sql-service.service';
 })
 export class GraphComponent implements OnInit {
   title = 'Ng7ChartJs By DotNet Techy';
-  LineChart=[];
-  BarChart=[];
-  PieChart=[];
-  parametriDoc=[];
+  LineChart = [];
+  BarChart = [];
+  PieChart = [];
+  valoriSoglia = new Array();
+  length: number;
+  parametriDoc: any;
 
 
-  constructor(private SqlService: SqlServiceService) { 
-    this.parametriDoc=this.SqlService.parDocumenti;
-    this.parametriDoc=this.parametriDoc[0];
+  constructor(private SqlService: SqlServiceService) {
+    this.parametriDoc = this.SqlService.parDocumenti;
+    this.parametriDoc = this.parametriDoc[0];
   }
 
   ngOnInit() {
-    this.LineChart = new Chart('lineChart', {
-      type: 'line',
-    data: {
-     labels: ["Jan", "Feb", "March", "April", "May", "June","July","Aug","Sep","Oct","Nov","Dec"],
-     datasets: [{
-         label: 'Number of Items Sold in Months',
-         data: [9,7 , 3, 5, 2, 10,15,16,19,3,1,9],
-         fill:false,
-         lineTension:0.2,
-         borderColor:"red",
-         borderWidth: 1
-     
-     
-    }, {
-      label: 'Shish',
-         data: [10,6 , 7, 9, 6, 4,2,15,4,9,8],
-         fill:false,
-         lineTension:0.2,
-         borderColor:"blue",
-         borderWidth: 1
-    }]
-    }, 
-    options: {
-     title:{
-         text:"Line Chart",
-         display:true
-     },
-     scales: {
-         yAxes: [{
-             ticks: {
-                 beginAtZero:true
-             }
-         }]
-     }
-    }
+    this.SqlService.select_soglia().subscribe(data => {
+      this.length = this.valoriSoglia.push(0);
+      for (let valori of data['records']) {
+
+        this.length = this.valoriSoglia.push(Number(valori.soglia));
+
+      }
+      this.drawChart(this.valoriSoglia);
     });
-    
+
+    console.log(this.valoriSoglia['0']);
+
+
+
+
     // // Bar chart:
     // this.BarChart = new Chart('barChart', {
     //   type: 'bar',
@@ -98,7 +78,7 @@ export class GraphComponent implements OnInit {
     //  }
     // }
     // });
-    
+
     // // pie chart:
     // this.PieChart = new Chart('pieChart', {
     //   type: 'pie',
@@ -140,9 +120,48 @@ export class GraphComponent implements OnInit {
     //  }
     // }
     // });
-    
-    
-      }
+
+
   }
+
+  drawChart(valoreSoglia) {
+    this.LineChart = new Chart('lineChart', {
+      type: 'line',
+      data: {
+        labels: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+        datasets: [{
+          label: 'Soglie',
+          data: valoreSoglia,
+          fill: false,
+          lineTension: 0.2,
+          borderColor: "red",
+          borderWidth: 1
+
+
+        }, {
+          label: 'Valori Sal',
+          data: [1000, 6000, 7, 900, 6, 4, 200, 15, 4000, 900, 8],
+          fill: false,
+          lineTension: 0.2,
+          borderColor: "blue",
+          borderWidth: 1
+        }]
+      },
+      options: {
+        title: {
+          text: "Grafico Sal",
+          display: true
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+}
 
 

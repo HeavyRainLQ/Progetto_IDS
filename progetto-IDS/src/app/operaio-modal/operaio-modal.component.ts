@@ -9,7 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   styleUrls: ['./operaio-modal.component.css']
 })
 export class OperaioModalComponent implements OnInit {
-
+maxDate = new Date();
   ore = [
     { number: "1" }, { number: "2" },
     { number: "3" }, { number: "4" },
@@ -19,7 +19,7 @@ export class OperaioModalComponent implements OnInit {
   //variabili della modale
   nome: string;
   quantita: string;
-opQual:any;
+  opQual:any;
   cognome: string;
   qualifica: string;
   qualificaId: any;
