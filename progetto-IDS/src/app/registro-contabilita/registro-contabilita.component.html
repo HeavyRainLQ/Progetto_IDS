@@ -18,8 +18,21 @@
  <div class="row">
 <div class="col-8" style="text-align: center;">
 <div class="progress" style="height: 40px; " >
-  <div class="progress-bar" role="progressbar"  style="width: parziale_perc;" [aria-valuenow]="parziale_perc" aria-valuemin="0" aria-valuemax="100">{{parziale_perc}}%</div>
+
+  <div class="progress-bar" role="progressbar"   style="width:parziale_perc" [aria-valuenow]="parziale_perc" aria-valuemin="0" aria-valuemax="100"></div>
+  
 </div>
+<div class="text-align:center color:black ">{{parziale_perc}}%</div>
+
+<ng-container *ngFor="let par of valoriParziali">
+    <ng-container *ngIf="par > parziale_perc && flag">
+        <div class="progress-bar" role="progressbar"   style="width:parziale_perc" [aria-valuenow]="parziale_perc" aria-valuemin="0" aria-valuemax="100"></div>
+        
+
+  
+</ng-container>  
+</ng-container>
+
 
 </div>
 
