@@ -14,8 +14,8 @@
 
 <br>
 
-<div class="container" *ngFor="let item of sals; let i = index" id="indice">
-  <a href="#List-{{ i }}" class="btn btn-info"  data-toggle="collapse">Approvazione Nro{{i+1}}</a>
+<div *ngFor="let item of sals; let i = index" id="bottone">
+  <a href="#List-{{ i }}" class="btn btn-info" id="bott" data-toggle="collapse">Approvazione Nro{{i+1}}</a>
   <div>
     <table>
       <tr id="List-{{ i }}" class="collapse">

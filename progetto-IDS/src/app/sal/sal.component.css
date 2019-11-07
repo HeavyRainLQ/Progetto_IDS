@@ -119,7 +119,7 @@ tr.header2
 {
     margin-top: 0px;  
     margin-bottom: 30px; 
-    background: red;
+    
     width: auto; height: 50px;
 
 }
@@ -151,7 +151,15 @@ tr.header2
   background-color: #f1f1f1;
 }
 
-#indice{
+#bott{
+  
+  border-color:black;
+  background-color: rgb(92, 102, 124);
+  
+}
 
-  background-color:red;
+#bottone{
+  padding-bottom: 3px;
+  
+  border-color:black;
 }
