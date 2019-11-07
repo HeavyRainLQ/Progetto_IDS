@@ -125,7 +125,7 @@ export class OperaioModalComponent implements OnInit {
     // this.salva_attrezza(event);
 
 
-    this.SqlService.insert_operaio(this.nome, this.cognome, this.opQual.id_qualifica).subscribe(data => {
+    this.SqlService.insert_operaio(this.nome, this.cognome, this.opQual.id_qual).subscribe(data => {
       console.log(data);
     }
     );
