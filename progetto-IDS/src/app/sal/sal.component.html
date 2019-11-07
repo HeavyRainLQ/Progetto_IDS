@@ -12,100 +12,37 @@
       <br>
         
 
+<br>
 
-
-<div class="table-responsive rounded">
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th  sortBy="id" scope="col">N° </th>
-      <th  sortBy="tariffa"scope="col">Data</th>
-      <th sortBy="tariffa"scope="col">Cod. Tariffa</th>
-      <th  sortBy="categoria" scope="col">Categoria Contabile</th>
-      <th  sortBy="descrizione" scope="col">Descrizione</th>
-      <th  style="width:6%" sortBy="percentuale" scope="col">%</th>
+<div class="container" *ngFor="let item of sals; let i = index" id="indice">
+  <a href="#List-{{ i }}" class="btn btn-info"  data-toggle="collapse">Approvazione Nro{{i+1}}</a>
+  <div>
+    <table>
+      <tr id="List-{{ i }}" class="collapse">
+      <th  scope="col">Data</th>
+      <th scope="col">Cod. Tariffa</th>
+      <th  scope="col">Categoria Contabile</th>
+      <th  scope="col">Descrizione</th>
+      <th  style="width:6%" scope="col">%</th>
       <th  scope="col">Importo unitario %</th>
       <th scope="col">Importo totale</th>
       <th  scope="col">Importo totale %</th>
       <th  scope="col">Valore_parziale</th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let sal of sals" >
-      <td>{{sal.cod_sal}}</td>
-      <td>{{sal.data}}</td>
-      <td>{{sal.tariffa}}</td>
-      <td>{{sal.categoria}}</td>
-      <td>{{sal.descrizione}}</td>
-      <td>{{sal.percentuale}}</td>
-      <td>{{sal.prezzo_perc}}</td>
-      <td>{{sal.debito}}</td>
-      <td>{{sal.debito_perc}}</td>
-      <td>{{sal.v_parziale}}</td>
-      
-      
+    
+       
+    <tr id="List-{{ i }}" class="collapse" *ngFor="let a of item">
+      <td> {{a.data}}</td>
+      <td> {{a.tariffa}}</td>
+      <td> {{a.categoria}}</td>
+      <td> {{a.descrizione}}</td>
+      <td> {{a.percentuale}}</td>
+      <td> {{a.prezzo}}</td>
+      <td> {{a.prezzo_perc}}</td>
+      <td> {{a.debito}}</td>
+      <td> {{a.debito_perc}}</td>
+      <td> {{a.v_parziale}}</td>
     </tr>
-  </tbody>
-</table>
-
-
-
-
-
-<br>
-
-<br>
-<br>
-
-<table class="table" >
-    <thead class="thead-dark">
-        <tr>
-      <th  scope="col">N° </th>
-      <th  scope="col">Data</th>
-      <th scope="col">Cod. Tariffa</th>
-      <th scope="col">Categoria Contabile</th>
-      <th  scope="col">Descrizione</th>
-      <th   sortBy="percentuale" scope="col">%</th>
-      <th  scope="col">Importo unitario %</th>
-      <th scope="col">Importo totale in €</th>
-      <th  scope="col">Importo totale %</th>
-      <th  scope="col">Valore_parziale in €</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="clickable" data-toggle="collapse" data-target="#group-of-rows-1" aria-expanded="false" aria-controls="group-of-rows-1" >
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            
-        </tr>
-    </tbody>
-
-    <tbody id="group-of-rows-1" class="collapse">
-        <tr *ngFor="let sal of sals">
-           <td style="padding-left: 15px;">{{sal.cod_sal}}</td>
-      <td>{{sal.data}}</td>
-      <td>{{sal.tariffa}}</td>
-      <td>{{sal.categoria}}</td>
-      <td>{{sal.descrizione}}</td>
-      <td>{{sal.percentuale}}</td>
-      <td>{{sal.prezzo_perc}}</td>
-      <td>{{sal.debito}}</td>
-      <td>{{sal.debito_perc}}</td>
-      <td>{{sal.v_parziale}}</td>
-      
-        </tr>
-        
-    </tbody>
-    
-    
-</table>
+  </table>
+  </div>
 </div>
-
-
-
-<br>
-
-
-<br>
-
-
-

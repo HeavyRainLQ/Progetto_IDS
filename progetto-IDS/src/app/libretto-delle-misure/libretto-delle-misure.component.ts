@@ -157,11 +157,13 @@ valore="disabledd";
 
   }//fine generare
 
-  approvare(selectedItem: any) {
+  approvare(selectedItem: any) 
+  {
     console.log(selectedItem);
     console.log(this.misures.length);
     console.log(this.misures[selectedItem.id].aprovata);
     console.log("Selected item Id: ", selectedItem.id); // You get the Id of the selected item here
+
     for (var i = 0; i < this.misures.length; i++) {
       if (this.misures[i].id == selectedItem.id && this.misures[i].valida == true) {
         this.misures[i].aprovata = true;
@@ -179,6 +181,7 @@ valore="disabledd";
 
     });
 
+    console.log("item:-----",selectedItem)
 
     this.ethcontractService.update_approva(
       selectedItem.id,
