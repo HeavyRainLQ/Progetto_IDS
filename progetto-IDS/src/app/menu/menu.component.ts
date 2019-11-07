@@ -21,9 +21,15 @@ export class MenuComponent implements OnInit {
     this.arrow = 'fas fa-times fa-2x';
     // this.router.navigate("/area-riservata/(reserved:home)");
     // this.router.navigate(['/area-riservata/(reserved:home)']);
+    setTimeout(() => {  
     this.getNomeUtente();
-    this.router.navigate(['/area-riservata/',{ outlets: { reserved: 'home'}}]);
-    
+  }, 500);
+    setTimeout(() => {    //<<<---    using ()=> syntax
+      this.router.navigate(['/area-riservata/', { outlets: { reserved: 'home' } }]);
+    }, 500);
+    // setInterval(() = >this.router.navigate(['/area-riservata/',{ outlets: { reserved: 'home'}}]), 2000);
+    // this.router.navigate(['/area-riservata/',{ outlets: { reserved: 'home'}}]);
+
 
   }
 
@@ -73,9 +79,9 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  getNomeUtente() {
+  async getNomeUtente() {
     this.tipoUtente = this.utente.utente[0].nome + ' ' + this.utente.utente[0].cognome;
-    this.nome = this.utente.get_nome_utente();
+    this.nome = await this.utente.get_nome_utente();
     if (this.utente.utente[0].tipo == 1) {
       this.admin = true;
     } else {

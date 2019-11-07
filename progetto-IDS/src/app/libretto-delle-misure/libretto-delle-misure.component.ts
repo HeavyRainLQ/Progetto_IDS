@@ -1,4 +1,4 @@
-import { Component, OnInit,HostListener, ViewChild } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { ModalComponent } from '.././modal/modal.component';
 import { MisuraModalComponent } from '.././misura-modal/misura-modal.component';
 
@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material';
 import { EthcontractService } from '../ethcontract.service';
 import { SqlServiceService } from '../sql-service.service';
 import { AgGridModule } from 'ag-grid-angular';
-import { Router,ActivatedRoute, } from '@angular/router';
+import { Router, ActivatedRoute, } from '@angular/router';
 import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
 import * as $ from 'jquery';
 
@@ -18,7 +18,7 @@ import * as $ from 'jquery';
 })
 
 export class LibrettoDelleMisureComponent implements OnInit {
-valore="disabledd";
+  valore = "disabledd";
 
 
   elements: any = [
@@ -39,7 +39,7 @@ valore="disabledd";
   remarks = '';
   valor = "";
   private defaultColDef;
-  
+
 
   searchText: string = '';
   previous: string;
@@ -50,20 +50,23 @@ valore="disabledd";
   invalida = "invalidare";
   riserva = "riserva";
   inserisce = "inserire misura";
+  totale = true;
   parametriDoc: any;
+  totaleSomma: any;
+  sum: boolean;
+  misuraId: any;
 
-  constructor(private route:ActivatedRoute,private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private router: Router) 
-  {
+  constructor(private route: ActivatedRoute, private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService, private router: Router) {
     this.initAndDisplayAccount();
     this.defaultColDef = { sortable: true };
     this.generare(event);
-    this.parametriDoc=this.SqlService.parDocumenti;
-    this.parametriDoc=this.parametriDoc[0];
-   
+    this.parametriDoc = this.SqlService.parDocumenti[0];
+    // this.parametriDoc = this.parametriDoc[0];
 
-    
-// var element = <HTMLInputElement> document.getElementById("approva");
-// element.disabled = true;
+
+
+    // var element = <HTMLInputElement> document.getElementById("approva");
+    // element.disabled = true;
 
 
 
@@ -108,12 +111,12 @@ valore="disabledd";
   misures = [];
   ngOnInit() {
 
+    this.checkTotale();
 
 
-    
-   
+
   }
-  
+
 
 
 
@@ -138,7 +141,7 @@ valore="disabledd";
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      
+
       this.generare(event);
 
     });
@@ -157,19 +160,19 @@ valore="disabledd";
 
   }//fine generare
 
-  approvare(selectedItem: any) {
-    console.log(selectedItem);
-    console.log(this.misures.length);
-    console.log(this.misures[selectedItem.id].aprovata);
-    console.log("Selected item Id: ", selectedItem.id); // You get the Id of the selected item here
+  approvare() {
+    // console.log(selectedItem);
+    // console.log(this.misures.length);
+    // console.log(this.misures[selectedItem.id].aprovata);
+    // console.log("Selected item Id: ", selectedItem.id); // You get the Id of the selected item here
     for (var i = 0; i < this.misures.length; i++) {
-      if (this.misures[i].id == selectedItem.id && this.misures[i].valida == true) {
+      if (this.misures[i].id == this.misuraId - 1 && this.misures[i].valida == true) {
         this.misures[i].aprovata = true;
       }
     }//fine for
     console.log(this.misures)
     let prueba;
-    var numero = selectedItem.id + 1
+    var numero = this.misuraId
 
     this.SqlService.updateApprova(numero).subscribe(data => {
 
@@ -179,20 +182,22 @@ valore="disabledd";
 
     });
 
-
+var test = this.misuraId-1;
     this.ethcontractService.update_approva(
-      selectedItem.id,
-      selectedItem.aprovata,
+      this.misuraId - 1,
+      true,
       this.transferFrom,
-    ).then(function(){
+    ).then(function () {
       console.log("funziona update")
-    }).catch(function(error){
+      console.log(this.misuraId - 1)
+    }).catch(function (error) {
+      console.log(this.misuraId - 1)
       console.log(error);
       console.log("false update")
-      
+
     });
 
-
+    this.generare(event);
 
   }//fine approvare
 
@@ -225,67 +230,59 @@ valore="disabledd";
       selectedItem.id,
       false,
       this.transferFrom,
-    ).then(function(){
+    ).then(function () {
       console.log("funziona update")
-    }).catch(function(error){
+    }).catch(function (error) {
       console.log(error);
       console.log("false update")
-      
+
     });
 
+    this.generare(event);
 
   }//fine invalidare
+  checkParzialeMisura(selectedItem: any) {
+    this.misuraId = selectedItem.id + 1;
 
-  // canApprovare() {
-  //   switch (this.SqlService.utente[0].tipo) {
-  //     case "1": {
-  //       return true;
-  //       break;
-  //     }
-  //     case "2": {
-  //       return true;
-  //       break;
-  //     }
-  //     case "3": {
-  //       return false;
-  //       break;
-  //     }
-  //     case "4": {
-  //       return false;
-  //       break;
-  //     }
-  //     default: {
-  //       return false;
-  //       break;
-  //     }
-  //   }
-  // }
+    this.SqlService.select_parziale_misura(this.misuraId).subscribe(data => {
+      var sumMisura;
+      sumMisura = data['records'];
 
-  // canInvalidare() {
-  //   switch (this.SqlService.utente[0].tipo) {
-  //     case "1": {
-  //       return true;
-  //       break;
-  //     }
-  //     case "2": {
-  //       return false;
-  //       break;
-  //     }
-  //     case "3": {
-  //       return true;
-  //       break;
-  //     }
-  //     case "4": {
-  //       return false;
-  //       break;
-  //     }
-  //     default: {
-  //       return false;
-  //       break;
-  //     }
-  //   }
-  // }
+      if ((Number(sumMisura[0].parziale) + Number(this.totaleSomma)) <= this.parametriDoc.budget) {
+        this.setSum(true);
+        console.log(sumMisura[0].parziale);
+        console.log(this.totaleSomma);
+      } else {
+        this.setSum(false);
+        console.log("stronzo")
+        console.log((Number(sumMisura[0].parziale) + Number(this.totaleSomma)))
+      }
 
+    });
+  }
+
+  setSum(can) {
+    this.sum = can
+  }
+  checkTotale() {
+    this.SqlService.select_parziale().subscribe(data => {
+      var somma;
+      console.log("genera_registro....");
+      somma = data["records"];
+      console.log(this.parametriDoc.budget);
+      console.log(somma[0].parziale);
+      this.setTotale(somma[0].parziale);
+      if (somma[0].parziale < this.parametriDoc.budget) {
+        this.totale = true;
+      } else {
+        this.totale = false;
+      }
+
+    });
+  }
+  setTotale(num) {
+    this.totaleSomma = num;
+  }
   can(azione) {
     switch (this.SqlService.utente[0].tipo) {
       case "1": {
@@ -297,14 +294,14 @@ valore="disabledd";
         //rup
         if (azione == "approvare") {
           return true;
-        } 
+        }
         break;
       }
       case "3": {
         //direttore
         if (azione == "invalidare" || azione == "inserire misura") {
           return true;
-        } 
+        }
         break;
       }
       case "4": {
