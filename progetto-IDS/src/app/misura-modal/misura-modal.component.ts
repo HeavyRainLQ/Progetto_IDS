@@ -179,7 +179,7 @@ export class MisuraModalComponent implements OnInit {
       } else {
         this.form.setValidators(null);
       }
-      this.form.updateValueAndValidity();
+      // this.form.updateValueAndValidity();
     });
 
 

@@ -143,6 +143,7 @@ export class LibrettoDelleMisureComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       this.generare(event);
+      this.checkTotale();
 
     });
   }//fine open dialog
@@ -198,6 +199,7 @@ var test = this.misuraId-1;
     });
 
     this.generare(event);
+    this.checkTotale();
 
   }//fine approvare
 
@@ -239,6 +241,7 @@ var test = this.misuraId-1;
     });
 
     this.generare(event);
+    this.checkTotale();
 
   }//fine invalidare
   checkParzialeMisura(selectedItem: any) {
