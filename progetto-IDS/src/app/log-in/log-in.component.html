@@ -1,108 +1,133 @@
-
-<head>
-  
-</head>
+<head> </head>
 <body>
-    
+  <!------ Include the above in your HEAD tag ---------->
 
-<!------ Include the above in your HEAD tag ---------->
-
-<div class = "row">
-
-<div class="col-8"style="">
-  <div class="cont11">
-<!-- <h1 style="color:white;font-size: 290%;padding-left: 15%;padding-top: 20%">!Benvenuti in </h1>
+  <div class="row">
+    <div class="col-8" style="">
+      <div class="cont11">
+        <!-- <h1 style="color:white;font-size: 290%;padding-left: 15%;padding-top: 20%">!Benvenuti in </h1>
 <label style="color:white; font-size:150%;padding-left: 15%;">D'Chain </label> -->
 
-<div class="container"> 
-      <section class="main">
-      
-        <ul class="ch-grid">
-          <li class="block1">
-            <div class="ch-item">       
-              <div class="ch-info">
-                <div class="ch-info-front ch-img-2"></div>
-                <div class="ch-info-back">
-                  <h3>Dapp</h3>
-                  <p>Applicazione decentralizzata come base del Sistema</p>
-                </div>  
-              </div>
-            </div>
-          </li>
-          <li class="block2">
-            <div class="ch-item">
-              <div class="ch-info1">
-                <div class="ch-info-front ch-img-3"></div>
-                <div class="ch-info-back">
-                  <h3>Architettura BolckChain</h3>
-                  <p>Benvenuti al Sistema di gestione progetti/lavori </p>
+        <div class="container">
+          <section class="main">
+            <ul class="ch-grid">
+              <li class="block1">
+                <div class="ch-item">
+                  <div class="ch-info">
+                    <div class="ch-info-front ch-img-2"></div>
+                    <div class="ch-info-back">
+                      <h3>Dapp</h3>
+                      <p>Applicazione decentralizzata come base del Sistema</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
-          
-        </ul>
-        
-      </section>
+              </li>
+              <li class="block2">
+                <div class="ch-item">
+                  <div class="ch-info1">
+                    <div class="ch-info-front ch-img-3"></div>
+                    <div class="ch-info-back">
+                      <h3>Architettura BolckChain</h3>
+                      <p>Benvenuti al Sistema di gestione progetti/lavori</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
         </div>
 
-
-
-<!--  -->
-</div>
-</div> 
-
-<div class="col-4" style="border-left: 1px inset white ">
-<div *ngIf= "disabilitato" class="wrapper fadeInDown">
-  
-  <br>
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div id="formHead">
-      
-       <!--<img src="assets/img/icon.png" id="icon" alt="User Icon" class="rounded max-auto d-block"> -->
-       <a class="" href="#">Sign In </a>
-    </div>
-    
-
-    <!-- Login Form -->
-    <form [formGroup]="loginForm" (ngSubmit)="logIn()">
-      
-      <p id="risposta">{{risposta}}</p>
-      
-      <i  class="fas fa-user fa-w-16 fa-2x"></i><input type="text" [(ngModel)]="user1" formControlName="username" id="username" class="fadeIn second" name="login" placeholder="username">
-      <br>
-      <i  class="fas fa-key fa-w-16 fa-2x"></i><input type="password" [(ngModel)]="pass1" formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password">
-      <br>
-      <br>
-      <input type="submit" class="" value="Log In">
-    </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-        <!--btn btn-dark"-->
-      <a class="underlineHover sm" href="#">Forgot Password?</a>
-      
+        <!--  -->
+      </div>
     </div>
 
-  </div> 
-  <!-- fine del from -->
-  
-</div>
-</div>
+    <div class="col-4" >
+      <div *ngIf="disabilitato" class="wrapper fadeInDown">
+        <br />
+        <div id="formContent">
+          <!-- Tabs Titles -->
 
-</div>
+          <!-- Icon -->
+          <div id="formHead">
+            <!--<img src="assets/img/icon.png" id="icon" alt="User Icon" class="rounded max-auto d-block"> -->
+            <a class="" href="#">Sign In </a>
+          </div>
 
+          <!-- Login Form -->
+          <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+            <p id="risposta">{{ risposta }}</p>
 
-    
+            <i class="fas fa-user fa-w-16 fa-2x"></i
+            ><input
+              type="text"
+              [(ngModel)]="user1"
+              formControlName="username"
+              id="username"
+              class="fadeIn second"
+              name="login"
+              placeholder="username"
+            />
+            <br />
+            <i class="fas fa-key fa-w-16 fa-2x"></i
+            ><input
+              type="password"
+              [(ngModel)]="pass1"
+              formControlName="password"
+              id="password"
+              class="fadeIn third"
+              name="login"
+              placeholder="password"
+            />
+            <br />
+            <br />
+            <input type="submit" class="" value="Log In" />
+          </form>
 
-<!-- Footer -->
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <!--btn btn-dark"-->
+            <a
+              class="underlineHover sm"
+              data-toggle="modal"
+              data-target="#myModal"
+              style="color:white;"
+              >Forgot Password?</a
+            >
+          </div>
+        </div>
+        <!-- fine del from -->
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content" style="border-radius: 12px 12px 12px 12px;">
+        <!-- Modal Header -->
+        <div class="modal-header" id = "formHead" style="color:rgb(255, 255, 255);">
+          <h4 class="modal-title">
+            Attenzione
+          </h4>
 
-<!-- Footer -->
+          <!-- <h4 *ngIf="sum; else cant" class="modal-title">Confirmazione</h4> -->
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body " style="color:black;">
+          Per il recupero password contattare l'amministratore di sistema.
+        </div>
 
+        <!-- Modal footer -->
+        <div class="modal-footer" id=formFooter>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Chiudi
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
 
-
-
+  <!-- Footer -->
 </body>
