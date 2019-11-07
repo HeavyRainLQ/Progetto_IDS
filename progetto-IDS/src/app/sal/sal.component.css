@@ -50,26 +50,34 @@ body{
 
     
     
+    td {
+      border-left: 3px solid black;
+      
+        padding:5px;
+        margin-left:5px;
+        vertical-align: center;
+        border-bottom: 2px solid black;
+        
+        
+        
+    }
+    
     th {
       border-left: 3px solid black;
       border-bottom: 6px solid black;
       
         padding:10px;
         margin-left:5px;
-      }
         
-      td {
-        border-left: 3px solid black;
-        
-          padding:5px;
-          margin-left:5px;
-          vertical-align: center;
-          border-bottom: 2px solid black;
-          
-          
-          
-      }
     
+        
+        
+        
+    }
+
+    .table thead th {
+      vertical-align: top;
+    }
 
 
     /* fix = code from bootstrap 3 */
@@ -78,11 +86,7 @@ tbody.collapse.in {
 }
     
     
-table, tr, td, th
-{
-    border: 1px solid black;
-    border-collapse:collapse;
-}
+
 tr.header2
 {
     cursor:pointer;
@@ -159,7 +163,6 @@ tr.header2
 }
 
 #bottone{
-  padding-bottom: 3px;
   
   border-color:black;
 }
