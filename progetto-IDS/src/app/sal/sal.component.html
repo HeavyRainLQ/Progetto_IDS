@@ -14,21 +14,25 @@
 
 <br>
 
-<div class="container" *ngFor="let item of sals; let i = index" id="indice">
-  <a href="#List-{{ i }}" class="btn btn-info"  data-toggle="collapse">Approvazione Nro{{i+1}}</a>
-  <div>
-    <table>
+<div *ngFor="let item of sals; let i = index" id="bottone">
+    <a href="#List-{{ i }}" class="btn btn-info " id="bott" data-toggle="collapse">Approvazione Numero {{i+1}} <i id="arrow"class="fas fa-caret-square-down"></i></a>
+    
+  <div class="table-responsive rounded">
+    <table class="table" id="the">
+        <thead class="thead-dark" >
       <tr id="List-{{ i }}" class="collapse">
       <th  scope="col">Data</th>
       <th scope="col">Cod. Tariffa</th>
       <th  scope="col">Categoria Contabile</th>
       <th  scope="col">Descrizione</th>
       <th  style="width:6%" scope="col">%</th>
+      <th  scope="col">Importo unitario in €</th>
       <th  scope="col">Importo unitario %</th>
-      <th scope="col">Importo totale</th>
+      <th scope="col">Importo totale in €</th>
       <th  scope="col">Importo totale %</th>
-      <th  scope="col">Valore_parziale</th>
+      <th  scope="col">Valore parziale in €</th>
     </tr>
+  </thead>
     
        
     <tr id="List-{{ i }}" class="collapse" *ngFor="let a of item">
