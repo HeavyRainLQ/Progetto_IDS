@@ -67,7 +67,8 @@ export class SqlServiceService {
   insert_operaio(nome, cognome, qualifica) {
 
 
-    console.log("servicio insert misura: ->");
+    console.log("servicio insert operaio: ->");
+    console.log(nome, cognome, qualifica)
     //return this.http.get<myData>(`${this.URL}conexion.php`);
     //return this.http.get("/api/conexion.php");
     return this.http.post('/api/insert_operaio.php', {

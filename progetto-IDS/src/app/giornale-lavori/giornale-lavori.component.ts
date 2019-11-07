@@ -35,7 +35,7 @@ export class GiornaleLavoriComponent implements OnInit {
     this.generare_attre(event);
     this.generare_giornale(event);
 
-    this.genera_attre();
+    
 
   }//fine de init
 
@@ -113,13 +113,7 @@ can(azione) {
   }	
 }//fine can
 
-genera_attre() {
 
-this.SqlService.select_attrezzatura().subscribe(data =>{ 
-      this.attre = data["records"];
-});
-
-  }//fine genera_attre
 
 
 
