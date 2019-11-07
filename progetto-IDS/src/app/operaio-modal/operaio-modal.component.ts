@@ -65,7 +65,6 @@ export class OperaioModalComponent implements OnInit {
     });
 
 
-
   }; //fin de INIT
 
 
@@ -133,35 +132,7 @@ export class OperaioModalComponent implements OnInit {
   }//FINE SALVA OPERAIO
 
 
-  salva_attrezza(event) {
-
-    let ore = (<HTMLSelectElement>document.getElementById('ore_presenza')).value;
-    let data_picker = (<HTMLSelectElement>document.getElementById('data_picker')).value;
-
-    var unixtime = Date.parse(data_picker) / 1000
-
-    var tipologia = (<HTMLSelectElement>document.getElementById('tipologia')).value;
-    //this.ethcontractService.create_misura(this.tariffa,val_cat,val_lav,this.percentuale,this.riserva,this.data.account);
-    let that = this;
-
-    this.ethcontractService.create_attrezza(
-      //variabili da inviare
-      tipologia,
-      this.quantita,
-      unixtime,//DATA in unix
-
-      this.transferFrom
-    ).then(function () {
-
-      console.log("funziona contract attrezzatura")
-    }).catch(function (error) {
-      console.log(error);
-      console.log("FALSE attrezza")
-
-    });
-
-
-  }//FINE SALVA attrezzatura
+  
 
   genera_attre() {
 

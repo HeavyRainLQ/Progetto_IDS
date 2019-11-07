@@ -110,77 +110,129 @@
     </div>
   </div>
 
-  <div class="col" style="border:1px solid red;">
-    <div class="col" style="border:1px solid red;">
-      <label>Descrizione Locazione</label>
-      <form [formGroup]="form">
-        <textarea
-          formControlName="desc"
-          [(ngModel)]="descrizione"
-          class="form-control form-control-sm"
-        ></textarea>
-        <div *ngIf="form.controls['desc'].hasError('required')">
-          Inserire una descrizione
-        </div>
-      </form>
+<div class="col" style="border:1px solid red;">
+  
 
-      <br />
-      <div *ngIf="form.controls['desc'].valid" class="">
-        <button
-          id="save"
-          type="button"
-          mat-button
-          mat-dialog-close
-          (click)="salva_des()"
-          class="btn btn-primary"
-        >
-          Salva
-        </button>
-      </div>
+<div  id="bottone">
+    <a href="#List1" class="btn btn-info " id="bott" data-toggle="collapse">Nuova Descrizione <i id="arrow"class="fas fa-caret-square-down"></i></a>
+    
+  <div class="table-responsive rounded">
+    <div id="List1" class="collapse">
+      <div class="col" style="border:1px inset black;">
+
+
+
+
+   <label>Descrizione Locazione</label>
+   <form [formGroup]="form">
+    <textarea
+      formControlName="desc"
+      [(ngModel)]="descrizione"
+      class="form-control form-control-sm"
+    ></textarea>
+    <div *ngIf="form.controls['desc'].hasError('required')">
+      Inserire una descrizione
     </div>
+  </form>
+
+  <br />
+  <div *ngIf="form.controls['desc'].valid" class="">
+    <button
+      id="save"
+      type="button"
+      mat-button
+      mat-dialog-close
+      (click)="salva_des()"
+      class="btn btn-primary"
+    >
+      Salva
+    </button>
+  </div>
 
     <br />
     <br />
 
-    <div class="col" style="border:1px solid red;">
-      <label>Attrezzatura</label>
-      <select id="tipologia" style="width: 80%;height: 35px;">
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- descrizione -->
+
+<!-- <div class="showMe" style="display:none"> -->
+  <br>
+  
+<div  id="bottone">
+    <a href="#List" class="btn btn-info " id="bott" data-toggle="collapse">Nuova Attrezzatura <i id="arrow"class="fas fa-caret-square-down"></i></a>
+    
+  <div class="table-responsive rounded">
+    <div id="List" class="collapse">
+             
+  <div style="border:1px solid black;">
+ 
+
+  <label>Attrezzatura</label>
+  <select id="tipologia" style="width: 80%;height: 35px;">
         <option *ngFor="let names of attre" [value]="names.nome_attr">
           {{ names.nome_attr }}
         </option>
       </select>
-      <br />
-      <label>Quantità</label>
-      <form [formGroup]="form">
-        <input
-        formControlName="quantita"
-          style="width: 50%;"
-          id="quantita"
-          [(ngModel)]="quantita"
-          type="text"
-          class="form-control form-control-sm"
-          required
-        />
-        <div *ngIf="form.controls['quantita'].hasError('required')">
-          Inserire una quantità
-        </div>
-      </form>
-      <div class="">
-        <br />
-        <button
-        *ngIf="form.controls['quantita'].valid"
-          id="save"
-          type="button"
-          mat-button
-          mat-dialog-close
-          (click)="salva_attrezza()"
-          class="btn btn-primary"
-        >
-          Salva
-        </button>
-      </div>
+  <br>
+  <label>Quantità</label>
+  <form [formGroup]="form">
+    <input
+    formControlName="quantita"
+      style="width: 50%;"
+      id="quantita"
+      [(ngModel)]="quantita"
+      type="text"
+      class="form-control form-control-sm"
+      required
+    />
+    <div *ngIf="form.controls['quantita'].hasError('required')">
+      Inserire una quantità
+    </div>
+  </form>
+  <div class="">
+    <br />
+    <button
+    *ngIf="form.controls['quantita'].valid"
+      id="save"
+      type="button"
+      mat-button
+      mat-dialog-close
+      (click)="salva_attrezza()"
+      class="btn btn-primary"
+    >
+      Salva
+    </button>
+  </div>
+</div>
+
     </div>
   </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<div class="w-100"></div>
+
+
+
+
 
   <div class="w-100"></div>
 </div>
@@ -196,3 +248,6 @@
     Close
   </button>
 </div>
+
+
+
