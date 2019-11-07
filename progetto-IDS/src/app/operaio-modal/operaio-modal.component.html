@@ -5,7 +5,10 @@
   <h4>NUOVA VOCE</h4>
 </div>
 
-<br />
+
+<div class="row" style="margin:4%;" >
+  
+<div class="col" style="border-right:1px solid red;border-left:1px solid red;padding:5%;">
 
 <table id="table1">
   <tr>
@@ -19,16 +22,12 @@
         required
       />
     </td>
-    <td style="width: 5%;"></td>
-    <td id="col3"><label>Attrezzatura</label></td>
+    
+    
 
-    <td id="col4">
-      <select id="tipologia" style="width: 80%;height: 35px;">
-        <option *ngFor="let names of attre" [value]="names.nome_attr">
-          {{ names.nome_attr }}
-        </option>
-      </select>
-    </td>
+    
+      
+    
     <!-- <td style="width: 5%;">
       <button
         type="button"
@@ -52,18 +51,7 @@
       />
     </td>
 
-    <td style="width: 5%;"></td>
-    <td id="col3"><label>Quantità</label></td>
-    <td id="col4">
-      <input
-        style="width: 50%;"
-        id="quantita"
-        [(ngModel)]="quantita"
-        type="text"
-        class="form-control form-control-sm"
-        required
-      />
-    </td>
+   
   </tr>
   <tr>
     <td id="col1"><label>Qualifica</label></td>
@@ -110,17 +98,107 @@
     </td>
   </tr>
 
-  <tr>
-    <td id="col1"><label>Descrizione Locazione</label></td>
-    <td id="col2">
+  
+</table>
+
+<div class="modal-footer">
+<button 
+    id="save"
+    type="button"
+    mat-button
+    mat-dialog-close
+    (click)="salva_operaio()"
+    class="btn btn-primary"
+  >
+    Salva
+  </button>
+</div>
+</div>
+
+<div class="col" style="border:1px solid red;">
+  <div class="col" style="border:1px solid red;">
+   <label>Descrizione Locazione</label>
+    
       <textarea
         class="form-control"
         [(ngModel)]="descrizione"
         aria-label="With textarea"
       ></textarea>
-    </td>
-  </tr>
-</table>
+
+<br>
+<div class="">
+  <button
+    id="save"
+    type="button"
+    mat-button
+    mat-dialog-close
+    (click)="salva_des()"
+    class="btn btn-primary"
+  >
+    Salva
+  </button>
+</div>
+    </div>
+
+
+<br>
+<br>
+
+
+  <div class="col" style="border:1px solid red;">
+
+  <label>Attrezzatura</label>
+  <select id="tipologia" style="width: 80%;height: 35px;">
+        <option *ngFor="let names of attre" [value]="names.nome_attr">
+          {{ names.nome_attr }}
+        </option>
+      </select>
+  <br>
+  <label>Quantità</label>
+   <input
+        style="width: 50%;"
+        id="quantita"
+        [(ngModel)]="quantita"
+        type="text"
+        class="form-control form-control-sm"
+        required
+      />
+  
+
+
+<div class="">
+  <br>
+  <button
+    id="save"
+    type="button"
+    mat-button
+    mat-dialog-close
+    (click)="salva_attrezza()"
+    class="btn btn-primary"
+  >
+    Salva
+  </button>
+  
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+<div class="w-100"></div>
+
+
+
+
+
+</div>
+
 
 <div class="modal-footer">
   <button
@@ -131,15 +209,5 @@
     data-dismiss="modal"
   >
     Close
-  </button>
-  <button
-    id="save"
-    type="button"
-    mat-button
-    mat-dialog-close
-    (click)="salva_operaio()"
-    class="btn btn-primary"
-  >
-    Salva
   </button>
 </div>

@@ -15,8 +15,10 @@ import {MdbTableDirective,MdbTableService} from 'angular-bootstrap-md';
 })
 export class GiornaleLavoriComponent implements OnInit {
 
+
   lavori=[];
   attrezzature=[];
+  giornali=[];
   parametriDoc=[];
   inserisce = "inserire";
   
@@ -30,6 +32,7 @@ export class GiornaleLavoriComponent implements OnInit {
 
     this.generare(event);
     this.generare_attre(event);
+    this.generare_giornale(event);
 
   }//fine de init
 
@@ -40,8 +43,8 @@ openDialog(): void {
 
     let dialogRef = this.dialog.open(OperaioModalComponent, {
      
-      width: '750px',
-      height: '500px',
+      width: '900px',
+      height: '550px',
       //data: {name: 'prueba'}
       panelClass: 'my-class', //style MisuraModal,class css in styles.css
       
@@ -52,6 +55,7 @@ openDialog(): void {
     dialogRef.afterClosed().subscribe(result => {
       this.generare(event);
     this.generare_attre(event);
+    this.generare_giornale(event);
       
     });
   }//fine open dialog
@@ -67,6 +71,12 @@ generare_attre(event)
 {
  this.attrezzature=this.ethcontractService.getAttrezzature();
 }//fine generare
+
+generare_giornale(event)
+{
+ this.giornali=this.ethcontractService.getGiornale();
+}//fine giornale
+
 can(azione) {	
   switch (this.SqlService.utente[0].tipo) {	
     case "1": {	

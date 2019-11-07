@@ -7,7 +7,7 @@ contract giornaleLavori{
         uint no;
         uint data;
         string descrizioneLocazione;
-        string allegati;//ossservazione
+        
     }
     
     struct Operaio {
@@ -39,16 +39,16 @@ contract giornaleLavori{
     //address[] public userAddresses;
     
     
-    function createGiornale(uint data,string memory descrizione,string memory allegati) public{
+    function createGiornale(uint data,string memory descrizione) public{
         
-        giornales.push(Giornale(nextId,data,descrizione,allegati));
+        giornales.push(Giornale(nextId,data,descrizione));
         nextId++;
     }
     
-    function readGiornale(uint id) view public returns(uint, string memory ,string memory){
+    function readGiornale(uint id) view public returns(uint, string memory){
         
        Giornale memory gio = giornales[id];
-        return (gio.data, gio.descrizioneLocazione, gio.allegati);
+        return (gio.data, gio.descrizioneLocazione);
         
     }
     

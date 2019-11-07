@@ -14,48 +14,44 @@
     <button *ngIf=can(inserisce) mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuova Voce</button>
     <br>
     <br>
-    <div class="container" id="cont1">
 
-        <br>
+  
+    <br>
+
 
 <div class="row">
-
-<div class="col">
-  <h3>Dettagli Operai</h3>
-  <br>
-
-   
   
-<table class="ta" id="table_operaio">
+<div class="col" >
+  <div class="container" id="cont2">
+<div class="row">
+<div class="col">
+  <h3>Descrizione Locazione</h3>
+  <table class="ta" id="table_operaio">
   <thead class="thead-dark">
     <tr>
       <th scope="col" style="width: 2%;">Data</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Cognome</th>
-      <th scope="col">Qualifica</th>
-      <th scope="col">Ore</th>
-      <th scope="col">Annotazioni</th>
+      <th scope="col">descrizione</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let lavoro of lavori">
-      <th scope="row">{{lavoro.data}}</th>
-      <td>{{lavoro.nome}}</td>
-      <td>{{lavoro.cognome}}</td>
-      <td>{{lavoro.qualifica}}</td>
-      <td>{{lavoro.ore}}</td>
-      <!-- <td>{{lavoro.}}</td> -->
-      <td></td>
+    <tr *ngFor="let giornale of giornali">
+      <th scope="row">{{giornale.data}}</th>
+      <td>{{giornale.descrizione}}</td>
     </tr>
-
   </tbody>
 </table>
-</div>
-<div>
-  </div>
+
 </div>
 </div>
-<div class="container" id="cont2">
+
+  
+  <br>
+  <br>
+</div>
+
+</div>
+<div class="col">
+  <div class="container" id="cont2">
   <br>
 <div class="row">
 <div class="col">
@@ -84,5 +80,58 @@
 <br>
 <br>
 </div>
+
+</div>
+
+</div>
+
+
+
+<div class="row">
+    <div class="container" id="cont1">
+
+        <br>
+
+<div class="row">
+
+<div class="col">
+  <h3>Dettagli Operai</h3>
+  <br>
+
+   
+  
+<table class="ta" id="table_operaio">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" style="width: 2%;">Data</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Cognome</th>
+      <th scope="col">Qualifica</th>
+      <th scope="col">Ore</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lavoro of lavori">
+      <th scope="row">{{lavoro.data}}</th>
+      <td>{{lavoro.nome}}</td>
+      <td>{{lavoro.cognome}}</td>
+      <td>{{lavoro.qualifica}}</td>
+      <td>{{lavoro.ore}}</td>
+      <!-- <td>{{lavoro.}}</td> -->
+      <td></td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+<div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
 
 </body>

@@ -164,6 +164,40 @@ export class EthcontractService {
     return jsonObject;
   }//fin del metodo get attrezzature
 
+  getGiornale() {
+    var giorInstance;
+    let jsonObject = [];
+
+    let giornaleContract = TruffleContract(tokenAbi4);
+    //para
+    giornaleContract.setProvider(this.web3Provider);
+    giornaleContract.deployed().then(function (instance) {
+      giorInstance = instance;
+      //INDICE DEL VALOR DE USUARIOS
+      giorInstance.read_size().then(function (size) {
+        var length = size['0']['c']['0']; //lunghezza del vettore
+        console.log("-------------: ",length)
+
+        for (var i = 0; i < length; i++) {
+          //var size3=size2['BigNumber'];
+          giorInstance.giornales(i).then(function (giornale) {
+
+            console.log("giornale:-----",giornale)
+
+            var date = new Date(giornale[1]['c'][0] * 1000);
+            var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear();
+            console.log("----:",formattedDate)
+            jsonObject.push({ id: giornale[0]['c'][0], data: formattedDate, descrizione: giornale[2]});
+            // Render misures Resul          
+          });//fine de misures
+
+        }//fine del for 
+      });//fine read_size
+
+    });
+    return jsonObject;
+  }//fin del metodo get giornale
+
 
 
   getValor() {
@@ -522,6 +556,47 @@ create_sal(
     });
 
   }//fine create attrezzatura
+
+  create_giornale(
+    _data,
+    _descrizione,
+    _transferFrom
+  ) {
+
+
+    let that = this;
+
+    return new Promise((resolve, reject) => {
+
+      let giornaleContract = TruffleContract(tokenAbi4);
+      //para
+
+      giornaleContract.setProvider(that.web3Provider);
+
+      giornaleContract.deployed().then(function (instance) {
+        //return instance.transferFund(
+        return instance.createGiornale(
+          
+          _data,
+          _descrizione,
+          {
+            from: _transferFrom, gas: 10000000
+
+          });
+        //definicion de instance
+      }).then(function (status) {
+
+        if (status) {
+          return resolve({ status: true });
+        }
+      }).catch(function (error) {
+        console.log(error);
+
+        return reject("Errore create giornale!!");
+      });
+    });
+
+  }//fine create giornale
 
 
 

@@ -23,7 +23,7 @@ maxDate = new Date();
   cognome: string;
   qualifica: string;
   qualificaId: any;
-  descrizione: string;
+  descrizione=" ";
   transferFrom = '0x0';
   balance = '0 ETH';
   prueba = [];
@@ -113,7 +113,7 @@ maxDate = new Date();
 // this.SqlService.insert_operaio(this.nome,this.cognome,qualifica).subscribe(data => {
 //   console.log(data);
 
-    this.salva_attrezza(event);
+    // this.salva_attrezza(event);
     
 
     this.SqlService.insert_operaio(this.nome, this.cognome, this.opQual.id_qualifica).subscribe(data => {
@@ -160,8 +160,7 @@ this.SqlService.select_attrezzatura().subscribe(data =>{
 });
 
   }//fine genera_attre
-
-  genera_qualifica() {
+genera_qualifica() {
 
 this.SqlService.select_qualifica().subscribe(data =>{ 
       this.qualifiche = data["records"];
@@ -169,6 +168,34 @@ this.SqlService.select_qualifica().subscribe(data =>{
     });
 
   }//fine genera_qualifica
+
+salva_des()
+{
+  if (this.descrizione!="") 
+  {
+
+  let data_picker = (<HTMLSelectElement>document.getElementById('data_picker')).value;
+    var unixtime = Date.parse(data_picker) / 1000
+
+  this.ethcontractService.create_giornale(
+      //variabili da inviare
+      unixtime,//DATA in unix
+      this.descrizione,
+
+      this.transferFrom
+    ).then(function () {
+
+      console.log("funziona contract descrizione")
+    }).catch(function (error) {
+      console.log(error);
+      console.log("FALSE descrizione")
+
+    });
+
+}//fine if
+
+}//fine del salva descrizione loca
+
 
 
 
