@@ -183,16 +183,16 @@ export class LibrettoDelleMisureComponent implements OnInit {
 
     });
 
-var test = this.misuraId-1;
+    var test = Number(this.misuraId) - 1;
     this.ethcontractService.update_approva(
-      this.misuraId - 1,
+      test,
       true,
       this.transferFrom,
     ).then(function () {
       console.log("funziona update")
-      console.log(this.misuraId - 1)
+      // console.log(this.misuraId - 1)
     }).catch(function (error) {
-      console.log(this.misuraId - 1)
+      // console.log(this.misuraId - 1)
       console.log(error);
       console.log("false update")
 
