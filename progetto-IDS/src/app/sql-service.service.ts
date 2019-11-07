@@ -175,6 +175,11 @@ export class SqlServiceService {
 
   }//fine select parziale
 
+  select_parziale_misura(idMisura) {
+
+    return this.http.post('/api/select_parziale_misura.php', {idMisura});
+
+  }
   contabilita(budget) {
     return this.http.post('/api/select_contabilita.php', {
       budget
