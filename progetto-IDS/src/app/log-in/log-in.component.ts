@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Injectable, OnDestroy, Output ,ViewChild} from '@angular/core';
+import { Component, OnInit, Input, Injectable, OnDestroy, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SqlServiceService } from '../sql-service.service';
@@ -17,20 +17,19 @@ import { MenuComponent } from '.././menu/menu.component';
 @Injectable({
   providedIn: 'root'
 })
-export class LogInComponent implements OnInit{
+export class LogInComponent implements OnInit {
 
-  message: string ="hola mundo";
-  
+  message: string = "hola mundo";
+
 
   loginForm: FormGroup;
   disabilitato: boolean;
 
-  
+
   risposta = " ";
   //public servicio:SqlServiceService;
-  constructor(private formBuilder: FormBuilder, private router: Router, private user: SqlServiceService,private sender: Web3Service) 
-  {
-     
+  constructor(private formBuilder: FormBuilder, private router: Router, private user: SqlServiceService, private sender: Web3Service) {
+
   }//fine constructor
 
   ngOnInit() {
@@ -48,49 +47,54 @@ export class LogInComponent implements OnInit{
     });
   }
 
-  
-  
+
+
   user1: string;
   pass1: string;
   result: Object;
   logIn() {
 
-  //this.user.sendMessage('Message from Home Component to App Component!');
-//  this.sender.sendMessage('Message from Home Component to App Component!');
+    //this.user.sendMessage('Message from Home Component to App Component!');
+    //  this.sender.sendMessage('Message from Home Component to App Component!');
 
-    this.user.getSomeData(this.user1, this.pass1).subscribe(data => {
-      console.log(data);
+    if (this.user1 == "" || this.pass1 == "") {
+      this.risposta = "Attenzione, inserire username e password";
+    } else {
+      this.user.getSomeData(this.user1, this.pass1).subscribe(data => {
+        console.log(data);
 
-      this.result = data["records"];
-      //console.log($scope.result[0].ini);
-      var a = this.result[0].ini;
-      if (a == "true") {
+        this.result = data["records"];
+        //console.log($scope.result[0].ini);
+        var a = this.result[0].ini;
+        if (a == "true") {
 
-//        confirm(" Benvenuto !!");
-        if (this.result[0].estado == "1") {
-          if (this.result[0].tipo == "1") {
-            //$rootScope.user = true;
-            //console.log($rootScope.user);
-            //location.href='#/main';       
-            this.router.navigate(['/area-riservata']);
+          //        confirm(" Benvenuto !!");
+          if (this.result[0].estado == "1") {
+            if (this.result[0].tipo == "1") {
+              //$rootScope.user = true;
+              //console.log($rootScope.user);
+              //location.href='#/main';       
+              this.router.navigate(['/area-riservata']);
+            }
+            else {
+              //$rootScope.user = false;
+              //location.href='#/main';
+              this.router.navigate(['/area-riservata']);
+            }
           }
           else {
-            //$rootScope.user = false;
-            //location.href='#/main';
-            this.router.navigate(['/area-riservata']);
+            this.risposta = "Attenzione,sei disabilitato!";
           }
+
         }
         else {
-          this.risposta = "Attenzione,sei disabilitato!";
+          this.user1 = "";
+          this.pass1 = "";
+          this.risposta = "Attenzione, user o password sbagliati!";
         }
+      });
+    }
 
-      }
-      else {
-        this.user1 = "";
-        this.pass1 = "";
-        this.risposta = "Attenzione, user o password sbagliati!";
-      }
-    });
 
     console.log(this.loginForm.controls.username.value);
     console.log(this.loginForm.controls.password.value);

@@ -25,7 +25,8 @@ export class SqlServiceService {
       budget: 100000,
       oggetto: "Costruzione di un complesso di fabbricati destinati ad abitazione ed negozi nel centro urbano del Comune di Ancona.",
       ditta: "La Distruttoria s.r.l.",
-      committente: "Sviluppo Anconetano s.r.l."
+      committente: "Sviluppo Anconetano s.r.l.",
+      direttore: "Ing.Cristiano Mangiolio"
     },
 
   ];
@@ -95,6 +96,9 @@ export class SqlServiceService {
     //return this.http.get<myData>("../../../src/app/conexion.php");
   }
 
+  get_nome_utente() {
+    return this.utente[0].nome;
+  }
   insert_misura(tariffa, conta, lavoro, perce, ris) {
 
 
@@ -172,6 +176,11 @@ export class SqlServiceService {
 
   }//fine select parziale
 
+  select_parziale_misura(idMisura) {
+
+    return this.http.post('/api/select_parziale_misura.php', {idMisura});
+
+  }
   contabilita(budget) {
     return this.http.post('/api/select_contabilita.php', {
       budget

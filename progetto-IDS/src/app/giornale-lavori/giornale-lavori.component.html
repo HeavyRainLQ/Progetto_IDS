@@ -6,18 +6,25 @@
     <h6>Oggetto: <b style="color: wheat;">{{parametriDoc['oggetto']}}</b></h6>
     <h6>Committente: <b style="color: wheat;">{{parametriDoc['committente']}}</b></h6>
     <h6>Impresa: <b style="color: wheat;">{{parametriDoc['ditta']}}</b></h6>
+    <h6>Direttore dei lavori: <b style="color: wheat;">{{parametriDoc['direttore']}}</b></h6>
     <h6>Importo del progetto : <b style="color: wheat;">{{parametriDoc['budget']}}</b></h6>
     </div>
     <br>
 
-<div class="container" id="cont1">
-<br>
+    <button *ngIf=can(inserisce) mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuova Voce</button>
+    <br>
+    <br>
+    <div class="container" id="cont1">
+
+        <br>
+
 <div class="row">
+
 <div class="col">
   <h3>Dettagli Operai</h3>
   <br>
 
-    <button *ngIf=can(inserisce) mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuova Voce</button>
+   
   
 <table class="ta" id="table_operaio">
   <thead class="thead-dark">
@@ -27,7 +34,7 @@
       <th scope="col">Cognome</th>
       <th scope="col">Qualifica</th>
       <th scope="col">Ore</th>
-      <th scope="col">Riserva/Annotazioni</th>
+      <th scope="col">Annotazioni</th>
     </tr>
   </thead>
   <tbody>

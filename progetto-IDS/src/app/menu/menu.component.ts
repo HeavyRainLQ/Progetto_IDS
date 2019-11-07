@@ -16,10 +16,19 @@ export class MenuComponent implements OnInit {
   arrow = 'arrowLeft';
   admin: boolean;
   tipoUtente: string;
+  nome: string
   constructor(private router: Router, private utente: SqlServiceService, public dialog: MatDialog) {
     this.arrow = 'fas fa-times fa-2x';
-    this.router.navigateByUrl("/area-riservata/(reserved:home)");
-
+    // this.router.navigate("/area-riservata/(reserved:home)");
+    // this.router.navigate(['/area-riservata/(reserved:home)']);
+    setTimeout(() => {  
+    this.getNomeUtente();
+  }, 500);
+    setTimeout(() => {    //<<<---    using ()=> syntax
+      this.router.navigate(['/area-riservata/', { outlets: { reserved: 'home' } }]);
+    }, 500);
+    // setInterval(() = >this.router.navigate(['/area-riservata/',{ outlets: { reserved: 'home'}}]), 2000);
+    // this.router.navigate(['/area-riservata/',{ outlets: { reserved: 'home'}}]);
 
 
   }
@@ -27,7 +36,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     //this.router.navigate(['/area-riservata']);
     //"['/area-riservata',{outlets:{ 'reserved': ['graph']}}]"
-
+    // this.router.navigate(['/area-riservata/,{ outlets: { reserved: [mio_profilo]}']);
     $(document).ready(function () {
       $(window).scroll(function () {
         if ($(this).scrollTop() > 60) {
@@ -40,7 +49,7 @@ export class MenuComponent implements OnInit {
       });
       // scroll body to 0px on click
     });  //final function scroll
-    this.getNomeUtente();
+    // this.getNomeUtente();
     // this.read_utente();
   }
   //  async read_utente(){
@@ -70,11 +79,12 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  getNomeUtente() {
+  async getNomeUtente() {
     this.tipoUtente = this.utente.utente[0].nome + ' ' + this.utente.utente[0].cognome;
-    if(this.utente.utente[0].tipo==1){
-      this.admin=true;
-    }else{
+    this.nome = await this.utente.get_nome_utente();
+    if (this.utente.utente[0].tipo == 1) {
+      this.admin = true;
+    } else {
       this.admin = false;
     }
   }

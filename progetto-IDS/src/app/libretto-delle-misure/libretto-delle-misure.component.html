@@ -1,14 +1,14 @@
-  <!--<app-banner></app-banner>-->
+<!--<app-banner></app-banner>-->
 <body>
     <div class="testa1">
         <div>  <h3>Libretto delle Misure</h3>
           <br> 
         </div>
-        <h6>Oggetto: <b style="color: wheat;">{{parametriDoc.oggetto}}</b></h6>
-        <h6>Committente: <b style="color: wheat;">{{parametriDoc.committente}}</b></h6>
-        <h6>Impresa: <b style="color: wheat;">{{parametriDoc.ditta}}</b></h6>
-        <h6>Importo del progetto : <b style="color: wheat;">{{parametriDoc.budget}}</b></h6>
-        </div>
+        <h6>Oggetto: <b style="color: wheat;">{{parametriDoc['oggetto']}}</b></h6>
+    <h6>Committente: <b style="color: wheat;">{{parametriDoc['committente']}}</b></h6>
+    <h6>Impresa: <b style="color: wheat;">{{parametriDoc['ditta']}}</b></h6>
+    <h6>Direttore dei lavori: <b style="color: wheat;">{{parametriDoc['direttore']}}</b></h6>
+    <h6>Importo del progetto : <b style="color: wheat;">{{parametriDoc['budget']}}</b></h6></div>
         <br>
       
 
@@ -25,69 +25,210 @@
   </select>
   </div> -->
 
-  <div class="col-auto my-1">
-    <button  *ngIf=can(inserisce) mat-raised-button type="button" class="btn btn-success" (click)="openDialog()"><i class="fas fa-plus fa-1x"></i> Nuova Misura</button>
+    <div class="col-auto my-1">
+      <button
+        *ngIf="can(inserisce) && totale"
+        mat-raised-button
+        type="button"
+        class="btn btn-success"
+        (click)="openDialog()"
+      >
+        <i class="fas fa-plus fa-1x"></i> Nuova Misura
+      </button>
+    </div>
   </div>
 
-</div>
+  <br />
 
-<br>
-
-<div class="table-responsive rounded">
-  <table class="table">
-  <thead class="thead-dark">
-    <tr >
-      <th [mdbTableSort]="misures" sortBy="id" scope="col">N° <mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" sortBy="tariffa"scope="col">Cod. Tariffa</th>
-      <th [mdbTableSort]="misures" sortBy="data" scope="col">Data<mdb-icon fas icon="sort"></mdb-icon></th>
-      <!-- <th [mdbTableSort]="misures" sortBy="data" scope="col">Approvata<mdb-icon fas icon="sort"></mdb-icon></th>
+  <div class="table-responsive rounded">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th [mdbTableSort]="misures" sortBy="id" scope="col">
+            N° <mdb-icon fas icon="sort"></mdb-icon>
+          </th>
+          <th [mdbTableSort]="misures" sortBy="tariffa" scope="col">
+            Cod. Tariffa
+          </th>
+          <th [mdbTableSort]="misures" sortBy="data" scope="col">
+            Data<mdb-icon fas icon="sort"></mdb-icon>
+          </th>
+          <!-- <th [mdbTableSort]="misures" sortBy="data" scope="col">Approvata<mdb-icon fas icon="sort"></mdb-icon></th>
       <th [mdbTableSort]="misures" sortBy="data" scope="col">valida<mdb-icon fas icon="sort"></mdb-icon></th> -->
-      <th [mdbTableSort]="misures" sortBy="categoria" scope="col">Categoria Contabile<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" sortBy="descrizione" scope="col">Descrizione<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" style="width:6%" sortBy="percentuale" scope="col">%<mdb-icon fas icon="sort"></mdb-icon></th>
-      <th [mdbTableSort]="misures" scope="col">Riserva</th>
-      <th [mdbTableSort]="misures" scope="col">Azioni</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let misure of misures" [ngClass]="{'invalidata':!misure.valida,'approvata':misure.aprovata}">
-      <td style="padding-left: 15px;">{{misure.id}}</td>
-      <td>{{misure.tariffa}}</td>
-      <td>{{misure.data}}</td>
-      <!-- <td>{{misure.aprovata}}</td>
+          <th [mdbTableSort]="misures" sortBy="categoria" scope="col">
+            Categoria Contabile<mdb-icon fas icon="sort"></mdb-icon>
+          </th>
+          <th [mdbTableSort]="misures" sortBy="descrizione" scope="col">
+            Descrizione<mdb-icon fas icon="sort"></mdb-icon>
+          </th>
+          <th
+            [mdbTableSort]="misures"
+            style="width:6%"
+            sortBy="percentuale"
+            scope="col"
+          >
+            %<mdb-icon fas icon="sort"></mdb-icon>
+          </th>
+          <th [mdbTableSort]="misures" scope="col">Riserva</th>
+          <th [mdbTableSort]="misures" scope="col">Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let misure of misures"
+          [ngClass]="{ invalidata: !misure.valida, approvata: misure.aprovata }"
+        >
+          <td style="padding-left: 15px;">{{ misure.id }}</td>
+          <td>{{ misure.tariffa }}</td>
+          <td>{{ misure.data }}</td>
+          <!-- <td>{{misure.aprovata}}</td>
       <td>{{misure.valida}}</td> -->
-      <td>{{misure.categoria}}</td>
-      <td>{{misure.descrizione}}</td>
-      <td>{{misure.percentuale}}</td>
-      <td>{{misure.riserva}}</td>
-      <td >
+          <td>{{ misure.categoria }}</td>
+          <td>{{ misure.descrizione }}</td>
+          <td>{{ misure.percentuale }}</td>
+          <td>{{ misure.riserva }}</td>
+          <td>
+            <!-- <button mat-raised-button *ngIf=can(approva)&&checkParzialeMisura(misure) type="button" [hidden]="misure.approva_sal" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp; -->
+            <button
+              mat-raised-button
+              *ngIf="can(approva)"
+              type="button"
+              [hidden]="misure.approva_sal"
+              class="btn btn-warning"
+              id="approva"
+              data-toggle="modal"
+              data-target="#myModal"
+              (click)="checkParzialeMisura(misure)"
+              style="color:white;"
+              [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" 
+            >
+              <i class="fas fa-check fa-1x"></i> Approvare
+            </button>
+            &nbsp;
+            <button
+              type="button"
+              *ngIf="can(invalida)"
+              [hidden]="misure.approva_sal"
+              (click)="invalidare(misure)"
+              class="btn btn-danger"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Invalidare!"
+              [ngClass]="{
+                approva: !misure.aprovata,
+                invalida: !misure.valida
+              }"
+            >
+              <i class="far fa-trash-alt fa-1x"></i>
+            </button>
+            <button
+              type="button"
+              *ngIf="can(invalida)"
+              [hidden]="misure.approva_sal"
+              (click)="invalidare(misure)"
+              class="btn btn-danger"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Invalidare!"
+              [ngClass]="{ approva: misure.aprovata, invalida: !misure.valida }"
+            >
+              <i class="far fa-trash-alt fa-1x"></i>
+            </button>
 
-<button mat-raised-button *ngIf=can(approva) type="button" [hidden]="misure.approva_sal" class="btn btn-warning" id="approva" (click)="approvare(misure)" style="color:white;"  [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}" ><i class="fas fa-check fa-1x"></i> Approvare</button> &nbsp;
-<button type="button" *ngIf=can(invalida) [hidden]="misure.approva_sal" (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:!misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
-<button type="button" *ngIf=can(invalida) [hidden]="misure.approva_sal" (click)="invalidare(misure)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Invalidare!" [ngClass]="{approva:misure.aprovata,invalida:!misure.valida}"><i class="far fa-trash-alt fa-1x"></i></button>
+            <div class="modal fade" id="myModal">
+              <div class="modal-dialog modal-sm">
+                <div *ngIf="sum; else ok" class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header"  style="color:black;">
+                    <h4 class="modal-title">
+                      Conferma
+                    </h4>
 
+                    <!-- <h4 *ngIf="sum; else cant" class="modal-title">Confirmazione</h4> -->
+                    <button (click)="checkTotale()" type="button" class="close" data-dismiss="modal">
+                      &times;
+                    </button>
+                  </div>
 
+                  <!-- Modal body -->
+                  <div class="modal-body " style="color:black;">
+                    Sei sicuro di approvare la misura?
+                  </div>
+                  
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button
+                      *ngIf="sum"
+                      type="button"
+                      (click)="approvare(misure)"
+                      class="btn btn-success"
+                      data-dismiss="modal"
+                    >
+                      Conferma
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                      (click)="checkTotale()"
+                    >
+                      Chiudi
+                    </button>
+                  </div>
+                </div>
+                <ng-template #ok>
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header"  style="color:black;">
+                      <h4 class="modal-title">
+                        Attenzione
+                      </h4>
+  
+                      <!-- <h4 *ngIf="sum; else cant" class="modal-title">Confirmazione</h4> -->
+                      <button (click)="checkTotale()" type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                    </div>
+  
+                    <!-- Modal body -->
+                    <div class="modal-body " style="color:black;">
+                      Non puoi approvare questa misura! Questa misura supera il budget stabilito
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                        (click)="checkTotale()"
+                      >
+                        Chiudi
+                      </button>
+                    </div>
+                  </div>
+                </ng-template>
+                
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-       </td>
-    </tr>
-  </tbody>
-</table>
-</div>
+  <!--fin de la table-->
 
-<!--fin de la table-->
-
-<!--chiamare a view con dimensione piccola-->
-<!--
+  <!--chiamare a view con dimensione piccola-->
+  <!--
 <div class="w-50 h-25">
 <app-graph></app-graph>
 </div>
 -->
 
-
-
-
-<br>
-<!-- 
+  <br />
+  <!-- 
 <ag-grid-angular 
     style="width: 500px; height: 500px;" 
     class="ag-theme-balham"
@@ -101,10 +242,9 @@
     >
 </ag-grid-angular> -->
 
-
-<br>
-<br>
-<!-- <table mdbTable hover="true">
+  <br />
+  <br />
+  <!-- <table mdbTable hover="true">
   <thead class="black white-text">
     <tr>
       <th *ngFor="let head of headElements" scope="col">{{head}} </th>
@@ -120,10 +260,7 @@
   </tbody>
 </table> -->
 
-<br>
+  <br />
 
-
-<br>
-
-
+  <br />
 </body>
