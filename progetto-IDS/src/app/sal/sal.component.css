@@ -114,10 +114,7 @@ tr.header2
 }
 
 
-.author_bio_toggle_wrapper    
-{
-        
-}
+
 
 .author_bio_wrap 
 {
@@ -156,13 +153,19 @@ tr.header2
 }
 
 #bott{
-  
+  color:black;
   border-color:black;
-  background-color: rgb(92, 102, 124);
+  background-color: #f7f7f7;
+  width:100%;
+  text-align: left;
   
 }
 
 #bottone{
   
   border-color:black;
+}
+
+#arrow{
+  float: right;
 }

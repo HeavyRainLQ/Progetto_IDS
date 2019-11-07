@@ -15,7 +15,8 @@
 <br>
 
 <div *ngFor="let item of sals; let i = index" id="bottone">
-  <a href="#List-{{ i }}" class="btn btn-info" id="bott" data-toggle="collapse">Approvazione Numero {{i+1}}</a>
+    <a href="#List-{{ i }}" class="btn btn-info " id="bott" data-toggle="collapse">Approvazione Numero {{i+1}} <i id="arrow"class="fas fa-caret-square-down"></i></a>
+    
   <div class="table-responsive rounded">
     <table class="table" id="the">
         <thead class="thead-dark" >
