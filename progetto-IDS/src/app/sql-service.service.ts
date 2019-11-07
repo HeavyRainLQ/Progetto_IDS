@@ -25,7 +25,8 @@ export class SqlServiceService {
       budget: 100000,
       oggetto: "Costruzione di un complesso di fabbricati destinati ad abitazione ed negozi nel centro urbano del Comune di Ancona.",
       ditta: "La Distruttoria s.r.l.",
-      committente: "Sviluppo Anconetano s.r.l."
+      committente: "Sviluppo Anconetano s.r.l.",
+      direttore: "Ing.Cristiano Mangiolio"
     },
 
   ];
