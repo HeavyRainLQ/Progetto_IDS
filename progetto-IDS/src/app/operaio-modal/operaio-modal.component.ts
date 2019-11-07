@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, Input } from '@angular/core';
 import { EthcontractService } from '../ethcontract.service';
 import { SqlServiceService } from '../sql-service.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import * as $ from 'jquery';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-operaio-modal',
@@ -10,7 +10,10 @@ import * as $ from 'jquery';
   styleUrls: ['./operaio-modal.component.css']
 })
 export class OperaioModalComponent implements OnInit {
-maxDate = new Date();
+  maxDate = new Date();
+  today = new FormControl(new Date());
+
+  form: FormGroup;
   ore = [
     { number: "1" }, { number: "2" },
     { number: "3" }, { number: "4" },
@@ -20,17 +23,23 @@ maxDate = new Date();
   //variabili della modale
   nome: string;
   quantita: string;
-  opQual:any;
+  opQual: any;
   cognome: string;
   qualifica: string;
   qualificaId: any;
-  descrizione=" ";
+  descrizione:any;
   transferFrom = '0x0';
   balance = '0 ETH';
   prueba = [];
   attre: any;
   qualifiche: any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ethcontractService: EthcontractService, private SqlService: SqlServiceService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,public fb: FormBuilder) {
+    this.form = this.fb.group({
+      desc: ['', [Validators.required]],
+      quantita: ['', [Validators.required]],
+    });
+    
+    
     this.initAndDisplayAccount();
     //this.prueba=this.SqlService.select_attrezzatura();
     this.genera_attre();
@@ -110,11 +119,11 @@ maxDate = new Date();
     //     console.log(data);      
     //     });
 
-// this.SqlService.insert_operaio(this.nome,this.cognome,qualifica).subscribe(data => {
-//   console.log(data);
+    // this.SqlService.insert_operaio(this.nome,this.cognome,qualifica).subscribe(data => {
+    //   console.log(data);
 
     // this.salva_attrezza(event);
-    
+
 
     this.SqlService.insert_operaio(this.nome, this.cognome, this.opQual.id_qualifica).subscribe(data => {
       console.log(data);
@@ -127,46 +136,44 @@ maxDate = new Date();
 
   genera_attre() {
 
-this.SqlService.select_attrezzatura().subscribe(data =>{ 
+    this.SqlService.select_attrezzatura().subscribe(data => {
       this.attre = data["records"];
-});
+    });
 
   }//fine genera_attre
-genera_qualifica() {
+  genera_qualifica() {
 
-this.SqlService.select_qualifica().subscribe(data =>{ 
+    this.SqlService.select_qualifica().subscribe(data => {
       this.qualifiche = data["records"];
 
     });
 
   }//fine genera_qualifica
 
-salva_des()
-{
-  if (this.descrizione!="") 
-  {
+  salva_des() {
+    if (this.descrizione != "") {
 
-  let data_picker = (<HTMLSelectElement>document.getElementById('data_picker')).value;
-    var unixtime = Date.parse(data_picker) / 1000
+      let data_picker = (<HTMLSelectElement>document.getElementById('data_picker')).value;
+      var unixtime = Date.parse(data_picker) / 1000
 
-  this.ethcontractService.create_giornale(
-      //variabili da inviare
-      unixtime,//DATA in unix
-      this.descrizione,
+      this.ethcontractService.create_giornale(
+        //variabili da inviare
+        unixtime,//DATA in unix
+        this.descrizione,
 
-      this.transferFrom
-    ).then(function () {
+        this.transferFrom
+      ).then(function () {
 
-      console.log("funziona contract descrizione")
-    }).catch(function (error) {
-      console.log(error);
-      console.log("FALSE descrizione")
+        console.log("funziona contract descrizione")
+      }).catch(function (error) {
+        console.log(error);
+        console.log("FALSE descrizione")
 
-    });
+      });
 
-}//fine if
+    }//fine if
 
-}//fine del salva descrizione loca
+  }//fine del salva descrizione loca
 
 
 
