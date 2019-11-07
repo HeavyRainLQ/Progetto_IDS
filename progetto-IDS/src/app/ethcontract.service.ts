@@ -10,6 +10,7 @@ declare let window: any;
 let tokenAbi3 = require('../../../build/contracts/librettoMisure.json');
 let tokenAbi4 = require('../../../build/contracts/giornaleLavori.json');
 let tokenAbi5 = require('../../../build/contracts/Sal.json');
+let tokenAbi6 = require('../../../build/contracts/RegistroContabilita.json');
 
 @Injectable({
   providedIn: 'root'
@@ -423,7 +424,53 @@ create_sal(
 
   }//fine create SAL contract
 
-
+  create_reg(
+    _cod_reg, 
+    _tariffa, 
+    _categoria,
+    _descrizione,
+    _percentuale,
+    _prezzo,
+    _prezzo_perc,
+    _debito,
+    _debito_perc,
+     _transferFrom
+  
+       ) {
+    
+  
+     
+      
+      let that = this;
+  
+      return new Promise((resolve, reject) => {
+  
+        let salContract = TruffleContract(tokenAbi6);
+        //para
+  
+        salContract.setProvider(that.web3Provider);
+  
+        salContract.deployed().then(function (instance) {
+          //return instance.transferFund(
+          return instance.create(
+            _cod_reg, _tariffa,_categoria,_descrizione,_percentuale,_prezzo,
+            _prezzo_perc,_debito,_debito_perc,
+  
+            {
+              from: _transferFrom, gas: 30000000
+  
+            });
+          //definicion de instance
+        }).then(function (status) {
+  
+          if (status) { return resolve({ status: true });  }
+        }).catch(function (error) {
+          console.log(error);
+          return reject("Errore in transfer valori!!");
+        });
+      });
+  
+    }
 
 //-----------------
   update_approva(

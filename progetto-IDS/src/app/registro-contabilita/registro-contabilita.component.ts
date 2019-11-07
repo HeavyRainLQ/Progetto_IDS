@@ -37,33 +37,15 @@ export class RegistroContabilitaComponent implements OnInit {
   cont_id_sal:any;
   soglia_attuale:number;
 
-  ejemplo={"records":[
-      [
-        {"cod_sal":"1","data":"05/11/2019","tariffa":"01.01.001","categoria":"Struttura di fondazione","descrizione":"Fabbricato A","percentuale":"15.00","prezzo":"50000","prezzo_perc":"50.00","debito":"7500.00","debito_perc":"7.50","v_parziale":"7500.00"},
-        {"cod_sal":"1","data":"05/11/2019","tariffa":"01.01.001","categoria":"Struttura di fondazione","descrizione":"Fabbricato B","percentuale":"10.00","prezzo":"50000","prezzo_perc":"50.00","debito":"5000.00","debito_perc":"5.00","v_parziale":"5000.00"}
-    ],
-        [
-         {"cod_sal":"2","data":"05/11/2019","tariffa":"01.01.001","categoria":"Struttura di fondazione","descrizione":"Fabbricato A","percentuale":"15.00","prezzo":"50000","prezzo_perc":"50.00","debito":"7500.00","debito_perc":"7.50","v_parziale":"7500.00"},
-         {"cod_sal":"2","data":"05/11/2019","tariffa":"01.01.001","categoria":"Struttura di fondazione","descrizione":"Fabbricato B","percentuale":"10.00","prezzo":"50000","prezzo_perc":"50.00","debito":"5000.00","debito_perc":"5.00","v_parziale":"5000.00"},
-         {"cod_sal":"2","data":"05/11/2019","tariffa":"01.01.001","categoria":"Struttura di fondazione","descrizione":"Fabbricato C","percentuale":"20.00","prezzo":"50000","prezzo_perc":"50.00","debito":"10000.00","debito_perc":"10.00","v_parziale":"10000.00"}
-      ]
-  ]};
-
-  ejemplo2={"records":[
-       
-        {"cod_sal":"1","data":"05/11/2019","tariffa":"01.01.001","categoria":"Struttura di fondazione","descrizione":"Fabbricato A","percentuale":"15.00","prezzo":"50000","prezzo_perc":"50.00","debito":"7500.00","debito_perc":"7.50","v_parziale":"7500.00"},
-        {"cod_sal":"1","data":"05/11/2019","tariffa":"01.01.001","categoria":"Struttura di fondazione","descrizione":"Fabbricato B","percentuale":"10.00","prezzo":"50000","prezzo_perc":"50.00","debito":"5000.00","debito_perc":"5.00","v_parziale":"5000.00"}
-    
-  ]};
 
 rows:any;
   constructor(private tableService: MdbTableService, private ethcontractService: EthcontractService, private SqlService: SqlServiceService,private Web3Service:Web3Service) {
     
     console.log("ESTE ES EL ARRAY----------")
-    console.log(this.ejemplo);
-    console.log(this.ejemplo2);
-    this.defaultColDef = { sortable: true };
-    this.rows = this.ejemplo["records"];
+    // console.log(this.ejemplo);
+    // console.log(this.ejemplo2);
+    // this.defaultColDef = { sortable: true };
+    // this.rows = this.ejemplo["records"];
 
     this.parametriDoc=SqlService.parDocumenti;
     this.parametriDoc=this.parametriDoc[0];
