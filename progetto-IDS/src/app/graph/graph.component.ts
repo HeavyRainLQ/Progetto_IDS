@@ -12,6 +12,7 @@ export class GraphComponent implements OnInit {
   BarChart = [];
   PieChart = [];
   valoriSoglia = new Array();
+  valoriSal = new Array();
   length: number;
   parametriDoc: any;
 
@@ -22,6 +23,57 @@ export class GraphComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.SqlService.grafico_sal().subscribe(data => {
+      this.length = this.valoriSal.push(0);
+      var one = 0;
+      var two = 0;
+      var three = 0;
+      var four = 0;
+      var five = 0;
+      for (let valori of data['records']) {
+        switch (Number(valori.cod_sal)) {
+          case 1:
+            one += Number(valori.v_parziale);
+            break;
+          case 2:
+            two += Number(valori.v_parziale);
+            break;
+          case 3:
+            three += Number(valori.v_parziale);
+            break;
+          case 4:
+            four += Number(valori.v_parziale);
+            break;
+          case 5:
+            five += Number(valori.v_parziale);
+            break;
+          default:
+            break;
+        }
+        
+
+
+
+      }
+      if (one != 0) {
+        this.length = this.valoriSal.push(Number(one));
+      }
+      if (two != 0) {
+        this.length = this.valoriSal.push(Number(two)+Number(one));
+      }
+      if (three != 0) {
+        this.length = this.valoriSal.push(Number(three)+Number(two)+Number(one));
+      }
+      if (four != 0) {
+        this.length = this.valoriSal.push(Number(four)+Number(three)+Number(two)+Number(one));
+      }
+      if (five != 0) {
+        this.length = this.valoriSal.push(Number(five)+Number(four)+Number(three)+Number(two)+Number(one));
+      }
+
+    });
+
+
     this.SqlService.select_soglia().subscribe(data => {
       this.length = this.valoriSoglia.push(0);
       for (let valori of data['records']) {
@@ -29,7 +81,7 @@ export class GraphComponent implements OnInit {
         this.length = this.valoriSoglia.push(Number(valori.soglia));
 
       }
-      this.drawChart(this.valoriSoglia);
+      this.drawChart(this.valoriSoglia, this.valoriSal);
     });
 
     console.log(this.valoriSoglia['0']);
@@ -124,7 +176,7 @@ export class GraphComponent implements OnInit {
 
   }
 
-  drawChart(valoreSoglia) {
+  drawChart(valoreSoglia, valoriSal) {
     this.LineChart = new Chart('lineChart', {
       type: 'line',
       data: {
@@ -140,7 +192,7 @@ export class GraphComponent implements OnInit {
 
         }, {
           label: 'Valori Sal',
-          data: [1000, 6000, 7, 900, 6, 4, 200, 15, 4000, 900, 8],
+          data: valoriSal,
           fill: false,
           lineTension: 0.2,
           borderColor: "blue",

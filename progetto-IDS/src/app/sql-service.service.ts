@@ -188,6 +188,13 @@ export class SqlServiceService {
 
   }//fine contabilita
 
+  grafico_sal() {
+    return this.http.post('/api/select_sal_grafico.php', {
+      
+    });
+
+  }
+
   sal(budget) {
     return this.http.post('/api/select_sal.php', {
       budget
