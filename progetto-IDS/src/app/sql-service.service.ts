@@ -95,6 +95,9 @@ export class SqlServiceService {
     //return this.http.get<myData>("../../../src/app/conexion.php");
   }
 
+  get_nome_utente() {
+    return this.utente[0].nome;
+  }
   insert_misura(tariffa, conta, lavoro, perce, ris) {
 
 

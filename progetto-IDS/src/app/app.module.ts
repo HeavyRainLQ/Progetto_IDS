@@ -18,7 +18,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
 import { GiornaleLavoriComponent } from './giornale-lavori/giornale-lavori.component';
 import { BannerComponent } from './banner/banner.component';
-import { MenuInizialeComponent } from './menu-iniziale/menu-iniziale.component';
+
 import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
 import { MioProfiloComponent } from './mio-profilo/mio-profilo.component';
@@ -55,7 +55,7 @@ import { UserModalComponent } from './user-modal/user-modal.component';
     CalendarComponent,
     GiornaleLavoriComponent,
     BannerComponent,
-    MenuInizialeComponent,
+    
     ModalComponent,
     HomeComponent,
     MioProfiloComponent,
