@@ -5,7 +5,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
 import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-delle-misure.component';
 import { GiornaleLavoriComponent } from './giornale-lavori/giornale-lavori.component';
-import { BannerComponent } from './banner/banner.component';
+
 
 
 import { ModalComponent } from './modal/modal.component';
@@ -43,10 +43,7 @@ const routes: Routes = [
     },
 
     
-    {
-      path: 'banner',
-      component: BannerComponent,
-    },
+    
 
     { //view modal
       path: 'modal',

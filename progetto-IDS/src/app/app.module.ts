@@ -17,7 +17,7 @@ import { LibrettoDelleMisureComponent } from './libretto-delle-misure/libretto-d
 import { CalendarComponent } from './calendar/calendar.component';
 import { AreaRiservataComponent } from './area-riservata/area-riservata.component';
 import { GiornaleLavoriComponent } from './giornale-lavori/giornale-lavori.component';
-import { BannerComponent } from './banner/banner.component';
+
 
 import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
@@ -54,7 +54,7 @@ import { UserModalComponent } from './user-modal/user-modal.component';
     LibrettoDelleMisureComponent,
     CalendarComponent,
     GiornaleLavoriComponent,
-    BannerComponent,
+   
     
     ModalComponent,
     HomeComponent,
