@@ -205,6 +205,13 @@ export class OperaioModalComponent implements OnInit {
 
   }//FINE SALVA attrezzatura
 
+  salvaTutto(event){
+    this.salva_attrezza(event);
+    this.salva_des();
+    this.salva_operaio(event);
+
+
+  }
 
 
 
