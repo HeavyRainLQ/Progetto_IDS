@@ -64,7 +64,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "progetto-IDS:build:production"
+              "browserTarget": "progetto-IDS:build:production",
+              "proxyConfig":"src/proxy.js",
             }
           }
         },

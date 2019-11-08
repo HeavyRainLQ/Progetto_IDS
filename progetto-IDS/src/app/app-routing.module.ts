@@ -46,6 +46,7 @@ const routes: Routes = [
     {
       path: 'banner',
       component: BannerComponent,
+      outlet: 'reserved'
     },
 
     { //view modal

@@ -34,6 +34,12 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    //metodo preloader
+
+  
+
+  
+    
     //this.router.navigate(['/area-riservata']);
     //"['/area-riservata',{outlets:{ 'reserved': ['graph']}}]"
     // this.router.navigate(['/area-riservata/,{ outlets: { reserved: [mio_profilo]}']);
