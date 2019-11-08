@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 interface myData {
@@ -19,7 +19,7 @@ export class SqlServiceService {
   utente: Object;
   a;
   id_user: any;
-
+  api: any;
   parDocumenti = [
     {
       budget: 100000,
@@ -33,6 +33,7 @@ export class SqlServiceService {
 
 
   constructor(private http: HttpClient) {
+    this.api = environment.api;
   }
   //Generamos las funciones que nos serviran para manipular nuestras entidades
   getSomeData(user, pass) {
@@ -40,15 +41,17 @@ export class SqlServiceService {
 
     //return this.http.get<myData>(`${this.URL}conexion.php`);
     //return this.http.get("/api/conexion.php");
-    this.a = this.http.post('/api/login.php', {
+    this.a = this.http.post(this.api+'/api/login.php', {
       user,
       pass
     });
     this.a.subscribe(data => {
-      this.utente = data["records"];
+      
+      this.midata(data["records"]);
+      
     });
     return this.a;
-    // return this.http.post('/api/login.php', {
+    // return this.http.post('this.api/api/login.php', {
     //   user,
     //   pass
     // })
@@ -58,7 +61,7 @@ export class SqlServiceService {
 
   mio_profilo(user, pass) {
     console.log("servicio mio profilo: ->");
-    return this.http.post('/api/mio_profilo.php', {
+    return this.http.post(this.api+'/api/mio_profilo.php', {
       user,
       pass
     })
@@ -71,7 +74,7 @@ export class SqlServiceService {
     console.log(nome, cognome, qualifica)
     //return this.http.get<myData>(`${this.URL}conexion.php`);
     //return this.http.get("/api/conexion.php");
-    return this.http.post('/api/insert_operaio.php', {
+    return this.http.post(this.api+'/api/insert_operaio.php', {
       nome, cognome, qualifica
     })
 
@@ -89,7 +92,7 @@ export class SqlServiceService {
 
 
     //return this.http.get("/api/conexion.php");
-    return this.http.post('/api/insert_user.php',
+    return this.http.post(this.api+'/api/insert_user.php',
 
       this.var1,
 
@@ -106,7 +109,7 @@ export class SqlServiceService {
     console.log("servicio insert misura: ->");
     //return this.http.get<myData>(`${this.URL}conexion.php`);
     //return this.http.get("/api/conexion.php");
-    return this.http.post('/api/insert_misura.php', {
+    return this.http.post(this.api+'/api/insert_misura.php', {
       tariffa, conta, lavoro, perce, ris
     })
 
@@ -119,7 +122,7 @@ export class SqlServiceService {
     prezzo_perc,
     debito,
     debito_perc) {
-    return this.http.post('/api/insert_sal.php', {
+    return this.http.post(this.api+'/api/insert_sal.php', {
       cod_sal,
       categoria,
       descrizione,
@@ -137,7 +140,7 @@ export class SqlServiceService {
   select_accumulato(categoria, descrizione) {
 
     console.log("servicio accumulato: ->");
-    return this.http.post('/api/select_accumulato.php', {
+    return this.http.post(this.api+'/api/select_accumulato.php', {
       categoria, descrizione
     })
 
@@ -145,59 +148,59 @@ export class SqlServiceService {
   select_descrizione(nomeCat, descrizione) {
 
     console.log("servicio select_descrizione: ->");
-    return this.http.post('/api/select_categoria.php', {
+    return this.http.post(this.api+'/api/select_categoria.php', {
       nomeCat, descrizione
     })
 
   }//fine select descrizione
 
   select_attrezzatura() {
-    return this.http.post('/api/select_attre.php', {})
+    return this.http.post(this.api+'/api/select_attre.php', {})
 
   }//fine select attrezzatura
 
   select_categorie() {
-    return this.http.post('/api/select_categorie.php', {})
+    return this.http.post(this.api+'/api/select_categorie.php', {})
 
   }//fine select categorie
   select_lavori() {
-    return this.http.post('/api/select_lavori.php', {})
+    return this.http.post(this.api+'/api/select_lavori.php', {})
 
   }//fine select lavori
 
   select_qualifica() {
 
-    return this.http.post('/api/select_qualifica.php', {})
+    return this.http.post(this.api+'/api/select_qualifica.php', {})
 
   }//fine select qualifica
 
   select_parziale() {
 
-    return this.http.post('/api/select_parziale.php', {})
+    return this.http.post(this.api+'/api/select_parziale.php', {})
 
   }//fine select parziale
 
   select_parziale_misura(idMisura) {
 
-    return this.http.post('/api/select_parziale_misura.php', {idMisura});
+    return this.http.post(this.api+'/api/select_parziale_misura.php', { idMisura });
 
   }
   contabilita(budget) {
-    return this.http.post('/api/select_contabilita.php', {
+    return this.http.post(this.api+'/api/select_contabilita.php', {
       budget
     });
 
   }//fine contabilita
 
   grafico_sal() {
-    return this.http.post('/api/select_sal_grafico.php', {
-      
+    return this.http.post(this.api+'/api/select_sal_grafico.php', {
+
     });
 
   }
 
   sal(budget) {
-    return this.http.post('/api/select_sal.php', {
+    return this.http.post(this.api+'/api/select_sal.php', {
       budget
     });
 
@@ -205,31 +208,31 @@ export class SqlServiceService {
 
   select_soglia() {
 
-    return this.http.post('/api/select_soglia.php', {})
+    return this.http.post(this.api+'/api/select_soglia.php', {})
 
   }//fine select parziale
 
 
 
   updateApprova(item_id) {
-    return this.http.post('/api/update_approva.php', {
+    return this.http.post(this.api+'/api/update_approva.php', {
       item_id
     })
   }//fine update approva
 
   updateInvalida(item_id) {
-    return this.http.post('/api/update_valida.php', {
+    return this.http.post(this.api+'/api/update_valida.php', {
       item_id
     })
   }//fine update invalida
   updateApprova_sal() {
-    return this.http.post('/api/update_approva_sal.php', {
+    return this.http.post(this.api+'/api/update_approva_sal.php', {
     })
   }//fine update approva
 
   select_tipo_user() {
 
-    return this.http.post('/api/select_tipo_user.php', {})
+    return this.http.post(this.api+'/api/select_tipo_user.php', {})
 
   }
   update_info(dati: object) {
@@ -244,7 +247,7 @@ export class SqlServiceService {
 
 
     //return this.http.get("/api/conexion.php");
-    return this.http.post('/api/update_user.php',
+    return this.http.post(this.api+'/api/update_user.php',
 
       this.var1,
 
@@ -284,6 +287,10 @@ export class SqlServiceService {
   }
   eliminar(id: number) {
     throw new Error("Method not implemented.");
+  }
+
+  midata(records){
+    this.utente=records;
   }
 
 

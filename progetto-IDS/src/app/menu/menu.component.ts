@@ -61,7 +61,7 @@ export class MenuComponent implements OnInit {
   //  async read_utente(){
   //   this.tipoUtente = this.utente.utente[0].nome;
   //   }
-  onActivate(event) {
+  onActivate() {
     let scrollToTop = window.setInterval(() => {
       let pos = window.pageYOffset;
       if (pos > 0) {
