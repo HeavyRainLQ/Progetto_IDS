@@ -435,8 +435,18 @@ create_sal(
     _debito,
     _debito_perc,
      _transferFrom
-  
        ) {
+console.log("+++++++++++++++")
+     console.log(_cod_reg)
+    console.log(_tariffa)
+    console.log(_categoria)
+    console.log(_descrizione)
+    console.log(_percentuale)
+    console.log(_prezzo)
+    console.log(_prezzo_perc)
+    console.log(_debito)
+    console.log(_debito_perc)
+    console.log( _transferFrom)
     
   
      
@@ -445,12 +455,12 @@ create_sal(
   
       return new Promise((resolve, reject) => {
   
-        let salContract = TruffleContract(tokenAbi6);
+        let regContract = TruffleContract(tokenAbi6);
         //para
   
-        salContract.setProvider(that.web3Provider);
+        regContract.setProvider(that.web3Provider);
   
-        salContract.deployed().then(function (instance) {
+        regContract.deployed().then(function (instance) {
           //return instance.transferFund(
           return instance.create(
             _cod_reg, _tariffa,_categoria,_descrizione,_percentuale,_prezzo,
@@ -470,7 +480,7 @@ create_sal(
         });
       });
   
-    }
+    }//fine create_registro ETH
 
 //-----------------
   update_approva(

@@ -3,12 +3,13 @@ import { ModalComponent } from '.././modal/modal.component';
 import { MisuraModalComponent } from '.././misura-modal/misura-modal.component';
 
 import { MatDialog } from '@angular/material';
-import { EthcontractService } from '../ethcontract.service';
-import { SqlServiceService } from '../sql-service.service';
 import { AgGridModule } from 'ag-grid-angular';
 import { Router, ActivatedRoute, } from '@angular/router';
 import { MdbTableDirective, MdbTableService } from 'angular-bootstrap-md';
 import * as $ from 'jquery';
+import { EthcontractService } from '../ethcontract.service';
+import { SqlServiceService } from '../sql-service.service';
+import { Web3Service } from '../web3.service';
 
 
 @Component({
@@ -39,6 +40,7 @@ export class LibrettoDelleMisureComponent implements OnInit {
   remarks = '';
   valor = "";
   private defaultColDef;
+  cont_id_sal:number;
 
 
   searchText: string = '';
@@ -55,8 +57,9 @@ export class LibrettoDelleMisureComponent implements OnInit {
   totaleSomma: any;
   sum: boolean;
   misuraId: any;
+  registros:any;
 
-  constructor(private route: ActivatedRoute, private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService, private router: Router) {
+  constructor(private route: ActivatedRoute, private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService, private router: Router,private Web3Service: Web3Service) {
     this.initAndDisplayAccount();
     this.defaultColDef = { sortable: true };
     this.generare(event);
@@ -200,6 +203,12 @@ export class LibrettoDelleMisureComponent implements OnInit {
 
     this.generare(event);
     this.checkTotale();
+  ///salva registro contabilita
+
+
+this.genera_registro();
+
+
 
   }//fine approvare
 
@@ -243,8 +252,11 @@ export class LibrettoDelleMisureComponent implements OnInit {
     this.generare(event);
     this.checkTotale();
 
+
+this.genera_registro();
   }//fine invalidare
-  checkParzialeMisura(selectedItem: any) {
+
+checkParzialeMisura(selectedItem: any) {
     this.misuraId = selectedItem.id + 1;
 
     this.SqlService.select_parziale_misura(this.misuraId).subscribe(data => {
@@ -319,5 +331,64 @@ export class LibrettoDelleMisureComponent implements OnInit {
     }
   }
 
-}
+
+
+genera_registro(){
+
+
+    console.log(this.parametriDoc['budget']);
+    this.SqlService.contabilita(this.parametriDoc['budget']).subscribe(data => {
+
+
+      this.registros = data["records"];
+      this.salva_reg_eth(this.registros);
+
+
+
+});
+
+
+
+}//fine genera_registro
+
+
+salva_reg_eth(record){
+console.log("---------------SMART")
+console.log(record)
+
+for (let row of record) 
+{
+  
+   var a1= this.Web3Service.numberToSigned64x64(row['percentuale']);
+   var a2=this.Web3Service.numberToSigned64x64(row['prezzo']);
+   var a3=this.Web3Service.numberToSigned64x64(row['prezzo_perc']);
+   var a4=this.Web3Service.numberToSigned64x64(row['debito']);
+   var a5= this.Web3Service.numberToSigned64x64(row['debito_perc']);
+
+this.ethcontractService.create_reg(
+      
+    // this.cont_id_sal, //cod del Sal
+    1,
+    row['tariffa'],
+    row['categoria'],
+    row['descrizione'],
+    a1,a2,a3,a4,a5,
+
+      this.transferFrom,
+    ).then(function () {
+      console.log("funziona REGISTROO SMART")
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+
+
+  }//fine del for
+
+}//fine salva_reg
+
+
+
+
+}//fine della classe
 
