@@ -68,7 +68,7 @@ export class OperaioModalComponent implements OnInit {
   }; //fin de INIT
 
 
-  salva_operaio(event) {
+  salva_operaio() {
 
     let ore = (<HTMLSelectElement>document.getElementById('ore_presenza')).value;
     let data_picker = (<HTMLSelectElement>document.getElementById('data_picker')).value;
