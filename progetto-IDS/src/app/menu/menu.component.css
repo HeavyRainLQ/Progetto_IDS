@@ -15,7 +15,7 @@
   min-height: 100vh;
   width: 23%;
   /*margin-left: -10.9rem;*/
-  margin-left: 1.6rem;
+ 
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
@@ -111,9 +111,11 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-  margin-left: 0;
+  
   width:400px;
+  margin-left: -25%;
 }
+
 
 @media (min-width: 990px) {
   #sidebar-wrapper {

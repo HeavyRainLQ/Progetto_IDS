@@ -46,7 +46,9 @@ export class SqlServiceService {
       pass
     });
     this.a.subscribe(data => {
-      this.utente = data["records"];
+      
+      this.midata(data["records"]);
+      
     });
     return this.a;
     // return this.http.post('this.api/api/login.php', {
@@ -285,6 +287,10 @@ export class SqlServiceService {
   }
   eliminar(id: number) {
     throw new Error("Method not implemented.");
+  }
+
+  midata(records){
+    this.utente=records;
   }
 
 

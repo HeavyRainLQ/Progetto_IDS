@@ -48,16 +48,7 @@ export class MioProfiloComponent implements OnInit {
     //     this.result = data["records"];	        this.result = data["records"];
     //     //console.log($scope.result[0].ini);	        //console.log($scope.result[0].ini);
     //     var a=this.user.utente[0].ini;	        var a=this.result[0].ini;
-    this.nome = this.user.utente[0].nome;
-    this.cognome = this.user.utente[0].cognome;
-    this.cod_fis = this.user.utente[0].cod_fiscale;
-    this.d_nasci = this.user.utente[0].d_nascita;
-    this.l_nasci = this.user.utente[0].luogo_nascita;
-    this.cap = this.user.utente[0].cap;
-    this.resid = this.user.utente[0].residenza;
-
-    
-    this.email = this.user.utente[0].email;
+    this.reloa();
 
 
 
@@ -96,11 +87,25 @@ export class MioProfiloComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.reloa();
       console.log('The dialog was closed');
+      
       
     });
     
   }
+reloa(){
+  this.nome = this.user.utente[0].nome;
+    this.cognome = this.user.utente[0].cognome;
+    this.cod_fis = this.user.utente[0].cod_fiscale;
+    this.d_nasci = this.user.utente[0].d_nascita;
+    this.l_nasci = this.user.utente[0].luogo_nascita;
+    this.cap = this.user.utente[0].cap;
+    this.resid = this.user.utente[0].residenza;
 
+    
+    this.email = this.user.utente[0].email;
+
+}
 
 }//fin de la clase

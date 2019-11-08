@@ -66,7 +66,7 @@ save()
   var a8: HTMLInputElement = <HTMLInputElement>$('resid');
   var a9: HTMLInputElement = <HTMLInputElement>$('user');
   var a10: HTMLInputElement = <HTMLInputElement>$('pass');
-
+  // let data_picker = (<HTMLSelectElement>document.getElementById('data_picker')).value;
   this.dati= {
           
     "col1":{
@@ -75,6 +75,7 @@ save()
     "cognome":a3.value,
     "cod_fis":a4.value,
     "d_nasci":a5.value,
+    
     "l_nasci":a6.value,
     "cap":a7.value,
     "resid":a8.value,
@@ -84,7 +85,7 @@ save()
   
   }//fin della data
   //console.log(this.dati);
-
+  console.log("d_nasci____________________________________________________"+a5.value);
   
   this.user.update_info(this.dati).subscribe(data =>{ 
     console.log("entro sin error");
@@ -102,7 +103,7 @@ save()
      this.dialog.close();
     }
     this.user.getSomeData(a9.value, a10.value);
-    location.reload();
+    // location.reload();
     // this.router.navigate(['/home']); 
 }//salvare valori, SQL UPDATE
 
