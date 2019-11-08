@@ -175,7 +175,7 @@ export class OperaioModalComponent implements OnInit {
 
   }//fine del salva descrizione loca
 
-  salva_attrezza(event) {
+  salva_attrezza() {
 
     let ore = (<HTMLSelectElement>document.getElementById('ore_presenza')).value;
     let data_picker = (<HTMLSelectElement>document.getElementById('data_picker')).value;
@@ -205,10 +205,10 @@ export class OperaioModalComponent implements OnInit {
 
   }//FINE SALVA attrezzatura
 
-  salvaTutto(event){
-    this.salva_attrezza(event);
+  salvaTutto(){
+    this.salva_attrezza();
     this.salva_des();
-    this.salva_operaio(event);
+    this.salva_operaio();
 
 
   }

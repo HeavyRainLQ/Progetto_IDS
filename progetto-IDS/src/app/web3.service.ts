@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-
+import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class Web3Service {
   private subject = new Subject<any>();
-
+  api: any;
   sendMessage(user: object) {
       this.subject.next(user);
       console.log(this.subject);
@@ -26,6 +26,7 @@ export class Web3Service {
   }
   constructor(private http: HttpClient) 
   { 
+    this.api = environment.api;
   }//fine constructor
 
 
@@ -40,12 +41,12 @@ signed64x64ToNumber(signed64x64: number): number {
  }//finecaonvert to number
 
  select_max() {
-    return this.http.post('/api/select_max_id.php', {})
+    return this.http.post(this.api+'/api/select_max_id.php', {})
 
   }//fine select max cod sal
 
   update_superata(id) {
-    return this.http.post('/api/update_soglia.php', {
+    return this.http.post(this.api+'/api/update_soglia.php', {
     	id
     })
   }//fine select max cod sal
