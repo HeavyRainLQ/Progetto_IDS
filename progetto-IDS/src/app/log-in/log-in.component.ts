@@ -49,8 +49,8 @@ export class LogInComponent implements OnInit {
 
 
 
-  user1: string;
-  pass1: string;
+  user1="";
+  pass1="";
   result: Object;
   logIn() {
 
