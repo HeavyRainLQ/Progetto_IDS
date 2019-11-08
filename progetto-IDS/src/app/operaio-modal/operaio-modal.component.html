@@ -101,7 +101,7 @@
         id="save"
         type="button"
         mat-button
-        mat-dialog-close
+        
         (click)="salva_operaio()"
         class="btn btn-primary"
       >
@@ -142,7 +142,7 @@
       id="save"
       type="button"
       mat-button
-      mat-dialog-close
+      
       (click)="salva_des()"
       class="btn btn-primary"
     >
@@ -203,7 +203,7 @@
       id="save"
       type="button"
       mat-button
-      mat-dialog-close
+      
       (click)="salva_attrezza()"
       class="btn btn-primary"
     >
@@ -239,7 +239,19 @@
   <div class="w-100"></div>
 </div>
 
+
 <div class="modal-footer">
+    <button
+    *ngIf="form.controls['quantita'].valid || form.controls['desc'].valid"
+      id="save"
+      type="button"
+      
+      mat-dialog-close
+      (click)="salvaTutto()"
+      class="btn btn-primary"
+    >
+      Salva Tutto
+    </button>
   <button
     id="close"
     type="button"
