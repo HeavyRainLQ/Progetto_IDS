@@ -7,9 +7,9 @@
 
 <div class="row" style="margin:4%;">
   <div
-    class="col"
-    style="border-right:1px solid red;border-left:1px solid red;padding:5%;"
-  >
+    class="col" id="divOp" >
+    <h6 id="op">Nuovo Operaio</h6>
+    <br>
     <table id="table1">
       <tr>
         <td id="col1"><label>Nome</label></td>
@@ -110,15 +110,15 @@
     </div>
   </div>
 
-<div class="col" style="border:1px solid red;">
+<div class="col"  id="divOp">
   
 
 <div  id="bottone">
     <a href="#List1" class="btn btn-info " id="bott" data-toggle="collapse">Nuova Descrizione <i id="arrow"class="fas fa-caret-square-down"></i></a>
     
-  <div class="table-responsive rounded">
+  <div class="rounded">
     <div id="List1" class="collapse">
-      <div class="col" style="border:1px inset black;">
+      <div class="col" id="divEl">
 
 
 
@@ -129,6 +129,7 @@
       formControlName="desc"
       [(ngModel)]="descrizione"
       class="form-control form-control-sm"
+      id="tex"
     ></textarea>
     <div *ngIf="form.controls['desc'].hasError('required')">
       Inserire una descrizione
@@ -166,14 +167,14 @@
 <div  id="bottone">
     <a href="#List" class="btn btn-info " id="bott" data-toggle="collapse">Nuova Attrezzatura <i id="arrow"class="fas fa-caret-square-down"></i></a>
     
-  <div class="table-responsive rounded">
+  <div class=" rounded">
     <div id="List" class="collapse">
              
-  <div style="border:1px solid black;">
+  <div id="divEl">
  
 
   <label>Attrezzatura</label>
-  <select id="tipologia" style="width: 80%;height: 35px;">
+  <select id="tipologia">
         <option *ngFor="let names of attre" [value]="names.nome_attr">
           {{ names.nome_attr }}
         </option>

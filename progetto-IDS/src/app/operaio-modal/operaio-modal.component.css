@@ -73,3 +73,50 @@ width: 20%;
     
 }
 
+#op{
+    text-align:center;
+
+}
+
+#divOp{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 5px;
+        margin:5px;
+}
+
+#divEl{
+    background-color:rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin:5px;
+    
+
+}
+
+#tipologia{
+    width: 80%;height: 35px;
+}
+
+#tex{
+    width: 80%;height: 100px;
+}
+
+#bott{
+    color:black;
+    border-color:black;
+    background-color: #f7f7f7;
+    width:100%;
+    text-align: left;
+    
+  }
+  
+  #bottone{
+    
+    border-color:black;
+  }
+  
+  #arrow{
+    float: right;
+  }
+
