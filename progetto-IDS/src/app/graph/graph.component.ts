@@ -59,16 +59,16 @@ export class GraphComponent implements OnInit {
         this.length = this.valoriSal.push(Number(one));
       }
       if (two != 0) {
-        this.length = this.valoriSal.push(Number(two)+Number(one));
+        this.length = this.valoriSal.push(Number(two));
       }
       if (three != 0) {
-        this.length = this.valoriSal.push(Number(three)+Number(two)+Number(one));
+        this.length = this.valoriSal.push(Number(three));
       }
       if (four != 0) {
-        this.length = this.valoriSal.push(Number(four)+Number(three)+Number(two)+Number(one));
+        this.length = this.valoriSal.push(Number(four));
       }
       if (five != 0) {
-        this.length = this.valoriSal.push(Number(five)+Number(four)+Number(three)+Number(two)+Number(one));
+        this.length = this.valoriSal.push(Number(five));
       }
 
     });
