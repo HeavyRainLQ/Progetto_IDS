@@ -39,8 +39,7 @@ export class SqlServiceService {
   getSomeData(user, pass) {
     console.log("llego al servicio getSomeData: ->");
 
-    //return this.http.get<myData>(`${this.URL}conexion.php`);
-    //return this.http.get("/api/conexion.php");
+    
     this.a = this.http.post(this.api+'/api/login.php', {
       user,
       pass

@@ -3,9 +3,6 @@
 This is an academic project aimed to experiment the use of a blockchain as a tool to better manage tenders in the construction sector.
 
 ## Getting started
-
-To utilize this app you need to to download and install the package downloadable in the following link: [package](https://pip.pypa.io/en/stable/).
-
 ## Prerequisites
 - NodeJS v8.9.4 or higher
 - Windows, Linux or Mac OS X
@@ -31,16 +28,21 @@ truffle migrate
 ```
 to migrate our smart contracts to our blockchain
 
+Now move in angular project folder (progetto-IDS) and run the server with proxy 
+```bash
+npm start  
+```
 ## Server installation
-Start up Xampp and activate Apache and MySQL services, go to the Admin section and import to phpMyAdmin our ids.sql file, found in "cartella" directory in our project
+Start up Xampp and activate Apache and MySQL services, go to the Admin section and import to phpMyAdmin our ids.sql file, found in /progetto-IDS/api/ directory in our project
 
 ## App installation
-- Copy progetto-IDS directory inside C:\xampp\htdocs and change connection.php (found in API directory inside the main directory) credentials according to Xampp ones if necessary.
-- Open your browser and digit http://localhost:4200 or http://127.0.0.1
-- Select progetto-IDS directory
+- Copy progetto-IDS/api directory inside C:\xampp\htdocs and change connection.php (found in API directory inside the main directory) credentials according to Xampp ones if necessary.
+- Open your browser and digit http://localhost:4200 or http://127.0.0.1:4200
 
 ## Usage
 Now you can log in to our Dapp using different credentials according to which user you are!
+Username: admin 
+Password: admin
 
 ## Built with
 - [Angular](https://angular.io/)
