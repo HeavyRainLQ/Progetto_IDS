@@ -19,7 +19,7 @@ export class SqlServiceService {
   utente: Object;
   a;
   id_user: any;
-  api: any;
+  api="";
   parDocumenti = [
     {
       budget: 100000,
@@ -33,7 +33,7 @@ export class SqlServiceService {
 
 
   constructor(private http: HttpClient) {
-    this.api = environment.api;
+    // this.api = environment.api;
   }
   //Generamos las funciones que nos serviran para manipular nuestras entidades
   getSomeData(user, pass) {
