@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class Web3Service {
   private subject = new Subject<any>();
-  api: any;
+  api="";
   sendMessage(user: object) {
       this.subject.next(user);
       console.log(this.subject);
@@ -26,7 +26,7 @@ export class Web3Service {
   }
   constructor(private http: HttpClient) 
   { 
-    this.api = environment.api;
+    // this.api = environment.api;
   }//fine constructor
 
 

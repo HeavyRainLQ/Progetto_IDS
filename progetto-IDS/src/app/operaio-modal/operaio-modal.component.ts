@@ -23,6 +23,9 @@ export class OperaioModalComponent implements OnInit {
   //variabili della modale
   nome: string;
   quantita: string;
+  operazione1="";
+  operazione2="";
+  operazione3="";
   opQual: any;
   cognome: string;
   qualifica: string;
@@ -40,10 +43,11 @@ export class OperaioModalComponent implements OnInit {
     });
     
     
-    this.initAndDisplayAccount();
+    //this.initAndDisplayAccount();
     //this.prueba=this.SqlService.select_attrezzatura();
     this.genera_attre();
     this.genera_qualifica();
+    this.getAccount();
   }
 
   ngOnInit() {
@@ -129,6 +133,11 @@ export class OperaioModalComponent implements OnInit {
       console.log(data);
     }
     ); 
+    this.operazione1="Operazione fatta!!";
+    this.nome ="";
+    this.cognome ="";
+    
+    (<HTMLSelectElement>document.getElementById('ore_presenza')).value="";
   }//FINE SALVA OPERAIO
 
 
@@ -165,6 +174,7 @@ export class OperaioModalComponent implements OnInit {
       ).then(function () {
 
         console.log("funziona contract descrizione")
+        
       }).catch(function (error) {
         console.log(error);
         console.log("FALSE descrizione")
@@ -172,6 +182,9 @@ export class OperaioModalComponent implements OnInit {
       });
 
     }//fine if
+    this.operazione2="Operazione fatta!";
+    this.descrizione="";
+    
 
   }//fine del salva descrizione loca
 
@@ -201,7 +214,8 @@ export class OperaioModalComponent implements OnInit {
       console.log("FALSE attrezza")
 
     });
-
+    this.operazione3="Operazione fatta!";
+    this.quantita ="";
 
   }//FINE SALVA attrezzatura
 
@@ -214,7 +228,11 @@ export class OperaioModalComponent implements OnInit {
   }
 
 
-
+  async getAccount() {
+    this.transferFrom = this.SqlService.utente[0].account;
+    console.log("CUENTA:----- ",this.transferFrom);
+    
+  }
 
 
 }

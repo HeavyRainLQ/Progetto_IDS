@@ -18,7 +18,6 @@ if ($dbHash = mysqli_fetch_array($result1)) {
     if (password_verify($password, $dbHash['password'])) {
         $outp = "";
         $outp .= '{"ini":"true",';
-        $outp .= '"account":"'   . $dbHash[0] . '",';
         $outp .= '"nome":"'   . $dbHash[1] . '",';
         $outp .= '"cognome":"'   . $dbHash[2] . '",';
         $outp .= '"cod_fiscale":"'   . $dbHash[3] . '",';
