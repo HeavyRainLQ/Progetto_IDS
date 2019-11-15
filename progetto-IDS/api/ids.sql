@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2019 a las 09:02:56
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.12
+-- Host: 127.0.0.1
+-- Creato il: Nov 15, 2019 alle 10:21
+-- Versione del server: 10.3.16-MariaDB
+-- Versione PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ids`
+-- Database: `ids`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `attrezzatura`
+-- Struttura della tabella `attrezzatura`
 --
 
 CREATE TABLE `attrezzatura` (
@@ -34,7 +34,7 @@ CREATE TABLE `attrezzatura` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `attrezzatura`
+-- Dump dei dati per la tabella `attrezzatura`
 --
 
 INSERT INTO `attrezzatura` (`id_attr`, `nome_attr`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `attrezzatura` (`id_attr`, `nome_attr`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria_contabile`
+-- Struttura della tabella `categoria_contabile`
 --
 
 CREATE TABLE `categoria_contabile` (
@@ -58,19 +58,19 @@ CREATE TABLE `categoria_contabile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `categoria_contabile`
+-- Dump dei dati per la tabella `categoria_contabile`
 --
 
 INSERT INTO `categoria_contabile` (`id`, `nomeCat`, `codiceTariffa`, `descrizione`, `u_m`, `prezzo`) VALUES
-(1, 'Struttura di fondazione', '01.01.001', 'Trasporto e approntamento dell attrezzatura di perforazione a rotazione. Trasporto dell attrezzatura di perforazione a rotazione. Sono compresi: il trasporto di andata e ritorno, dalla sede legale al cantiere; l approntamento dell attrezzatura di perforazione a rotazione; il carico, lo scarico; il personale necessario.', 'cad', 50000),
-(4, 'Struttura di elevazione', '01.01.002 001', 'Installazione di attrezzatura per sondaggio. Installazione di attrezzatura per sondaggio, a rotazione in corrispondenza di ciascun punto di perforazione, compreso il primo, su aree accessibili alle attrezzature di perforazione, compreso l onere per lo spostamento da un foro al successivo. E  compreso quanto occorre per dare l installazione completa. Per ogni installazione compresa la prima e l ultima. Per distanza fino a m 300.', 'cad', 202.88),
-(6, 'colonnato', '01.01.003 001', 'Perforazione ad andamento verticale eseguita in terreni a granulometria fine. Perforazione ad andamento verticale eseguita a rotazione a carotaggio continuo, anche di tipo Wireline, con carotieri di diametro minimo mm 85, in terreni a granulometria fine quali argille, limi, limi sabbiosi e rocce tenere tipo tufiti. E\' compreso quanto altro occorre per dare la perforazione completa e la restituzione grafica dei dati. Per ogni metro e per profondità misurate a partire dal piano di campagna.Da m 0 a m 20. Con percentuale di carotaggio superiore al 90%.', 'm', 62.43),
-(9, 'pavimentazione', '01.01.004 001', 'Perforazione ad andamento verticale eseguita in terreni a granulometria media. Perforazione ad andamento verticale eseguita a rotazione a carotaggio continuo, anche di tipo Wireline, con carotieri di diametro minimo mm 85, in terreni a granulometria media costituiti da sabbie ghiaiose anche con qualche ciottolo, ed in rocce di durezza media che non richiedono l\'uso del diamante. E\' compreso l\'uso di tutti gli attrezzi e gli accorgimenti necessari ad ottenere la percentuale di carotaggio richiesta e comunque non inferiore al 75%. E\' inoltre compreso quanto altro occorre per dare la perforazione completa. Per ogni metro e per profondità misurate a partire dal piano di campagna.Da m 0 a m 20.', 'm', 79.07);
+(1, 'Struttura di fondazione', '01.01.001', 'Trasporto e approntamento dell attrezzatura di perforazione a rotazione. Trasporto dell attrezzatura di perforazione a rotazione. Sono compresi: il trasporto di andata e ritorno, dalla sede legale al cantiere; l approntamento dell attrezzatura di perforazione a rotazione; il carico, lo scarico; il personale necessario.', 'cad', 15000),
+(4, 'Struttura di elevazione', '01.01.002 001', 'Installazione di attrezzatura per sondaggio. Installazione di attrezzatura per sondaggio, a rotazione in corrispondenza di ciascun punto di perforazione, compreso il primo, su aree accessibili alle attrezzature di perforazione, compreso l onere per lo spostamento da un foro al successivo. E  compreso quanto occorre per dare l installazione completa. Per ogni installazione compresa la prima e l ultima. Per distanza fino a m 300.', 'cad', 12202.88),
+(6, 'colonnato', '01.01.003 001', 'Perforazione ad andamento verticale eseguita in terreni a granulometria fine. Perforazione ad andamento verticale eseguita a rotazione a carotaggio continuo, anche di tipo Wireline, con carotieri di diametro minimo mm 85, in terreni a granulometria fine quali argille, limi, limi sabbiosi e rocce tenere tipo tufiti. E\' compreso quanto altro occorre per dare la perforazione completa e la restituzione grafica dei dati. Per ogni metro e per profondità misurate a partire dal piano di campagna.Da m 0 a m 20. Con percentuale di carotaggio superiore al 90%.', 'm', 16762.43),
+(9, 'pavimentazione', '01.01.004 001', 'Perforazione ad andamento verticale eseguita in terreni a granulometria media. Perforazione ad andamento verticale eseguita a rotazione a carotaggio continuo, anche di tipo Wireline, con carotieri di diametro minimo mm 85, in terreni a granulometria media costituiti da sabbie ghiaiose anche con qualche ciottolo, ed in rocce di durezza media che non richiedono l\'uso del diamante. E\' compreso l\'uso di tutti gli attrezzi e gli accorgimenti necessari ad ottenere la percentuale di carotaggio richiesta e comunque non inferiore al 75%. E\' inoltre compreso quanto altro occorre per dare la perforazione completa. Per ogni metro e per profondità misurate a partire dal piano di campagna.Da m 0 a m 20.', 'm', 9079.07);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lavori`
+-- Struttura della tabella `lavori`
 --
 
 CREATE TABLE `lavori` (
@@ -79,7 +79,7 @@ CREATE TABLE `lavori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `lavori`
+-- Dump dei dati per la tabella `lavori`
 --
 
 INSERT INTO `lavori` (`idLavori`, `descrizione`) VALUES
@@ -91,7 +91,7 @@ INSERT INTO `lavori` (`idLavori`, `descrizione`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `misura`
+-- Struttura della tabella `misura`
 --
 
 CREATE TABLE `misura` (
@@ -109,7 +109,7 @@ CREATE TABLE `misura` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `operai`
+-- Struttura della tabella `operai`
 --
 
 CREATE TABLE `operai` (
@@ -122,7 +122,7 @@ CREATE TABLE `operai` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `qualifica`
+-- Struttura della tabella `qualifica`
 --
 
 CREATE TABLE `qualifica` (
@@ -131,7 +131,7 @@ CREATE TABLE `qualifica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `qualifica`
+-- Dump dei dati per la tabella `qualifica`
 --
 
 INSERT INTO `qualifica` (`id_qualifica`, `nome_qual`) VALUES
@@ -142,7 +142,7 @@ INSERT INTO `qualifica` (`id_qualifica`, `nome_qual`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sal`
+-- Struttura della tabella `sal`
 --
 
 CREATE TABLE `sal` (
@@ -160,7 +160,7 @@ CREATE TABLE `sal` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `soglia`
+-- Struttura della tabella `soglia`
 --
 
 CREATE TABLE `soglia` (
@@ -170,7 +170,7 @@ CREATE TABLE `soglia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `soglia`
+-- Dump dei dati per la tabella `soglia`
 --
 
 INSERT INTO `soglia` (`id_soglia`, `valore`, `superata`) VALUES
@@ -183,7 +183,7 @@ INSERT INTO `soglia` (`id_soglia`, `valore`, `superata`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo_user`
+-- Struttura della tabella `tipo_user`
 --
 
 CREATE TABLE `tipo_user` (
@@ -192,7 +192,7 @@ CREATE TABLE `tipo_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tipo_user`
+-- Dump dei dati per la tabella `tipo_user`
 --
 
 INSERT INTO `tipo_user` (`id_tipo_user`, `nome_tipo`) VALUES
@@ -204,7 +204,7 @@ INSERT INTO `tipo_user` (`id_tipo_user`, `nome_tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Struttura della tabella `user`
 --
 
 CREATE TABLE `user` (
@@ -216,8 +216,8 @@ CREATE TABLE `user` (
   `luogo_nascita` varchar(30) NOT NULL,
   `cap` varchar(30) NOT NULL,
   `residenza` varchar(30) NOT NULL,
-  `tipo_user` int(11) NOT NULL DEFAULT '1',
-  `stato_user` tinyint(1) NOT NULL DEFAULT '1',
+  `tipo_user` int(11) NOT NULL DEFAULT 1,
+  `stato_user` tinyint(1) NOT NULL DEFAULT 1,
   `username` varchar(25) NOT NULL,
   `password` varchar(258) NOT NULL,
   `email` varchar(30) DEFAULT NULL,
@@ -225,7 +225,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `user`
+-- Dump dei dati per la tabella `user`
 --
 
 INSERT INTO `user` (`hash_wallet`, `nome`, `cognome`, `cod_fiscale`, `d_nascita`, `luogo_nascita`, `cap`, `residenza`, `tipo_user`, `stato_user`, `username`, `password`, `email`, `id_user`) VALUES
@@ -235,30 +235,30 @@ INSERT INTO `user` (`hash_wallet`, `nome`, `cognome`, `cod_fiscale`, `d_nascita`
 ('0xE11BA2b4D45Eaed5996Cd0823791E0C93114882d', 'Simone', 'Simone', 'ASFKJA98439AS', '1982-06-07', 'Milano', '454436', 'Anncona', 4, 1, 'luca', '$2y$10$EGncIN.h6FBEz2Y9TkYnMeYlGDxTrXE2eelQAcSxu4o9gKx2aFfMK', NULL, 4);
 
 --
--- Índices para tablas volcadas
+-- Indici per le tabelle scaricate
 --
 
 --
--- Indices de la tabla `attrezzatura`
+-- Indici per le tabelle `attrezzatura`
 --
 ALTER TABLE `attrezzatura`
   ADD PRIMARY KEY (`id_attr`);
 
 --
--- Indices de la tabla `categoria_contabile`
+-- Indici per le tabelle `categoria_contabile`
 --
 ALTER TABLE `categoria_contabile`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `codice_tariffa` (`codiceTariffa`);
 
 --
--- Indices de la tabla `lavori`
+-- Indici per le tabelle `lavori`
 --
 ALTER TABLE `lavori`
   ADD PRIMARY KEY (`idLavori`);
 
 --
--- Indices de la tabla `misura`
+-- Indici per le tabelle `misura`
 --
 ALTER TABLE `misura`
   ADD PRIMARY KEY (`idMisura`),
@@ -266,38 +266,38 @@ ALTER TABLE `misura`
   ADD KEY `descrizioneLav` (`desLavoro`);
 
 --
--- Indices de la tabla `operai`
+-- Indici per le tabelle `operai`
 --
 ALTER TABLE `operai`
   ADD PRIMARY KEY (`id_operaio`),
   ADD KEY `qualifica` (`qualifica`);
 
 --
--- Indices de la tabla `qualifica`
+-- Indici per le tabelle `qualifica`
 --
 ALTER TABLE `qualifica`
   ADD PRIMARY KEY (`id_qualifica`);
 
 --
--- Indices de la tabla `sal`
+-- Indici per le tabelle `sal`
 --
 ALTER TABLE `sal`
   ADD PRIMARY KEY (`id_sal`);
 
 --
--- Indices de la tabla `soglia`
+-- Indici per le tabelle `soglia`
 --
 ALTER TABLE `soglia`
   ADD PRIMARY KEY (`id_soglia`);
 
 --
--- Indices de la tabla `tipo_user`
+-- Indici per le tabelle `tipo_user`
 --
 ALTER TABLE `tipo_user`
   ADD PRIMARY KEY (`id_tipo_user`);
 
 --
--- Indices de la tabla `user`
+-- Indici per le tabelle `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
@@ -307,88 +307,88 @@ ALTER TABLE `user`
   ADD KEY `tipologia_user` (`tipo_user`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT de la tabla `attrezzatura`
+-- AUTO_INCREMENT per la tabella `attrezzatura`
 --
 ALTER TABLE `attrezzatura`
   MODIFY `id_attr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `categoria_contabile`
+-- AUTO_INCREMENT per la tabella `categoria_contabile`
 --
 ALTER TABLE `categoria_contabile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `lavori`
+-- AUTO_INCREMENT per la tabella `lavori`
 --
 ALTER TABLE `lavori`
   MODIFY `idLavori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `misura`
+-- AUTO_INCREMENT per la tabella `misura`
 --
 ALTER TABLE `misura`
   MODIFY `idMisura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `operai`
+-- AUTO_INCREMENT per la tabella `operai`
 --
 ALTER TABLE `operai`
   MODIFY `id_operaio` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `qualifica`
+-- AUTO_INCREMENT per la tabella `qualifica`
 --
 ALTER TABLE `qualifica`
   MODIFY `id_qualifica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `sal`
+-- AUTO_INCREMENT per la tabella `sal`
 --
 ALTER TABLE `sal`
   MODIFY `id_sal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `soglia`
+-- AUTO_INCREMENT per la tabella `soglia`
 --
 ALTER TABLE `soglia`
   MODIFY `id_soglia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `tipo_user`
+-- AUTO_INCREMENT per la tabella `tipo_user`
 --
 ALTER TABLE `tipo_user`
   MODIFY `id_tipo_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `user`
+-- AUTO_INCREMENT per la tabella `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Restricciones para tablas volcadas
+-- Limiti per le tabelle scaricate
 --
 
 --
--- Filtros para la tabla `misura`
+-- Limiti per la tabella `misura`
 --
 ALTER TABLE `misura`
   ADD CONSTRAINT `categoriaCont` FOREIGN KEY (`catContabile`) REFERENCES `categoria_contabile` (`id`),
   ADD CONSTRAINT `descrizioneLav` FOREIGN KEY (`desLavoro`) REFERENCES `lavori` (`idLavori`);
 
 --
--- Filtros para la tabla `operai`
+-- Limiti per la tabella `operai`
 --
 ALTER TABLE `operai`
   ADD CONSTRAINT `qualifica` FOREIGN KEY (`qualifica`) REFERENCES `qualifica` (`id_qualifica`);
 
 --
--- Filtros para la tabla `user`
+-- Limiti per la tabella `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `tipologia_user` FOREIGN KEY (`tipo_user`) REFERENCES `tipo_user` (`id_tipo_user`);
