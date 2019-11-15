@@ -53,7 +53,8 @@ rows:any;
     this.calcolo();
     
     this.genera_registro();
-    this.initAndDisplayAccount();
+    //this.initAndDisplayAccount();
+    this.getAccount();
     // this.calcolo();
     this.cal_max();
 
@@ -314,6 +315,13 @@ id_soglia(val)
 {
   this.soglia_attuale=val;
   console.log("--------------SOGLIA attuale:---",this.soglia_attuale)
+}
+
+
+async getAccount() {
+  this.transferFrom = this.SqlService.utente[0].account;
+  console.log("CUENTA:----- ",this.transferFrom);
+  
 }
 
 

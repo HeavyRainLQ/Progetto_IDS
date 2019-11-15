@@ -1,4 +1,4 @@
--- --------------------------------------------------------
+﻿-- --------------------------------------------------------
 -- Host:                         127.0.0.1
 -- Versione server:              10.1.21-MariaDB - mariadb.org binary distribution
 -- S.O. server:                  Win32
@@ -90,6 +90,14 @@ CREATE TABLE IF NOT EXISTS `misura` (
 /*!40000 ALTER TABLE `misura` DISABLE KEYS */;
 /*!40000 ALTER TABLE `misura` ENABLE KEYS */;
 
+
+-- Dump della struttura di tabella ids.qualifica
+CREATE TABLE IF NOT EXISTS `qualifica` (
+  `id_qualifica` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_qual` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_qualifica`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
 -- Dump della struttura di tabella ids.operai
 CREATE TABLE IF NOT EXISTS `operai` (
   `id_operaio` int(11) NOT NULL AUTO_INCREMENT,
@@ -105,12 +113,6 @@ CREATE TABLE IF NOT EXISTS `operai` (
 /*!40000 ALTER TABLE `operai` DISABLE KEYS */;
 /*!40000 ALTER TABLE `operai` ENABLE KEYS */;
 
--- Dump della struttura di tabella ids.qualifica
-CREATE TABLE IF NOT EXISTS `qualifica` (
-  `id_qualifica` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_qual` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_qualifica`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dump dei dati della tabella ids.qualifica: ~3 rows (circa)
 /*!40000 ALTER TABLE `qualifica` DISABLE KEYS */;

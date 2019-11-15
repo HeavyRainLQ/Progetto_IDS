@@ -60,7 +60,7 @@ export class LibrettoDelleMisureComponent implements OnInit {
   registros:any;
 
   constructor(private route: ActivatedRoute, private tableService: MdbTableService, public dialog: MatDialog, private ethcontractService: EthcontractService, private SqlService: SqlServiceService, private router: Router,private Web3Service: Web3Service) {
-    this.initAndDisplayAccount();
+    //this.initAndDisplayAccount();
     this.defaultColDef = { sortable: true };
     this.generare(event);
     this.parametriDoc = this.SqlService.parDocumenti[0];

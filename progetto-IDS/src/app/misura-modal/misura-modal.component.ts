@@ -46,7 +46,7 @@ export class MisuraModalComponent implements OnInit {
       percent: ['', [Validators.required, Validators.min(1), Validators.max(100), Validators.maxLength(3)]]
     });
 
-
+    this.getAccount();
 
   }//fine constructor
 
@@ -111,7 +111,7 @@ export class MisuraModalComponent implements OnInit {
       this.percentuale,
       this.riserva,
 
-      this.data1.account,
+      this.transferFrom,
 
     ).then(function () {
 
@@ -185,6 +185,13 @@ export class MisuraModalComponent implements OnInit {
 
 
   }//fine showSelected
+
+
+  async getAccount() {
+    this.transferFrom = this.SqlService.utente[0].account;
+    console.log("CUENTA:----- ",this.transferFrom);
+    
+  }
 
 
 }//fine class export
