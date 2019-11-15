@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
       
   setTimeout(function () {
   $(".loader-page").css({visibility:"hidden",opacity:"0", })
-  }, 1000);// tempo del preloader
+  }, 3000);// tempo del preloader
   
   });
 

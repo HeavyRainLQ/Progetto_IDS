@@ -71,7 +71,7 @@ export class LibrettoDelleMisureComponent implements OnInit {
     // var element = <HTMLInputElement> document.getElementById("approva");
     // element.disabled = true;
 
-
+   this.getAccount();
 
   }//fine constructor
 
@@ -388,7 +388,11 @@ this.ethcontractService.create_reg(
 }//fine salva_reg
 
 
-
+async getAccount() {
+  this.transferFrom = this.SqlService.utente[0].account;
+  console.log("CUENTA:----- ",this.transferFrom);
+  
+}
 
 }//fine della classe
 
